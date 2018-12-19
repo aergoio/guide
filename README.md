@@ -1,10 +1,13 @@
 # Aergo Guide
 
+[![Readthedocs](https://readthedocs.org/projects/aergo-guide/badge/?version=latest)](https://aergo-guide.readthedocs.io/en/latest/)
+
 This is the official guide and documentation for the AERGO blockchain platform.
 
 ## Contribute
 
 Feel free to edit any of the articles directly. Any contribution, including simple typo fixes, is more than welcome.
+We are looking forward to your pull request.
 
 For anything that involves more than simple text changes, please test the build locally to see that everything looks right.
 
