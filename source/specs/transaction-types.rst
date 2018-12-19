@@ -21,7 +21,7 @@ Action       Account  Recipient             Amount             Payload          
 ===========  =======  ====================  =================  ==========================================  ==========  ===================
 staking      Sender   :code:`aergo.system`  amount to stake    :code:`s`                                   Governance  Signature of sender
 unstaking    "        :code:`aergo.system`  amount to unstake  :code:`u`                                   "           "                  
-voting       "        :code:`aergo.system`  null               :code:`v<peer ids bytes>`                   "           "                  
-create name  "        :code:`aergo.name`    null               :code:`c<name string>`                      "           "                  
-update name  "        :code:`aergo.name`    null               :code:`u<name string>,<new owner address>`  "           "                  
+voting       "        :code:`aergo.system`  0                  :code:`v<peer ids bytes>`                   "           "                  
+create name  "        :code:`aergo.name`    0                  :code:`c<name string>`                      "           "                  
+update name  "        :code:`aergo.name`    0                  :code:`u<name string>,<new owner address>`  "           "                  
 ===========  =======  ====================  =================  ==========================================  ==========  ===================

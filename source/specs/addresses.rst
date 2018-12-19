@@ -4,7 +4,7 @@ Addresses
 Client-side
 -----------
 
-Account addresses are Base58-check encoded strings that look like this:
+Account and contract addresses are Base58-check encoded strings that look like this:
 
 .. code-block:: text
 

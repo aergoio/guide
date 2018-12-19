@@ -26,7 +26,7 @@ macOS
 -----
 
 1. If you haven't already, install `homebrew <https://brew.sh/>`_.
-2. Install go, glide and (optionally) cmake and protobuf
+2. Install dependencies
    ::
 
         brew install go
@@ -51,7 +51,7 @@ macOS
 Windows
 -------
 
-TODO
+Building on Windows is currently not supported.
 
 Generating protobuf files
 -------------------------

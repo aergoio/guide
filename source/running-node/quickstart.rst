@@ -24,3 +24,5 @@ If you want to override other command line options as well, you need to pass :co
 .. code-block:: shell
 
     docker run -p 7845:7845 -v $(pwd)/config.toml:/aergo/config.toml aergo/node aergosvr --config /aergo/config.toml --testmode
+
+**Building from source:** You can also build the binaries yourself from source. `See here for details <../contribution/building-from-source.html>`_.
