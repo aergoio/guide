@@ -351,3 +351,8 @@ It provides smart contract-related commands as follows:
 Toy for Contract Developers. You can use it to test smart contracts.
 
 https://github.com/aergoio/aergo/tree/master/cmd/brick
+
+## Style conventions
+
+It is good adopt a consistent coding style for readability.
+We recommend the [Lua style guide](https://github.com/luarocks/lua-style-guide).

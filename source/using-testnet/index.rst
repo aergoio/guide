@@ -1,8 +1,13 @@
 Using the testnet
 =================
 
-TODO
+The current public Aergo testnet launched on December 28, 2018.
+These pages explain how you can connect to and use the testnet.
 
-- [Sync with Testnet]
-- [Using Testnet with Well-known nodes]
-- [Creating Accounts]
+.. toctree::
+   :maxdepth: 2
+
+   syncing
+   connecting
+   funding
+   monitoring

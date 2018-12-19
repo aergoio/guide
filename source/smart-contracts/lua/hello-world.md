@@ -36,7 +36,7 @@ end
 abi.register(set_name, hello)
 ```
 
-## HowTo
+## Tutorial
 This is explained based on using cli. Variables used in this example are
 * Account to deploy and execute a contract: `AmPbWrQbtQrCaJqLWdMtfk2KiN83m2HFpBbQQSTxqqchVv58o82i`
 
@@ -117,8 +117,3 @@ By default, the returned state is the one at the latest block, but you may speci
 ``` bash
 ./aergocli contract statequery AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ var_name --root "9NBSjkcNTdE5ciBxfb52RmsVW7vgX5voRsv6KcosiNjE"
 ```
-
-## Etc
-It is good to match coding style for readability.
-Please refer to the following documents. (https://github.com/luarocks/lua-style-guide)
-Or you can choose your favorite coding style.
