@@ -18,6 +18,7 @@ This website contains guides for developers to get started developing with AERGO
    dapp-development/index
    specs/index
    contribution/index
+   community
 
 
 .. toctree::
