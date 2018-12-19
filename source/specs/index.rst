@@ -5,3 +5,4 @@ Technical specifications
    :maxdepth: 1
 
    transaction-types
+   addresses
