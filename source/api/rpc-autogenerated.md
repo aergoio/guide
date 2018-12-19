@@ -3,7 +3,6 @@
 
 This reference is auto-generated from [aergoio/aergo-protobuf](https://github.com/aergoio/aergo-protobuf).
 
-## Table of contents
 
 - [rpc.proto](#rpc.proto)
     - [AergoRPCService](#types.AergoRPCService)
@@ -63,6 +62,16 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
   
   
 
+- [metric.proto](#metric.proto)
+  
+    - [Metrics](#types.Metrics)
+    - [MetricsRequest](#types.MetricsRequest)
+    - [PeerMetric](#types.PeerMetric)
+  
+    - [MetricType](#types.MetricType)
+  
+  
+
 - [Scalar Value Types](#scalar-value-types)
 
 
@@ -71,6 +80,8 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 <p align="right"><a href="#top">Top</a></p>
 
 ## rpc.proto
+
+
 
 <a name="types.AergoRPCService"></a>
 
@@ -589,17 +600,17 @@ BlockchainStatus is current status of blockchain
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| chainID | [bytes](#bytes) |  |  |
-| prevBlockHash | [bytes](#bytes) |  |  |
-| blockNo | [uint64](#uint64) |  |  |
-| timestamp | [int64](#int64) |  |  |
-| blocksRootHash | [bytes](#bytes) |  |  |
-| txsRootHash | [bytes](#bytes) |  |  |
-| receiptsRootHash | [bytes](#bytes) |  |  |
-| confirms | [uint64](#uint64) |  |  |
-| pubKey | [bytes](#bytes) |  |  |
-| sign | [bytes](#bytes) |  |  |
-| coinbaseAccount | [bytes](#bytes) |  |  |
+| chainID | [bytes](#bytes) |  | chain identifier |
+| prevBlockHash | [bytes](#bytes) |  | hash of previous block |
+| blockNo | [uint64](#uint64) |  | block number |
+| timestamp | [int64](#int64) |  | block creation time stamp |
+| blocksRootHash | [bytes](#bytes) |  | hash of root of block merkle tree |
+| txsRootHash | [bytes](#bytes) |  | hash of root of transaction merkle tree |
+| receiptsRootHash | [bytes](#bytes) |  | hash of root of receipt merkle tree |
+| confirms | [uint64](#uint64) |  | number of blocks this block is able to confirm |
+| pubKey | [bytes](#bytes) |  | block producer's public key |
+| coinbaseAccount | [bytes](#bytes) |  | address of account to receive fees |
+| sign | [bytes](#bytes) |  | block producer's signature of BlockHeader |
 
 
 
@@ -806,15 +817,15 @@ BlockchainStatus is current status of blockchain
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| nonce | [uint64](#uint64) |  |  |
+| nonce | [uint64](#uint64) |  | increasing number used only once per sender account |
 | account | [bytes](#bytes) |  | decoded account address |
 | recipient | [bytes](#bytes) |  | decoded account address |
 | amount | [bytes](#bytes) |  | variable-length big integer |
 | payload | [bytes](#bytes) |  |  |
-| limit | [uint64](#uint64) |  |  |
-| price | [bytes](#bytes) |  | variable-length big integer |
+| limit | [uint64](#uint64) |  | currently not used |
+| price | [bytes](#bytes) |  | variable-length big integer. currently not used |
 | type | [TxType](#types.TxType) |  |  |
-| sign | [bytes](#bytes) |  |  |
+| sign | [bytes](#bytes) |  | sender's signature for this TxBody |
 
 
 
@@ -824,7 +835,7 @@ BlockchainStatus is current status of blockchain
 <a name="types.TxIdx"></a>
 
 ### TxIdx
-
+TxIdx specifies a transaction's block hash and index within the block body
 
 
 | Field | Type | Label | Description |
@@ -879,6 +890,85 @@ BlockchainStatus is current status of blockchain
 | ---- | ------ | ----------- |
 | NORMAL | 0 |  |
 | GOVERNANCE | 1 |  |
+
+
+ <!-- end enums -->
+
+ <!-- end HasExtensions -->
+
+
+
+
+
+<a name="metric.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## metric.proto
+
+
+ <!-- end services -->
+
+
+<a name="types.Metrics"></a>
+
+### Metrics
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peers | [PeerMetric](#types.PeerMetric) | repeated |  |
+
+
+
+
+
+
+<a name="types.MetricsRequest"></a>
+
+### MetricsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| types | [MetricType](#types.MetricType) | repeated |  |
+
+
+
+
+
+
+<a name="types.PeerMetric"></a>
+
+### PeerMetric
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peerID | [bytes](#bytes) |  |  |
+| sumIn | [int64](#int64) |  |  |
+| avrIn | [int64](#int64) |  |  |
+| sumOut | [int64](#int64) |  |  |
+| avrOut | [int64](#int64) |  |  |
+
+
+
+
+
+ <!-- end messages -->
+
+
+<a name="types.MetricType"></a>
+
+### MetricType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NOTHING | 0 | NOTHING should not be used. |
+| P2P_NETWORK | 1 | Metric for p2p network transfer |
 
 
  <!-- end enums -->
