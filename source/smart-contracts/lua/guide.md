@@ -40,7 +40,7 @@ We provide libraries for smart contract as follows:
 * Utils
   * json module
 
-You can find detailed descriptions for libraries on this [page](smart-contract_api)
+You can find detailed descriptions for libraries on this [page](reference.html)
 
 ## Smart Contract
 
