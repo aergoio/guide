@@ -47,16 +47,25 @@ This function sets the value corresponding to key to the storage belonging to cu
 ### getItem(key)
 This function returns the value corresponding to key in storage belonging to current contract
 * If there is no value corresponding to key, it returns nil.
+### getAmount()
+This function returns number of AER sent with contract call. Return type is string.
 ## contract package
 This packages provides contract operation
 ### send(address, amount)
-This function transfers the coins in this contract by address and amount
+This function transfers the coins in this contract by address and amount(in AER units).
+Amount form can be string, number, bignum.
+```lua
+contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 1)
+contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 aergo 10 gaer")
+contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", bugnum.number("999999999999999"))
+```
 ### call(address, function_name, args...)
 The call function returns the result of the function of the contract being executed in the state of the corresponding address.
 * In addition, can call the value function to send a coin.
+Value function can get string, number, bignum argument like send function.
 ```lua
-contract.call("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", '[1]')
-contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", '[2]')
+contract.call("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 1)
+contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 2)
 ```
 ### delegatecall(address, function_name, args...)
 The delegatecall function returns the result of the function of the calling process, executed in the state in the current address.
@@ -65,8 +74,11 @@ The delegatecall function returns the result of the function of the calling proc
 It is an error handling function that works just like pcall in lua. The difference is that when the error occurs, the modified state,table or balance of the function executed rollback
 
 ```lua
-contract.pcall(inc, '[1]')
+contract.pcall(inc, 1)
 ```
+### balance(address)
+This function return balance of the address(argument) in AER. return type is string.
+If address is nil then return balance of current address.
 
 ## Built-in Functions
 Lua provides the language itself as a useful function and basic package. It provides useful functions such as string management functions, so you can easily create smart contracts using these functions. Please refer to the Lua Reference Manual for detailed syntax, explanation, basic built-in functions and packages.
@@ -209,3 +221,61 @@ This function returns a JSON-formatted string with the given lua value.
 ### decode(string)
 This function converts a string in JSON format to the corresponding Lua structure and returns it
 
+## crypto package
+### sha256(arg)
+This function compute the SHA-256 hash of the argument.
+### ecverify(message, signature, address)
+This function verify the address associated with the public key from elliptic curve signature.
+```lua
+function validate_sig(data, signature, address)
+    msg = crypto.sha2565(data)
+    return crypto.ecverify(msg, signature, address)
+end
+```
+## bignum package
+Since the lua number type has a limit on the range that can be represented by an integer (less than 2 ^ 53), the bignum module is used to provide an exact operation for larger numbers.
+  * <b>Notice</b>
+    * <b>== Operations on bignum and other types always return false.</b>
+    * <b>Bignum does not allow a decimal point.</b>
+### number(x)
+This function make bignum object with argument x(string or number)
+### isneg(x)
+Check bignum x if negative than return true else false 
+### iszero(x)
+Check bignum x if zero than return true else false
+### tonumber(x)
+Convert bignum x to lua number
+### tostring(x) (bignum.tostring(x) same as tostring(x))
+Convert bignum x to lua string
+### neq(x) (same as -x)
+Negate bignum x and return as bignum
+### sqrt(x)
+Returns the square root of a positive number as bignum
+### compare(x, y)
+Compare two big numbers.  Return value is 0 if equal, -1 if x is less than y and +1 if x is greater than y.
+### add(x, y) (same as x + y)
+Add two big numbers and return bignum
+### sub(x, y) (same as x - y)
+Subtract two big numbers and return bignum
+### mul(x, y) (same as x * y)
+Multiply two big numbers and return bignum
+### mod(x, y) (same as x % y)
+Returns the bignum remainder after bignum x is divided by bignum y
+### div(x, y) (same as x / y)
+Divide two big numbers and return bignum
+### pow(x, y) (same as x ^ y)
+Power of two big numbers and return bignum
+### divmod(x, y)
+Returns a pair of big numbers consisting of their quotient and remainder
+### powmod(x, y, m)
+Return the bignum remainder after pow(bignum x,bignum y) is divided by bignum m
+``` lua
+function factorial(n,f)
+ for i=2,n do f=f*i end
+ return f
+end
+for i=1,30 do
+  local b=factorial(i,bignum.number(1))
+  return bignum.mod(b, 10)
+end
+```
