@@ -1,6 +1,18 @@
 Connecting to Well-known Nodes
 ==============================
 
+Clients
+-------
+
+Use `testnet.aergo.io` and the default port 7845 to connect to a public GRPC server for the testnet.
+
+.. code-block:: shell
+
+    docker run --rm aergo/tools aergocli -H testnet.aergo.io blockchain
+
+Server
+------
+
 Without any specific settings, the server connect to Polaris for the testnet, registers itself, obtains addresses of other nodes, and automatically attempts to connect those nodes.
 If the server is in the NAT environment, or has multiple NICs, additional settings are required for the external node to access the server.
 Set up outside address for other nodes in the external network connection, and set internal address for binding address.
