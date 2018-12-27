@@ -9,5 +9,6 @@ These pages explain how you can connect to and use the testnet.
 
    syncing
    connecting
+   accounts
    funding
    monitoring
