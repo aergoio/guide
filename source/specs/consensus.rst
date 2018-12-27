@@ -6,15 +6,14 @@ The public Aergo network uses **Delegated Proof of Stake (DPoS)**. This article 
 **Block Producer (BP):**
 In Aergo, only a limited number of nodes generate blocks.
 They are called Block Producers.
-BPs are elected via users' voting among BP candidates. The voting power is weighted by staked tokens.
-BPs can be changed round by round. Currently each BP generate one block per round.
-*The total number of BPs have not been decided, yet.*
+BPs are elected via users' voting, where the voting power is weighted by each voter's staked tokens.
+Based on this voting, BPs are re-elected round by round so that they can be changed over time.
+*The number of BPs and the number of stand-by BPs (candidates) have not been decided yet.*
 
 **Staking:**
-Before voting, a user must stake one's tokens.
-*The detailed policies about staking/untaking has not been decided, yet. Policies include the minimum mount of staking, the mandatary days of staking, etc.*
+DPoS uses a weighted voting system, where the voting power weighted by staked tokens. Hence, a voter must stake one's tokens for voting. *The detailed policy about staking/untaking has not been decided yet. Such a policy includes the minimum amount of staking, the mandatary days of staking, etc.*
 
 **Voting:**
-Any user with staked tokens can vote for BPs using a voting transaction.
+Any user with staked tokens can vote for BPs by using a voting transaction. But the voting results do not affect immediately.
 The current BPs are elected based on the voting result gathered at the block number:
-(<current block number> / <the total number of BPs> - 1) * <the total number of BPs>.
+(<current block number> / <the total number of BPs> - 1) * <the total number of BPs>. In other words, the voting results gathered in the past (approximatedly 1 round before) are used for stability (recent blocks may be rollbacked via a reorgazation).
