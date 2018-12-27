@@ -12,10 +12,10 @@ This website contains guides for developers to get started developing with AERGO
    :caption: Platform
 
    introduction/index
+   dapp-development/index
    running-node/index
    smart-contracts/index
    using-testnet/index
-   dapp-development/index
    specs/index
    contribution/index
    community

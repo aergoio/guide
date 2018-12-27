@@ -1,6 +1,8 @@
 Introduction
 ============
 
+Aergo is developing a practical blockchain platform, frameworks, libraries, and tools.
+
 Design goals
 ------------
 
@@ -21,8 +23,10 @@ Current features
 * Simple client API
 * Client SDKs
 * Sub projects
+
     * Litetree
     * Sparse Merkle Tree
+
 * Hub Enterprise (management and monitoring)
 * Merkle bridge verification
 * Testnet deployment
