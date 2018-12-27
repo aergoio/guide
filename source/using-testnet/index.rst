@@ -7,8 +7,8 @@ These pages explain how you can connect to and use the testnet.
 .. toctree::
    :maxdepth: 2
 
-   syncing
    connecting
+   syncing
    accounts
    funding
    monitoring
