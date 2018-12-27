@@ -1,4 +1,4 @@
-Join the community
+Join the Community
 ==================
 
 An open-source platform lives from its community.

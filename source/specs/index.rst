@@ -1,4 +1,4 @@
-Technical specifications
+Technical Specifications
 ========================
 
 .. toctree::

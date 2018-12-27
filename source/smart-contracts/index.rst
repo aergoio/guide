@@ -1,4 +1,4 @@
-Smart contracts
+Smart Contracts
 ===============
 
 Aergo provides its own smart contract platform for implementing various business logic on the blockchain.

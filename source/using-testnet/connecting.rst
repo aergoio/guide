@@ -1,4 +1,4 @@
-Connecting to well-known nodes
+Connecting to Well-known Nodes
 ==============================
 
 Without any specific settings, the server connect to Polaris for the testnet, registers itself, obtains addresses of other nodes, and automatically attempts to connect those nodes.

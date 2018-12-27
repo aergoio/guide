@@ -1,4 +1,4 @@
-Token units
+Token Units
 ===========
 
 1 aergo = 1 * 10^18 aer = 1 * 10^9 gaer

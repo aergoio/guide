@@ -1,4 +1,4 @@
-# Protocol documentation
+# Protocol Documentation
 <a name="top"></a>
 
 This reference is auto-generated from [aergoio/aergo-protobuf](https://github.com/aergoio/aergo-protobuf).

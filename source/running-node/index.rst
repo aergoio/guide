@@ -1,4 +1,4 @@
-Running a node
+Running a Node
 ==============
 
 .. toctree::

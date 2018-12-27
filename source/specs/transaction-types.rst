@@ -1,4 +1,4 @@
-Transaction types
+Transaction Types
 =================
 
 There are two kinds of transactions.

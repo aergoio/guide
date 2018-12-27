@@ -1,4 +1,4 @@
-Transaction fees
+Transaction Fees
 ================
 
 The Aergo protocol includes transaction fees that need to be paid according to the configuration of the network.

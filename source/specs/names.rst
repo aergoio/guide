@@ -1,4 +1,4 @@
-Name system
+Name System
 ===========
 
 Aergo contains a name service to translate addresses into easy to remember short names.

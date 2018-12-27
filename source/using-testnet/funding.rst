@@ -1,2 +1,2 @@
-Creating and funding accounts
-=============================
+Funding Accounts
+================

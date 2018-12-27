@@ -1,4 +1,4 @@
-Welcome to the AERGO guide!
+Welcome to the AERGO Guide!
 ===========================
 
 AERGO is an open blockchain platform that allows businesses to build innovative applications and services by sharing data on a trustless and distributed IT ecosystem.

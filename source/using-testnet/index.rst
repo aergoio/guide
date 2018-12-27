@@ -1,4 +1,4 @@
-Using the testnet
+Using the Testnet
 =================
 
 The current public Aergo testnet launched on December 28, 2018.

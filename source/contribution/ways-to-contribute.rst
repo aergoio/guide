@@ -1,4 +1,4 @@
-Ways to contribute
+Ways to Contribute
 ==================
 
 These are just some examples for welcome contributions.

@@ -1,4 +1,4 @@
-Building from source
+Building from Source
 ====================
 
 This page explains how you can build aergo from source.

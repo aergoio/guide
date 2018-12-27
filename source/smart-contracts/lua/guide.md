@@ -1,4 +1,4 @@
-Programming guide
+Programming Guide
 =================
 
 ## Restrictions

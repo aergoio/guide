@@ -1,4 +1,4 @@
-Consensus algorithm
+Consensus Algorithm
 ===================
 
 The public Aergo network uses **Delegated Proof of Stake (DPoS)**.
