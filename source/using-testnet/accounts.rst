@@ -2,7 +2,7 @@ Creating Accounts
 =================
 
 Accounts are identified by `addresses <../specs/addresses.html>`_ that belong to private keys. To own an account, all you need is access to its private key.
-Always make sure that noboy except you gains access to your keys!
+Always make sure that nobody except you gains access to your keys!
 
 There are several methods to create accounts.
 
@@ -16,7 +16,7 @@ There are several methods to create accounts.
 
    .. code-block:: shell
    
-        docker run --rm aergo/node aergocli keygen --json --password yourPassword
+        docker run --rm aergo/tools aergocli keygen --json --password yourPassword
 
    Now you can see your new private key (shown in encrypted form) and the corresponding address.
    Using the encrypted private key and password, you can import this account to other nodes or wallets.
