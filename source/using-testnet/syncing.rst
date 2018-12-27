@@ -5,10 +5,10 @@ To access the Testnet, you must first have the same genesis-block as the public 
 
 .. code-block:: shell
 
-    docker run --rm -v $(pwd)/:/aergo/ aergo/node aergosvr init /aergo/genesis-testnet.json --dir /aergo/data --config /aergo/config.toml
+    docker run -v $(pwd)/data:/aergo/data aergo/node aergosvr init /aergo/testnet-genesis.json
 
 When you run a server after creating genesis-block, the server automatically starts synchronizing after accessing the network. 
 
 .. code-block:: shell
 
-    docker run --rm -v $(pwd)/:/aergo/ aergo/node aergosvr --config /aergo/config.toml
+    docker run -v $(pwd)/data:/aergo/data aergo/node

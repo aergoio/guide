@@ -19,4 +19,4 @@ There are several methods to create accounts.
         docker run --rm aergo/node aergocli keygen --json --password yourPassword
 
    Now you can see your new private key (shown in encrypted form) and the corresponding address.
-   Using the encrypted private key and password, you can improt this account to other nodes or wallets.
+   Using the encrypted private key and password, you can import this account to other nodes or wallets.
