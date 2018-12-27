@@ -10,3 +10,5 @@ After `creating an account <accounts.html>`_, this is how can fund your account 
 
 These AERGO tokens are only valid on the testnet and cannot be sold or bought.
 They are only useful for developing and testing applications. Please only request as many tokens as you actually need.
+
+If you have any trouble creating an account or receiving testnet tokens, please ask for help on our `Discord <../community.html>`_ channel.
