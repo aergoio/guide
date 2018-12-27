@@ -1,10 +1,10 @@
 Token Units
 ===========
 
-1 aergo = 1 * 10^18 aer = 1 * 10^9 gaer
+**1 aergo** = 1 * 10^18 aer = 1 * 10^9 gaer
 
 The Aergo CLI and client libraries have support for these units,
-i.e. you can specify transaction amounts as :code:`1 aer` instead of :code:`1000000000000000000`.
+i.e. you can specify transaction amounts as :code:`1 aergo` instead of :code:`1000000000000000000`.
 
 Note that amounts in the base unit aer exceed the range of 64-bit integers.
 You need some implemention of Big Integer to deal with these numbers.
