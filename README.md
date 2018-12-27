@@ -1,6 +1,6 @@
 # Aergo Guide
 
-[![Readthedocs](https://readthedocs.org/projects/aergo-guide/badge/?version=latest)](https://aergo-guide.readthedocs.io/en/latest/)
+[![Readthedocs](https://readthedocs.com/projects/blocko-inc-guide/badge/?version=latest)](http://docs.aergo.io/en/latest/)
 
 This is the official guide and documentation for the AERGO blockchain platform.
 
