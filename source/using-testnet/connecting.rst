@@ -7,8 +7,8 @@ Set up outside address for other nodes in the external network connection, and s
 
 .. code-block:: toml
 
-    netprotocoladdr = "192.168.0.6"
+    netprotocoladdr = "211.12.34.56" # external address to which other peer can connect
     netprotocolport = 7846
-    npbindaddr = "211.12.34.56" # no config element or empty string means using same address as external 
+    npbindaddr = "192.168.0.2" # no config element or empty string means using same address as external 
     npbindport = 17846 # negative number means it is same as external port, in this case 7846
 
