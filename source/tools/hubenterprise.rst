@@ -1,5 +1,5 @@
 Hub Enterprise
-========
+==============
 
 **Hub Enterprise** is a framework that can manage and monitor **Aergo blockchain**
 and the nodes that make up this blockchain for enterprise customer. 
@@ -13,8 +13,8 @@ Hub Enterprise offers three key features:
 - Deploying and Managing Smart Contract
 
 
-Managing Blockchain & Blockchain node
---------
+Managing Blockchain and Blockchain Node
+---------------------------------------
 **Create blockchain**
 
 The following user input arguments are required to create a blockchain:
@@ -35,8 +35,8 @@ The Web address for viewing information on the blockchain node is as follows:
 Now you can use the blockchain in Hub Enterprise. You can manage and monitor the blockchain.
 
 
-Monitoring Blockchain & Blockchain node
---------
+Monitoring Blockchain and Blockchain Node
+-----------------------------------------
 **Monitoring Blockchain**
 
 You can monitor the created blockchain and monitor the following resources:
@@ -48,5 +48,5 @@ You can monitor the created blockchain and monitor the following resources:
 - Aergo log
 
 
-Deploying and Managing Smart Contract
---------
+.. todo::
+   Deploying and Managing Smart Contract

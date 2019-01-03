@@ -19,6 +19,7 @@ This website contains guides for developers to get started developing with AERGO
    specs/index
    contribution/index
    community
+   contribution/building-from-source
 
 
 .. toctree::

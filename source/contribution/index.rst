@@ -9,5 +9,4 @@ There are many ways that you can help, no matter if you are a novice or advanced
    :maxdepth: 1
 
    ways-to-contribute
-   building-from-source
    
