@@ -10,7 +10,7 @@ There are several methods to create accounts.
 
    .. code-block:: shell
    
-        docker run --rm --net=host aergo/node aergocli account new
+        docker run --rm --net=host aergo/tools aergocli account new
 
 2. To create an account without a node (aka offline):
 
