@@ -12,4 +12,5 @@ If you want to connect to the Aergo **testnet**, please also refer to `this sect
    quickstart
    configuration
    monitoring
+   advanced-topics
    troubleshooting

@@ -106,3 +106,40 @@ Testmode **MUST NOT** be used in production.
 |               | blockinterval    | minging interval in seconds              |
 |               | dposbps          | the number of BPs                        |
 |               | bpids            | BPs' id                                  |
+
+## Logging options
+
+It is possible to customize the log output format of all Aergo CLI tools using a file called `arglog.toml` placed in the current working directory.
+
+This file is specified [here](https://github.com/aergoio/aergo-lib/blob/fe30a6e424e5b963f3c4e9c0ea3da4c0c87f595b/log/log.go#L9-L40).
+
+```toml
+level = "info"  # default log level
+formatter = "json"  # format: console, console_no_color, json
+caller = true  # enabling source file and line printer
+timefieldformat = "RFC3339"
+
+[chain]
+level = "info"  # optional, log level for 'chain' module
+
+[dpos]
+level = "info"
+
+[p2p]
+level = "info"
+
+[consensus]
+level = "info"
+
+[mempool]
+level = "info"
+
+[contract]
+level = "info"
+
+[syncer]
+level = "info"
+
+[bp]
+level = "info"
+```
