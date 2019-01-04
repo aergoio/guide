@@ -32,7 +32,7 @@ When you run the server after creating the genesis block, it automatically start
 
     docker run -v $(pwd)/data:/aergo/data -p 7845:7845 -p 7846:7846 aergo/node
 
-The :code:`-p` argument map ports from the aergo server inside the container to your host machine.
+The :code:`-p` argument maps ports from the aergo server inside the container to your host machine.
 7846 is for the peer to peer protocol.
 7845 is for the RPC API; you can remove this port binding to disallow access to the API.
 
