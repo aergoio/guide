@@ -1,5 +1,5 @@
-Hub Enterprise
-==============
+Introduction
+============
 
 **Hub Enterprise** is a framework that can manage and monitor **Aergo blockchain**
 and the nodes that make up this blockchain for enterprise customer. 

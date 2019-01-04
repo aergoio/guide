@@ -8,4 +8,4 @@ Tools
    aergoluac
    ship
    brick
-   hubenterprise
+   hubenterprise/index

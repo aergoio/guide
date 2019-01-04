@@ -1,5 +1,6 @@
-Install Hub Enterprise
-==============
+Installation
+============
+
 This page explains how to install **Hub Enterprise**.
 
 **Hub Enterprise** designed as orchestrate many number of  machines, which blockchain nodes are run.

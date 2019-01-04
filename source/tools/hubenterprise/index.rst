@@ -1,5 +1,5 @@
-Tools
-=====
+Hub Enterprise
+==============
 
 .. toctree::
    :maxdepth: 2
