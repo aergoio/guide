@@ -1,7 +1,7 @@
 API
 ===
 
-The aergo server exposes an RPC API over gRPC.
+The Aergo server exposes an RPC API over gRPC.
 
 .. toctree::
    :maxdepth: 2
