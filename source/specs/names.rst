@@ -10,7 +10,7 @@ Using the name system
 
 The easiest way to create and update names is the `aergocli <../tools/aergocli.html>`_. 
 
-It takes more than 1 aergo to register or update name.
+Registering and updating names currently requires spending 1 aergo.
 
 To register a new name:
 
@@ -34,5 +34,10 @@ To change mapping the name:
 Technical details
 -----------------
 
-Names are stored in the state of the special account :code:`aergo.name`. They are created and updated using special governance transactions. Transactions that create or update names are effective after they are mined and entered the block.
+Names are stored in the state of the special account :code:`aergo.name`. They are created and updated using special governance transactions.
 Refer to `transaction types <transaction-types.html>`_ for the technical specification of these actions.
+Governance transactions currently don't require any fee, but the name system requires an amount of 1 aergo to be included in the transaction.
+
+Transactions that create or update names are effective after they are included in a block.
+That means that you can only refer to new or updated names in the following block.
+
