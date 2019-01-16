@@ -5,8 +5,6 @@ This page explains how to install **Hub Enterprise**.
 
 **Hub Enterprise** designed as orchestrate many number of  machines, which blockchain nodes are run.
 
-Hub Enterprise use kubernetes for create Horde cluster. Follow `kubernetes official guide <https://kubernetes.io/docs/setup/>`_ to install kubernetes.
-
 There are two kind of machines in Hub Eneterprise :
 
 - Horde Master : Hub Enterprise's modules are installed. Manage and control Horde as kubernetes master.
@@ -25,6 +23,27 @@ The Horde Master consists of several modules :
 - Metricbeat : Collects machine's status data.
 - HordeStat : Collects blockchain network's status data
 - Fluent-bit : Collects and parse blockchain logs data, then send to Fluentd.
+
+
+Install dependencies
+--------------------
+
+1. Kubernetes
+Hub Enterprise use kubernetes for create Horde cluster. Follow `kubernetes official guide <https://kubernetes.io/docs/setup/>`_ to install kubernetes.
+
+.. todo::
+   List supported kubernetes versions
+
+* Kubernetes use specific version of docker. If you already installed docker, please check your docker supports kubernetes in `here <https://kubernetes.io/docs/setup/release/notes/>`_. If not, reinstall docker.
+
+Essential kubernetes modules to run Hub enterprise :
+
+- kubeadm
+- kubelet
+- kubectl
+
+2. Kubernetes network plugin
+To run multi-cluster Hub enterprise, you need to install `kubernetes network plugin <https://kubernetes.io/docs/concepts/cluster-administration/networking/>`_ for pod network. We suggest to install `flannel <https://github.com/coreos/flannel#flannel>`_.
 
 
 Install managing modules
