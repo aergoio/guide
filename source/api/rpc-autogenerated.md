@@ -377,6 +377,7 @@ BlockchainStatus is current status of blockchain
 | address | [PeerAddress](#types.PeerAddress) |  |  |
 | bestblock | [NewBlockNotice](#types.NewBlockNotice) |  |  |
 | state | [int32](#int32) |  |  |
+| hidden | [bool](#bool) |  |  |
 
 
 
