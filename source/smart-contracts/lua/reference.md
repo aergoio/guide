@@ -37,8 +37,6 @@ This function returns the id of the current contract transaction.
 This function returns the creation start time of the block that contains current contract transaction.
 ### getContractID()
 This function returns the current contract address.
-### getAmount()
-This function returns a transaction containing balance
 ### setItem(key, value) 
 This function sets the value corresponding to key to the storage belonging to current contract
 * restriction
@@ -58,6 +56,24 @@ Amount form can be string, number, bignum.
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 1)
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 aergo 10 gaer")
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", bugnum.number("999999999999999"))
+```
+### deploy(code, args...)
+The deploy function creates a contract account using code and args, and returns the corresponding address and the return of the constructor function
+* If you use an existing address instead of code, deploy it with the code of the address.
+* In addition, can call the value function to send a coin.
+Value function can get string, number, bignum argument like send function.
+```lua
+    src = [[
+        function hello(say)
+            return "Hello " .. say .. system.getItem("made")
+        end
+        function constructor(check)
+            system.setItem("made", check)
+        end
+        abi.register(hello)
+        abi.payable(constructor)
+    ]]
+    addr = contract.deploy.value("1 aergo")(src, system.getContractID())
 ```
 ### call(address, function_name, args...)
 The call function returns the result of the function of the contract being executed in the state of the corresponding address.
