@@ -114,9 +114,7 @@ The string, math, and table packages are available. However, you can not use the
 ## DB package
 If the smart contract is handling simple types of data, it would not be difficult to implement using only the basic APIs (getItem (), setItem ()). However, complex data structures, data association, scope queries, filtering, sorting, and other features require the complexity and size of the data logic so developers can not focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts
 
-.. note::
-
-   The db package is only available on private networks.
+> Note: The db package is only available on private networks.
 
 ### exec(sql)
 This function perform DDL or DML statements
