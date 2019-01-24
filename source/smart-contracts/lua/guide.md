@@ -234,9 +234,11 @@ You can call the ReceiveAergo with aergo, But you can not call the NotReceiveAer
 function ReceiveAergo()
   ...
 end
+
 function NotReceiveAergo()
   ...
 end
+
 abi.register(NotReceiveAergo)
 abi.payable(RecieveAergo)
 ```
