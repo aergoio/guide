@@ -7,7 +7,7 @@ Lua is a powerful, efficient, lightweight, embeddable scripting language.
 It has a simple procedural syntax with a powerful data description structure.
 Lua supports a variety of programming methods: procedural programming, object-oriented programming, functional programming.
 
-We use `LuaJIT 2.0.5 <http://luajit.org/luajit.html>`_ as the VM. LuaJIT is a Just-In-Time Compiler (JIT) for the Lua programming language.
+We use `LuaJIT 2.1.0 <http://luajit.org/luajit.html>`_ as the VM. LuaJIT is a Just-In-Time Compiler (JIT) for the Lua programming language.
 
 You can learn the Lua programming language through the following documents:
 
