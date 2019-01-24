@@ -207,7 +207,7 @@ You should add global functions that must be called from contract call/query com
 ##### default
 `default` is a special function. It is called when the function name can not be found or when the transaction has no a call information. It does not need to export through `abi.register()`. `default` is the name of this function. `default` is used internally by the VM. You should not use `default` for any other purpose.
 
-You cant define a default function as follows:
+You can define a default function as follows:
 
 ```lua
 ...
