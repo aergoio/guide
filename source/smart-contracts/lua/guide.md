@@ -202,9 +202,55 @@ Write business logic and help functions.
 #### export contract function(s)
 You should add global functions that must be called from contract call/query commands to the `abi.register()`.
 
+#### special functions
+
+##### default
+`default` is a special function. It is called when the function name can not be found or when the transaction has no a call information. It does not need to export through `abi.register()`. `default` is the name of this function. `default` is used internally by the VM. You should not use `default` for any other purpose.
+
+You cant define a default function as follows:
+
+```lua
+...
+function default()
+  ...
+end
+...
+```
+
+You can call this default function. There is no call information for the contract function.
+
+```shell
+./aergocli contract call <sender> <contract>
+```
+
+##### payable
+The `payable` is a property of a function. Only payable function can receives Aergo(s) sent from a sender.
+We can make a payable function using `abi.payable()`. `payable` functions are automatically exported. Therefore, you do not have to register using the `abi.register` function. `constructor` and `default` are not payable functions by default. They can be payable functions using `abi.payable()`.
+
+You can call the ReceiveAergo with aergo, But you can not call the NotReceiveAergo:
+
+```lua
+...
+function ReceiveAergo()
+  ...
+end
+function NotReceiveAergo()
+  ...
+end
+abi.register(NotReceiveAergo)
+abi.payable(RecieveAergo)
+```
+
+```shell
+./aergocli contract call --amount=10 <sender> <contract> ReceiveAergo     # success
+./aergocli contract call --amount=10 <sender> <contract> NotReceiveAergo  # fail
+```
+
 ### SQL
 
 Aergo smart contract has `db` library that supports SQL features.
+
+> Note: The db package is only available on private networks.
 
 The below code is a example of creating table and insert a row using `db.exec()`
 
