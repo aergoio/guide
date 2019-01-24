@@ -1,11 +1,11 @@
 Programming Guide
 =================
 
-## Restrictions
-
 Lua provides useful functions and libraries. So you can easily create smart contracts using these functions.
 
 Please refer to the [Lua Reference Manual]((http://www.lua.org/manual/5.1/)) for detailed syntax, explanation, basic built-in functions and libraries.
+
+## Restrictions
 
 Because Lua smart contract is performed in the aergo, OS related functions including Input/Output are not provided for stability and security.
 
@@ -39,6 +39,8 @@ We provide libraries for smart contract as follows:
   * abi module
 * Utils
   * json module
+  * crypto module
+  * bignum module
 
 You can find detailed descriptions for libraries on this [page](reference.html)
 
