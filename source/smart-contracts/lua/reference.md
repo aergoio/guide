@@ -28,7 +28,7 @@ To read and write data on a block chain within a contract, you must use a system
 ## system package
 This packages provides blockchain information and store/get state
 ### getSender()
-This function returns current contract transaction caller address
+This function returns caller address of current contract 
 ### getBlockheight() 
 This function returns the block number that contains the current contract transaction.
 ### getTxhash()
@@ -47,6 +47,14 @@ This function returns the value corresponding to key in storage belonging to cur
 * If there is no value corresponding to key, it returns nil.
 ### getAmount()
 This function returns number of AER sent with contract call. Return type is string.
+### getCreator()
+This function returns creator address of current contract
+### getOrigin()
+This function returns sender address of current transaction
+### getPrevBlockHash()
+This function returns the hash of the previous block
+### print(args...)
+This function print args with json format at console log in node running current contract
 ## contract package
 This packages provides contract operation
 ### send(address, amount)
@@ -85,16 +93,26 @@ contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 
 ```
 ### delegatecall(address, function_name, args...)
 The delegatecall function returns the result of the function of the calling process, executed in the state in the current address.
-
+```lua
+contract.delegatecall("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 1)
+```
 ### pcall(fn, args...)
 It is an error handling function that works just like pcall in lua. The difference is that when the error occurs, the modified state,table or balance of the function executed rollback
 
 ```lua
-contract.pcall(inc, 1)
+success = contract.pcall(contract.send, "1 AERGO")
+if success == false then
+    return 0
+end
+return 1
 ```
 ### balance(address)
 This function return balance of the address(argument) in AER. return type is string.
 If address is nil then return balance of current address.
+```lua
+contract.balance() --get balance of current contract address 
+contract.balance("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod")
+```
 
 ## Built-in Functions
 Lua provides the language itself as a useful function and basic package. It provides useful functions such as string management functions, so you can easily create smart contracts using these functions. Please refer to the Lua Reference Manual for detailed syntax, explanation, basic built-in functions and packages.
@@ -113,9 +131,6 @@ The string, math, and table packages are available. However, you can not use the
 
 ## DB package
 If the smart contract is handling simple types of data, it would not be difficult to implement using only the basic APIs (getItem (), setItem ()). However, complex data structures, data association, scope queries, filtering, sorting, and other features require the complexity and size of the data logic so developers can not focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts
-
-> Note: The db package is only available on private networks.
-
 ### exec(sql)
 This function perform DDL or DML statements
 ### query(sql)
