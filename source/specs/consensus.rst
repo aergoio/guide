@@ -1,9 +1,9 @@
 Consensus Algorithm
 ===================
 
-The objective of all the blockchain protocols is to replicate a blockchain
-across the participating node. To achieve such an agreement, each blockchain
-protocol deploys a consensus algorithm.
+The objective of all the blockchain protocols is to replicate a blockchain and
+its associated state across the participating nodes. To achieve such an
+agreement, each blockchain protocol deploys a consensus algorithm.
 
 
 The public Aergo network uses **Delegated Proof of Stake (DPoS)** for
@@ -32,3 +32,17 @@ Staking & Voting
     In other words, the voting results gathered in the past (approximately 1
     round before) are used for stability (recent blocks may be roll-backed via a
     reorganization).
+
+Last Irreversible Block (LIB)
+    Many blockchain protocols may branch into two or more, which is so called
+    blockchain fork. Later, only one of them is chosen as the main branch via a
+    set of rules defined by a blockchain protocol. Such a blockchain
+    reorganization limits each block's finality and, in turn, transaction's
+    finality. For example, a transaction, included in a block at one time, can
+    be later rejected into the mempool.
+
+    DPoS also allows blockchain fork. However a block becomes a last
+    irreversible block (LIB) when it is confirmed by a majority (2/3+) of
+    BPs. Once a block determined as a LIB is not rollbacked so that it has
+    finality.
+
