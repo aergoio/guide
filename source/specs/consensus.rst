@@ -43,6 +43,6 @@ Last Irreversible Block (LIB)
 
     DPoS also allows blockchain fork. However a block becomes a last
     irreversible block (LIB) when it is (double time) confirmed by a majority (2/3+) of
-    BPs. Once a block determined as a LIB is not rollbacked so that it has
+    BPs. Once a block is determined as a LIB, it is not rollbacked so that it has
     finality.
 
