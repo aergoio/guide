@@ -35,8 +35,8 @@ Staking & Voting
 
 Last Irreversible Block (LIB)
     In some blockchain protocols, a blockchain may branch into two or more, which is so called
-    blockchain fork. Later, only one of them is chosen as the main branch via a
-    set of rules defined by a blockchain protocol. Such a blockchain
+     fork. Later, only one of them is chosen as the main branch via a
+    set of rules defined by the blockchain protocol. Such a blockchain
     reorganization limits each block's finality and, in turn, transaction's
     finality. For example, a transaction, included in a block at one time, can
     be later rejected into the mempool.
