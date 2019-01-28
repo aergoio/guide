@@ -22,42 +22,43 @@ Sign                 []byte        BP's Signature for block header
 
 ChainID
 ^^^^^^^
-chain을 idenify하는 값으로 다른 chain으로 부터 잘못된 Block전송을 막기 위해 용도로 사용된다.
+It is used to prevent the wrong block transmission from other chains.
 
 =================  ============  ================================================================================================
 Field                Type        Description
 =================  ============  ================================================================================================
-Version             int32           chain의 version number
+Version             int32           version number of chain
 PublicNet           bool            true if public net
 MainNet             bool            true if main net
-CoinbaseFee         string          tx 당 소모되는 fee로서 고정값
-Magic               string          chain verify를 위한 magic number
+CoinbaseFee         string          Fee consumed per tx. Fixed value 
+Magic               string          magic number for verifing chain
 Consensus           string          dpos or sbp
 =================  ============  ================================================================================================
 
 Version
 ^^^^^^^
-chain의 feature변경이나 block format이 변경 될때 이를 구분하기 위해 사용된다.
+Version is used to identify when the block format changes or when the function of the chain changes.
 
 PublicNet
 ^^^^^^^^^
-public net인지 private net인지를 구분한다.
+Differentiate between public and private networks.
 
 MainNet
 ^^^^^^^
-main net인지 기타 test net 혹은 다른 용도의 net인지를 구분한다.
+Differentiate between main net and other test net or other use net.
 
 CoinbaseFee
 ^^^^^^^^^^^
-Tx당 고정으로 소모되는 fee를 설정하기 위해 사용한다.
+CoinbaseFee is used to set the peak per Tx.
+
 
 Magic
 ^^^^^
-ChainID의 verify를 위해 사용
+Magic is used to verify that Chain ID is valid
 
 Consensus
 ^^^^^^^^^
-해당 Chain에서 사용되는 consensus method name을 지정한다.
+Specify the concensus method name used in the chain.
 
 
 Block body
@@ -68,7 +69,4 @@ Field                Type        Description
 =================  ============  ================================================================================================
 Txs                  []Tx         Transactions
 =================  ============  ================================================================================================
-
-Block에 포함된 transaction들을 저장한다.
-Transaction 구조는 Techspec/transaction 을 참고한다.
 
