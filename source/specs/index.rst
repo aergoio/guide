@@ -10,6 +10,6 @@ Technical Specifications
    units
    names
    consensus
-   block-spec
+   block_spec
    block_management
    chain_management
