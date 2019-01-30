@@ -54,7 +54,7 @@ CoinbaseFee is used to set the peak per Tx.
 
 Magic
 ^^^^^
-Magic can be considered as a name of a blockchain. The two blockchains with different magic strings reject each other's blocks (they are sepearte, indenpendent blockchains).
+Magic can be considered as a name of a blockchain. The two blockchains with different magic strings reject each other's blocks (they are seperate, indenpendent blockchains).
 
 Consensus
 ^^^^^^^^^
