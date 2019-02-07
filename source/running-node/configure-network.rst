@@ -5,7 +5,7 @@ This article explains the steps needed to configure a network of multiple block 
 You can follow this guide to setup a private Aergo blockchain network.
 
 This guide specifically requires no prior setup, so it should be easy to follow along with a new bare machine running Ubuntu.
-It has been tested with AWS EC2 instances. We will setup three block produders, but you can adjust the procedure to any number of BPs.
+It has been tested with AWS EC2 instances. We will setup three block producers, but you can adjust the procedure to any number of BPs.
 
 Per-machine setup
 -----------------
@@ -174,3 +174,29 @@ Write configuration files
     
     [consensus]
     enablebp = true
+
+Running
+-------
+
+We are going to use the Docker image `aergo/node <https://hub.docker.com/r/aergo/node/>`__ to run the server.
+Please refer to the `Docker documentation <https://docs.docker.com/engine/reference/run/>`__ for learn about the available run options.
+
+**Create genesis block**
+
+.. code-block:: shell
+
+    docker run --rm \
+        -v /blockchain:/aergo \
+        aergo/node \
+        aergosvr init /aergo/genesis.json --dir /aergo/data --config /aergo/config.toml
+
+**Start the node**
+
+.. code-block:: shell
+
+    docker run -d --log-driver json-file --log-opt max-size=1000m --log-opt max-file=7 \
+        -v /blockchain:/aergo \
+        -p 7845:7845 -p 7846:7846 -p 6060:6060 \
+        --restart="always" --name aergo-node \
+        aergo/node \
+        aergosvr --home /aergo --config /aergo/config.toml
