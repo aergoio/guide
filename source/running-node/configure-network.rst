@@ -52,32 +52,32 @@ Start by installing `aergocli <../tools/aergocli.html>`__ if you haven't already
 
 .. code-block:: shell
 
-    aergocli account new --password sqltestnet --path genesis
+    aergocli account new --password yourpassword --path genesis
     (displays generated address)
 
-    aergocli account new --password sqltestnet --path bp01
+    aergocli account new --password yourpassword --path bp01
     (displays generated address)
 
-    aergocli account new --password sqltestnet --path bp02
+    aergocli account new --password yourpassword --path bp02
     (displays generated address)
 
-    aergocli account new --password sqltestnet --path bp03
+    aergocli account new --password yourpassword --path bp03
     (displays generated address)
 
 **Export accounts**
 
 .. code-block:: shell
 
-    aergocli account export --address [insert address from genesis]  --password sqltestnet --path genesis
+    aergocli account export --address [insert address from genesis]  --password yourpassword --path genesis
     (displays exported private key)
 
-    aergocli account export --address [insert address from bp01]  --password sqltestnet --path bp01
+    aergocli account export --address [insert address from bp01]  --password yourpassword --path bp01
     (displays exported private key)
 
-    aergocli account export --address [insert address from bp02]  --password sqltestnet --path bp02
+    aergocli account export --address [insert address from bp02]  --password yourpassword --path bp02
     (displays exported private key)
 
-    aergocli account export --address [insert address from bp03]  --password sqltestnet --path bp03
+    aergocli account export --address [insert address from bp03]  --password yourpassword --path bp03
     (displays exported private key)
 
 **Generate peer keys**
@@ -149,7 +149,7 @@ Write configuration files
     npbindport = 7846
     nptls = false
     npcert = ""
-    npkey = "bp01.key"
+    npkey = "bp{01,02,03}.key"  # Name of key file of node
     npaddpeers = [
         "/ipv4/[IP ADDRESS FROM BP 02]/tcp/7846/p2p/[PEER ID FROM BP 01]",
         "/ipv4/[IP ADDRESS FROM BP 02]/tcp/7846/p2p/[PEER ID FROM BP 02]",
@@ -180,6 +180,18 @@ Running
 
 We are going to use the Docker image `aergo/node <https://hub.docker.com/r/aergo/node/>`__ to run the server.
 Please refer to the `Docker documentation <https://docs.docker.com/engine/reference/run/>`__ for learn about the available run options.
+
+**Check the directory contents**
+
+After following the above steps, you should now have these files in one directory for each machine. In this example we use the path /blockchain, but you can use any directory
+as long as you substitute its local path in the Docker run commands below.
+
+.. code-block:: shell
+
+    /blockchain/
+        bp{01,02,03}.key
+        genesis.json
+        config.toml
 
 **Create genesis block**
 
