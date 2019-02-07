@@ -3,6 +3,22 @@ Aergocli
 
 **aergocli** is a command line tool that interfaces with the GRPC exposed by **aergosvr**.
 
+Installation
+------------
+
+**Using the binary**
+
+You can find the latest binary release on `Github <https://github.com/aergoio/aergo/releases/latest>`__.
+Just download and extract the archive.
+
+**Using Docker**
+
+You can also use the Docker image `aergo/tools <https://hub.docker.com/r/aergo/tools>`__.
+Example: :code:`docker run --rm aergo/tools aergocli version`
+
+Usage
+-----
+
 In order to use all features of aergocli you will need to have the end point (IP address and port number) to a aergosvr instance.
 
 For a list of all commands known to :code:`aergocli`, simply run it with no arguments.

@@ -83,6 +83,7 @@ Testmode **MUST NOT** be used in production.
 |               | profileport      | profile port                             |
 |               | enablerest       | whether use REST API                     |
 |               | enabletestmode   | whether test mode                        |
+|               | personal         | enable personal account API              |
 | rpc           | netserviceaddr   | rpc hostname or address                  |
 |               | netserviceport   | rpc port number                          |
 |               | nstls            | whether applying tls to rpc              |
