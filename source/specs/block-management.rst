@@ -1,6 +1,9 @@
 Block Management
 ================
 
+This article describes implementation details of management of blocks in the Aergo server.
+It is aimed at blockchain server developers.
+
 Block generation
 ----------------
 

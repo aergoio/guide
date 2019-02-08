@@ -1,25 +1,29 @@
-=======================
-Aergo P2P wire protocol
-=======================
+P2P wire protocol
+=================
 
-This page describe p2p wire protocol for protocol version 0.3
+This page describe the p2p wire protocol for protocol version 0.3.
 
-Note: Some contents are working in progress and will be implemented before mainnet launching.
+Note: Some contents are work in progress and will be implemented before the launch of the mainnet.
+
+Messages
+--------
 
 Handshake message
-*****************
-handshake message is used once at starting handshake. It contains two 4-byte number
+^^^^^^^^^^^^^^^^^
+
+A handshake message is used once at starting handshake. It contains two 4-byte number
 
 ~4 : Magic
 
 ~8 : Version
 
 Normal message
-**************
-Header(48bytes) + Payload(variable size)
+^^^^^^^^^^^^^^
+
+Header (48bytes) + Payload (variable size)
 
 Message header
-""""""""""""""
+^^^^^^^^^^^^^^
 
 ~4 : code number of subprotocol . Big endian number
 
@@ -33,17 +37,16 @@ Message header
 
 
 Message payload
-"""""""""""""""
+^^^^^^^^^^^^^^^
+
 Payload is serialized form of protobuf struct. The size and struct type is differ by subprotocol.
 
 
 List of Subprotocols
-====================
+--------------------
 
 Code is hexadecimal number.
-Refer to Subprotocols_ for detailed information of each subprotocol.
-
-.. _Subprotocols: subprotocols.rst
+Refer to `Subprotocols <subprotocols.html>`_ for detailed information of each subprotocol.
 
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 |Name                    |Code  |Remark                                                                                                |
@@ -94,13 +97,9 @@ Refer to Subprotocols_ for detailed information of each subprotocol.
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 
 
-..
-    |                        |  00  |                                                                                                      |
-    +------------------------+------+------------------------------------------------------------------------------------------------------+
-
-
 List of Response Status
-=======================
+-----------------------
+
 Some subprotocols for responsing other message have ResultStatus property.
 
 +------------------------+------+------------------------------------------------------------------------------------------------------+
@@ -140,4 +139,15 @@ Some subprotocols for responsing other message have ResultStatus property.
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 |UNAUTHENTICATED         |   16 | indicates the request does not have valid authentication credentials for the operation.              |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
+
+Payload of Subprotocols
+-----------------------
+
+StatusRequest
+^^^^^^^^^^^^^
+
+1. sender: information of sender (address, port, peerID or etc)
+2. bestBlockHash: current best block of sender
+3. bestHeight: current best block height of sender
+4. chainID: ChainID which sender is storing
 

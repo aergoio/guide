@@ -1,55 +1,52 @@
-=======================
-Tutorial - Custom Chain
-=======================
+======================
+Tutorial: Custom Chain
+======================
 
-개요
-====
+This document describes how to build a user-specific chain with Aergo and Polaris.
 
-이 문서는 aergo 프로젝트로 사용자 전용 체인을 구축하는 방법을 소개한다.
+Node configuration
+==================
 
-노드 구성
----------
-
-아래와 같은 형태의 노드 구성을 가정한다.
+Assume the following node configuration.
 
 .. image:: aergo_network.png
 
 
-1. BP는 블록을 생성하며 자신의 담당 FullNode 와 신뢰할 수 있는 다른 BP와 연결된다.
-2. FullNode는 담당 BP에 연결하며 다른 노드와 동기화를 수행하거나 API를 제공한다.
-3. Polaris는 FullNode가 다른 노드의 정보를 받아와 접속할 수 있도록 노드 목록을 관리한다.
-   
+1. BPs create blocks and associates them with its own full node and other trusted BPs.
+2. A full node connects to responsible BPs and synchronizes with other nodes or provides API.
+3. Polaris manages the node list so that full nodes can receive and connect to other nodes.
 
-체인 구축 순서
-==============
+Chain build order
+=================
 
-전체 노드 구성 정보
--------------------
-1. Polaris 노드 1
-2. BP 노드 7대 : BP노드는 다른 BP 및 내부 FullNode 두 대와 연결됨
-3. FullNode 2대 : 
+Complete node configuration information
+---------------------------------------
+1. Polaris node: 1
+2. BP nodes: 7. Each BP node is connected to two other BPs and internal full nodes
+3. Full nodes: 2 
 
-공통 파일 사전 준비
--------------------
+Preparing common files
+----------------------
 
-key파일 생성
-^^^^^^^^^^^^
-Polaris 및 서버 노드용 
+Create key files for all nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-genesis용 json생성
-^^^^^^^^^^^^^^^^^^
-chainID와 최초 BP 목록 등을 저장한 genesis 파일을 만든다. 
 
-예) mychain-genesis.json 
-::  
+Genesis block configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create a genesis file containing the chainID and the initial BP list.
+
+Example: mychain-genesis.json 
+
+.. code-block:: json
 	
 	{
 	    "chain_id":{
-	        "magic":"mychain.net",
-	        "public":false,
-	        "mainnet":true,
-	        "coinbasefee":"1000000000",
-	        "consensus":"dpos"
+	        "magic": "mychain.net",
+	        "public": false,
+	        "mainnet": true,
+	        "coinbasefee": "1000000000",
+	        "consensus": "dpos"
 	    },
 	    "timestamp": 1545195494000000000,
 	    "balance": {
@@ -79,30 +76,31 @@ chainID와 최초 BP 목록 등을 저장한 genesis 파일을 만든다.
 	}
 
 
-genesis block 생성
-^^^^^^^^^^^^^^^^^^
-각 노드마다 이 동작을 반복한다. 앞서 생성한 genesis 파일을 노드에 복사해서 genesis block을 초기화한다.
+Genesis block generation
+^^^^^^^^^^^^^^^^^^^^^^^^
+Repeat this operation for each node. Initialize the genesis block by copying the generated genesis file to the node.
 
 ::
 
 	aergosvr init mychain-genesis.json --dir data
 
-이 결과로 data디렉토리 내부에 genesis block 및 기본 데이터 파일들이 생성된다.
+As a result, genesis blocks and basic data files are created in the data directory.
 
-Polaris 구동
-------------
-앞서 생성한 genesis 파일을 polaris 노드에 복사해 사용한다.
+Setup Polaris
+-------------
+Copy the generated genesis file to the polaris node.
 
-Polaris 설정파일
-^^^^^^^^^^^^^^^^
-key파일 및 genesis파일을 설정하고, 사설망 내부 체인/공개 체인 여부에 따른 설정을 한다.
+Polaris configuration file
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install key and genesis file, and configure it according to whether it is a private chain inside / public chain.
 
-예) mychain-polaris.toml
+Exampke: mychain-polaris.toml
 ::
 
 	[rpc]
 	netserviceaddr = "127.0.0.1"
 	netserviceport = 9915
+
 	[p2p]
 	netprotocoladdr = "192.168.0.2"
 	netprotocolport = 8915
@@ -113,19 +111,20 @@ key파일 및 genesis파일을 설정하고, 사설망 내부 체인/공개 체�
 	allowprivate = true
 	genesisfile = "mychain-genesis.json"
 
-Polaris 서버 실행
-^^^^^^^^^^^^^^^^^
+Running the Polaris Server
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 ::
 
 	./polaris --config mychain-polaris.toml
 
 
-aergosvr 구동
--------------
+Setup aergosvr
+--------------
 
-aergosvr 설정파일
-^^^^^^^^^^^^^^^^^
-예) mychain-bp01.toml
+aergosvr configuration file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Example: mychain-bp01.toml
 ::
 
 	# aergo TOML Configration File (https://github.com/toml-lang/toml)
@@ -149,8 +148,8 @@ aergosvr 설정파일
 	    "/ip4/192.168.0.2/tcp/8915/p2p/16Uiu2HAmJCmxe7CrgTbJBgzyG8rx5Z5vybXPWQHHGQ7aRJfBsoFs"
 	]
 
-aergosvr 서버 실행
-^^^^^^^^^^^^^^^^^^
+Running aergosvr
+^^^^^^^^^^^^^^^^
 ::
 
 	./aergosvr --config mychain-bp01.toml

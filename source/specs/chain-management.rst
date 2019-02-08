@@ -1,6 +1,9 @@
 Chain Management
 ==================
 
+This article describes implementation details of chain management in the Aergo server.
+It is aimed at blockchain server developers.
+
 The chain service is responsible for managing the chain.
 It performs the following tasks in large part:
 

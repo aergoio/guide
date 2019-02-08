@@ -6,8 +6,10 @@ NOTE: Some document is not translated yet.
 
 Node Discovery
 ==============
-Aergo server need to know where other server nodes are.
-There are several ways to do.
+
+When the Aergo server starts running, you need a way to connect to the network.
+To do this, you need to know and connect to other Aergo server nodes already connected to the chain.
+Aergo does this using several methods.
 
 Query polaris
 -------------
@@ -17,30 +19,43 @@ You can build and run custom Polaris for your private chain or custom public cha
 
 Designate Peer
 --------------
-You can add list of peers you know to connect at boot time in configuration file. use options 'npaddpeers'.
+You can add a list of designated known peers to connect to at boot time in configuration file using the option 'npaddpeers'.
 
 Dynamic peer discovery
 ----------------------
-Aergo server ask peers list to other connected peers and Polaris if it connect not enough peers, and try to connect received peers.
+Aergo server requests peer list from other connected peers as well as Polaris if it cannot find enough peers.
 
 Choosing remote peers
 ---------------------
-[below will be added to Aergo server soon]
-TODO transalate from Korean text
+
+(This feature is currently work in progress)
+
+The list of peers to connect to is managed in Kademlia-like manner.
+The number of peers that are closer to the peer is larger and the number of peers that are connected to the peer is smaller.
+The peer's distance is based on the difference based on the hash value, not the physical distance.
 
 Peer connect process
 ====================
-TODO transalate from Korean text
+The network communication of Aergo server operates on libp2p basis, and libp2p is responsible for encryption and node distinction at transmission level.
+After a tcp session is created, both peers start the handshake operation.
 
 Peer Handshake
 --------------
-TODO transalate from Korean text
+In the Handshake phase, peers exchanges each other's version, chain ID and state to determine whether to connect.
+If the other node version is not supported by the current server or the operating chain ID is different, the connection is stopped.
+Once the handshake is successful, the difference in block height is compared and synchronization started.
 
 Keep Alive
 ----------
-TODO transalate from Korean text
+Aergo server maintains a connection-based communication.
+Both peers disconnect when the internally defined retention score increases beyond a certain level.
+This score decreases to a low level when a query is requested, and increases when a bad block or TX notification is sent.
 
 Peer blacklist
 --------------
-[below will be added to Aergo server soon]
-TODO transalate from Korean text
+
+(This feature is currently work in progress)
+
+When an internally defined ban score exceeds a certain level, the Aergo server blocks the peer's connection.
+This score increases due to the connection being disconnected due to exceeding the connection maintenance score, etc., and the blocking period is also changed by calculating the score or the number of blocking times.
+You can also permanently block by specifying a block address in the configuration file.

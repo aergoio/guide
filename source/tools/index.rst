@@ -8,4 +8,5 @@ Tools
    aergoluac
    ship
    brick
+   polaris
    hubenterprise/index

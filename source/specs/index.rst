@@ -11,5 +11,6 @@ Technical Specifications
    transactions
    fees
    blocks
+   p2p/index
    block-management
    chain-management
