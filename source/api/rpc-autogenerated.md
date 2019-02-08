@@ -8,10 +8,14 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [AergoRPCService](#types.AergoRPCService)
   
     - [AccountAndRoot](#types.AccountAndRoot)
+    - [BlockBodyPaged](#types.BlockBodyPaged)
+    - [BlockBodyParams](#types.BlockBodyParams)
     - [BlockHeaderList](#types.BlockHeaderList)
     - [BlockMetadata](#types.BlockMetadata)
     - [BlockMetadataList](#types.BlockMetadataList)
     - [BlockchainStatus](#types.BlockchainStatus)
+    - [ChainId](#types.ChainId)
+    - [ChainInfo](#types.ChainInfo)
     - [CommitResult](#types.CommitResult)
     - [CommitResultList](#types.CommitResultList)
     - [Empty](#types.Empty)
@@ -22,6 +26,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [NameInfo](#types.NameInfo)
     - [NodeReq](#types.NodeReq)
     - [Output](#types.Output)
+    - [PageParams](#types.PageParams)
     - [Peer](#types.Peer)
     - [PeerList](#types.PeerList)
     - [Personal](#types.Personal)
@@ -39,6 +44,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 - [blockchain.proto](#blockchain.proto)
   
     - [ABI](#types.ABI)
+    - [AccountProof](#types.AccountProof)
     - [Block](#types.Block)
     - [BlockBody](#types.BlockBody)
     - [BlockHeader](#types.BlockHeader)
@@ -48,7 +54,6 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [Query](#types.Query)
     - [Receipt](#types.Receipt)
     - [State](#types.State)
-    - [StateProof](#types.StateProof)
     - [StateQuery](#types.StateQuery)
     - [StateQueryProof](#types.StateQueryProof)
     - [StateVar](#types.StateVar)
@@ -94,11 +99,14 @@ with the node and blockchain. If not otherwise noted, methods are unary requests
 | NodeState | [NodeReq](#types.NodeReq) | [SingleBytes](#types.SingleBytes) | Returns the current state of this node |
 | Metric | [MetricsRequest](#types.MetricsRequest) | [Metrics](#types.Metrics) | Returns node metrics according to request |
 | Blockchain | [Empty](#types.Empty) | [BlockchainStatus](#types.BlockchainStatus) | Returns current blockchain status (best block's height and hash) |
+| GetChainInfo | [Empty](#types.Empty) | [ChainInfo](#types.ChainInfo) | Returns current blockchain's basic information |
 | ListBlockHeaders | [ListParams](#types.ListParams) | [BlockHeaderList](#types.BlockHeaderList) | Returns list of Blocks without body according to request |
 | ListBlockMetadata | [ListParams](#types.ListParams) | [BlockMetadataList](#types.BlockMetadataList) | Returns list of block metadata (hash, header, and number of transactions) according to request |
 | ListBlockStream | [Empty](#types.Empty) | [Block](#types.Block) | Returns a stream of new blocks as they get added to the blockchain |
 | ListBlockMetadataStream | [Empty](#types.Empty) | [BlockMetadata](#types.BlockMetadata) | Returns a stream of new block's metadata as they get added to the blockchain |
-| GetBlock | [SingleBytes](#types.SingleBytes) | [Block](#types.Block) | Return a single block, queried by hash or number |
+| GetBlock | [SingleBytes](#types.SingleBytes) | [Block](#types.Block) | Return a single block incl. header and body, queried by hash or number |
+| GetBlockMetadata | [SingleBytes](#types.SingleBytes) | [BlockMetadata](#types.BlockMetadata) | Return a single block's metdata (hash, header, and number of transactions), queried by hash or number |
+| GetBlockBody | [BlockBodyParams](#types.BlockBodyParams) | [BlockBodyPaged](#types.BlockBodyPaged) | Return a single block's body, queried by hash or number and list parameters |
 | GetTX | [SingleBytes](#types.SingleBytes) | [Tx](#types.Tx) | Return a single transaction, queried by transaction hash |
 | GetBlockTX | [SingleBytes](#types.SingleBytes) | [TxInBlock](#types.TxInBlock) | Return information about transaction in block, queried by transaction hash |
 | GetReceipt | [SingleBytes](#types.SingleBytes) | [Receipt](#types.Receipt) | Return transaction receipt, queried by transaction hash |
@@ -108,7 +116,7 @@ with the node and blockchain. If not otherwise noted, methods are unary requests
 | VerifyTX | [Tx](#types.Tx) | [VerifyResult](#types.VerifyResult) | Verify validity of transaction |
 | CommitTX | [TxList](#types.TxList) | [CommitResultList](#types.CommitResultList) | Commit a signed transaction |
 | GetState | [SingleBytes](#types.SingleBytes) | [State](#types.State) | Return state of account |
-| GetStateAndProof | [AccountAndRoot](#types.AccountAndRoot) | [StateProof](#types.StateProof) | Return state of account, including merkle proof |
+| GetStateAndProof | [AccountAndRoot](#types.AccountAndRoot) | [AccountProof](#types.AccountProof) | Return state of account, including merkle proof |
 | CreateAccount | [Personal](#types.Personal) | [Account](#types.Account) | Create a new account in this node |
 | GetAccounts | [Empty](#types.Empty) | [AccountList](#types.AccountList) | Return list of accounts in this node |
 | LockAccount | [Personal](#types.Personal) | [Account](#types.Account) | Lock account in this node |
@@ -136,6 +144,40 @@ with the node and blockchain. If not otherwise noted, methods are unary requests
 | Account | [bytes](#bytes) |  |  |
 | Root | [bytes](#bytes) |  |  |
 | Compressed | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="types.BlockBodyPaged"></a>
+
+### BlockBodyPaged
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| total | [uint32](#uint32) |  |  |
+| offset | [uint32](#uint32) |  |  |
+| size | [uint32](#uint32) |  |  |
+| body | [BlockBody](#types.BlockBody) |  |  |
+
+
+
+
+
+
+<a name="types.BlockBodyParams"></a>
+
+### BlockBodyParams
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| hashornumber | [bytes](#bytes) |  |  |
+| paging | [PageParams](#types.PageParams) |  |  |
 
 
 
@@ -199,6 +241,44 @@ BlockchainStatus is current status of blockchain
 | ----- | ---- | ----- | ----------- |
 | best_block_hash | [bytes](#bytes) |  |  |
 | best_height | [uint64](#uint64) |  |  |
+
+
+
+
+
+
+<a name="types.ChainId"></a>
+
+### ChainId
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| magic | [string](#string) |  |  |
+| public | [bool](#bool) |  |  |
+| mainnet | [bool](#bool) |  |  |
+| coinbasefee | [bytes](#bytes) |  |  |
+| consensus | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.ChainInfo"></a>
+
+### ChainInfo
+ChainInfo returns chain configuration
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| chainid | [ChainId](#types.ChainId) |  |  |
+| bpnumber | [uint32](#uint32) |  |  |
+| maxblocksize | [uint64](#uint64) |  |  |
+| maxtokens | [bytes](#bytes) |  |  |
+| stakingminimum | [bytes](#bytes) |  |  |
 
 
 
@@ -366,6 +446,22 @@ BlockchainStatus is current status of blockchain
 
 
 
+<a name="types.PageParams"></a>
+
+### PageParams
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| offset | [uint32](#uint32) |  |  |
+| size | [uint32](#uint32) |  |  |
+
+
+
+
+
+
 <a name="types.Peer"></a>
 
 ### Peer
@@ -378,6 +474,7 @@ BlockchainStatus is current status of blockchain
 | bestblock | [NewBlockNotice](#types.NewBlockNotice) |  |  |
 | state | [int32](#int32) |  |  |
 | hidden | [bool](#bool) |  |  |
+| lashCheck | [int64](#int64) |  |  |
 
 
 
@@ -561,6 +658,28 @@ BlockchainStatus is current status of blockchain
 
 
 
+<a name="types.AccountProof"></a>
+
+### AccountProof
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| state | [State](#types.State) |  |  |
+| inclusion | [bool](#bool) |  |  |
+| key | [bytes](#bytes) |  |  |
+| proofKey | [bytes](#bytes) |  |  |
+| proofVal | [bytes](#bytes) |  |  |
+| bitmap | [bytes](#bytes) |  |  |
+| height | [uint32](#uint32) |  |  |
+| auditPath | [bytes](#bytes) | repeated |  |
+
+
+
+
+
+
 <a name="types.Block"></a>
 
 ### Block
@@ -628,6 +747,7 @@ BlockchainStatus is current status of blockchain
 | ----- | ---- | ----- | ----------- |
 | value | [bytes](#bytes) |  |  |
 | inclusion | [bool](#bool) |  |  |
+| key | [string](#string) |  |  |
 | proofKey | [bytes](#bytes) |  |  |
 | proofVal | [bytes](#bytes) |  |  |
 | bitmap | [bytes](#bytes) |  |  |
@@ -722,27 +842,6 @@ BlockchainStatus is current status of blockchain
 
 
 
-<a name="types.StateProof"></a>
-
-### StateProof
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| state | [State](#types.State) |  |  |
-| inclusion | [bool](#bool) |  |  |
-| proofKey | [bytes](#bytes) |  |  |
-| proofVal | [bytes](#bytes) |  |  |
-| bitmap | [bytes](#bytes) |  |  |
-| height | [uint32](#uint32) |  |  |
-| auditPath | [bytes](#bytes) | repeated |  |
-
-
-
-
-
-
 <a name="types.StateQuery"></a>
 
 ### StateQuery
@@ -752,8 +851,7 @@ BlockchainStatus is current status of blockchain
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | contractAddress | [bytes](#bytes) |  |  |
-| varName | [string](#string) |  |  |
-| varIndex | [string](#string) |  |  |
+| storageKeys | [string](#string) | repeated |  |
 | root | [bytes](#bytes) |  |  |
 | compressed | [bool](#bool) |  |  |
 
@@ -770,8 +868,8 @@ BlockchainStatus is current status of blockchain
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| contractProof | [StateProof](#types.StateProof) |  |  |
-| varProof | [ContractVarProof](#types.ContractVarProof) |  |  |
+| contractProof | [AccountProof](#types.AccountProof) |  |  |
+| varProofs | [ContractVarProof](#types.ContractVarProof) | repeated |  |
 
 
 
