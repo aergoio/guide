@@ -284,7 +284,7 @@ Check bignum x if zero than return true else false
 Convert bignum x to lua number
 ### tostring(x) (bignum.tostring(x) same as tostring(x))
 Convert bignum x to lua string
-### neq(x) (same as -x)
+### neg(x) (same as -x)
 Negate bignum x and return as bignum
 ### sqrt(x)
 Returns the square root of a positive number as bignum

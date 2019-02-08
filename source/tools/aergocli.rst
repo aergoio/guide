@@ -3,6 +3,22 @@ Aergocli
 
 **aergocli** is a command line tool that interfaces with the GRPC exposed by **aergosvr**.
 
+Installation
+------------
+
+**Using the binary**
+
+You can find the latest binary release on `Github <https://github.com/aergoio/aergo/releases/latest>`__.
+Just download and extract the archive.
+
+**Using Docker**
+
+You can also use the Docker image `aergo/tools <https://hub.docker.com/r/aergo/tools>`__.
+Example: :code:`docker run --rm aergo/tools aergocli version`
+
+Usage
+-----
+
 In order to use all features of aergocli you will need to have the end point (IP address and port number) to a aergosvr instance.
 
 For a list of all commands known to :code:`aergocli`, simply run it with no arguments.
@@ -85,35 +101,60 @@ and then
 
 .. code-block:: shell
 
-    $ ./aergocli sendtx --from AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78 --to AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ --amount 1000
-    75yMzPTS2oFJYvfj6QDxPsuYXVnwgQvKh1xaYgfuqGhJ TX_OK
+    $ ./aergocli sendtx --from AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q --to AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ --amount 1aergo
+    {
+     "hash": "AkjqFcayutenhonnZPU4X5QB1fNBTZv3o2fNzMLNQR3q"
+    }
 
 Look up transaction
 ~~~~~~~~~~~~~~~~~~~
 
+Use gettx command. If transaction is in block, return transaction with index that represent where it's included.
+
+When transaction is in mempool, gettx result is like below
+
 .. code-block:: shell
 
-    $ aergocli gettx 75yMzPTS2oFJYvfj6QDxPsuYXVnwgQvKh1xaYgfuqGhJ
+    $ aergocli gettx 9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg
+    {
+     "Hash": "9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg",
+     "Body": {
+      "Nonce": 2,
+      "Account": "AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q",
+      "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
+      "Amount": "1230000000000000000",
+      "Payload": "",
+      "Limit": 0,
+      "Price": "0",
+      "Type": 0,
+      "Sign": "AN1rKvt8EZHKEE2wNPXAhGcDA4pMo7yRRjTWCcpyrW9QCMv6nMhvhqriWujHdaDJgJ6ft6VLDActEFtUFA2pRnRJFVFSWxPSR"
+     }
+    }
+    
+When transaction is in block, gettx result is like below
 
-    Confirm:  {
-    "TxIdx": {
-    "BlockHash": "GGT9wahqcKKGKUncMuhRLLL3JaCs2MEBx7V8UdrK9JNi",
-    "Idx": 0
-    },
-    "Tx": {
-    "Hash": "75yMzPTS2oFJYvfj6QDxPsuYXVnwgQvKh1xaYgfuqGhJ",
-    "Body": {
-    "Nonce": 1,
-    "Account": "AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78",
-    "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
-    "Amount": 1000,
-    "Payload": "",
-    "Limit": 0,
-    "Price": 0,
-    "Type": 0,
-    "Sign": "AN1rKvt8ZQ3Dg7UU86NqmTPmwgmQTkp7WqMDGmqvYBXyYoDiLTx6WyCmhqTcYUMXBW5NYvCeDviYPWyMniEsnYsYz2AdXFCno"
-    }
-    }
+.. code-block:: shell
+
+    $ aergocli gettx 9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg
+    {
+     "TxIdx": {
+      "BlockHash": "ECVG696Jc7FvUL86sDSxT28akh4Hf1RXFRzmGqtAv9zU",
+      "Idx": 1
+     },
+     "Tx": {
+      "Hash": "9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg",
+      "Body": {
+       "Nonce": 2,
+       "Account": "AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q",
+       "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
+       "Amount": "1230000000000000000",
+       "Payload": "",
+       "Limit": 0,
+       "Price": "0",
+       "Type": 0,
+       "Sign": "AN1rKvt8EZHKEE2wNPXAhGcDA4pMo7yRRjTWCcpyrW9QCMv6nMhvhqriWujHdaDJgJ6ft6VLDActEFtUFA2pRnRJFVFSWxPSR"
+      }
+     }
     }
 
 Check block
@@ -122,38 +163,40 @@ Check block
 .. code-block:: shell
 
     $ aergocli getblock --hash GGT9wahqcKKGKUncMuhRLLL3JaCs2MEBx7V8UdrK9JNi
-
     {
-    "Hash": "GGT9wahqcKKGKUncMuhRLLL3JaCs2MEBx7V8UdrK9JNi",
-    "Header": {
-    "PrevBlockHash": "49E5xQxnuDnhSa2qZNb59qDRd48d8vsWFQyxuc33DijV",
-    "BlockNo": 7454,
-    "Timestamp": 1540968429100585000,
-    "BlockRootHash": "",
-    "TxRootHash": "75yMzPTS2oFJYvfj6QDxPsuYXVnwgQvKh1xaYgfuqGhJ",
-    "Confirms": 0,
-    "PubKey": "",
-    "Sign": ""
-    },
-    "Body": {
-    "Txs": [
-    {
-        "Hash": "75yMzPTS2oFJYvfj6QDxPsuYXVnwgQvKh1xaYgfuqGhJ",
-        "Body": {
-        "Nonce": 1,
-        "Account": "AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78",
-        "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
-        "Amount": 1000,
-        "Payload": "",
-        "Limit": 0,
-        "Price": 0,
-        "Type": 0,
-        "Sign": "AN1rKvt8ZQ3Dg7UU86NqmTPmwgmQTkp7WqMDGmqvYBXyYoDiLTx6WyCmhqTcYUMXBW5NYvCeDviYPWyMniEsnYsYz2AdXFCno"
+     "Hash": "FwBq14HiBPMPoGV6jYxW4AaGHsgoD9UJjmYyWwnQR6xU",
+     "Header": {
+       "ChainID": "1111117eaxEoT4pDHzFTCyKv93acfDHbsytUPK3oqU6",
+       "PrevBlockHash": "GocCiGXUVV4ygsbEi1VaJKkBwyvRsV4W4Qj72J5ZciZK",
+       "BlockNo": 17655,
+       "Timestamp": 1548314097754698000,
+       "BlockRootHash": "5etqxP9HTtzgN8a3tN5Ev8ka4aG3aQM5GYNikwmsV41q",
+       "TxRootHash": "AkjqFcayutenhonnZPU4X5QB1fNBTZv3o2fNzMLNQR3q",
+       "ReceiptsRootHash": "7ZpYoMA2feXoXAit5J2FFuX16cwz9hp8twGwu7rUHCRZ",
+       "Confirms": 2,
+       "PubKey": "GZsJqUTtFVJTJ5SbwuFac4NxZFWgTRjpioPD76UL1DHZLhxmWg",
+       "Sign": "AN1rKvtSPyBqB34TGmEQ6FQ8Lz61dvQ4zVAHodAnPGTnXD7gihmSkgrWcyeEoXNeS6zLTtgjukcTiwSKTHmMATGe8PXgwcJJK",
+       "CoinbaseAccount": ""
+      },
+      "Body": {
+       "Txs": [
+        {
+         "Hash": "AkjqFcayutenhonnZPU4X5QB1fNBTZv3o2fNzMLNQR3q",
+         "Body": {
+          "Nonce": 3,
+          "Account": "AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q",
+          "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
+          "Amount": "1000000000000000000",
+          "Payload": "",
+          "Limit": 0,
+          "Price": "0",
+          "Type": 0,
+          "Sign": "381yXZAWNW8ZiST7PCLmywUsNVQvzgwhiyu9pxVDSvUhwyLHmoL7BQGXQhCNp7QZQycvbwT2nQJ7etscArfRbHu98Qi5MSmY"
+         }
         }
-    }
-    ]
-    }
-    }
+       ]
+      }
+     }
 
 Sign transaction
 ~~~~~~~~~~~~~~~~
@@ -162,27 +205,28 @@ After unlock the account
 
 .. code-block:: shell
 
-    $ aergocli signtx --jsontx \
-                            "{\"account\":\"AmNBZ8WQKP8DbuP9Q9W9vGFhiT8vQNcuSZ2SbBbVvbJWGV3Wh1mn\", \
-                            \"nonce\": 2 , \
-                            \"price\": 1 , \
-                            \"limit\": 100 , \
-                            \"recipient\":\"AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ\", \
-                            \"type\": 0, \
-                            \"amount\": 25000 }"
+    $ aergocli signtx --jsontx "{ \
+    \"Nonce\": 2, \
+    \"Account\": \"AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q\", \
+    \"Recipient\": \"AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ\", \
+    \"Amount\": \"1.23aergo\", \
+    \"Payload\": \"\", \
+    \"Limit\": 0, \
+    \"Price\": \"0\", \
+    \"Type\": 0 }"
     {
-    "Hash": "HB44gJvHhVoEfgiGq3VZmV9VUXfBXhHjcEvroBMkJGnY",
-    "Body": {
-    "Nonce": 2,
-    "Account": "AmNBZ8WQKP8DbuP9Q9W9vGFhiT8vQNcuSZ2SbBbVvbJWGV3Wh1mn",
-    "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
-    "Amount": 25000,
-    "Payload": "",
-    "Limit": 100,
-    "Price": 1,
-    "Type": 0,
-    "Sign": "381yXYxTtq2tRPRQPF7tHH6Cq3y8PvcsFWztPwCRmmYfqnK83Z3a6Yj9fyy8Rpvrrw76Y52SNAP6Th3BYQjX1Bcmf6NQrDHQ"
-    }
+     "Hash": "9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg",
+     "Body": {
+      "Nonce": 2,
+      "Account": "AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q",
+      "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
+      "Amount": "1230000000000000000",
+      "Payload": "",
+      "Limit": 0,
+      "Price": "0",
+      "Type": 0,
+      "Sign": "AN1rKvt8EZHKEE2wNPXAhGcDA4pMo7yRRjTWCcpyrW9QCMv6nMhvhqriWujHdaDJgJ6ft6VLDActEFtUFA2pRnRJFVFSWxPSR"
+     }
     }
 
 Commit Transaction
@@ -192,21 +236,27 @@ Send given transactions to **aergosvr**
 
 .. code-block:: shell
 
-    $ aergocli committx --jsontx "{ \
-    \"Hash\": \"HB44gJvHhVoEfgiGq3VZmV9VUXfBXhHjcEvroBMkJGnY\", \
-    \"Body\": { \
-    \"Nonce\": 2, \
-    \"Account\": \"AmNBZ8WQKP8DbuP9Q9W9vGFhiT8vQNcuSZ2SbBbVvbJWGV3Wh1mn\", \
-    \"Recipient\": \"AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ\", \
-    \"Amount\": 25000, \
-    \"Payload\": \"\", \
-    \"Limit\": 100, \
-    \"Price\": 1, \
-    \"Type\": 0, \
-    \"Sign\": \"381yXYxTtq2tRPRQPF7tHH6Cq3y8PvcsFWztPwCRmmYfqnK83Z3a6Yj9fyy8Rpvrrw76Y52SNAP6Th3BYQjX1Bcmf6NQrDHQ\" \
-    } \
+    $ aergocli -p 27845 committx --jsontx "{
+    \"Hash\": \"9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg\",
+    \"Body\": {
+      \"Nonce\": 2,
+      \"Account\": \"AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q\",
+      \"Recipient\": \"AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ\",
+      \"Amount\": \"1230000000000000000\",
+      \"Payload\": \"\",
+      \"Limit\": 0,
+      \"Price\": \"0\",
+      \"Type\": 0,
+      \"Sign\": \"AN1rKvt8EZHKEE2wNPXAhGcDA4pMo7yRRjTWCcpyrW9QCMv6nMhvhqriWujHdaDJgJ6ft6VLDActEFtUFA2pRnRJFVFSWxPSR\"
+    }
     }"
-    1 : HB44gJvHhVoEfgiGq3VZmV9VUXfBXhHjcEvroBMkJGnY TX_OK
+    {
+     "results": [
+      {
+       "hash": "9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg"
+      }
+     ]
+    }
 
 
 
@@ -271,26 +321,27 @@ Unlike using aergosrv, parameter :code:`--address` and :code:`--password` are ne
 
 .. code-block:: shell
 
-    $ aergocli signtx --address AmNFcocofUvmyLtXA6WgpANbjiF7RScGvQ4memNyNzS4ARJox3yq --jsontx \
-                        "{\"account\":\"AmNBZ8WQKP8DbuP9Q9W9vGFhiT8vQNcuSZ2SbBbVvbJWGV3Wh1mn\", \
-                        \"nonce\": 2 , \
-                        \"price\": 1 , \
-                        \"limit\": 100 , \
-                        \"recipient\":\"AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ\", \
-                        \"type\": 0, \
-                        \"amount\": 25000 }" --path path/to/save/account --password yourpasswordhere
+    $ aergocli -p 17845 signtx --address AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q --jsontx "{ \
+    \"Nonce\": 2, \
+    \"Account\": \"AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q\", \
+    \"Recipient\": \"AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ\", \
+    \"Amount\": \"1.23aergo\", \
+    \"Payload\": \"\", \
+    \"Limit\": 0, \
+    \"Price\": \"0\", \
+    \"Type\": 0 }" --path path/to/save/account --password yourpasswordhere 
     {
-        "Hash": "HB44gJvHhVoEfgiGq3VZmV9VUXfBXhHjcEvroBMkJGnY",
-        "Body": {
-            "Nonce": 2,
-            "Account": "AmNBZ8WQKP8DbuP9Q9W9vGFhiT8vQNcuSZ2SbBbVvbJWGV3Wh1mn",
-            "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
-            "Amount": 25000,
-            "Payload": "",
-            "Limit": 100,
-            "Price": 1,
-            "Type": 0,
-            "Sign": "381yXYxTtq2tRPRQPF7tHH6Cq3y8PvcsFWztPwCRmmYfqnK83Z3a6Yj9fyy8Rpvrrw76Y52SNAP6Th3BYQjX1Bcmf6NQrDHQ"
-        }
+     "Hash": "9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg",
+     "Body": {
+      "Nonce": 2,
+      "Account": "AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q",
+      "Recipient": "AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ",
+      "Amount": "1230000000000000000",
+      "Payload": "",
+      "Limit": 0,
+      "Price": "0",
+      "Type": 0,
+      "Sign": "AN1rKvt8EZHKEE2wNPXAhGcDA4pMo7yRRjTWCcpyrW9QCMv6nMhvhqriWujHdaDJgJ6ft6VLDActEFtUFA2pRnRJFVFSWxPSR"
+     }
     }
 
