@@ -4,7 +4,7 @@ Configuring a Network
 This article explains the steps needed to configure a network of multiple block producers.
 You can follow this guide to setup a private Aergo blockchain network.
 
-This guide specifically requires no prior setup, so it should be easy to follow along with a new bare machine running Ubuntu.
+This guide specifically requires no prior setup, so it should be easy to follow along with new bare machines running Ubuntu.
 It has been tested with AWS EC2 instances. We will setup three block producers, but you can adjust the procedure to any number of BPs.
 
 Per-machine setup
@@ -170,7 +170,7 @@ Write configuration files
     
     [mempool]
     showmetrics = true
-    dumpfilepath ="./data/mempool.dump"
+    dumpfilepath = "./data/mempool.dump"
     
     [consensus]
     enablebp = true
@@ -212,3 +212,8 @@ as long as you substitute its local path in the Docker run commands below.
         --restart="always" --name aergo-node \
         aergo/node \
         aergosvr --home /aergo --config /aergo/config.toml
+
+Further reading
+---------------
+
+You may now want to setup further `full nodes <configuration.html>`__ as well as `Polaris <../tools/polaris.html>`__ for automatic node discovery.

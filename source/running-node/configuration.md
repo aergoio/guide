@@ -104,19 +104,19 @@ Testmode **MUST NOT** be used in production.
 |               | npkey            | key file path for p2p tls                |
 |               | npaddpeers       | initial peer list on start-up            |
 |               | nphiddenpeers    | peerid list which will not inform to other peers |
-|               | npexposeself     | whether to advertise node to polaris or other peers. set true if other peers can't connect to this peer |
-|               | npusepolaris     | whether to connect polaris for finding other peers    |
-|               | npaddpolarises   | list of addresses of custom polaris             |
+|               | npexposeself     | whether to advertise node to `Polaris <../tools/polaris.html>`__ or other peers. |
+|               | npusepolaris     | whether to connect Polaris for finding other peers    |
+|               | npaddpolarises   | list of addresses of custom polaris      |
 | blockchain    | maxblocksize     | maximum block size                       |
 |               | coinbaseaccount  | address where is send rewards for mining |
 | mempool       | showmetrics      | whether if turn periodic log on          |
-|               | dumpfilepath     | file path for recording mempool at process termintation |
+|               | dumpfilepath     | file path for recording mempool at process termination |
 |               | verifiers        | number of concurrency for sign verifying |
 | consensus     | enablebp         | whether this node is BP                  |
 |               | enabledpos       | whether consensus is dPoS                |
 |               | blockinterval    | minging interval in seconds              |
 |               | dposbps          | the number of BPs                        |
-|               | bpids            | BPs' id                                  |
+|               | bpids            | BP peer ids                              |
 
 ## Logging options
 

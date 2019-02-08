@@ -23,11 +23,8 @@ Polaris is available as a sub-module in the aergo project currently in version 0
 1. Get the source from github.com/aergoio/aergo.
 2. Build the polaris executable with :code:`make polaris`.
 
-Runnig Polaris
---------------
-
 Configuration
-^^^^^^^^^^^^^
+-------------
 
 Four files are used to set Polaris behavior.
 
@@ -72,7 +69,7 @@ Genesis file creation
 Polaris configuration file
 """"""""""""""""""""""""""
 
-::
+.. code-block:: toml
 
 	[rpc]
 	netserviceaddr = "127.0.0.1"               # RPC access address. The default setting is 127.0.0.1, which allows RPC access only on the local machine and blocks RPC connections remotely.
@@ -95,8 +92,8 @@ Log configuration file
 Refer to the `arglog documentation <../running-node/configuration.html#logging-options>`__.
 
 
-Running the Polaris Server
---------------------------
+Running Polaris
+---------------
 
 Using Docker
 ^^^^^^^^^^^^
@@ -112,6 +109,23 @@ Manually build and run the live polaris executable in the following format:
 ::
 
 	./polaris --config polaris-conf.toml
+
+Connecting to Polaris
+---------------------
+
+To connect to a Polaris server, supply its address in the aergosvr configuration file.
+
+See `Node Configuration <../running-node/configuration.html>`__ for details.
+
+.. code-block:: toml
+
+	[p2p]
+	...
+	npusepolaris= true
+	npaddpolarises = [
+	    "/ip4/192.168.0.2/tcp/8915/p2p/16Uiu2HAmJCmxe7CrgTbJBgzyG8rx5Z5vybXPWQHHGQ7aRJfBsoFs"
+	]
+    ...
 
 Colaris
 -------

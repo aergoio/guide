@@ -6,4 +6,3 @@ P2P
 
    wireprotocol
    peerconnect
-   tutorial
