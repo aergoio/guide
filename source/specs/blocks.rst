@@ -1,8 +1,8 @@
-Block spec
-==========
+Blocks
+======
 
-block header
-------------------
+Block header
+------------
 
 =================  ============  ================================================================================================
 Field                Type        Description
@@ -51,7 +51,6 @@ CoinbaseFee
 ^^^^^^^^^^^
 CoinbaseFee is used to set the peak per Tx.
 
-
 Magic
 ^^^^^
 Magic can be considered as a name of a blockchain. The two blockchains with different magic strings reject each other's blocks (they are seperate, indenpendent blockchains).
@@ -62,7 +61,7 @@ Specify the concensus method name used in the chain.
 
 
 Block body
-------------------
+----------
 
 =================  ============  ================================================================================================
 Field                Type        Description

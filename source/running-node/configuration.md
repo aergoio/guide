@@ -23,6 +23,7 @@ enableprofile = false
 profileport = 6060
 enablerest = false
 enabletestmode = false
+authdir = ".aergo/auth"
 
 [rpc]
 netserviceaddr = "127.0.0.1"
@@ -37,17 +38,22 @@ restport = "8080"
 
 [p2p]
 # Set address and port to which the inbound peers connect, and don't set loopback address or private network unless used in local network 
-netprotocoladdr = "0.0.0.0"
+netprotocoladdr = "" 
 netprotocolport = 7846
-# TLS and certificate is not applied in alpha release
-nptls = false
-npcert = ""
+npbindaddr = ""
+npbindport = -1 
 # Set file path of key file
 npkey = ""
 npaddpeers = [
 ]
+nphiddenpeers = [
+]
 npmaxpeers = "100"
 nppeerpool = "100"
+npexposeself = true
+npusepolaris = true
+npaddpolarises = [
+]
 
 [blockchain]
 # blockchain configurations
@@ -91,12 +97,16 @@ Testmode **MUST NOT** be used in production.
 |               | nskey            | key file path for rpc tls                |
 |               | nsallowcors      | whether allows CORS                      |
 | rest          | restport         | port number for REST API                 |
-| p2p           | netprotocoladdr  | ip address for p2p                       |
-|               | netprotocolport  | port number for p2pls                    |
-|               | nptls            | whether applying tls to p2p              |
-|               | npcert           | certificate file path for p2p tls        |
+| p2p           | netprotocoladdr  | ip address or domain name to which other peers connect |
+|               | netprotocolport  | port number for connect                  |
+|               | npbindaddr       | listener binding address                 |
+|               | npbindport       | listener binding port                    |
 |               | npkey            | key file path for p2p tls                |
 |               | npaddpeers       | initial peer list on start-up            |
+|               | nphiddenpeers    | peerid list which will not inform to other peers |
+|               | npexposeself     | whether to advertise node to polaris or other peers. set true if other peers can't connect to this peer |
+|               | npusepolaris     | whether to connect polaris for finding other peers    |
+|               | npaddpolarises   | list of addresses of custom polaris             |
 | blockchain    | maxblocksize     | maximum block size                       |
 |               | coinbaseaccount  | address where is send rewards for mining |
 | mempool       | showmetrics      | whether if turn periodic log on          |
