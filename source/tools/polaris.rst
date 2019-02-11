@@ -99,7 +99,7 @@ Using Docker
 ^^^^^^^^^^^^
 ::
 
-	docker run -d -w /tools -v /blockchain/polaris:/tools -p 9915:9915 -p 8915:8915 --restart="always" --name polaris-node aergo/polaris polaris --home /tools --config /tools/polaris-conf.toml
+	docker run -d -w /tools -v /blockchain/polaris:/tools -p 8916:8916 -p 8915:8915 --restart="always" --name polaris-node aergo/polaris polaris --home /tools --config /tools/polaris-conf.toml
 
 Manually
 ^^^^^^^^
@@ -159,9 +159,9 @@ Flags
 Commands
 """"""""
 
-:code:`node`: Polaris의 actor 상태를 반환한다.
+:code:`node`: returns the actor state of Polaris.
 
-:code:`current`: Polaris에 등록된 노드 목록을 반환한다.
+:code:`current`: returns list of nodes registered in Polaris.
 
 Example:
 
