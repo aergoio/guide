@@ -9,4 +9,3 @@ Currently, you can create smart contracts using the Lua programming language.
    :maxdepth: 2
 
    Aergo Lua <lua/index>
-   sql/index
