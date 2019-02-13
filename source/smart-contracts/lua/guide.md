@@ -248,11 +248,11 @@ abi.payable(RecieveAergo)
 ./aergocli contract call --amount=10 <sender> <contract> NotReceiveAergo  # fail
 ```
 
-### SQL
+## SQL
 
 Aergo smart contract has `db` library that supports SQL features.
 
-> Note: The db package is only available on private networks.
+> Note: The db package is only available on private networks (https://sqltestnet.aergoscan.io/).
 
 The below code is a example of creating table and insert a row using `db.exec()`
 
@@ -325,7 +325,7 @@ function query(id)
 end
 ```
 
-#### Restrictions
+### Restrictions
 
 [Litetree](https://github.com/aergoio/litetree) is used as the SQL processing engine for the aergo smart contract. Litetree is implemented based on SQLite.
 
