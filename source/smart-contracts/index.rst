@@ -8,5 +8,5 @@ Currently, you can create smart contracts using the Lua programming language.
 .. toctree::
    :maxdepth: 2
 
-   lua/index
+   Aergo Lua <lua/index>
    sql/index
