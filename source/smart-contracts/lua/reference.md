@@ -192,7 +192,7 @@ This function execute SELECT statement by specifying argument value correspondin
 This function execute DML statement by specifying argument value corresponding to bind parameter
 
 ### SQL Restrictions
-Smart Contract's SQL processing engine is built on SQLite. Therefore, detailed SQL usage grammar can be found at https://sqlite.org/lang.html and https://sqlite.org/lang_corefunc.html. However, because of the stability and security of the Aergo, not all SQL is allowed.
+Smart Contract's SQL processing engine is built on SQLite. Therefore, detailed SQL usage grammar can be found at <https://sqlite.org/lang.html> and <https://sqlite.org/lang_corefunc.html>. However, because of the stability and security of the Aergo, not all SQL is allowed.
 
 #### types
 Allow only SQL datatypes corresponding to Lua strings and numbers (int, float).
@@ -219,9 +219,9 @@ The following is an unavailable list
 * sqlite_XXX function
 
 For a list of other functions and descriptions, please refer to the links below.
-* Default: https://www.sqlite.org/lang_corefunc.html
-* Date and time: https://www.sqlite.org/lang_datefunc.html
-* Set: https://www.sqlite.org/lang_aggfunc.html
+* Core: <https://www.sqlite.org/lang_corefunc.html>
+* Date and time: <https://www.sqlite.org/lang_datefunc.html>
+* Aggregation: <https://www.sqlite.org/lang_aggfunc.html>
 #### Constraint
 The following constraints can be used.
 * NOT NULL
