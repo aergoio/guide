@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'aergo-guide'
-copyright = u'2018, AERGO team and contributors'
+copyright = u'2019, AERGO team and contributors'
 author = u'AERGO team and contributors'
 
 # The short X.Y version
