@@ -49,9 +49,9 @@ The following table shows the specification for each field of the transaction bo
 ===========  ====================  =================  ==========================================
 Action       Recipient             Amount             Payload                                   
 ===========  ====================  =================  ==========================================
-staking      :code:`aergo.system`  amount to stake    :code:`s`                                 
-unstaking    :code:`aergo.system`  amount to unstake  :code:`u`                                 
-voting       :code:`aergo.system`  0                  :code:`v<peer ids bytes, no separator>`   
-create name  :code:`aergo.name`    1 aergo            :code:`c<name string>`                    
-update name  :code:`aergo.name`    1 aergo            :code:`u<name string>,<new owner address>`
+staking      :code:`aergo.system`  amount to stake    :code:`{"Name":"v1stake"}`                                 
+unstaking    :code:`aergo.system`  amount to unstake  :code:`{"Name":"v1unstake"}`                                 
+voting       :code:`aergo.system`  0                  :code:`{"Name":"v1voteBP","Args":[<peer IDs>]}`   
+create name  :code:`aergo.name`    1 aergo            :code:`{"Name":"v1createName","Args":[<a name string>]}`                    
+update name  :code:`aergo.name`    1 aergo            :code:`{"Name":"v1updateName","Args":[<a name string>, <new owner address>]}`
 ===========  ====================  =================  ==========================================
