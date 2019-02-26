@@ -114,6 +114,12 @@ contract.balance() --get balance of current contract address
 contract.balance("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod")
 ```
 
+### event(eventName, args...)
+This function causes eventName and args to remain in the contract result receipt. The user can search for event and receive notification the event with rpc when the receipt is added to the blockchain.
+```lua
+contract.event("send", 0, "toaddress") 
+```
+
 ## Built-in Functions
 Lua provides the language itself as a useful function and basic package. It provides useful functions such as string management functions, so you can easily create smart contracts using these functions. Please refer to the Lua Reference Manual for detailed syntax, explanation, basic built-in functions and packages.
 
