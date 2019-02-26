@@ -23,6 +23,7 @@ end
 -- @param name          string: new name.
 function set_name(name)
   Name:set(name)
+  contract.event("SetName", name)
 end
 
 -- Say hello.
@@ -59,15 +60,23 @@ wQp9QZ5nJhT14nkCdGFcmN91fewB2ZuMZ5NWJUPyD4G4G2beaTeE1cigLzyNdGuuU4Y7cY2A6MUMq5we
 1 : FPqA3kNQHoVXqKJv8JNpUSsh8F8id87yvRr5UzQFoCcH TX_OK
 ``` 
 
-### Get ABI of contract
+### Get receipt of contract
 Look up the actual contract address with the transaction ID above. 
 
 ``` bash
 ./aergocli receipt get FPqA3kNQHoVXqKJv8JNpUSsh8F8id87yvRr5UzQFoCcH
 {
+ "BlokNo": 317,
+ "BlockHash": "48zceVwBZt5dpzuEFMtJB9icPXUu7YG1Xkxvw5N92yFW",
  "contractAddress": "AmfzX3SHXVTBU9NSEWXaLxxjN11KsUpm1Gb3YjF7kmsHrgmL41WU",
  "status": "CREATED",
- "ret": "{'''}"
+ "ret": {},
+ "txHash": "AWeaoCTpohuQpBMTFaW3qFpZqWwuTehXA8ZkAX59UjMV",
+ "txIndex": 0,
+ "from": "AmPbWrQbtQrCaJqLWdMtfk2KiN83m2HFpBbQQSTxqqchVv58o82i",
+ "to": "",
+ "usedFee": 10,
+ "events": []
 }
 ```
 
@@ -116,4 +125,18 @@ Array
 By default, the returned state is the one at the latest block, but you may specify any past block's state root.
 ``` bash
 ./aergocli contract statequery AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ var_name --root "9NBSjkcNTdE5ciBxfb52RmsVW7vgX5voRsv6KcosiNjE"
+```
+
+### Search event and receive notification
+you can search for events with event name "SetName" in the contract address 
+``` bash
+./aergocli event list --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event SetName
+```
+you can search for events with event argument 0 is "Hellow" in the contract address
+``` bash
+./aergocli event list --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --argfilter '{"0":"Hellow"}'
+```
+you can get notified for events with event name "SetName" for contract 
+``` bash
+./aergocli event stream --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event SetName
 ```
