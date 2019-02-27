@@ -78,7 +78,7 @@ Look up the actual contract address with the transaction ID above.
  "usedFee": 10,
  "events": []
 }
-``` bash
+```
 
 If the status is not 'CREATED', it may not be included in the block yet, or there may be an error. Wait a while until the transaction is included in the block. Or check the server's error log.
 
@@ -117,7 +117,7 @@ Look up ABI of contract with the contract address above.
   }
  ]
 }
-``` bash
+```
 
 ### Query Initial State
 You can query the generated contract in the following way.
