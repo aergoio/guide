@@ -287,6 +287,63 @@ By default, the returned state is the one at the latest block, but you may speci
 
     $ aergocli getstate --address "AmNvFyqKFGVWvQ3MTi3eMFiNB9zvL9cK43B9c9bzcA732YZjZgfn" --root "9NBSjkcNTdE5ciBxfb52RmsVW7vgX5voRsv6KcosiNjE"
 
+Show connected peers
+~~~~~~~~~~~~~~~~~~~~
+
+Use getpeers to show list of peers connected to a aergosvr.
+
+It shows remote peers by default, but with :code:`--self` options, local aergosvr itself is shown in list. You can find it by checking :code:`Self` property.
+
+.. code-block:: shell
+
+    [
+     {
+      "Address": {
+       "Address": "13.124.83.51",
+       "Port": "7846",
+       "PeerId": "16Uiu2HAmQn3nFBGhJM7TnZRguLhgUx1HnpNL2easdt2JrxdbFjtb"
+      },
+      "BestBlock": {
+       "BlockHash": "BXAFbTbwEuywukzBqRKdCsuUpinnNQsVJCAXNVJAR6F4",
+       "BlockNo": 1251651
+      },
+      "LastCheck": "2019-02-27T11:26:38.481451+09:00",
+      "State": "RUNNING",
+      "Hidden": false,
+      "Self": true
+     },
+     {
+      "Address": {
+       "Address": "13.211.156.203",
+       "Port": "7846",
+       "PeerId": "16Uiu2HAkvbHmK1Ke1hqAHmahwTGE4ndkdMdXJeXFE3kgBs17k2oQ"
+      },
+      "BestBlock": {
+       "BlockHash": "AF68dtMMHd1h5LjxSyYY9AomMve6Qk2kBRSoQuuuSkhM",
+       "BlockNo": 1251650
+      },
+      "LastCheck": "2019-02-27T11:26:38.349938+09:00",
+      "State": "RUNNING",
+      "Hidden": false,
+      "Self": false
+     },
+     {
+      "Address": {
+       "Address": "203.109.12.23",
+       "Port": "7846",
+       "PeerId": "16Uiu2HAmAnQ5jjk7huhepfFtDFFCreuJ21nHYBApVpg8G7EBdwme"
+      },
+      "BestBlock": {
+       "BlockHash": "BXAFbTbwEuywukzBqRKdCsuUpinnNQsVJCAXNVJAR6F4",
+       "BlockNo": 1251651
+      },
+      "LastCheck": "2019-02-27T11:26:38.364262+09:00",
+      "State": "RUNNING",
+      "Hidden": false,
+      "Self": false
+     }
+    ]
+
 
 Example without aergosvr
 ------------------------
@@ -349,60 +406,3 @@ Unlike using aergosrv, parameter :code:`--address` and :code:`--password` are ne
       "Sign": "AN1rKvt8EZHKEE2wNPXAhGcDA4pMo7yRRjTWCcpyrW9QCMv6nMhvhqriWujHdaDJgJ6ft6VLDActEFtUFA2pRnRJFVFSWxPSR"
      }
     }
-
-Show connected peers
-~~~~~~~~~~~~~~~~~~~~
-
-Use getpeers to show list of peers connected to a aergosvr.
-
-It shows remote peers by default, but with :code:`--self` options, local aergosvr itself is shown in list. You can find it by checking :code:`Self` property.
-
-.. code-block:: shell
-
-    [
-     {
-      "Address": {
-       "Address": "13.124.83.51",
-       "Port": "7846",
-       "PeerId": "16Uiu2HAmQn3nFBGhJM7TnZRguLhgUx1HnpNL2easdt2JrxdbFjtb"
-      },
-      "BestBlock": {
-       "BlockHash": "BXAFbTbwEuywukzBqRKdCsuUpinnNQsVJCAXNVJAR6F4",
-       "BlockNo": 1251651
-      },
-      "LastCheck": "2019-02-27T11:26:38.481451+09:00",
-      "State": "RUNNING",
-      "Hidden": false,
-      "Self": true
-     },
-     {
-      "Address": {
-       "Address": "13.211.156.203",
-       "Port": "7846",
-       "PeerId": "16Uiu2HAkvbHmK1Ke1hqAHmahwTGE4ndkdMdXJeXFE3kgBs17k2oQ"
-      },
-      "BestBlock": {
-       "BlockHash": "AF68dtMMHd1h5LjxSyYY9AomMve6Qk2kBRSoQuuuSkhM",
-       "BlockNo": 1251650
-      },
-      "LastCheck": "2019-02-27T11:26:38.349938+09:00",
-      "State": "RUNNING",
-      "Hidden": false,
-      "Self": false
-     },
-     {
-      "Address": {
-       "Address": "203.109.12.23",
-       "Port": "7846",
-       "PeerId": "16Uiu2HAmAnQ5jjk7huhepfFtDFFCreuJ21nHYBApVpg8G7EBdwme"
-      },
-      "BestBlock": {
-       "BlockHash": "BXAFbTbwEuywukzBqRKdCsuUpinnNQsVJCAXNVJAR6F4",
-       "BlockNo": 1251651
-      },
-      "LastCheck": "2019-02-27T11:26:38.364262+09:00",
-      "State": "RUNNING",
-      "Hidden": false,
-      "Self": false
-     }
-    ]
