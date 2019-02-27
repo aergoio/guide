@@ -31,8 +31,11 @@ For a list of all commands known to :code:`aergocli`, simply run it with no argu
     Available Commands:
     account     account command
     blockchain  Print current blockchain status
+    bp          show bp voting stat
+    chaininfo   Print current blockchain information
     committx    Send transaction
     contract    contract command
+    event       Get event
     getblock    Get block information
     getpeers    Get Peer list
     getstate    Get account state
@@ -40,6 +43,8 @@ For a list of all commands known to :code:`aergocli`, simply run it with no argu
     help        Help about any command
     keygen      Generate private key
     listblocks  Get block headers list
+    metric      Show metric informations
+    name        Name command
     node        Show internal metric
     receipt     receipt command
     sendtx      Send transaction
