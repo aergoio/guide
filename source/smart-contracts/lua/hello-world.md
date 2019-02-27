@@ -23,7 +23,6 @@ end
 -- @param name          string: new name.
 function set_name(name)
   Name:set(name)
-  contract.event("SetName", name)
 end
 
 -- Say hello.
@@ -162,18 +161,4 @@ Array
 By default, the returned state is the one at the latest block, but you may specify any past block's state root.
 ``` bash
 ./aergocli contract statequery AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ var_name --root "9NBSjkcNTdE5ciBxfb52RmsVW7vgX5voRsv6KcosiNjE"
-```
-
-### Search event and receive notification
-you can search for events with event name "SetName" in the contract address 
-``` bash
-./aergocli event list --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event SetName
-```
-you can search for events with event argument 0 is "Hellow" in the contract address
-``` bash
-./aergocli event list --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --argfilter '{"0":"Hellow"}'
-```
-you can get notified for events with event name "SetName" for contract 
-``` bash
-./aergocli event stream --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event SetName
 ```
