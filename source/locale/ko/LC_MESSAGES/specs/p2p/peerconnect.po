@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/p2p/peerconnect.rst:3
+msgid "Peer Connect"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:5
+msgid "NOTE: Some document is not translated yet."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:8
+msgid "Node Discovery"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:10
+msgid ""
+"When the Aergo server starts running, you need a way to connect to the "
+"network. To do this, you need to know and connect to other Aergo server "
+"nodes already connected to the chain. Aergo does this using several "
+"methods."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:15
+msgid "Query polaris"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:16
+msgid ""
+"Polaris keep list of aergo server nodes, such like DNS. Aergo server "
+"connect and query to official Aergo Polaris automitically, if the chain "
+"is Official AergoMainNet or AergoTestNet."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:18
+msgid ""
+"You can build and run custom Polaris for your private chain or custom "
+"public chain. You should configure to use custom Polaris by modifying "
+"config file."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:21
+msgid "Designate Peer"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:22
+msgid ""
+"You can add a list of designated known peers to connect to at boot time "
+"in configuration file using the option 'npaddpeers'."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:25
+msgid "Dynamic peer discovery"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:26
+msgid ""
+"Aergo server requests peer list from other connected peers as well as "
+"Polaris if it cannot find enough peers."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:29
+msgid "Choosing remote peers"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:31
+#: ../../source/specs/p2p/peerconnect.rst:57
+msgid "(This feature is currently work in progress)"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:33
+msgid ""
+"The list of peers to connect to is managed in Kademlia-like manner. The "
+"number of peers that are closer to the peer is larger and the number of "
+"peers that are connected to the peer is smaller. The peer's distance is "
+"based on the difference based on the hash value, not the physical "
+"distance."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:38
+msgid "Peer connect process"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:39
+msgid ""
+"The network communication of Aergo server operates on libp2p basis, and "
+"libp2p is responsible for encryption and node distinction at transmission"
+" level. After a tcp session is created, both peers start the handshake "
+"operation."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:43
+msgid "Peer Handshake"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:44
+msgid ""
+"In the Handshake phase, peers exchanges each other's version, chain ID "
+"and state to determine whether to connect. If the other node version is "
+"not supported by the current server or the operating chain ID is "
+"different, the connection is stopped. Once the handshake is successful, "
+"the difference in block height is compared and synchronization started."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:49
+msgid "Keep Alive"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:50
+msgid ""
+"Aergo server maintains a connection-based communication. Both peers "
+"disconnect when the internally defined retention score increases beyond a"
+" certain level. This score decreases to a low level when a query is "
+"requested, and increases when a bad block or TX notification is sent."
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:55
+msgid "Peer blacklist"
+msgstr ""
+
+#: ../../source/specs/p2p/peerconnect.rst:59
+msgid ""
+"When an internally defined ban score exceeds a certain level, the Aergo "
+"server blocks the peer's connection. This score increases due to the "
+"connection being disconnected due to exceeding the connection maintenance"
+" score, etc., and the blocking period is also changed by calculating the "
+"score or the number of blocking times. You can also permanently block by "
+"specifying a block address in the configuration file."
+msgstr ""
+

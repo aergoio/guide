@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/community.rst:2
+msgid "Join the Community"
+msgstr ""
+
+#: ../../source/community.rst:4
+msgid ""
+"An open-source platform lives from its community. You can reach out to "
+"the Aergo team and other members of the developer community via these "
+"channels:"
+msgstr ""
+"오픈소스 플랫폼의 생명은 커뮤니티에서 나옵니다. Aergo 팀과 다른 개발자들의 커뮤니티는 다음과 같습니다."
+#: ../../source/community.rst:7
+msgid "`Discord <https://discord.gg/YuPCCeH>`_ (for technical discussions)"
+msgstr ""
+
+#: ../../source/community.rst:8
+msgid "`Github <https://github.com/aergoio>`_"
+msgstr ""
+
+#: ../../source/community.rst:9
+msgid "`Twitter <https://twitter.com/aergo_io>`_"
+msgstr ""
+
+#: ../../source/community.rst:10
+msgid "`Telegram <https://t.me/aergoofficial>`_"
+msgstr ""
+
+#: ../../source/community.rst:11
+msgid "`Telegram Announcements <https://t.me/aergoannouncements>`_"
+msgstr ""
+

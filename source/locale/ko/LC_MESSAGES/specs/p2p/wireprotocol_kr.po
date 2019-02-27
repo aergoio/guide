@@ -1,0 +1,545 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-08 16:15+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:3
+msgid "Aergo P2P wire protocol"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:5
+msgid "This page describe p2p wire protocol for protocol version 0.3"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:7
+msgid ""
+"Note: Some contents are working in progress and will be implemented "
+"before mainnet launching."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:10
+msgid "Handshake message"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:11
+msgid ""
+"handshake message is used once at starting handshake. It contains two "
+"4-byte number"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:13
+msgid "~4 : Magic"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:15
+msgid "~8 : Version"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:18
+msgid "Normal message"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:19
+msgid "Header(48bytes) + Payload(variable size)"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:22
+msgid "Message header"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:24
+msgid "~4 : code number of subprotocol . Big endian number"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:26
+msgid "~8 : payload size. Big endian number."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:28
+msgid ""
+"~16 : creation time of this message. unix timestamp with precision of "
+"nanosecond . Big endian number"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:30
+msgid "~32 : message id. binary form of uuid."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:32
+msgid ""
+"~48 : original request id. only meaningful if message is response "
+"message. binary form of uuid."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:35
+msgid "Message payload"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:36
+msgid ""
+"Payload is serialized form of protobuf struct. The size and struct type "
+"is differ by subprotocol."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:39
+msgid "List of Subprotocols"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:41
+msgid ""
+"Code is hexadecimal number. Refer to Subprotocols_ for detailed "
+"information of each subprotocol."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:47
+#: ../../source/specs/p2p/wireprotocol_kr.rst:101
+msgid "Name"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:47
+#: ../../source/specs/p2p/wireprotocol_kr.rst:101
+msgid "Code"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:47
+#: ../../source/specs/p2p/wireprotocol_kr.rst:101
+msgid "Remark"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:49
+msgid "StatusRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:49
+msgid "0001"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:49
+msgid ""
+"My node status, which includes chainID, address information, last blocks "
+"or others. Used in handshake"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:51
+msgid "PingRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:51
+msgid "0002"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:51
+msgid "Ping including last block hash and number"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:53
+msgid "PingResponse"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:53
+msgid "0003"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:53
+msgid "Response ping including last block hash and number"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:55
+msgid "GoAway"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:55
+msgid "0004"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:55
+msgid "Disconnect notice with reason"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:57
+msgid "AddressesRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:57
+msgid "0005"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:57
+msgid "Query request to get list of connected peers"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:59
+msgid "AddressesResponse"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:59
+msgid "0006"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:59
+msgid "Response for AddressesRequest."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:61
+msgid "GetBlocksRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:61
+msgid "0010"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:61
+msgid "블록 정보를 요청"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:63
+msgid "GetBlocksResponse"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:63
+msgid "0011"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:63
+msgid "GetBlocksRequest의 응답"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:65
+msgid "GetBlockHeadersRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:65
+msgid "0012"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:65
+msgid "블록 헤더 정보 요청"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:67
+msgid "GetBlockHeadersResponse"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:67
+msgid "0013"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:67
+msgid "GetBlockHeadersRequest의 응답"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:69
+msgid "NewBlockNotice"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:69
+msgid "0016"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:69
+msgid "블록 추가에 대한 릴레이 알림."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:71
+msgid "GetAncestorRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:71
+msgid "0017"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:71
+msgid "동기화를 위한 블록 정보 요청"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:73
+msgid "GetAncestorResponse"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:73
+msgid "0018"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:75
+msgid "GetHashesRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:75
+msgid "0019"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:75
+msgid "블록 해시 목록 요청"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:77
+msgid "GetHashesResponse"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:77
+msgid "001A"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:79
+msgid "GetHashByNoRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:79
+msgid "001B"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:79
+msgid "특정 높이의 블록 정보 요청"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:81
+msgid "GetHashByNoResponse"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:81
+msgid "001C"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:83
+msgid "GetTXsRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:83
+msgid "0020"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:83
+msgid "트랜잭션 정보 요청"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:85
+msgid "GetTxsResponse"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:85
+msgid "0021"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:87
+msgid "NewTxNotice"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:87
+msgid "0022"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:87
+msgid "새 트랜잭션 생성 알림"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:89
+msgid "BlockProducedNotice"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:89
+msgid "0030"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:89
+msgid "BP의 블록 생성 알림"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:97
+msgid "List of Response Status"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:98
+msgid "Some subprotocols for responsing other message have ResultStatus property."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:103
+msgid "OK"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:103
+msgid "0"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:103
+msgid "OK is returned on success."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:105
+msgid "CANCELED"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:105
+msgid "1"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:105
+msgid "when operation was canceled"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:107
+msgid "UNKNOWN"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:107
+msgid "2"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:109
+msgid "INVALID_ARGUMENT"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:109
+msgid "3"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:109
+msgid "INVALID_ARGUMENT is missing or wrong value of argument"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:111
+msgid "DEADLINE_EXCEEDED"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:111
+msgid "4"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:111
+msgid "timeout"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:113
+msgid "NOT_FOUND"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:113
+msgid "5"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:113
+msgid "Resource is not found"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:115
+msgid "ALREADY_EXISTS"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:115
+msgid "6"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:117
+msgid "PERMISSION_DENIED"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:117
+msgid "7"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:119
+msgid "RESOURCE_EXHAUSTED"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:119
+msgid "8"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:119
+msgid "서버에 가용자원이 없어서 처리를 못 함."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:121
+msgid "FAILED_PRECONDITION"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:121
+msgid "9"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:123
+msgid "ABORTED"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:123
+msgid "10"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:125
+msgid "OUT_OF_RANGE"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:125
+msgid "11"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:127
+msgid "UNIMPLEMENTED"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:127
+msgid "12"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:127
+msgid ""
+"indicates operation is not implemented or not supported/enabled in this "
+"service."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:129
+msgid "INTERNAL"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:129
+msgid "13"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:131
+msgid "UNAVAILABLE"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:131
+msgid "14"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:131
+msgid "Unavailable indicates the service is currently unavailable."
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:133
+msgid "DATA_LOSS"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:133
+msgid "15"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:135
+msgid "UNAUTHENTICATED"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:135
+msgid "16"
+msgstr ""
+
+#: ../../source/specs/p2p/wireprotocol_kr.rst:135
+msgid ""
+"indicates the request does not have valid authentication credentials for "
+"the operation."
+msgstr ""
+

@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/using-testnet/funding.rst:2
+msgid "Funding Accounts"
+msgstr ""
+
+#: ../../source/using-testnet/funding.rst:4
+msgid ""
+"To create transactions on the public testnet, you need an account with a "
+"positive balance. After `creating an account <accounts.html>`_, this is "
+"how can fund your account for testing."
+msgstr ""
+
+#: ../../source/using-testnet/funding.rst:7
+msgid ""
+"Go to `faucet.aergoscan.io <https://faucet.aergoscan.io>`_, enter your "
+"account address, and click Request Tokens."
+msgstr ""
+
+#: ../../source/using-testnet/funding.rst:8
+msgid ""
+"Depending on demand, you need to wait for a moment. If the queue is full,"
+" try again a bit later."
+msgstr ""
+
+#: ../../source/using-testnet/funding.rst:9
+msgid ""
+"Check your account on `Aergoscan <https://testnet.aergoscan.io>`_. You "
+"should have received some AERGO tokens for your testing purposes."
+msgstr ""
+
+#: ../../source/using-testnet/funding.rst:11
+msgid ""
+"These AERGO tokens are only valid on the testnet and cannot be sold or "
+"bought. They are only useful for developing and testing applications. "
+"Please only request as many tokens as you actually need."
+msgstr ""
+
+#: ../../source/using-testnet/funding.rst:14
+msgid ""
+"If you have any trouble creating an account or receiving testnet tokens, "
+"please ask for help on our `Discord <../community.html>`_ channel."
+msgstr ""
+

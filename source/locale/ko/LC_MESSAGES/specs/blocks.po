@@ -1,0 +1,256 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/blocks.rst:2
+msgid "Blocks"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:5
+msgid "Block header"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:8 ../../source/specs/blocks.rst:28
+#: ../../source/specs/blocks.rst:66
+msgid "Field"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:8 ../../source/specs/blocks.rst:28
+#: ../../source/specs/blocks.rst:66
+msgid "Type"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:8 ../../source/specs/blocks.rst:28
+#: ../../source/specs/blocks.rst:66
+msgid "Description"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:10 ../../source/specs/blocks.rst:24
+msgid "ChainID"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:10 ../../source/specs/blocks.rst:11
+#: ../../source/specs/blocks.rst:14 ../../source/specs/blocks.rst:15
+#: ../../source/specs/blocks.rst:16 ../../source/specs/blocks.rst:18
+#: ../../source/specs/blocks.rst:19 ../../source/specs/blocks.rst:20
+msgid "[]byte"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:10
+msgid "identifier of chain"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:11
+msgid "PrevBlockHash"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:11
+msgid "hash of previous block"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:12
+msgid "BlockNo"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:12 ../../source/specs/blocks.rst:17
+msgid "uint64"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:12
+msgid "height of block"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:13
+msgid "Timestamp"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:13
+msgid "int64"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:13
+msgid "block timestamp"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:14
+msgid "BlocksRootHash"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:14
+msgid "root hash of State SMT(sparse merkle tree)"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:15
+msgid "TxsRootHash"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:15
+msgid "Merkle root of transactions"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:16
+msgid "ReceiptsRootHash"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:16
+msgid "Merkle root of transaction receipts"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:17
+msgid "Confirms"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:17
+msgid "indicates how many block is confirmed by block in DPOS consensus"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:18
+msgid "PubKey"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:18
+msgid "public key of the block producer (BP)"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:19
+msgid "CoinbaseAccount"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:19
+msgid "the account address to which block reward is given"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:20
+msgid "Sign"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:20
+msgid "BP's Signature for block header"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:25
+msgid "It is used to prevent the wrong block transmission from other chains."
+msgstr ""
+
+#: ../../source/specs/blocks.rst:30 ../../source/specs/blocks.rst:39
+msgid "Version"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:30
+msgid "int32"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:30
+msgid "version number of chain"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:31 ../../source/specs/blocks.rst:43
+msgid "PublicNet"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:31 ../../source/specs/blocks.rst:32
+msgid "bool"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:31
+msgid "true if public net"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:32 ../../source/specs/blocks.rst:47
+msgid "MainNet"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:32
+msgid "true if main net"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:33 ../../source/specs/blocks.rst:51
+msgid "CoinbaseFee"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:33 ../../source/specs/blocks.rst:34
+#: ../../source/specs/blocks.rst:35
+msgid "string"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:33
+msgid "Fee consumed per tx. Fixed value"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:34 ../../source/specs/blocks.rst:55
+msgid "Magic"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:34
+msgid "Magic string, arbitrarily chosen by each blockchain"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:35 ../../source/specs/blocks.rst:59
+msgid "Consensus"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:35
+msgid "dpos or sbp"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:40
+msgid ""
+"Version is used to identify when the block format changes or when the "
+"function of the chain changes."
+msgstr ""
+
+#: ../../source/specs/blocks.rst:44
+msgid "Differentiate between public and private networks."
+msgstr ""
+
+#: ../../source/specs/blocks.rst:48
+msgid "Differentiate between main net and other test net or other use net."
+msgstr ""
+
+#: ../../source/specs/blocks.rst:52
+msgid "CoinbaseFee is used to set the peak per Tx."
+msgstr ""
+
+#: ../../source/specs/blocks.rst:56
+msgid ""
+"Magic can be considered as a name of a blockchain. The two blockchains "
+"with different magic strings reject each other's blocks (they are "
+"seperate, indenpendent blockchains)."
+msgstr ""
+
+#: ../../source/specs/blocks.rst:60
+msgid "Specify the concensus method name used in the chain."
+msgstr ""
+
+#: ../../source/specs/blocks.rst:63
+msgid "Block body"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:68
+msgid "Txs"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:68
+msgid "[]Tx"
+msgstr ""
+
+#: ../../source/specs/blocks.rst:68
+msgid "Transactions"
+msgstr ""
+

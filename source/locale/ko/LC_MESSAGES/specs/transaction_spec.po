@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-08 16:15+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/transaction_spec.rst:2
+msgid "Transaction spec"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:4
+msgid "TX"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:7
+msgid "Field"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:7
+#: ../../source/specs/transaction_spec.rst:25
+msgid "Type"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:9
+msgid "Hash"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:9
+#: ../../source/specs/transaction_spec.rst:13
+#: ../../source/specs/transaction_spec.rst:15
+#: ../../source/specs/transaction_spec.rst:17
+#: ../../source/specs/transaction_spec.rst:19
+#: ../../source/specs/transaction_spec.rst:23
+#: ../../source/specs/transaction_spec.rst:27
+msgid "bytes"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:9
+msgid "Hash of body"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:11
+msgid "Body"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:11
+msgid "Nonce"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:11
+#: ../../source/specs/transaction_spec.rst:21
+msgid "uint64"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:11
+msgid "Increasing number used only once per sender account"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:13
+msgid "Account"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:13
+msgid "Decoded sender account address"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:15
+msgid "Recipient"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:15
+msgid "Decoded receiver account address"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:17
+msgid "Amount"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:17
+msgid "Amount of transfer"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:19
+msgid "Payload"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:19
+msgid "Smart contract data"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:21
+msgid "Limit"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:21
+#: ../../source/specs/transaction_spec.rst:23
+msgid "Reserved"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:23
+msgid "Price"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:25
+msgid "int"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:25
+msgid "0 is normal type, 1 is governance type"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:27
+msgid "Sign"
+msgstr ""
+
+#: ../../source/specs/transaction_spec.rst:27
+msgid "ECDSA signature with secp256k1"
+msgstr ""
+

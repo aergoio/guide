@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/names.rst:2
+msgid "Name System"
+msgstr ""
+
+#: ../../source/specs/names.rst:4
+msgid ""
+"Aergo contains a name service to translate addresses into easy to "
+"remember short names."
+msgstr ""
+
+#: ../../source/specs/names.rst:6
+msgid ""
+"One name maps to exactly one address. Names are currently fixed to a "
+"length of 12 characters."
+msgstr ""
+
+#: ../../source/specs/names.rst:9
+msgid "Using the name system"
+msgstr ""
+
+#: ../../source/specs/names.rst:11
+msgid ""
+"The easiest way to create and update names is the `aergocli "
+"<../tools/aergocli.html>`_."
+msgstr ""
+
+#: ../../source/specs/names.rst:13
+msgid "Registering and updating names currently requires spending 1 aergo."
+msgstr ""
+
+#: ../../source/specs/names.rst:15
+msgid "To register a new name:"
+msgstr ""
+
+#: ../../source/specs/names.rst:21
+msgid "To retrieve the owner of a registered name:"
+msgstr ""
+
+#: ../../source/specs/names.rst:27
+msgid "To change mapping the name:"
+msgstr ""
+
+#: ../../source/specs/names.rst:34
+msgid "Technical details"
+msgstr ""
+
+#: ../../source/specs/names.rst:36
+msgid ""
+"Names are stored in the state of the special account :code:`aergo.name`. "
+"They are created and updated using special governance transactions. Refer"
+" to `transaction types <transaction-types.html>`_ for the technical "
+"specification of these actions. Governance transactions currently don't "
+"require any fee, but the name system requires an amount of 1 aergo to be "
+"included in the transaction."
+msgstr ""
+
+#: ../../source/specs/names.rst:40
+msgid ""
+"Transactions that create or update names are effective after they are "
+"included in a block. That means that you can only refer to new or updated"
+" names in the following block."
+msgstr ""
+

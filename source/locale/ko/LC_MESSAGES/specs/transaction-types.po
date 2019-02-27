@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-08 16:15+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/transaction-types.rst:2
+msgid "Transaction Types"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:4
+msgid "There are two kinds of transactions."
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:7
+msgid "Normal type"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:9
+msgid ""
+"Normal transactions are used to transfer tokens and calling smart "
+"contracts."
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:12
+msgid "Governance type"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:14
+msgid ""
+"Governance transactions are used for calling system contracts, such as "
+"staking and voting. Transactions of this type have a special payload "
+"format and recipient."
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:17
+msgid ""
+"The following table shows the specification for each field of the "
+"transaction body."
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:20
+msgid "Action"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:20
+msgid "Account"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:20
+msgid "Recipient"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:20
+msgid "Amount"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:20
+msgid "Payload"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:20
+msgid "Type"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:20
+msgid "Sign"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:22
+msgid "staking"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:22
+msgid "Sender"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:22
+#: ../../source/specs/transaction-types.rst:23
+#: ../../source/specs/transaction-types.rst:24
+msgid ":code:`aergo.system`"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:22
+msgid "amount to stake"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:22
+msgid ":code:`s`"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:22
+msgid "Governance"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:22
+msgid "Signature of sender"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:23
+msgid "unstaking"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:23
+#: ../../source/specs/transaction-types.rst:24
+#: ../../source/specs/transaction-types.rst:25
+#: ../../source/specs/transaction-types.rst:26
+msgid "\""
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:23
+msgid "amount to unstake"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:23
+msgid ":code:`u`"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:24
+msgid "voting"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:24
+msgid "0"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:24
+msgid ":code:`v<peer ids bytes, no separator>`"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:25
+msgid "create name"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:25
+#: ../../source/specs/transaction-types.rst:26
+msgid ":code:`aergo.name`"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:25
+#: ../../source/specs/transaction-types.rst:26
+msgid "1 aergo"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:25
+msgid ":code:`c<name string>`"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:26
+msgid "update name"
+msgstr ""
+
+#: ../../source/specs/transaction-types.rst:26
+msgid ":code:`u<name string>,<new owner address>`"
+msgstr ""
+

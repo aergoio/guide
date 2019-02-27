@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/smart-contracts/lua/hello-world.md:1
+msgid "Hello World"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:2
+msgid ""
+"This is the most basic lua smart contract to store and retrieve states in"
+" aergo. You can save a name on the blockchain with the contract call "
+"function. And you can print 'hello ...' with the query function."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:39
+msgid "Tutorial"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:40
+msgid "This is explained based on using cli. Variables used in this example are"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:43
+msgid "Check Account and Balance"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:44
+msgid ""
+"First, you need an account with enough balances to deploy and execute "
+"smart contracts. (If you don't) Import or Unlock Account to aergo server."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:47
+msgid "Compile Contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:48
+msgid ""
+"Copy above code and save it to a file (e.g. helloword.lua). And Compile "
+"using the aergoluac compiler"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:54
+msgid "Deploy Contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:55
+msgid "With the payload generated above, Deploy contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:62
+msgid "Get receipt of contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:63
+msgid "Look up the actual contract address with the transaction ID above."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:82
+msgid ""
+"If the status is not 'CREATED', it may not be included in the block yet, "
+"or there may be an error. Wait a while until the transaction is included "
+"in the block. Or check the server's error log."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:84
+msgid "Get ABI of contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:85
+msgid "Look up ABI of contract with the contract address above."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:121
+msgid "Query Initial State"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:122
+msgid "You can query the generated contract in the following way."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:129
+msgid "You can see that the name 'world' assigned by the constructor is output."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:131
+msgid "Call Contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:132
+msgid "You can change the name recorded in the block chain as follows:"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:140
+msgid "Query Changed State"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:141
+msgid "If you look at the results again, it has changed."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:148
+msgid "Query contract variable with merkle proof"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:149
+msgid "Value"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:153
+msgid "Map"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:157
+msgid "Array"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/hello-world.md:161
+msgid ""
+"By default, the returned state is the one at the latest block, but you "
+"may specify any past block's state root."
+msgstr ""
+

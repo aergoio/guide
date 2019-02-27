@@ -4,8 +4,11 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
+SPHINXINTL    = sphinx-intl
 SOURCEDIR     = source
 BUILDDIR      = build
+LANGOPTS      = "-l ko"
+
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -17,6 +20,15 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+# Update template file from base file. use when original document sources were chaned.
+krupdate: Makefile
+	make gettext
+	@$(SPHINXINTL) update -p $(BUILDDIR)/gettext -l ko
+
+# build html with korean translation. use it for checking translation works. 
+krhtml: Makefile
+	make -e SPHINXOPTS="-D language='ko'" html
 
 protoc:
 	docker run --rm \

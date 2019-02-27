@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-08 16:15+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/p2p/tutorial_kr.rst:3
+msgid "Tutorial - Custom Chain"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:6
+msgid "개요"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:8
+msgid "이 문서는 aergo 프로젝트로 사용자 전용 체인을 구축하는 방법을 소개한다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:11
+msgid "노드 구성"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:13
+msgid "아래와 같은 형태의 노드 구성을 가정한다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:17
+msgid "BP는 블록을 생성하며 자신의 담당 FullNode 와 신뢰할 수 있는 다른 BP와 연결된다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:18
+msgid "FullNode는 담당 BP에 연결하며 다른 노드와 동기화를 수행하거나 API를 제공한다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:19
+msgid "Polaris는 FullNode가 다른 노드의 정보를 받아와 접속할 수 있도록 노드 목록을 관리한다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:23
+msgid "체인 구축 순서"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:26
+msgid "전체 노드 구성 정보"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:27
+msgid "Polaris 노드 1"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:28
+msgid "BP 노드 7대 : BP노드는 다른 BP 및 내부 FullNode 두 대와 연결됨"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:29
+msgid "FullNode 2대 :"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:32
+msgid "공통 파일 사전 준비"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:35
+msgid "key파일 생성"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:36
+msgid "Polaris 및 서버 노드용"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:39
+msgid "genesis용 json생성"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:40
+msgid "chainID와 최초 BP 목록 등을 저장한 genesis 파일을 만든다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:42
+msgid "예) mychain-genesis.json ::"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:81
+msgid "genesis block 생성"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:82
+msgid "각 노드마다 이 동작을 반복한다. 앞서 생성한 genesis 파일을 노드에 복사해서 genesis block을 초기화한다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:88
+msgid "이 결과로 data디렉토리 내부에 genesis block 및 기본 데이터 파일들이 생성된다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:91
+msgid "Polaris 구동"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:92
+msgid "앞서 생성한 genesis 파일을 polaris 노드에 복사해 사용한다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:95
+msgid "Polaris 설정파일"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:96
+msgid "key파일 및 genesis파일을 설정하고, 사설망 내부 체인/공개 체인 여부에 따른 설정을 한다."
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:98
+msgid "예) mychain-polaris.toml ::"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:115
+msgid "Polaris 서버 실행"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:121
+msgid "aergosvr 구동"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:124
+msgid "aergosvr 설정파일"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:125
+msgid "예) mychain-bp01.toml ::"
+msgstr ""
+
+#: ../../source/specs/p2p/tutorial_kr.rst:150
+msgid "aergosvr 서버 실행"
+msgstr ""
+

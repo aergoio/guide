@@ -1,0 +1,642 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/smart-contracts/lua/reference.md:1
+msgid "Reference"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:4
+msgid "Overview"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:5
+msgid ""
+"aergo smart contract uses Lua, a lightweight scripting language, as a "
+"smart contract language. The following is an example of a simple coin "
+"stack smart contract written in Lua that stores key-value values ​​in a "
+"block-chain state store and reads the values."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:26
+msgid ""
+"To read and write data on a block chain within a contract, you must use a"
+" system package. In the above example, smart contract  provides the "
+"function to access the key-value repository through the setItem and "
+"getItem functions of the system package and store the data permanently. "
+"In addition, a simple debug message can be output to the log file of the "
+"node via the print function."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:28
+msgid "system package"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:29
+msgid "This packages provides blockchain information and store/get state"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:30
+msgid "getSender()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:31
+msgid "This function returns caller address of current contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:32
+msgid "getBlockheight()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:33
+msgid ""
+"This function returns the block number that contains the current contract"
+" transaction."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:34
+msgid "getTxhash()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:35
+msgid "This function returns the id of the current contract transaction."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:36
+msgid "getTimestamp()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:37
+msgid ""
+"This function returns the creation start time of the block that contains "
+"current contract transaction."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:38
+msgid "getContractID()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:39
+msgid "This function returns the current contract address."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:40
+msgid "setItem(key, value)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:41
+msgid ""
+"This function sets the value corresponding to key to the storage "
+"belonging to current contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:45
+msgid "getItem(key)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:46
+msgid ""
+"This function returns the value corresponding to key in storage belonging"
+" to current contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:48
+msgid "getAmount()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:49
+msgid ""
+"This function returns number of AER sent with contract call. Return type "
+"is string."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:50
+msgid "getCreator()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:51
+msgid "This function returns creator address of current contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:52
+msgid "getOrigin()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:53
+msgid "This function returns sender address of current transaction"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:54
+msgid "getPrevBlockHash()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:55
+msgid "This function returns the hash of the previous block"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:56
+msgid "print(args...)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:57
+msgid ""
+"This function print args with json format at console log in node running "
+"current contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:58
+msgid "contract package"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:59
+msgid "This packages provides contract operation"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:60
+msgid "send(address, amount)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:61
+msgid ""
+"This function transfers the coins in this contract by address and "
+"amount(in AER units). Amount form can be string, number, bignum."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:68
+msgid "deploy(code, args...)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:69
+msgid ""
+"The deploy function creates a contract account using code and args, and "
+"returns the corresponding address and the return of the constructor "
+"function"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:86
+msgid "call(address, function_name, args...)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:87
+msgid ""
+"The call function returns the result of the function of the contract "
+"being executed in the state of the corresponding address."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:94
+msgid "delegatecall(address, function_name, args...)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:95
+msgid ""
+"The delegatecall function returns the result of the function of the "
+"calling process, executed in the state in the current address."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:99
+msgid "pcall(fn, args...)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:100
+msgid ""
+"It is an error handling function that works just like pcall in lua. The "
+"difference is that when the error occurs, the modified state,table or "
+"balance of the function executed rollback"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:109
+msgid "balance(address)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:110
+msgid ""
+"This function return balance of the address(argument) in AER. return type"
+" is string. If address is nil then return balance of current address."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:117
+msgid "event(eventName, args...)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:118
+msgid ""
+"This function causes eventName and args to remain in the contract result "
+"receipt. The user can search for event and receive notification the event"
+" with rpc when the receipt is added to the blockchain."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:122
+msgid "Search event and receive notification with aergocli"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:123
+msgid ""
+"you can search for events with event name \"send\" in the contract "
+"address(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:127
+msgid ""
+"you can search for events with event argument 0 is 1 and argument 1 is "
+"\"toaddress\" in the contract "
+"address(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:131
+msgid ""
+"you can get notified for events with event name \"send\" for "
+"contract(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:136
+msgid "Built-in Functions"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:137
+msgid ""
+"Lua provides the language itself as a useful function and basic package. "
+"It provides useful functions such as string management functions, so you "
+"can easily create smart contracts using these functions. Please refer to "
+"the Lua Reference Manual for detailed syntax, explanation, basic built-in"
+" functions and packages."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:139
+msgid ""
+"Since Lua Smart Contract is performed in Blockchain, OS related functions"
+" including input / output are not provided for stability and security."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:141
+msgid "Here is a list of the main functions that are not available."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:145
+msgid "Here is a list of the default packages that are not available."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:149
+msgid ""
+"The string, math, and table packages are available. However, you can not "
+"use the random, randomseed functions in the math package."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:151
+msgid "DB package"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:152
+msgid ""
+"If the smart contract is handling simple types of data, it would not be "
+"difficult to implement using only the basic APIs (getItem (), setItem "
+"()). However, complex data structures, data association, scope queries, "
+"filtering, sorting, and other features require the complexity and size of"
+" the data logic so developers can not focus on critical business logic. "
+"To solve this problem, Aergo supports SQL. This section details the types"
+" and usage of SQL APIs available in smart contracts"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:156
+msgid "exec(sql)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:157
+msgid "This function perform DDL or DML statements"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:158
+msgid "query(sql)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:159
+msgid "This function perform SELECT statements and return result set object"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:160
+msgid "prepare(sql)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:161
+msgid "This function create prepared statement and return statement object"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:182
+msgid "functions of result set object"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:183
+msgid "Object functions must be called with the: operator"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:184
+msgid "next"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:185
+msgid ""
+"This function prepare the next result row. Returns false if there is a "
+"row, false if it is not."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:186
+msgid "get"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:187
+msgid "This function return result row"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:206
+msgid "functions of prepared statement object"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:207
+msgid ""
+"equivalent to the prepareStatement object in JDBC. You can use the "
+"parameters in SELECT or DML to view, add, modify, or delete information."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:208
+msgid "query(bind1 , bind2, ....)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:209
+msgid ""
+"This function execute SELECT statement by specifying argument value "
+"corresponding to bind parameter and return result set object"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:210
+msgid "exec(bind1, bind2, ....)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:211
+msgid ""
+"This function execute DML statement by specifying argument value "
+"corresponding to bind parameter"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:213
+msgid "SQL Restrictions"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:214
+msgid ""
+"Smart Contract's SQL processing engine is built on SQLite. Therefore, "
+"detailed SQL usage grammar can be found at https://sqlite.org/lang.html "
+"and https://sqlite.org/lang_corefunc.html. However, because of the "
+"stability and security of the Aergo, not all SQL is allowed."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:216
+msgid "types"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:217
+msgid ""
+"Allow only SQL datatypes corresponding to Lua strings and numbers (int, "
+"float)."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:223
+msgid "SQL statement"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:224
+msgid ""
+"The allowed SQL statements are listed below. However, DDL and DML are "
+"only allowed in smart contract transactions."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:233
+msgid "Function"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:234
+msgid "The following is an unavailable list"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:240
+msgid ""
+"For a list of other functions and descriptions, please refer to the links"
+" below."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:244
+msgid "Constraint"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:245
+msgid "The following constraints can be used."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:273
+msgid "json package"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:274
+msgid ""
+"Json package is provided for user convenience in input and output. This "
+"package allows automatic conversion between Json format strings and Lua "
+"Table structures."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:275
+msgid "encode(arg)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:276
+msgid "This function returns a JSON-formatted string with the given lua value."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:277
+msgid "decode(string)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:278
+msgid ""
+"This function converts a string in JSON format to the corresponding Lua "
+"structure and returns it"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:280
+msgid "crypto package"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:281
+msgid "sha256(arg)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:282
+msgid "This function compute the SHA-256 hash of the argument."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:283
+msgid "ecverify(message, signature, address)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:284
+msgid ""
+"This function verify the address associated with the public key from "
+"elliptic curve signature."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:291
+msgid "bignum package"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:292
+msgid ""
+"Since the lua number type has a limit on the range that can be "
+"represented by an integer (less than 2 ^ 53), the bignum module is used "
+"to provide an exact operation for larger numbers."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:296
+msgid "number(x)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:297
+msgid "This function make bignum object with argument x(string or number)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:298
+msgid "isneg(x)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:299
+msgid "Check bignum x if negative than return true else false"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:300
+msgid "iszero(x)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:301
+msgid "Check bignum x if zero than return true else false"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:302
+msgid "tonumber(x)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:303
+msgid "Convert bignum x to lua number"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:304
+msgid "tostring(x) (bignum.tostring(x) same as tostring(x))"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:305
+msgid "Convert bignum x to lua string"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:306
+msgid "neg(x) (same as -x)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:307
+msgid "Negate bignum x and return as bignum"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:308
+msgid "sqrt(x)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:309
+msgid "Returns the square root of a positive number as bignum"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:310
+msgid "compare(x, y)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:311
+msgid ""
+"Compare two big numbers.  Return value is 0 if equal, -1 if x is less "
+"than y and +1 if x is greater than y."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:312
+msgid "add(x, y) (same as x + y)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:313
+msgid "Add two big numbers and return bignum"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:314
+msgid "sub(x, y) (same as x - y)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:315
+msgid "Subtract two big numbers and return bignum"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:316
+msgid "mul(x, y) (same as x * y)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:317
+msgid "Multiply two big numbers and return bignum"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:318
+msgid "mod(x, y) (same as x % y)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:319
+msgid "Returns the bignum remainder after bignum x is divided by bignum y"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:320
+msgid "div(x, y) (same as x / y)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:321
+msgid "Divide two big numbers and return bignum"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:322
+msgid "pow(x, y) (same as x ^ y)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:323
+msgid "Power of two big numbers and return bignum"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:324
+msgid "divmod(x, y)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:325
+msgid "Returns a pair of big numbers consisting of their quotient and remainder"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:326
+msgid "powmod(x, y, m)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/reference.md:327
+msgid ""
+"Return the bignum remainder after pow(bignum x,bignum y) is divided by "
+"bignum m"
+msgstr ""
+

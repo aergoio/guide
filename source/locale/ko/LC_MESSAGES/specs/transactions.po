@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/transactions.rst:2
+msgid "Transactions"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:5
+msgid "Tx"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:8
+msgid "Field"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:8 ../../source/specs/transactions.rst:26
+msgid "Type"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:8
+msgid "Description"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:10
+msgid "Hash"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:10
+#: ../../source/specs/transactions.rst:14
+#: ../../source/specs/transactions.rst:16
+#: ../../source/specs/transactions.rst:18
+#: ../../source/specs/transactions.rst:20
+#: ../../source/specs/transactions.rst:24
+#: ../../source/specs/transactions.rst:28
+msgid "bytes"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:10
+msgid "Hash of body"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:12
+msgid "Body"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:12
+msgid "Nonce"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:12
+#: ../../source/specs/transactions.rst:22
+msgid "uint64"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:12
+msgid "Increasing number used only once per sender account"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:14
+msgid "Account"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:14
+msgid "Decoded sender account address"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:16
+#: ../../source/specs/transactions.rst:50
+msgid "Recipient"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:16
+msgid "Decoded receiver account address"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:18
+#: ../../source/specs/transactions.rst:50
+msgid "Amount"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:18
+msgid "Amount of transfer"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:20
+#: ../../source/specs/transactions.rst:50
+msgid "Payload"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:20
+msgid "Smart contract data"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:22
+msgid "Limit"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:22
+#: ../../source/specs/transactions.rst:24
+msgid "Reserved"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:24
+msgid "Price"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:26
+msgid "int"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:26
+msgid "0 is normal type, 1 is governance type"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:28
+msgid "Sign"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:28
+msgid "ECDSA signature with secp256k1"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:32
+msgid "Transaction types"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:34
+msgid "There are two kinds of transactions."
+msgstr ""
+
+#: ../../source/specs/transactions.rst:37
+msgid "Normal type"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:39
+msgid ""
+"Normal transactions are used to transfer tokens and calling smart "
+"contracts."
+msgstr ""
+
+#: ../../source/specs/transactions.rst:42
+msgid "Governance type"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:44
+msgid ""
+"Governance transactions are used for calling system contracts, such as "
+"staking and voting. Transactions of this type have a special payload "
+"format and recipient."
+msgstr ""
+
+#: ../../source/specs/transactions.rst:47
+msgid ""
+"The following table shows the specification for each field of the "
+"transaction body."
+msgstr ""
+
+#: ../../source/specs/transactions.rst:50
+msgid "Action"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:52
+msgid "staking"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:52
+#: ../../source/specs/transactions.rst:53
+#: ../../source/specs/transactions.rst:54
+msgid ":code:`aergo.system`"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:52
+msgid "amount to stake"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:52
+msgid ":code:`{\"Name\":\"v1stake\"}`"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:53
+msgid "unstaking"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:53
+msgid "amount to unstake"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:53
+msgid ":code:`{\"Name\":\"v1unstake\"}`"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:54
+msgid "voting"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:54
+msgid "0"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:54
+msgid ":code:`{\"Name\":\"v1voteBP\",\"Args\":[<peer IDs>]}`"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:55
+msgid "create name"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:55
+#: ../../source/specs/transactions.rst:56
+msgid ":code:`aergo.name`"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:55
+#: ../../source/specs/transactions.rst:56
+msgid "1 aergo"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:55
+msgid ":code:`{\"Name\":\"v1createName\",\"Args\":[<a name string>]}`"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:56
+msgid "update name"
+msgstr ""
+
+#: ../../source/specs/transactions.rst:56
+msgid ""
+":code:`{\"Name\":\"v1updateName\",\"Args\":[<a name string>, <new owner "
+"address>]}`"
+msgstr ""
+

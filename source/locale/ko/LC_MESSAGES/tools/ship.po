@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/tools/ship.rst:2
+msgid "Ship"
+msgstr ""
+
+#: ../../source/tools/ship.rst:4
+msgid "Ship is a tool for developing lua smart contracts. Its main features are:"
+msgstr ""
+
+#: ../../source/tools/ship.rst:6
+msgid "Manage project structure"
+msgstr ""
+
+#: ../../source/tools/ship.rst:7
+msgid "Install and publish packages"
+msgstr ""
+
+#: ../../source/tools/ship.rst:8
+msgid "Build source fragments"
+msgstr ""
+
+#: ../../source/tools/ship.rst:9
+msgid "Run unit test cases"
+msgstr ""
+
+#: ../../source/tools/ship.rst:10
+msgid "Deployment, execution and querying of a contract."
+msgstr ""
+
+#: ../../source/tools/ship.rst:12
+msgid ""
+"Please refer to `the Ship Github Wiki "
+"<https://github.com/aergoio/ship/wiki>`_ for details."
+msgstr ""
+

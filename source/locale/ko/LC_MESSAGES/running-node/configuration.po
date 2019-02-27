@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/running-node/configuration.md:1
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/running-node/configuration.md:4
+msgid "This page explains the possible ways to configure an Aergo node."
+msgstr ""
+
+#: ../../source/running-node/configuration.md:6
+msgid "There are three common modes of operation for aergo server:"
+msgstr ""
+
+#: ../../source/running-node/configuration.md:12
+msgid ""
+"We describe only single node configuration in this. More will updated for"
+" the BP Node and full node."
+msgstr ""
+
+#: ../../source/running-node/configuration.md:14
+msgid "Single Aergo Server (default)"
+msgstr ""
+
+#: ../../source/running-node/configuration.md:16
+msgid ""
+"We will show default configuration file next. You can check the each "
+"fields' meaning in here"
+msgstr ""
+
+#: ../../source/running-node/configuration.md:75
+msgid "Testmode"
+msgstr ""
+
+#: ../../source/running-node/configuration.md:77
+msgid ""
+"To enable testmode, either pass the command line option --testmode to "
+"aergosvr or set enabletestmode = true in the configuration."
+msgstr ""
+
+#: ../../source/running-node/configuration.md:79
+msgid ""
+"In testmode, all new accounts are assigned a high number of Aergo tokens "
+"by default, basically circumventing balance checks. This means you can "
+"send any transaction without first pre-funding hard-coded accounts using "
+"a genesis block."
+msgstr ""
+
+#: ../../source/running-node/configuration.md:81
+msgid "Testmode MUST NOT be used in production."
+msgstr ""
+
+#: ../../source/running-node/configuration.md:83
+msgid "Reference"
+msgstr ""
+
+#: ../../source/running-node/configuration.md:262
+msgid "Logging options"
+msgstr ""
+
+#: ../../source/running-node/configuration.md:264
+msgid ""
+"It is possible to customize the log output format of all Aergo CLI tools "
+"using a file called arglog.toml placed in the current working directory."
+msgstr ""
+
+#: ../../source/running-node/configuration.md:266
+msgid "This file is specified here."
+msgstr ""
+

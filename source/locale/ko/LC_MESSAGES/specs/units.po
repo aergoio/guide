@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/units.rst:2
+msgid "Token Units"
+msgstr ""
+
+#: ../../source/specs/units.rst:4
+msgid "**1 aergo** = 1 * 10^18 aer = 1 * 10^9 gaer"
+msgstr ""
+
+#: ../../source/specs/units.rst:6
+msgid ""
+"The Aergo CLI and client libraries have support for these units, i.e. you"
+" can specify transaction amounts as :code:`1 aergo` instead of "
+":code:`1000000000000000000`."
+msgstr ""
+
+#: ../../source/specs/units.rst:9
+msgid ""
+"Note that amounts in the base unit aer exceed the range of 64-bit "
+"integers. You need some implemention of Big Integer to deal with these "
+"numbers. Aergo SDKs come bundled with a recommended way to do that. In "
+"most cases, you can just use strings instead of numbers. For example, "
+"when creating a JSON transaction, set"
+msgstr ""
+

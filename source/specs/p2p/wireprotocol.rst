@@ -117,6 +117,7 @@ Refer to `Subprotocols <subprotocols.html>`_ for detailed information of each su
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 |BlockProducedNotice     |  0030|block notice from block producer                                                                      |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
+|BlockProducedNotice     |  0030|A block is produced. This notice is created only in BP and sent to other trusted BP or FULL nodes.    |
 
 
 List of Response Status

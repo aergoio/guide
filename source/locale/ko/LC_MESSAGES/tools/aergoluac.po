@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/tools/aergoluac.rst:2
+msgid "Aergoluac"
+msgstr ""
+
+#: ../../source/tools/aergoluac.rst:4
+msgid ""
+"**aergoluac** is a command line tool that compile lua script to binary "
+"code for contract."
+msgstr ""
+
+#: ../../source/tools/aergoluac.rst:6
+msgid ""
+"For a list of all commands known to aergoluac, simply run it with no "
+"arguments."
+msgstr ""
+
+#: ../../source/tools/aergoluac.rst:19
+msgid "Examples"
+msgstr ""
+
+#: ../../source/tools/aergoluac.rst:22
+msgid "out to file"
+msgstr ""
+
+#: ../../source/tools/aergoluac.rst:29
+msgid "out to console"
+msgstr ""
+

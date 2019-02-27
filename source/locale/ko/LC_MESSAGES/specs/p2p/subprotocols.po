@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-08 16:15+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/p2p/subprotocols.rst:2
+msgid "Payload of Subprotocols"
+msgstr ""
+
+#: ../../source/specs/p2p/subprotocols.rst:5
+msgid "StatusRequest"
+msgstr ""
+
+#: ../../source/specs/p2p/subprotocols.rst:7
+msgid "sender : information of sender (address, port, peerID or etc)"
+msgstr ""
+
+#: ../../source/specs/p2p/subprotocols.rst:8
+msgid "bestBlockHash : current best block of sender"
+msgstr ""
+
+#: ../../source/specs/p2p/subprotocols.rst:9
+msgid "bestHeight : current best block height of sender"
+msgstr ""
+
+#: ../../source/specs/p2p/subprotocols.rst:10
+msgid "chainID : ChainID which sender is storing"
+msgstr ""
+

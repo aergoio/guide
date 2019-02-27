@@ -1,0 +1,408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/smart-contracts/lua/guide.md:1
+msgid "Programming Guide"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:4
+msgid ""
+"Lua provides useful functions and libraries. So you can easily create "
+"smart contracts using these functions."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:6
+msgid ""
+"Please refer to the Lua Reference Manual for detailed syntax, "
+"explanation, basic built-in functions and libraries."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:8
+#: ../../source/smart-contracts/lua/guide.md:328
+msgid "Restrictions"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:10
+msgid ""
+"Because Lua smart contract is performed in the aergo, OS related "
+"functions including Input/Output are not provided for stability and "
+"security."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:12
+msgid "Here is a list of the base functions that are not available."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:16
+msgid "You can replace print with system.print."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:18
+msgid "And you can use import instead of require. import is not a Lua syntax."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:20
+msgid "Use SHIP to build and deploy smart contracts using multiple files."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:22
+msgid "Here is a list of the default libraries that are not available."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:26
+msgid ""
+"The string, math, bit, and table packages are available. However, you can"
+" not use the random, randomseed functions in the math package."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:28
+msgid "There are no restrictions on literals, expressions, and statements."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:30
+msgid "Libraries"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:32
+msgid "We provide libraries for smart contract as follows:"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:45
+msgid "You can find detailed descriptions for libraries on this page"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:47
+msgid "Smart Contract"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:49
+msgid "Layout"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:81
+msgid "import"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:82
+msgid "This replaces the require function."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:84
+msgid ""
+"It allows you to divide and develop one smart contract into multiple "
+"modules(files)."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:86
+msgid ""
+"This is not a Lua feature. You should use SHIP to build and deploy smart "
+"contracts using multiple files."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:88
+msgid "state variable"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:89
+msgid "The state.var function defines global state variables."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:91
+msgid "Three types of state variables can be defined."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:93
+msgid "value"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:94
+msgid "This type store any Lua values."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:96
+msgid ""
+"You can define a state value with the syntax var_name = state.value(). It"
+" has get and set methods for reading and writing data."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:104
+msgid "map"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:105
+msgid "The type map implements associative arrays."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:107
+msgid ""
+"It can be indexed only with string, but the value of a map element can be"
+" of any type."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:109
+msgid ""
+"You can define a state map with the syntax var_name = state.map(). The "
+"index operator is used for reading and inserting elements."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:125
+msgid "array"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:126
+msgid "The type array is a fixed-length ordinary array."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:128
+msgid ""
+"It can be indexed only with integer, but the value of an array element "
+"can be of any type. The index starts at 1."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:130
+msgid ""
+"You can define a state array with the syntax var_name = "
+"state.array(size). The index operator is used for reading and inserting "
+"elements."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:163
+msgid ""
+"Note: The state variables are just syntax sugar that replace "
+"system.getItem(), system.setItem() functions."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:165
+msgid ""
+"The fields of state variables that are directly modified cannot update "
+"the state db."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:167
+msgid "See InvalidUpdateAge() and ValidUpdateAge() functions in the example."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:196
+msgid "constructor"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:197
+msgid ""
+"The constructor is executed only once during deployment. It can has "
+"arguments. It does not need to register into the abi.register() function "
+"because it is handled automatically."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:199
+#: ../../source/smart-contracts/lua/guide.md:359
+msgid "functions"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:200
+msgid "Write business logic and help functions."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:202
+msgid "export contract function(s)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:203
+msgid ""
+"You should add global functions that must be called from contract "
+"call/query commands to the abi.register()."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:205
+msgid "special functions"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:207
+msgid "default"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:208
+msgid ""
+"default is a special function. It is called when the function name can "
+"not be found or when the transaction has no a call information. It does "
+"not need to export through abi.register(). default is the name of this "
+"function. default is used internally by the VM. You should not use "
+"default for any other purpose."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:210
+msgid "You can define a default function as follows:"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:220
+msgid ""
+"You can call this default function. There is no call information for the "
+"contract function."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:226
+msgid "payable"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:227
+msgid ""
+"The payable is a property of a function. Only payable function can "
+"receives Aergo(s) sent from a sender. We can make a payable function "
+"using abi.payable(). payable functions are automatically exported. "
+"Therefore, you do not have to register using the abi.register function. "
+"constructor and default are not payable functions by default. They can be"
+" payable functions using abi.payable()."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:230
+msgid ""
+"You can call the ReceiveAergo with aergo, But you can not call the "
+"NotReceiveAergo:"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:251
+msgid "SQL"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:253
+msgid "Aergo smart contract has db library that supports SQL features."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:257
+msgid ""
+"The below code is a example of creating table and insert a row using "
+"db.exec()"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:280
+msgid ""
+"The db.query() function returns a result set. You can fetch rows from the"
+" result set."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:301
+msgid ""
+"You can also use prepared statements. The following examples is rewrite "
+"insert and query contract functions  using prepared statements."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:330
+msgid ""
+"Litetree is used as the SQL processing engine for the aergo smart "
+"contract. Litetree is implemented based on SQLite."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:332
+msgid ""
+"Detailed SQL usage can be found at https://sqlite.org/lang.html and "
+"https://sqlite.org/lang_corefunc.html"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:334
+msgid ""
+"However, we do not provide full SQL functionality. There are some "
+"limitations due to stability and security."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:336
+msgid "Data types"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:338
+msgid ""
+"Allow only SQL datatypes corresponding to Lua strings and numbers(int, "
+"float)."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:346
+msgid "SQL statements"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:348
+msgid ""
+"You can execute the following SQL statements. However, DDL and DML can "
+"not be run on smart contract queries."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:361
+msgid "Here is a list of functions that are not available:"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:368
+msgid ""
+"A list of other functions and descriptions is available via the links "
+"below."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:374
+msgid "contraints"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:376
+msgid "You can use the following contraints."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:384
+msgid "Tools"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:386
+msgid "aergoluac"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:387
+msgid "aergoluac is a compiler for Lua smart contracts."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:391
+msgid "aergocli"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:392
+msgid ""
+"aergocli is a command line tool that interfaces with the GRPC exposed by "
+"aergosvr."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:394
+msgid "It provides smart contract-related commands as follows:"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:400
+msgid "brick"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:401
+msgid "Toy for Contract Developers. You can use it to test smart contracts."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:403
+msgid "https://github.com/aergoio/aergo/tree/master/cmd/brick"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:405
+msgid "Style conventions"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/guide.md:407
+msgid ""
+"It is good adopt a consistent coding style for readability. We recommend "
+"the Lua style guide."
+msgstr ""
+

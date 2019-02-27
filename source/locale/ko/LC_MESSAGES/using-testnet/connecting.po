@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/using-testnet/connecting.rst:2
+msgid "Connecting to Well-known Nodes"
+msgstr "잘 알려진 노드에 접속하기"
+
+#: ../../source/using-testnet/connecting.rst:5
+msgid "Clients"
+msgstr "클라이언트"
+
+#: ../../source/using-testnet/connecting.rst:7
+msgid ""
+"Use `testnet.aergo.io` and the default port 7845 to connect to a public "
+"GRPC server for the testnet."
+msgstr ""
+
+#: ../../source/using-testnet/connecting.rst:14
+msgid "Server"
+msgstr ""
+
+#: ../../source/using-testnet/connecting.rst:16
+msgid ""
+"Without any specific settings, the server connect to Polaris for the "
+"testnet, registers itself, obtains addresses of other nodes, and "
+"automatically attempts to connect those nodes. If the server is in the "
+"NAT environment, or has multiple NICs, additional settings are required "
+"for the external node to access the server. Set up outside address for "
+"other nodes in the external network connection, and set internal address "
+"for binding address."
+msgstr ""
+

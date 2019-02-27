@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-13 18:26+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/using-testnet/syncing.rst:2
+msgid "Syncing"
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:4
+msgid "This setup assumes some basic knowledge about using Docker."
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:8
+msgid ""
+"When you run the Docker image named `aergo/node` for the first time, "
+"Docker downloads the latest image automatically. To update the image to a"
+" new version, run :code:`docker pull aergo/node`. You can also specify a "
+"specific version by replacing :code:`aergo/node` with "
+":code:`aergo/node:0.12.0`. Refer to `Docker Hub "
+"<https://hub.docker.com/r/aergo/node/>`_ to see a list of available tags."
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:14
+msgid "Running"
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:16
+msgid ""
+"When you run the server after creating the genesis block, it "
+"automatically starts synchronizing."
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:22
+msgid ""
+"The :code:`-p` argument maps ports from the aergo server inside the "
+"container to your host machine. 7846 is for the peer to peer protocol. "
+"7845 is for the RPC API; you can remove this port binding to disallow "
+"access to the API."
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:27
+msgid ""
+"If your machine is behind a NAT (such as a router), you need to setup "
+"manual forwarding of the port 7846 to allow other peers to sync with your"
+" node."
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:30
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:32
+msgid ""
+"The above commands use a default configuration file included in the "
+"Docker image that is suitable to connect to the testnet. If you want to "
+"override configuration parameters, you can create a local copy of "
+"`testnet.toml <https://github.com/aergoio/aergo-"
+"docker/blob/1ad16cf7881d9ba8f2efc350cf609c9416e76666/node/testnet.toml>`_"
+" and override the included version using a Docker volume, for example:"
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:40
+msgid ""
+"Please refer to `Configuration <../running-node/configuration.html>`_ for"
+" a detailed explanation of the available settings."
+msgstr ""
+
+#: ../../source/using-testnet/syncing.rst:44
+msgid ""
+"To customize the log format, place an `arglog.toml <../running-"
+"node/configuration.html#logging-options>`_ file in the container's "
+"working directory: :code:`-v $(pwd)/arglog.toml:/aergo/arglog.toml`."
+msgstr ""
+
+#~ msgid "Initializing"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To access the testnet, you must "
+#~ "first have the same genesis block. "
+#~ "For this, you create a genesis "
+#~ "block."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "testnet-genesis.json is the specification "
+#~ "of the testnet genesis block. This "
+#~ "file is `included <https://github.com/aergoio"
+#~ "/aergo-docker/blob/8dbb2eeec271e2b6371587512614fc57e2dd7360/node"
+#~ "/testnet-genesis.json>`_ in the Docker "
+#~ "image, so you can use the above"
+#~ " command without any additional setup."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When you run the Docker image "
+#~ "named `aergo/node` for the first time,"
+#~ " Docker downloads the latest image "
+#~ "automatically. To update the image to"
+#~ " a new version, run :code:`docker "
+#~ "pull aergo/node`. You can also specify"
+#~ " a specific version by replacing "
+#~ ":code:`aergo/node` with :code:`aergo/node:0.9.9`. "
+#~ "Refer to `Docker Hub "
+#~ "<https://hub.docker.com/r/aergo/node/>`_ to see a"
+#~ " list of available tags."
+#~ msgstr ""
+

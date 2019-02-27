@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-08 16:15+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/p2p/temp.rst:3
+msgid "Tutorial - Custom Chain"
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:6
+msgid "개요"
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:8
+msgid "이 문서는 aergo 프로젝트로 사용자 전용 체인을 구축하는 방법을 소개한다."
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:11
+msgid "노드 구성"
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:13
+msgid "아래와 같은 형태의 노드 구성을 가정한다."
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:17
+msgid "BP는 블록을 생성하며 자신의 담당 FullNode 와 신뢰할 수 있는 다른 BP와 연결된다."
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:18
+msgid "FullNode는 다른 노드와 동기화를 수행하거나 API를 제공한다."
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:19
+msgid "Polaris는 FullNode가 다른 노드의 정보를 받아와 접속할 수 있도록 노드 목록을 관리한다."
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:23
+msgid "체인 구축 순서"
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:28
+msgid "chainID와 최초 BP 목록 등을 저장한 genesis 파일을 만든다."
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:30
+msgid "TODO: 예제 파일 추가"
+msgstr ""
+
+#: ../../source/specs/p2p/temp.rst:35
+msgid "앞서 생성한 genesis 파일로부터 genesis block을 초기화한다."
+msgstr ""
+

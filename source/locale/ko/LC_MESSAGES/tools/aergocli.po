@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 15:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/tools/aergocli.rst:2
+msgid "Aergocli"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:4
+msgid ""
+"**aergocli** is a command line tool that interfaces with the GRPC exposed"
+" by **aergosvr**."
+msgstr "**aergocli** 는 **aergosvr** 에 GRPC로 연결하는 커맨드라인 도구입니다."
+
+#: ../../source/tools/aergocli.rst:7
+msgid "Installation"
+msgstr "설치"
+
+#: ../../source/tools/aergocli.rst:9
+msgid "**Using the binary**"
+msgstr "**바이너리 사용하기**"
+
+#: ../../source/tools/aergocli.rst:11
+msgid ""
+"You can find the latest binary release on `Github "
+"<https://github.com/aergoio/aergo/releases/latest>`__. Just download and "
+"extract the archive."
+msgstr ""
+"최신 바이너리는 `Github <https://github.com/aergoio/aergo/releases/latest>` 에서 "
+"받을 수 있습니다."
+
+#: ../../source/tools/aergocli.rst:14
+msgid "**Using Docker**"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:16
+msgid ""
+"You can also use the Docker image `aergo/tools "
+"<https://hub.docker.com/r/aergo/tools>`__. Example: :code:`docker run "
+"--rm aergo/tools aergocli version`"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:20
+msgid "Usage"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:22
+msgid ""
+"In order to use all features of aergocli you will need to have the end "
+"point (IP address and port number) to a aergosvr instance."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:24
+msgid ""
+"For a list of all commands known to :code:`aergocli`, simply run it with "
+"no arguments."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:65
+msgid "Examples"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:68
+msgid "Create account"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:75 ../../source/tools/aergocli.rst:98
+msgid "or"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:84
+msgid ""
+"Now we can use the account in aergosvr. Please remember the password "
+"carefully because there is no way to retrieve the password again."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:88
+msgid "Send transaction"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:90
+msgid "Before request send transaction you must unlock your account first"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:105
+msgid "and then"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:115
+msgid "Look up transaction"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:117
+msgid ""
+"Use gettx command. If transaction is in block, return transaction with "
+"index that represent where it's included."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:119
+msgid "When transaction is in mempool, gettx result is like below"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:139
+msgid "When transaction is in block, gettx result is like below"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:166
+msgid "Check block"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:207 ../../source/tools/aergocli.rst:375
+msgid "Sign transaction"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:209
+msgid "After unlock the account"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:238
+msgid "Commit Transaction"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:240
+msgid "Send given transactions to **aergosvr**"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:267
+msgid "Get Account state"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:269
+msgid "Check account's state (nonce, balance)"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:275
+msgid "Get state with a compressed merkle proof."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:281
+msgid ""
+"By default, the returned state is the one at the latest block, but you "
+"may specify any past block's state root."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:288
+msgid "Show connected peers"
+msgstr "연결된 피어 보기"
+
+#: ../../source/tools/aergocli.rst:290
+msgid "Use getpeers to show list of peers connected to a aergosvr."
+msgstr "getpeers 명령은 **aergosvr** 와 연결된 피어 목록을 보여줍니다."
+
+#: ../../source/tools/aergocli.rst:292
+msgid ""
+"It shows remote peers by default, but with :code:`--self` options, local "
+"aergosvr itself is shown in list. You can find it by checking "
+":code:`Self` property. If you show only opened peers, use with "
+":code:`--nohidden` options."
+msgstr ""
+"기본 설정은 원격 피어만 보여주는데, :code:`--self` 옵션을 사용하면 로컬 **aergosvr** 자체도 포함해서 "
+"보여줍니다. 이 둘은 출력의 :code:`Self` 속성으로 구분할 수 있습니다. 또한 공개된 피어만 보려면 :code:`--nohidden` 옵션을 사용하면 됩니다."
+
+#: ../../source/tools/aergocli.rst:346
+msgid "Example without aergosvr"
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:348
+msgid ""
+"There are some feature working on **aergocli** itself without "
+"**aergosvr**."
+msgstr "몇몇 기능은 **aergosvr** 에 접속하지 않은 상태로 **aergocli** 에서 단독으로 사용할 수 있습니다."
+
+#: ../../source/tools/aergocli.rst:351
+msgid "Create, Export, Import account"
+msgstr "계정 생성, 내보내기, 가져오기"
+
+#: ../../source/tools/aergocli.rst:353
+msgid ""
+"With :code:`--path` option, aergocli creates an account in the given path"
+" and not in **aergosvr**."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:360
+msgid "Private key of account is store in the given path."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:362
+msgid ""
+"Of course this account can be exported and imported to aergosvr or "
+"another path."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:377
+msgid ""
+"With :code:`--path` option, aergocli can sign the transaction using "
+"private key of account in given path."
+msgstr ""
+
+#: ../../source/tools/aergocli.rst:379
+msgid ""
+"Unlike using aergosrv, parameter :code:`--address` and :code:`--password`"
+" are needed instead of unlock."
+msgstr ""
+

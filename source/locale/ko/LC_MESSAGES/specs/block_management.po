@@ -1,0 +1,233 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-08 16:15+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/block_management.rst:2
+msgid "Block management"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:5
+msgid "Generation of Block"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:6
+msgid "The block factory of the constensus engine generates blocks."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:8
+msgid ""
+"The Consensus engine is a module that manages when blocks are created on "
+"which nodes. Because AERGO uses DPOS as the default constants, BP turns "
+"around every second and generates blocks with the generated rights."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:11
+msgid "The process for creating blocks in the Block Factory is as follows."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:13
+msgid "Bring possible Transactional candidates from mempool."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:14
+msgid ""
+"Perform a transaction one by one and if the execution is successful, the "
+"transaction is included in the block."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:15
+msgid ""
+"If the block size and time limit are exceeded, the transaction is no "
+"longer included."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:16
+msgid ""
+"Create blocks that contain executed transactions and add signatures to "
+"blocks."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:18
+msgid ""
+"Block Factory sends the generated blocks to the ChainService for "
+"permanent storage."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:20
+msgid ""
+"ChainService stores block and additional meta information in internal "
+"storage."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:23
+msgid "Notify Block"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:24
+msgid ""
+"The blocks passed to the Chain Service are propagated to the connected "
+"Peer Node before they are stored in the DB."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:26
+msgid ""
+"The chainService of the node that received the block verifies the block, "
+"executes the transactions, and adds the block to its chain."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:29
+msgid "Save Block"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:30
+msgid "ChainService stores the generated blocks in the DB for permanent storage."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:32
+msgid ""
+"The chain service stores additional meta information to store connection "
+"information about the chain."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:34
+msgid "AERGO uses the Badger Database as its permanent storage."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:36
+msgid ""
+"Badger stores data in key/value form and supports the concept of "
+"Transaction similar to a typical database."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:38
+msgid "Information stored in the DB is as follows."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:40
+msgid ""
+"The DB is managed in two separate categories, ChainDB and StateDB. This "
+"article describes the ChainDB used to store chain information."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:43
+msgid "<TODO: For information on StateDB, see ./State>"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:46
+msgid "Block info"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:47
+msgid ""
+"This information is used to search for blocks in a chain using a hash. "
+"Typically, when a block is requested as a hash from another node, the "
+"Hash is searched for and responded to the block with a key."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:51
+#: ../../source/specs/block_management.rst:67
+#: ../../source/specs/block_management.rst:81
+msgid "Key"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:51
+#: ../../source/specs/block_management.rst:67
+#: ../../source/specs/block_management.rst:81
+msgid "Value"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:53
+msgid "Hash of Block"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:53
+msgid "serialized data of Block"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:57
+msgid "Chain info"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:58
+msgid ""
+"Chain info is the information that indicates when a block is connected to"
+" the main branch."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:60
+msgid ""
+"If the main branch is not connected, that is, only block info is saved "
+"and the chain info is not stored."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:62
+msgid ""
+"You can search the blocks of every height of the main branch using the "
+"chain info. You can know the height of the top block of the chain."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:64
+msgid ""
+"Chain info is also used to determine whether the block belongs to the "
+"main branch or the sub branch."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:69
+msgid "Number of Block"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:69
+msgid "block hash"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:70
+msgid "Latest block Key"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:70
+msgid "latest block number of main branch"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:74
+msgid "Transaction Info"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:75
+msgid ""
+"tx info is meta information of the transaction that was performed in the "
+"main branch. If you search the DB with transaction hash, you can see "
+"which block the transaction is stored in and where the transaction is "
+"stored in the block."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:78
+msgid ""
+"The contents of the transaction are not saved separately. Therefore, in "
+"order to know the contents of the actual transaction, you must search "
+"Block info using Block hash and index found in tx info."
+msgstr ""
+
+#: ../../source/specs/block_management.rst:83
+msgid "Transaction hash"
+msgstr ""
+
+#: ../../source/specs/block_management.rst:83
+msgid "(Block Hash, index of transaction in block)"
+msgstr ""
+

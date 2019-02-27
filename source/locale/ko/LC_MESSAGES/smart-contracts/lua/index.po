@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/smart-contracts/lua/index.rst:2
+msgid "Lua"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/index.rst:4
+msgid ""
+"To create smart contracts for Aergo, you can use the `Lua scripting "
+"language <http://www.lua.org/about.html>`_."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/index.rst:6
+msgid ""
+"Lua is a powerful, efficient, lightweight, embeddable scripting language."
+" It has a simple procedural syntax with a powerful data description "
+"structure. Lua supports a variety of programming methods: procedural "
+"programming, object-oriented programming, functional programming."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/index.rst:10
+msgid ""
+"We use `LuaJIT 2.1.0 <http://luajit.org/luajit.html>`_ as the VM. LuaJIT "
+"is a Just-In-Time Compiler (JIT) for the Lua programming language."
+msgstr ""
+
+#: ../../source/smart-contracts/lua/index.rst:12
+msgid ""
+"You can learn the Lua programming language through the following "
+"documents:"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/index.rst:14
+msgid "`Lua 5.1 Reference Manaul <http://www.lua.org/manual/5.1/>`_"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/index.rst:15
+msgid ""
+"`Programming in Lua <http://www.lua.org/pil/>`_ (The second edition was "
+"aimed at Lua 5.1)"
+msgstr ""
+
+#: ../../source/smart-contracts/lua/index.rst:17
+msgid "**Table of contents**"
+msgstr ""
+

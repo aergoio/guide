@@ -176,3 +176,12 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+# -- Options for i18n -------------------------------------------------
+
+LANGUAGES = ['en', 'ko']
+
+DEFAULT_LANG = 'en'
+locale_dirs = ['locale/']   # path is example but recommended.
+gettext_compact = False     # optional.
+

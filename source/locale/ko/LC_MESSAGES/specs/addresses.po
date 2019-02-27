@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/addresses.rst:2
+msgid "Addresses"
+msgstr ""
+
+#: ../../source/specs/addresses.rst:5
+msgid "Client-side"
+msgstr ""
+
+#: ../../source/specs/addresses.rst:7
+msgid ""
+"Account and contract addresses are Base58-check encoded strings that look"
+" like this:"
+msgstr ""
+
+#: ../../source/specs/addresses.rst:13
+msgid ""
+"`Technical explanation of Base58-check encoding "
+"<https://en.bitcoin.it/wiki/Base58Check_encoding>`_"
+msgstr ""
+
+#: ../../source/specs/addresses.rst:15
+msgid ""
+"The prefix used for encoding Aergo addresses in base58-check is "
+":code:`0x42`."
+msgstr ""
+
+#: ../../source/specs/addresses.rst:18
+msgid "Internal"
+msgstr ""
+
+#: ../../source/specs/addresses.rst:20
+msgid ""
+"Internally (in the server and over the wire, i.e. in GRPC requests) "
+"addresses are byte arrays with a length of 33. They represent the "
+"compressed public key of an account."
+msgstr ""
+
+#: ../../source/specs/addresses.rst:23
+msgid ""
+"`Technical explanation of public keys "
+"<http://learnmeabitcoin.com/glossary/public-key>`_"
+msgstr ""
+
+#: ../../source/specs/addresses.rst:25
+msgid ""
+"In the case of smart contracts, the address is generated from a hash of "
+"the creator's account and the creating transaction's nonce, prefixed with"
+" the byte 0x0C to arrive at a compatible length of 33 bytes. As a "
+"developer, you don't have to worry about this: smart contract addresses "
+"can be used just the same as account addresses."
+msgstr ""
+

@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/introduction/index.rst:2
+msgid "Introduction"
+msgstr "AERGO 소개"
+
+#: ../../source/introduction/index.rst:4
+msgid ""
+"Aergo is developing a practical blockchain platform, frameworks, "
+"libraries, and tools."
+msgstr ""
+
+#: ../../source/introduction/index.rst:7
+msgid "Design goals"
+msgstr "설계 목표"
+
+#: ../../source/introduction/index.rst:9
+msgid "There are four main ideologies regarding this project."
+msgstr ""
+
+#: ../../source/introduction/index.rst:11
+msgid "Developer-friendly"
+msgstr "개발자 친화적"
+
+#: ../../source/introduction/index.rst:12
+msgid "Guaranteed performance"
+msgstr "성능 보장"
+
+#: ../../source/introduction/index.rst:13
+msgid "Scalable architecture"
+msgstr "확장성있는 아키텍처"
+
+#: ../../source/introduction/index.rst:14
+msgid "Open, extensible, inter-connectable network"
+msgstr ""
+
+#: ../../source/introduction/index.rst:17
+msgid "Current features"
+msgstr ""
+
+#: ../../source/introduction/index.rst:19
+msgid "BFT-dPOS with voting"
+msgstr "BFT-dPOS 기반 투표"
+
+#: ../../source/introduction/index.rst:20
+msgid "Name system"
+msgstr ""
+
+#: ../../source/introduction/index.rst:21
+msgid "Aergo Lua smart contract"
+msgstr "Aergo Lua 스마트컨트랙트"
+
+#: ../../source/introduction/index.rst:22
+msgid "Ship (development framework, package management)"
+msgstr "Ship (개발 프레임워크, 패키지 관리)"
+
+#: ../../source/introduction/index.rst:23
+msgid "Simple client API"
+msgstr "간결한 클라이언트 API"
+
+#: ../../source/introduction/index.rst:24
+msgid "Client SDKs"
+msgstr "클라이언트 SDK"
+
+#: ../../source/introduction/index.rst:25
+msgid "Sub projects"
+msgstr "부속 프로젝트"
+
+#: ../../source/introduction/index.rst:27
+msgid "Litetree"
+msgstr ""
+
+#: ../../source/introduction/index.rst:28
+msgid "Sparse Merkle Tree"
+msgstr ""
+
+#: ../../source/introduction/index.rst:30
+msgid "Hub Enterprise (management and monitoring)"
+msgstr "Hub 엔터프라이즈 (관리 및 모니터링)"
+
+#: ../../source/introduction/index.rst:31
+msgid "Merkle bridge verification"
+msgstr "머클 브릿지 검증"
+
+#: ../../source/introduction/index.rst:32
+msgid "Testnet deployment"
+msgstr "테스트넷 배치"
+
+#: ../../source/introduction/index.rst:35
+msgid "Roadmap"
+msgstr "로드맵"
+
+#: ../../source/introduction/index.rst:37
+msgid "These features are under active development or planned."
+msgstr "아 기능들은 현재 개발중이거나 계획중입니다."
+
+#: ../../source/introduction/index.rst:39
+msgid "Aergo SQL"
+msgstr ""
+
+#: ../../source/introduction/index.rst:40
+msgid "Parallelism (inter-contract)"
+msgstr ""
+
+#: ../../source/introduction/index.rst:41
+msgid "Simple branching (2WP or simple Plasma)"
+msgstr ""
+
+#: ../../source/introduction/index.rst:42
+msgid "Orchestration with Aergo Horde"
+msgstr ""
+
+#: ../../source/introduction/index.rst:43
+msgid "Service with Aergo Hub"
+msgstr ""
+
+#: ../../source/introduction/index.rst:44
+msgid "Advanced performance features"
+msgstr ""
+

@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specs/fees.rst:2
+msgid "Transaction Fees"
+msgstr ""
+
+#: ../../source/specs/fees.rst:4
+msgid ""
+"The Aergo protocol includes transaction fees that need to be paid "
+"according to the configuration of the network."
+msgstr ""
+
+#: ../../source/specs/fees.rst:6
+msgid ""
+"Currently, the public testnet has a fixed fee of 1 gaer. This fee may "
+"change in the future."
+msgstr ""
+
+#: ../../source/specs/fees.rst:8
+msgid ""
+"Sidechains can configure a custom fee. For private chains, free "
+"transactions are also possible."
+msgstr ""
+

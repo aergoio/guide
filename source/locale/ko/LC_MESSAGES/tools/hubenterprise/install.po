@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/tools/hubenterprise/install.rst:2
+msgid "Installation"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:4
+msgid "This page explains how to install **Hub Enterprise**."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:6
+msgid ""
+"**Hub Enterprise** designed as orchestrate many number of  machines, "
+"which blockchain nodes are run."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:8
+msgid "There are two kind of machines in Hub Eneterprise :"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:10
+msgid ""
+"Horde Master : Hub Enterprise's modules are installed. Manage and control"
+" Horde as kubernetes master."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:11
+msgid ""
+"Horde : Kubernetes worker cluster that Aergo nodes you made are actually "
+"running."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:13
+msgid "The Horde Master consists of several modules :"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:15
+msgid ""
+"Hub : Front end of user interface to manage and monitoring Aergo node "
+"cluster."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:16
+msgid "Hub-abc : Back end of Hub."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:17
+msgid ""
+"Configure chain : Cross-communication window between Hub Enterprise "
+"modules and store data securely through blockchain. Hub Enterprise use "
+"Aergo node."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:18
+msgid "Horde master control : Control module of blockchain managing."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:19
+msgid "Aergo grafana : User interface for monitoring module."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:20
+msgid "Elastic search server : Store and process statistic datas."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:21
+msgid "Fluentd : Get agent's data and send to elastic search server."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:22
+msgid "Metricbeat : Collects machine's status data."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:23
+msgid "HordeStat : Collects blockchain network's status data"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:24
+msgid ""
+"Fluent-bit : Collects and parse blockchain logs data, then send to "
+"Fluentd."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:27
+msgid "Install dependencies"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:29
+msgid ""
+"1. Kubernetes Hub Enterprise use kubernetes for create Horde cluster. "
+"Follow `kubernetes official guide <https://kubernetes.io/docs/setup/>`_ "
+"to install kubernetes."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:35
+msgid ""
+"Kubernetes use specific version of docker. If you already installed "
+"docker, please check your docker supports kubernetes in `here "
+"<https://kubernetes.io/docs/setup/release/notes/>`_. If not, reinstall "
+"docker."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:37
+msgid "Essential kubernetes modules to run Hub enterprise :"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:39
+msgid "kubeadm"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:40
+msgid "kubelet"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:41
+msgid "kubectl"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:43
+msgid ""
+"2. Kubernetes network plugin To run multi-cluster Hub enterprise, you "
+"need to install `kubernetes network plugin "
+"<https://kubernetes.io/docs/concepts/cluster-"
+"administration/networking/>`_ for pod network. We suggest to install "
+"`flannel <https://github.com/coreos/flannel#flannel>`_."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:47
+msgid "Install managing modules"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:48
+msgid "All modules are installed and run as kubernetes container."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:58
+msgid "Install monitoring modules"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:59
+msgid ""
+"**Install from packages** To run monitoring module, you need to `install "
+"docker <https://docs.docker.com/install/>`_ first."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:62
+msgid ""
+"1. Elastic search server and aergo grafana Install at Horde Master "
+"machine."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:70
+msgid ""
+"2. Fluentd Install at Horde Master machine. To install FluentD, follow "
+"`this article <https://support.treasuredata.com/hc/en-"
+"us/articles/360001525887-Installing-and-Updating-the-Treasure-Data-"
+"CLI>`_."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:73
+msgid ""
+"Before run fluentd, edit td-agent configuration file in /etc/td-agent/td-"
+"agent.conf"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:100
+msgid "Run fluend as service"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:106
+msgid "3. Metricbeat Install at every Horde machine."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:114
+msgid ""
+"Edit metricbeat configuration file in /etc/metricbeat/metricbeat.yml "
+"before run metricbeat"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:164
+msgid "4. HordeStat Install at Horde Master machine."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:171
+msgid ""
+"5. Fluent-bit Install at Horde Machine. To install fluent-bit, follow "
+"`fluent-bit official install document "
+"<https://fluentbit.io/documentation/current/installation/>`_ Edit fluent-"
+"bit configuration file in /etc/td-agent-bit/td-agent-bit.conf"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:219
+msgid "Insert follow fluent-bit parser in /etc/td-agent-bit/parsers.conf"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/install.rst:224
+msgid "**Install as kubernetes container**"
+msgstr ""
+

@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/contribution/building-from-source.rst:2
+msgid "Building from Source"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:4
+msgid "This page explains how you can build aergo from source."
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:6
+msgid ""
+"If you are only interested in running the aergo tools, it is easier to "
+"use pre-built binaries or Docker images instead, as explained in "
+"`Quickstart <../running-node/quickstart.html>`_."
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:9
+msgid "Linux"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:11
+#: ../../source/contribution/building-from-source.rst:29
+msgid "Install dependencies ::"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:17
+#: ../../source/contribution/building-from-source.rst:37
+msgid "Install aergo ::"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:26
+msgid "macOS"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:28
+msgid "If you haven't already, install `homebrew <https://brew.sh/>`_."
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:46
+msgid "Run server ::"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:52
+msgid "Windows"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:54
+msgid "Building on Windows is currently not supported."
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:57
+msgid "Generating protobuf files"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:59
+msgid ""
+"If you changed the protobuf files, you need to re-compile the type "
+"definitions."
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:61
+msgid "Install protoc-gen-go ::"
+msgstr ""
+
+#: ../../source/contribution/building-from-source.rst:69
+msgid "Generate type definitions from protobuf files ::"
+msgstr ""
+

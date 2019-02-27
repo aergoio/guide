@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/running-node/advanced-topics.rst:2
+msgid "Advanced Topics"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:5
+msgid "Genesis block configuration"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:7
+msgid ""
+"The genesis block is the first block created on a new chain according to "
+"a predefined specification. If you want to bootstrap your own Aergo "
+"blockchain, you will need to configure and create the genesis block. All "
+"nodes producing blocks and syncing with the network need to use the same "
+"genesis block."
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:11
+msgid ""
+"You can find an example genesis configuration json file `here "
+"<https://github.com/aergoio/aergo-"
+"docker/blob/1ad16cf7881d9ba8f2efc350cf609c9416e76666/node/testnet-"
+"genesis.json>`_. It is the one used for the public testnet."
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:15
+msgid "Key"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:15
+msgid "Type"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:15
+msgid "Explanation"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:17
+msgid "chain_id"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:17
+#: ../../source/running-node/advanced-topics.rst:24
+msgid "obj"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:18
+msgid "– magic"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:18
+#: ../../source/running-node/advanced-topics.rst:21
+#: ../../source/running-node/advanced-topics.rst:22
+msgid "string"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:18
+msgid ""
+"A name identifier used to distinguish different chains. Example: "
+"testnet.aergo.io"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:19
+msgid "– public"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:19
+#: ../../source/running-node/advanced-topics.rst:20
+msgid "bool"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:19
+msgid ""
+"If this chain is for a public (true) or private network. This may affect "
+"certain features."
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:20
+msgid "– mainnet"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:20
+msgid "If this is the main network (true) or a sidechain for another network."
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:21
+msgid "– consensus"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:21
+msgid "This blockchain's consensus type (dpos)"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:22
+msgid "– coinbasefee"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:22
+msgid "The default transaction fee amount"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:23
+msgid "timestamp"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:23
+msgid "number"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:23
+msgid "The genesis block's creation timestamp in nanoseconds"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:24
+msgid "balance"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:24
+msgid "A mapping of addresses and allocated balances"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:25
+msgid "bps"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:25
+msgid "list"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:25
+msgid "A list of fallback block producer peer ids."
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:29
+msgid "Manually creating peer identification"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:31
+msgid ""
+"Every peer (i.e. instance of aergosvr) is identified by a peer id, "
+"derived from its public key. If unspecified, aergosvr creates these "
+"automatically, but you may want to do it manually to control the "
+"generation of keys and make backups. You can use the CLI to do that:"
+msgstr ""
+
+#: ../../source/running-node/advanced-topics.rst:42
+msgid ""
+"You then need to specify the path to the generated your-keyname.key file "
+"in the Aergo configuration:"
+msgstr ""
+

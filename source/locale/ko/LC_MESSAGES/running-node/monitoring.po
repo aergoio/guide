@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/running-node/monitoring.md:1
+msgid "Monitoring"
+msgstr ""
+
+#: ../../source/running-node/monitoring.md:4
+msgid ""
+"Aergo server has 5 major subcomponents: Account, Chain, MemPool, RPC, and"
+" P2P."
+msgstr ""
+
+#: ../../source/running-node/monitoring.md:6
+msgid ""
+"We can get status of component using aergocli node command (see here for "
+"detail)."
+msgstr ""
+
+#: ../../source/running-node/monitoring.md:60
+msgid "As it shown above, each component has 6 values, which are"
+msgstr ""
+

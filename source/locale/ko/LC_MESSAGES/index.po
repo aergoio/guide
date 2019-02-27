@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: 2019-02-27 14:15+0900\n"
+"Last-Translator: Hayarobi Park <hayarobipark@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/index.rst:2
+msgid "Welcome to the AERGO Guide!"
+msgstr "AERGO에 오신 것을 환영합니다!"
+
+#: ../../source/index.rst:4
+msgid ""
+"AERGO is an open blockchain platform that allows businesses to build "
+"innovative applications and services by sharing data on a trustless and "
+"distributed IT ecosystem. AERGO combines the best of public and private "
+"blockchains to be scalable, enterprise-ready, and easy to develop with."
+msgstr ""
+"AERGO는 비지니스 환경에서 무신뢰 분산 IT 에코시스템하에서 데이터를 공유하는 혁신적인 어플리케이션과 서비스를 구축하기 위한 개방형 블록체인 플랫폼입니다."
+"TODO: "
+
+#: ../../source/index.rst:7
+msgid ""
+"This website contains guides for developers to get started developing "
+"with AERGO and detailed references."
+msgstr ""
+"이 웹 사이트는 개발자에게 AERGO를 개발하는 데 필요한 시작점과 상세 정보를 제공합니다."
+
+#: ../../source/index.rst:9
+msgid "Platform"
+msgstr ""
+
+#: ../../source/index.rst:23
+msgid "Tools and API"
+msgstr ""
+

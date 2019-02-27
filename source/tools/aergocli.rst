@@ -293,6 +293,7 @@ Show connected peers
 Use getpeers to show list of peers connected to a aergosvr.
 
 It shows remote peers by default, but with :code:`--self` options, local aergosvr itself is shown in list. You can find it by checking :code:`Self` property.
+If you show only opened peers, use with :code:`--nohidden` options.
 
 .. code-block:: shell
 

@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/running-node/configure-network.rst:2
+msgid "Configuring a Network"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:4
+msgid ""
+"This article explains the steps needed to configure a network of multiple"
+" block producers. You can follow this guide to setup a private Aergo "
+"blockchain network."
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:7
+msgid ""
+"This guide specifically requires no prior setup, so it should be easy to "
+"follow along with new bare machines running Ubuntu. It has been tested "
+"with AWS EC2 instances. We will setup three block producers, but you can "
+"adjust the procedure to any number of BPs."
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:11
+msgid "Per-machine setup"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:13
+msgid "**Install Docker**"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:15
+msgid "You will need Docker for this setup, so let's install that now."
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:22
+msgid "**NTP**"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:24
+msgid ""
+"Timing is critical in a blockchain, so it's better to configure the "
+"machines' time setup manually:"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:45
+msgid "Generate BP accounts and keys"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:47
+msgid "You can use any machine (e.g. your own local machine) for this."
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:49
+msgid ""
+"Start by installing `aergocli <../tools/aergocli.html>`__ if you haven't "
+"already."
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:51
+msgid "**Generate accounts**"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:67
+msgid "**Export accounts**"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:83
+msgid "**Generate peer keys**"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:97
+msgid "Write configuration files"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:99
+msgid "**genesis.json** (same for all machines)"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:125
+msgid "**config.toml** (one per machine)"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:179
+msgid "Running"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:181
+msgid ""
+"We are going to use the Docker image `aergo/node "
+"<https://hub.docker.com/r/aergo/node/>`__ to run the server. Please refer"
+" to the `Docker documentation "
+"<https://docs.docker.com/engine/reference/run/>`__ for learn about the "
+"available run options."
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:184
+msgid "**Check the directory contents**"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:186
+msgid ""
+"After following the above steps, you should now have these files in one "
+"directory for each machine. In this example we use the path /blockchain, "
+"but you can use any directory as long as you substitute its local path in"
+" the Docker run commands below."
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:196
+msgid "**Create genesis block**"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:205
+msgid "**Start the node**"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:217
+msgid "Further reading"
+msgstr ""
+
+#: ../../source/running-node/configure-network.rst:219
+msgid ""
+"You may now want to setup further `full nodes <configuration.html>`__ as "
+"well as `Polaris <../tools/polaris.html>`__ for automatic node discovery."
+msgstr ""
+

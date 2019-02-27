@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/grpc.rst:2
+msgid "Using gRPC"
+msgstr ""
+
+#: ../../source/api/grpc.rst:4
+msgid ""
+"gRPC is a standard for RPC APIs using protobuffer messages for data "
+"exchange. The main advantages are typed messages and efficiency: data is "
+"packed tightly and sent over HTTP2."
+msgstr ""
+
+#: ../../source/api/grpc.rst:7
+msgid ""
+"If you want to use the gRPC API directly, please refer to the `official "
+"documentation <https://grpc.io/>`_ to get started. You can find the "
+"protobuf definitions in `aergoio/aergo-protobuf "
+"<https://github.com/aergoio/aergo-protobuf>`_."
+msgstr ""
+
+#: ../../source/api/grpc.rst:10
+msgid ""
+"Alternatively, you can use one of the `SDKs <../sdks/index.html>`_ which "
+"wrap the same functionality in language-specific styles."
+msgstr ""
+

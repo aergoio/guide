@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, AERGO team and contributors
+# This file is distributed under the same license as the aergo-guide
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aergo-guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-27 13:45+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/tools/hubenterprise/introduce.rst:2
+msgid "Introduction"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:4
+msgid ""
+"**Hub Enterprise** is a framework that can manage and monitor **Aergo "
+"blockchain** and the nodes that make up this blockchain for enterprise "
+"customer."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:7
+msgid ""
+"Hub Enterprise provides a Web UI that makes it easier to manage block "
+"chains for users."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:9
+msgid "Hub Enterprise offers three key features:"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:11
+msgid "Managing Blockchain & Blockchain node"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:12
+msgid "Monitoring Blockchain & Blockchain node"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:13
+msgid "Deploying and Managing Smart Contract"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:16
+msgid "Managing Blockchain and Blockchain Node"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:17
+msgid "**Create blockchain**"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:19
+msgid "The following user input arguments are required to create a blockchain:"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:21
+msgid "Name : Blockchain name"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:22
+msgid "bNodes : Number of nodes to be used for this blockchain"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:24
+msgid ""
+"As many blockchain nodes as you enter are created, which run in one of a "
+"Docker container provided by the node provider. Blockchain nodes in one "
+"blockchain are joined by peer to each other, and are fully connected. "
+"Peer for each blockchain node can be set and checked in the config file."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:27
+msgid ""
+"After you create the block chain, you can use the returned IDs of "
+"blockchain nodes to check the information of each node. The Web address "
+"for viewing information on the blockchain node is as follows:"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:34
+msgid ""
+"Now you can use the blockchain in Hub Enterprise. You can manage and "
+"monitor the blockchain."
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:37
+msgid "Monitoring Blockchain and Blockchain Node"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:38
+msgid "**Monitoring Blockchain**"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:40
+msgid ""
+"You can monitor the created blockchain and monitor the following "
+"resources:"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:42
+msgid "Best Block for each Block Provider"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:43
+msgid "Transactions performed per minute"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:44
+msgid "CPU"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:45
+msgid "RAM"
+msgstr ""
+
+#: ../../source/tools/hubenterprise/introduce.rst:46
+msgid "Aergo log"
+msgstr ""
+
