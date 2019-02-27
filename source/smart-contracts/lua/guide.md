@@ -392,8 +392,9 @@ You can use the following contraints.
 `aergocli` is a command line tool that interfaces with the GRPC exposed by `aergosvr`.
 
 It provides smart contract-related commands as follows:
-* contract deploy/call/query/abi
+* contract deploy/call/query/abi/statequery
 * receipt get
+* event list/stream
 
 * [Reference](../../tools/aergocli.html)
 
