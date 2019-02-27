@@ -78,9 +78,46 @@ Look up the actual contract address with the transaction ID above.
  "usedFee": 10,
  "events": []
 }
-```
+``` bash
 
 If the status is not 'CREATED', it may not be included in the block yet, or there may be an error. Wait a while until the transaction is included in the block. Or check the server's error log.
+
+### Get ABI of contract
+Look up ABI of contract with the contract address above.
+
+``` bash
+./aergocli contract abi AmfzX3SHXVTBU9NSEWXaLxxjN11KsUpm1Gb3YjF7kmsHrgmL41WU
+{
+ "version": "0.2",
+ "language": "lua",
+ "functions": [
+  {
+   "name": "hello"
+  },
+  {
+   "name": "set_name",
+   "arguments": [
+    {
+     "name": "name"
+    }
+   ]
+  },
+  {
+   "name": "constructor"
+  }
+ ],
+ "state_variables": [
+  {
+   "name": "Name",
+   "type": "value"
+  },
+  {
+   "name": "My_map",
+   "type": "map"
+  }
+ ]
+}
+``` bash
 
 ### Query Initial State
 You can query the generated contract in the following way.
