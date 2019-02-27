@@ -117,7 +117,20 @@ contract.balance("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod")
 ### event(eventName, args...)
 This function causes eventName and args to remain in the contract result receipt. The user can search for event and receive notification the event with rpc when the receipt is added to the blockchain.
 ```lua
-contract.event("send", 0, "toaddress") 
+contract.event("send", 1, "toaddress") 
+```
+#### Search event and receive notification with aergocli
+you can search for events with event name "send" in the contract address(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)
+``` bash
+./aergocli event list --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event send
+```
+you can search for events with event argument 0 is 1 and argument 1 is "toaddress" in the contract address(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)
+``` bash
+./aergocli event list --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --argfilter '{"0":1, "1":"toaddress"}'
+```
+you can get notified for events with event name "send" for contract(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)
+``` bash
+./aergocli event stream --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event send
 ```
 
 ## Built-in Functions
