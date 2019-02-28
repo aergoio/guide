@@ -28,7 +28,7 @@ To change mapping the name:
 
 .. code-block:: text
 
-    aergocli name update --from my_unlocked_account_address --to account_address --name my12charname
+    aergocli name update --from my_unlocked_account_address --to account_address_or_contract_address --name my12charname
 
 
 Technical details
