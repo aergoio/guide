@@ -19,6 +19,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [CommitResult](#types.CommitResult)
     - [CommitResultList](#types.CommitResultList)
     - [Empty](#types.Empty)
+    - [EventList](#types.EventList)
     - [ImportFormat](#types.ImportFormat)
     - [Input](#types.Input)
     - [ListParams](#types.ListParams)
@@ -29,6 +30,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [PageParams](#types.PageParams)
     - [Peer](#types.Peer)
     - [PeerList](#types.PeerList)
+    - [PeersParams](#types.PeersParams)
     - [Personal](#types.Personal)
     - [SingleBytes](#types.SingleBytes)
     - [Staking](#types.Staking)
@@ -49,6 +51,8 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [BlockBody](#types.BlockBody)
     - [BlockHeader](#types.BlockHeader)
     - [ContractVarProof](#types.ContractVarProof)
+    - [Event](#types.Event)
+    - [FilterInfo](#types.FilterInfo)
     - [FnArgument](#types.FnArgument)
     - [Function](#types.Function)
     - [Query](#types.Query)
@@ -94,41 +98,216 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 AergoRPCService is the main RPC service providing endpoints to interact 
 with the node and blockchain. If not otherwise noted, methods are unary requests.
 
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| NodeState | [NodeReq](#types.NodeReq) | [SingleBytes](#types.SingleBytes) | Returns the current state of this node |
-| Metric | [MetricsRequest](#types.MetricsRequest) | [Metrics](#types.Metrics) | Returns node metrics according to request |
-| Blockchain | [Empty](#types.Empty) | [BlockchainStatus](#types.BlockchainStatus) | Returns current blockchain status (best block's height and hash) |
-| GetChainInfo | [Empty](#types.Empty) | [ChainInfo](#types.ChainInfo) | Returns current blockchain's basic information |
-| ListBlockHeaders | [ListParams](#types.ListParams) | [BlockHeaderList](#types.BlockHeaderList) | Returns list of Blocks without body according to request |
-| ListBlockMetadata | [ListParams](#types.ListParams) | [BlockMetadataList](#types.BlockMetadataList) | Returns list of block metadata (hash, header, and number of transactions) according to request |
-| ListBlockStream | [Empty](#types.Empty) | [Block](#types.Block) | Returns a stream of new blocks as they get added to the blockchain |
-| ListBlockMetadataStream | [Empty](#types.Empty) | [BlockMetadata](#types.BlockMetadata) | Returns a stream of new block's metadata as they get added to the blockchain |
-| GetBlock | [SingleBytes](#types.SingleBytes) | [Block](#types.Block) | Return a single block incl. header and body, queried by hash or number |
-| GetBlockMetadata | [SingleBytes](#types.SingleBytes) | [BlockMetadata](#types.BlockMetadata) | Return a single block's metdata (hash, header, and number of transactions), queried by hash or number |
-| GetBlockBody | [BlockBodyParams](#types.BlockBodyParams) | [BlockBodyPaged](#types.BlockBodyPaged) | Return a single block's body, queried by hash or number and list parameters |
-| GetTX | [SingleBytes](#types.SingleBytes) | [Tx](#types.Tx) | Return a single transaction, queried by transaction hash |
-| GetBlockTX | [SingleBytes](#types.SingleBytes) | [TxInBlock](#types.TxInBlock) | Return information about transaction in block, queried by transaction hash |
-| GetReceipt | [SingleBytes](#types.SingleBytes) | [Receipt](#types.Receipt) | Return transaction receipt, queried by transaction hash |
-| GetABI | [SingleBytes](#types.SingleBytes) | [ABI](#types.ABI) | Return ABI stored at contract address |
-| SendTX | [Tx](#types.Tx) | [CommitResult](#types.CommitResult) | Sign and send a transaction from an unlocked account |
-| SignTX | [Tx](#types.Tx) | [Tx](#types.Tx) | Sign transaction with unlocked account |
-| VerifyTX | [Tx](#types.Tx) | [VerifyResult](#types.VerifyResult) | Verify validity of transaction |
-| CommitTX | [TxList](#types.TxList) | [CommitResultList](#types.CommitResultList) | Commit a signed transaction |
-| GetState | [SingleBytes](#types.SingleBytes) | [State](#types.State) | Return state of account |
-| GetStateAndProof | [AccountAndRoot](#types.AccountAndRoot) | [AccountProof](#types.AccountProof) | Return state of account, including merkle proof |
-| CreateAccount | [Personal](#types.Personal) | [Account](#types.Account) | Create a new account in this node |
-| GetAccounts | [Empty](#types.Empty) | [AccountList](#types.AccountList) | Return list of accounts in this node |
-| LockAccount | [Personal](#types.Personal) | [Account](#types.Account) | Lock account in this node |
-| UnlockAccount | [Personal](#types.Personal) | [Account](#types.Account) | Unlock account in this node |
-| ImportAccount | [ImportFormat](#types.ImportFormat) | [Account](#types.Account) | Import account to this node |
-| ExportAccount | [Personal](#types.Personal) | [SingleBytes](#types.SingleBytes) | Export account stored in this node |
-| QueryContract | [Query](#types.Query) | [SingleBytes](#types.SingleBytes) | Query a contract method |
-| QueryContractState | [StateQuery](#types.StateQuery) | [StateQueryProof](#types.StateQueryProof) | Query contract state |
-| GetPeers | [Empty](#types.Empty) | [PeerList](#types.PeerList) | Return list of peers of this node and their state |
-| GetVotes | [SingleBytes](#types.SingleBytes) | [VoteList](#types.VoteList) | Return list of votes |
-| GetStaking | [SingleBytes](#types.SingleBytes) | [Staking](#types.Staking) | Return staking information |
-| GetNameInfo | [Name](#types.Name) | [NameInfo](#types.NameInfo) | Return name information |
+#### NodeState
+
+*Request Type:* [NodeReq](#types.NodeReq)<br>
+*Response Type:* [SingleBytes](#types.SingleBytes)
+
+Returns the current state of this node
+#### Metric
+
+*Request Type:* [MetricsRequest](#types.MetricsRequest)<br>
+*Response Type:* [Metrics](#types.Metrics)
+
+Returns node metrics according to request
+#### Blockchain
+
+*Request Type:* [Empty](#types.Empty)<br>
+*Response Type:* [BlockchainStatus](#types.BlockchainStatus)
+
+Returns current blockchain status (best block's height and hash)
+#### GetChainInfo
+
+*Request Type:* [Empty](#types.Empty)<br>
+*Response Type:* [ChainInfo](#types.ChainInfo)
+
+Returns current blockchain's basic information
+#### ListBlockHeaders
+
+*Request Type:* [ListParams](#types.ListParams)<br>
+*Response Type:* [BlockHeaderList](#types.BlockHeaderList)
+
+Returns list of Blocks without body according to request
+#### ListBlockMetadata
+
+*Request Type:* [ListParams](#types.ListParams)<br>
+*Response Type:* [BlockMetadataList](#types.BlockMetadataList)
+
+Returns list of block metadata (hash, header, and number of transactions) according to request
+#### ListBlockStream
+
+*Request Type:* [Empty](#types.Empty)<br>
+*Response Type:* [Block](#types.Block)
+
+Returns a stream of new blocks as they get added to the blockchain
+#### ListBlockMetadataStream
+
+*Request Type:* [Empty](#types.Empty)<br>
+*Response Type:* [BlockMetadata](#types.BlockMetadata)
+
+Returns a stream of new block's metadata as they get added to the blockchain
+#### GetBlock
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [Block](#types.Block)
+
+Return a single block incl. header and body, queried by hash or number
+#### GetBlockMetadata
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [BlockMetadata](#types.BlockMetadata)
+
+Return a single block's metdata (hash, header, and number of transactions), queried by hash or number
+#### GetBlockBody
+
+*Request Type:* [BlockBodyParams](#types.BlockBodyParams)<br>
+*Response Type:* [BlockBodyPaged](#types.BlockBodyPaged)
+
+Return a single block's body, queried by hash or number and list parameters
+#### GetTX
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [Tx](#types.Tx)
+
+Return a single transaction, queried by transaction hash
+#### GetBlockTX
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [TxInBlock](#types.TxInBlock)
+
+Return information about transaction in block, queried by transaction hash
+#### GetReceipt
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [Receipt](#types.Receipt)
+
+Return transaction receipt, queried by transaction hash
+#### GetABI
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [ABI](#types.ABI)
+
+Return ABI stored at contract address
+#### SendTX
+
+*Request Type:* [Tx](#types.Tx)<br>
+*Response Type:* [CommitResult](#types.CommitResult)
+
+Sign and send a transaction from an unlocked account
+#### SignTX
+
+*Request Type:* [Tx](#types.Tx)<br>
+*Response Type:* [Tx](#types.Tx)
+
+Sign transaction with unlocked account
+#### VerifyTX
+
+*Request Type:* [Tx](#types.Tx)<br>
+*Response Type:* [VerifyResult](#types.VerifyResult)
+
+Verify validity of transaction
+#### CommitTX
+
+*Request Type:* [TxList](#types.TxList)<br>
+*Response Type:* [CommitResultList](#types.CommitResultList)
+
+Commit a signed transaction
+#### GetState
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [State](#types.State)
+
+Return state of account
+#### GetStateAndProof
+
+*Request Type:* [AccountAndRoot](#types.AccountAndRoot)<br>
+*Response Type:* [AccountProof](#types.AccountProof)
+
+Return state of account, including merkle proof
+#### CreateAccount
+
+*Request Type:* [Personal](#types.Personal)<br>
+*Response Type:* [Account](#types.Account)
+
+Create a new account in this node
+#### GetAccounts
+
+*Request Type:* [Empty](#types.Empty)<br>
+*Response Type:* [AccountList](#types.AccountList)
+
+Return list of accounts in this node
+#### LockAccount
+
+*Request Type:* [Personal](#types.Personal)<br>
+*Response Type:* [Account](#types.Account)
+
+Lock account in this node
+#### UnlockAccount
+
+*Request Type:* [Personal](#types.Personal)<br>
+*Response Type:* [Account](#types.Account)
+
+Unlock account in this node
+#### ImportAccount
+
+*Request Type:* [ImportFormat](#types.ImportFormat)<br>
+*Response Type:* [Account](#types.Account)
+
+Import account to this node
+#### ExportAccount
+
+*Request Type:* [Personal](#types.Personal)<br>
+*Response Type:* [SingleBytes](#types.SingleBytes)
+
+Export account stored in this node
+#### QueryContract
+
+*Request Type:* [Query](#types.Query)<br>
+*Response Type:* [SingleBytes](#types.SingleBytes)
+
+Query a contract method
+#### QueryContractState
+
+*Request Type:* [StateQuery](#types.StateQuery)<br>
+*Response Type:* [StateQueryProof](#types.StateQueryProof)
+
+Query contract state
+#### GetPeers
+
+*Request Type:* [PeersParams](#types.PeersParams)<br>
+*Response Type:* [PeerList](#types.PeerList)
+
+Return list of peers of this node and their state
+#### GetVotes
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [VoteList](#types.VoteList)
+
+Return list of votes
+#### GetStaking
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [Staking](#types.Staking)
+
+Return staking information
+#### GetNameInfo
+
+*Request Type:* [Name](#types.Name)<br>
+*Response Type:* [NameInfo](#types.NameInfo)
+
+Return name information
+#### ListEventStream
+
+*Request Type:* [FilterInfo](#types.FilterInfo)<br>
+*Response Type:* [Event](#types.Event)
+
+Returns a stream of event as they get added to the blockchain
+#### ListEvents
+
+*Request Type:* [FilterInfo](#types.FilterInfo)<br>
+*Response Type:* [EventList](#types.EventList)
+
+Returns list of event
 
  <!-- end services -->
 
@@ -327,6 +506,21 @@ ChainInfo returns chain configuration
 
 
 
+<a name="types.EventList"></a>
+
+### EventList
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| events | [Event](#types.Event) | repeated |  |
+
+
+
+
+
+
 <a name="types.ImportFormat"></a>
 
 ### ImportFormat
@@ -406,6 +600,7 @@ ChainInfo returns chain configuration
 | ----- | ---- | ----- | ----------- |
 | name | [Name](#types.Name) |  |  |
 | owner | [bytes](#bytes) |  |  |
+| destination | [bytes](#bytes) |  |  |
 
 
 
@@ -475,6 +670,7 @@ ChainInfo returns chain configuration
 | state | [int32](#int32) |  |  |
 | hidden | [bool](#bool) |  |  |
 | lashCheck | [int64](#int64) |  |  |
+| selfpeer | [bool](#bool) |  |  |
 
 
 
@@ -490,6 +686,22 @@ ChainInfo returns chain configuration
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | peers | [Peer](#types.Peer) | repeated |  |
+
+
+
+
+
+
+<a name="types.PeersParams"></a>
+
+### PeersParams
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| noHidden | [bool](#bool) |  |  |
+| showSelf | [bool](#bool) |  |  |
 
 
 
@@ -759,6 +971,49 @@ ChainInfo returns chain configuration
 
 
 
+<a name="types.Event"></a>
+
+### Event
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contractAddress | [bytes](#bytes) |  |  |
+| eventName | [string](#string) |  |  |
+| jsonArgs | [string](#string) |  |  |
+| eventIdx | [int32](#int32) |  |  |
+| txHash | [bytes](#bytes) |  |  |
+| blockHash | [bytes](#bytes) |  |  |
+| blockNo | [uint64](#uint64) |  |  |
+| txIndex | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="types.FilterInfo"></a>
+
+### FilterInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contractAddress | [bytes](#bytes) |  |  |
+| eventName | [string](#string) |  |  |
+| blockfrom | [uint64](#uint64) |  |  |
+| blockto | [uint64](#uint64) |  |  |
+| desc | [bool](#bool) |  |  |
+| argFilter | [bytes](#bytes) |  |  |
+| recentBlockCnt | [int32](#int32) |  |  |
+
+
+
+
+
+
 <a name="types.FnArgument"></a>
 
 ### FnArgument
@@ -817,6 +1072,16 @@ ChainInfo returns chain configuration
 | contractAddress | [bytes](#bytes) |  |  |
 | status | [string](#string) |  |  |
 | ret | [string](#string) |  |  |
+| txHash | [bytes](#bytes) |  |  |
+| feeUsed | [bytes](#bytes) |  |  |
+| cumulativeFeeUsed | [bytes](#bytes) |  |  |
+| bloom | [bytes](#bytes) |  |  |
+| events | [Event](#types.Event) | repeated |  |
+| blockNo | [uint64](#uint64) |  |  |
+| blockHash | [bytes](#bytes) |  |  |
+| txIndex | [int32](#int32) |  |  |
+| from | [bytes](#bytes) |  |  |
+| to | [bytes](#bytes) |  |  |
 
 
 

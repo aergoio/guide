@@ -30,10 +30,13 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 ### {{.Name}}
 {{.Description}}
 
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
 {{range .Methods -}}
-  | {{.Name}} | [{{.RequestLongType}}](#{{.RequestFullType}}) | [{{.ResponseLongType}}](#{{.ResponseFullType}}) | {{nobr .Description}} |
+#### {{.Name}}
+
+*Request Type:* [{{.RequestLongType}}](#{{.RequestFullType}})<br>
+*Response Type:* [{{.ResponseLongType}}](#{{.ResponseFullType}})
+
+{{.Description}}
 {{end}}
 {{end}} <!-- end services -->
 
