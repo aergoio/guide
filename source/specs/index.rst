@@ -9,6 +9,7 @@ Technical Specifications
    names
    consensus
    transactions
+   contracts
    fees
    blocks
    p2p/index

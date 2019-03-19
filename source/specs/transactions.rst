@@ -15,9 +15,9 @@ Tx
 +      +-----------+--------+-----------------------------------------------------+
 |      | Recipient | bytes  | Decoded receiver account address                    |
 +      +-----------+--------+-----------------------------------------------------+
-|      | Amount    |  bytes | Amount of transfer                                  |
+|      | Amount    | bytes  | Amount of transfer                                  |
 +      +-----------+--------+-----------------------------------------------------+
-|      | Payload   |  bytes | Smart contract data                                 |
+|      | Payload   | bytes  | Smart contract data                                 |
 +      +-----------+--------+-----------------------------------------------------+
 |      | Limit     | uint64 | Reserved                                            |
 +      +-----------+--------+-----------------------------------------------------+
@@ -27,6 +27,12 @@ Tx
 +      +-----------+--------+-----------------------------------------------------+
 |      | Sign      | bytes  | ECDSA signature with secp256k1                      |
 +------+-----------+--------+-----------------------------------------------------+
+
+Payload
+-------
+
+A payload can be any kind of binary data, but is most often used with JSON strings for
+`smart contract calls <contracts.html>`__.
 
 Transaction types
 -----------------
