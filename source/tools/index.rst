@@ -9,4 +9,3 @@ Tools
    ship
    brick
    polaris
-   hubenterprise/index
