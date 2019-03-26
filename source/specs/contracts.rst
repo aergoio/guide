@@ -23,4 +23,9 @@ Calling Contracts
 To call contract methods, send a transaction to the contract's address specifying the
 function name and arguments as JSON payload.
 
+Events
+------
 
+Contracts can log events during execution. This is the preferred way to notify the outside world of important state changes.
+
+Logged events can be found as part of the transaction receipt and also easily searched for using the GetEvents API.
