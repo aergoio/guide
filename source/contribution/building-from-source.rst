@@ -22,6 +22,10 @@ Linux
         git submodule init && git submodule update
         make
 
+3. Set environment
+   ::
+      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GOPATH}/src/github.com/aergoio/aergo/libtool/lib
+
 macOS
 -----
 
@@ -43,7 +47,11 @@ macOS
         git submodule update
         make
 
-4. Run server
+4. Set environment
+   ::
+      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GOPATH}/src/github.com/aergoio/aergo/libtool/lib
+
+5. Run server
    ::
 
         ./bin/aergosvr
