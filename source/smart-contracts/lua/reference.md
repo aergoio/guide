@@ -133,7 +133,7 @@ you can get notified for events with event name "send" for contract(AmhbdCEg4TUF
 ./aergocli event stream --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event send
 ```
 
-### stake(amount), unstake(amount), vote([bps])
+### stake(amount), unstake(amount), vote([bps,...])
 you can do governance(stake, unstake, vote) in contract with contract address
 
 ```lua
