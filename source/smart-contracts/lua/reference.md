@@ -133,6 +133,15 @@ you can get notified for events with event name "send" for contract(AmhbdCEg4TUF
 ./aergocli event stream --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event send
 ```
 
+### stake(amount), unstake(amount), vote([bps])
+you can do governance(stake, unstake, vote) in contract with contract address
+
+```lua
+contract.stake("1 aergo") 
+contract.vote(["<bp1 address>", "<bp2 address>"....)
+contract.unstake("1 aergo")
+```
+
 ## Built-in Functions
 Lua provides the language itself as a useful function and basic package. It provides useful functions such as string management functions, so you can easily create smart contracts using these functions. Please refer to the Lua Reference Manual for detailed syntax, explanation, basic built-in functions and packages.
 
