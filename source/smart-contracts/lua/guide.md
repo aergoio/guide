@@ -248,6 +248,25 @@ abi.payable(RecieveAergo)
 ./aergocli contract call --amount=10 <sender> <contract> NotReceiveAergo  # fail
 ```
 
+##### view
+The `view` is a property of a function. Functions can be declared view in which case they promise not to modify the state(send aergo, emit event, set state, etc...).
+We can make a view function using `abi.register_view()`. `register_view` functions are automatically exported. Therefore, you do not have to register using the `abi.register`. 
+
+You can call the ReceiveAergo with aergo, But you can not call the NotReceiveAergo:
+
+```lua
+...
+function sendAergo()
+  contract.send(addr, "1 aergo")
+end
+
+abi.register_view(sendAergo)
+```
+
+```shell
+./aergocli contract call <sender> <contract> sendAergo  # fail
+```
+
 ## SQL
 
 Aergo smart contract has `db` library that supports SQL features.
