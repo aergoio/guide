@@ -62,6 +62,9 @@ create name  :code:`aergo.name`    1 aergo            :code:`{"Name":"v1createNa
 update name  :code:`aergo.name`    1 aergo            :code:`{"Name":"v1updateName","Args":[<a name string>, <new owner address>]}`
 ===========  ====================  =================  ==========================================
 
+The aergo.system transactions, including staking, unstaking and voting, can be sent about once per day per account.
+For staking and unstaking, there is a limit to the amount of requests. It must be over 10000 aergo based on the amount of staked. Therefore, the first staking request should exceed 10000 aergo, and in the case of the unstaking request, more than 10000 must be left or withdrawn altogether.
+
 Transaction receipts
 --------------------
 
