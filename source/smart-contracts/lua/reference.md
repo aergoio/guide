@@ -119,6 +119,12 @@ This function causes eventName and args to remain in the contract result receipt
 ```lua
 contract.event("send", 1, "toaddress") 
 ```
+#### Restrictions
+Before the fee system for smart contract is applied to mainnet, there are the following restrictions
+- limit length of event name to 64
+- limit size of event argument to 512
+- limit the number of events in one transaction to 50
+
 #### Search event and receive notification with aergocli
 you can search for events with event name "send" in the contract address(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)
 ``` bash
