@@ -91,11 +91,19 @@ Value function can get string, number, bignum argument like send function.
 contract.call("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 1)
 contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 2)
 ```
+#### Restrictions
+Before the fee system for smart contract is applied to mainnet, there are the following restrictions
+- limit the count of call or delegatecall in one transaction to 10
+
 ### delegatecall(address, function_name, args...)
 The delegatecall function returns the result of the function of the calling process, executed in the state in the current address.
 ```lua
 contract.delegatecall("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 1)
 ```
+#### Restrictions
+Before the fee system for smart contract is applied to mainnet, there are the following restrictions
+- limit the count of call or delegatecall in one transaction to 10
+
 ### pcall(fn, args...)
 It is an error handling function that works just like pcall in lua. The difference is that when the error occurs, the modified state,table or balance of the function executed rollback
 
