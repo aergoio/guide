@@ -130,7 +130,7 @@ contract.event("send", 1, "toaddress")
 #### Restrictions
 Before the fee system for smart contract is applied to mainnet, there are the following restrictions
 - limit length of event name to 64
-- limit size of event argument to 512
+- limit size of event argument to 4k
 - limit the number of events in one transaction to 50
 
 #### Search event and receive notification with aergocli
