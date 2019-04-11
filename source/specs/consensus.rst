@@ -13,10 +13,9 @@ BP Election
     Block Producers (BPs). BPs are elected via voting, where the voting power
     is weighted by staked tokens.
 
-    BPs are re-elected round by round (blocks per round = the total number of
-    the BPs). In each round, time is split into slots and each slot is
-    assigned to one of the elected BPs. Only the permitted BP can produce a
-    block in a time slot.
+    BPs are re-elected round by round (blocks per round = 100). In each round,
+    time is split into slots and each slot is assigned to one of the elected BPs.
+    Only the permitted BP can produce a block in a time slot.
 
 Staking & Voting
     Staking means locking up one's tokens for a minimum period of time. Any
@@ -30,7 +29,7 @@ Staking & Voting
     After the voting transaction is included in the block, the results are 
     caculated immediately. But there is a slight delay until it is applied.
     The current BPs are elected based on the voting result gathered at 
-    the block number: (<current block number> / <the total number of BPs> - 1) * <the total number of BPs>.
+    the block number: (<current block number> / 100 - 1) * <the total number of BPs>.
 
     In other words, the voting results gathered in the past (approximately 1
     round before) are used for stability (recent blocks may be roll-backed via a
