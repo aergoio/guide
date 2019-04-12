@@ -7,7 +7,9 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 - [rpc.proto](#rpc.proto)
     - [AergoRPCService](#types.AergoRPCService)
   
+    - [AccountAddress](#types.AccountAddress)
     - [AccountAndRoot](#types.AccountAndRoot)
+    - [AccountVoteInfo](#types.AccountVoteInfo)
     - [BlockBodyPaged](#types.BlockBodyPaged)
     - [BlockBodyParams](#types.BlockBodyParams)
     - [BlockHeaderList](#types.BlockHeaderList)
@@ -18,10 +20,14 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [ChainInfo](#types.ChainInfo)
     - [CommitResult](#types.CommitResult)
     - [CommitResultList](#types.CommitResultList)
+    - [ConfigItem](#types.ConfigItem)
+    - [ConfigItem.PropsEntry](#types.ConfigItem.PropsEntry)
+    - [ConsensusInfo](#types.ConsensusInfo)
     - [Empty](#types.Empty)
     - [EventList](#types.EventList)
     - [ImportFormat](#types.ImportFormat)
     - [Input](#types.Input)
+    - [KeyParams](#types.KeyParams)
     - [ListParams](#types.ListParams)
     - [Name](#types.Name)
     - [NameInfo](#types.NameInfo)
@@ -32,11 +38,16 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [PeerList](#types.PeerList)
     - [PeersParams](#types.PeersParams)
     - [Personal](#types.Personal)
+    - [ServerInfo](#types.ServerInfo)
+    - [ServerInfo.ConfigEntry](#types.ServerInfo.ConfigEntry)
+    - [ServerInfo.StatusEntry](#types.ServerInfo.StatusEntry)
     - [SingleBytes](#types.SingleBytes)
     - [Staking](#types.Staking)
     - [VerifyResult](#types.VerifyResult)
     - [Vote](#types.Vote)
+    - [VoteInfo](#types.VoteInfo)
     - [VoteList](#types.VoteList)
+    - [VoteParams](#types.VoteParams)
   
     - [CommitStatus](#types.CommitStatus)
     - [VerifyStatus](#types.VerifyStatus)
@@ -280,13 +291,19 @@ Query contract state
 Return list of peers of this node and their state
 #### GetVotes
 
-*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Request Type:* [VoteParams](#types.VoteParams)<br>
 *Response Type:* [VoteList](#types.VoteList)
 
-Return list of votes
+Return result of vote
+#### GetAccountVotes
+
+*Request Type:* [AccountAddress](#types.AccountAddress)<br>
+*Response Type:* [AccountVoteInfo](#types.AccountVoteInfo)
+
+Return staking, voting info for account
 #### GetStaking
 
-*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Request Type:* [AccountAddress](#types.AccountAddress)<br>
 *Response Type:* [Staking](#types.Staking)
 
 Return staking information
@@ -308,8 +325,35 @@ Returns a stream of event as they get added to the blockchain
 *Response Type:* [EventList](#types.EventList)
 
 Returns list of event
+#### GetServerInfo
+
+*Request Type:* [KeyParams](#types.KeyParams)<br>
+*Response Type:* [ServerInfo](#types.ServerInfo)
+
+Returns configs and statuses of server
+#### GetConsensusInfo
+
+*Request Type:* [Empty](#types.Empty)<br>
+*Response Type:* [ConsensusInfo](#types.ConsensusInfo)
+
+Returns status of consensus and bps
 
  <!-- end services -->
+
+
+<a name="types.AccountAddress"></a>
+
+### AccountAddress
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| value | [bytes](#bytes) |  |  |
+
+
+
+
 
 
 <a name="types.AccountAndRoot"></a>
@@ -323,6 +367,22 @@ Returns list of event
 | Account | [bytes](#bytes) |  |  |
 | Root | [bytes](#bytes) |  |  |
 | Compressed | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="types.AccountVoteInfo"></a>
+
+### AccountVoteInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| staking | [Staking](#types.Staking) |  |  |
+| voting | [VoteInfo](#types.VoteInfo) | repeated |  |
 
 
 
@@ -420,6 +480,8 @@ BlockchainStatus is current status of blockchain
 | ----- | ---- | ----- | ----------- |
 | best_block_hash | [bytes](#bytes) |  |  |
 | best_height | [uint64](#uint64) |  |  |
+| consensus_info | [string](#string) |  |  |
+| best_chain_id_hash | [bytes](#bytes) |  |  |
 
 
 
@@ -437,7 +499,6 @@ BlockchainStatus is current status of blockchain
 | magic | [string](#string) |  |  |
 | public | [bool](#bool) |  |  |
 | mainnet | [bool](#bool) |  |  |
-| coinbasefee | [bytes](#bytes) |  |  |
 | consensus | [string](#string) |  |  |
 
 
@@ -453,11 +514,14 @@ ChainInfo returns chain configuration
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| chainid | [ChainId](#types.ChainId) |  |  |
-| bpnumber | [uint32](#uint32) |  |  |
+| id | [ChainId](#types.ChainId) |  |  |
+| bpNumber | [uint32](#uint32) |  |  |
 | maxblocksize | [uint64](#uint64) |  |  |
 | maxtokens | [bytes](#bytes) |  |  |
 | stakingminimum | [bytes](#bytes) |  |  |
+| totalstaking | [bytes](#bytes) |  |  |
+| gasprice | [bytes](#bytes) |  |  |
+| nameprice | [bytes](#bytes) |  |  |
 
 
 
@@ -490,6 +554,54 @@ ChainInfo returns chain configuration
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | results | [CommitResult](#types.CommitResult) | repeated |  |
+
+
+
+
+
+
+<a name="types.ConfigItem"></a>
+
+### ConfigItem
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| props | [ConfigItem.PropsEntry](#types.ConfigItem.PropsEntry) | repeated |  |
+
+
+
+
+
+
+<a name="types.ConfigItem.PropsEntry"></a>
+
+### ConfigItem.PropsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.ConsensusInfo"></a>
+
+### ConsensusInfo
+info and bps is json string
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [string](#string) |  |  |
+| info | [string](#string) |  |  |
+| bps | [string](#string) | repeated |  |
 
 
 
@@ -550,6 +662,21 @@ ChainInfo returns chain configuration
 | address | [bytes](#bytes) | repeated |  |
 | value | [bytes](#bytes) |  |  |
 | script | [bytes](#bytes) |  |  |
+
+
+
+
+
+
+<a name="types.KeyParams"></a>
+
+### KeyParams
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) | repeated |  |
 
 
 
@@ -724,6 +851,54 @@ ChainInfo returns chain configuration
 
 
 
+<a name="types.ServerInfo"></a>
+
+### ServerInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [ServerInfo.StatusEntry](#types.ServerInfo.StatusEntry) | repeated |  |
+| config | [ServerInfo.ConfigEntry](#types.ServerInfo.ConfigEntry) | repeated |  |
+
+
+
+
+
+
+<a name="types.ServerInfo.ConfigEntry"></a>
+
+### ServerInfo.ConfigEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [ConfigItem](#types.ConfigItem) |  |  |
+
+
+
+
+
+
+<a name="types.ServerInfo.StatusEntry"></a>
+
+### ServerInfo.StatusEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="types.SingleBytes"></a>
 
 ### SingleBytes
@@ -787,6 +962,22 @@ ChainInfo returns chain configuration
 
 
 
+<a name="types.VoteInfo"></a>
+
+### VoteInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| candidates | [string](#string) | repeated |  |
+
+
+
+
+
+
 <a name="types.VoteList"></a>
 
 ### VoteList
@@ -796,6 +987,23 @@ ChainInfo returns chain configuration
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | votes | [Vote](#types.Vote) | repeated |  |
+| id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.VoteParams"></a>
+
+### VoteParams
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| count | [uint32](#uint32) |  |  |
 
 
 
@@ -1039,6 +1247,8 @@ ChainInfo returns chain configuration
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  |  |
 | arguments | [FnArgument](#types.FnArgument) | repeated |  |
+| payable | [bool](#bool) |  |  |
+| view | [bool](#bool) |  |  |
 
 
 
@@ -1151,6 +1361,7 @@ ChainInfo returns chain configuration
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  |  |
 | type | [string](#string) |  |  |
+| len | [int32](#int32) |  |  |
 
 
 
@@ -1186,9 +1397,10 @@ ChainInfo returns chain configuration
 | recipient | [bytes](#bytes) |  | decoded account address |
 | amount | [bytes](#bytes) |  | variable-length big integer |
 | payload | [bytes](#bytes) |  |  |
-| limit | [uint64](#uint64) |  | currently not used |
-| price | [bytes](#bytes) |  | variable-length big integer. currently not used |
+| gasLimit | [uint64](#uint64) |  | currently not used |
+| gasPrice | [bytes](#bytes) |  | variable-length big integer. currently not used |
 | type | [TxType](#types.TxType) |  |  |
+| chainIdHash | [bytes](#bytes) |  | hash value of chain identifier in the block |
 | sign | [bytes](#bytes) |  | sender's signature for this TxBody |
 
 
