@@ -6,6 +6,45 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 
 - [rpc.proto](#rpc.proto)
     - [AergoRPCService](#types.AergoRPCService)
+      - [NodeState](#NodeState)
+      - [Metric](#Metric)
+      - [Blockchain](#Blockchain)
+      - [GetChainInfo](#GetChainInfo)
+      - [ListBlockHeaders](#ListBlockHeaders)
+      - [ListBlockMetadata](#ListBlockMetadata)
+      - [ListBlockStream](#ListBlockStream)
+      - [ListBlockMetadataStream](#ListBlockMetadataStream)
+      - [GetBlock](#GetBlock)
+      - [GetBlockMetadata](#GetBlockMetadata)
+      - [GetBlockBody](#GetBlockBody)
+      - [GetTX](#GetTX)
+      - [GetBlockTX](#GetBlockTX)
+      - [GetReceipt](#GetReceipt)
+      - [GetABI](#GetABI)
+      - [SendTX](#SendTX)
+      - [SignTX](#SignTX)
+      - [VerifyTX](#VerifyTX)
+      - [CommitTX](#CommitTX)
+      - [GetState](#GetState)
+      - [GetStateAndProof](#GetStateAndProof)
+      - [CreateAccount](#CreateAccount)
+      - [GetAccounts](#GetAccounts)
+      - [LockAccount](#LockAccount)
+      - [UnlockAccount](#UnlockAccount)
+      - [ImportAccount](#ImportAccount)
+      - [ExportAccount](#ExportAccount)
+      - [QueryContract](#QueryContract)
+      - [QueryContractState](#QueryContractState)
+      - [GetPeers](#GetPeers)
+      - [GetVotes](#GetVotes)
+      - [GetAccountVotes](#GetAccountVotes)
+      - [GetStaking](#GetStaking)
+      - [GetNameInfo](#GetNameInfo)
+      - [ListEventStream](#ListEventStream)
+      - [ListEvents](#ListEvents)
+      - [GetServerInfo](#GetServerInfo)
+      - [GetConsensusInfo](#GetConsensusInfo)
+  
   
     - [AccountAddress](#types.AccountAddress)
     - [AccountAndRoot](#types.AccountAndRoot)
@@ -109,229 +148,267 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 AergoRPCService is the main RPC service providing endpoints to interact 
 with the node and blockchain. If not otherwise noted, methods are unary requests.
 
-#### NodeState
+<a name="NodeState"></a>
+#### NodeState 
 
 *Request Type:* [NodeReq](#types.NodeReq)<br>
 *Response Type:* [SingleBytes](#types.SingleBytes)
 
 Returns the current state of this node
-#### Metric
+<a name="Metric"></a>
+#### Metric 
 
 *Request Type:* [MetricsRequest](#types.MetricsRequest)<br>
 *Response Type:* [Metrics](#types.Metrics)
 
 Returns node metrics according to request
-#### Blockchain
+<a name="Blockchain"></a>
+#### Blockchain 
 
 *Request Type:* [Empty](#types.Empty)<br>
 *Response Type:* [BlockchainStatus](#types.BlockchainStatus)
 
 Returns current blockchain status (best block's height and hash)
-#### GetChainInfo
+<a name="GetChainInfo"></a>
+#### GetChainInfo 
 
 *Request Type:* [Empty](#types.Empty)<br>
 *Response Type:* [ChainInfo](#types.ChainInfo)
 
 Returns current blockchain's basic information
-#### ListBlockHeaders
+<a name="ListBlockHeaders"></a>
+#### ListBlockHeaders 
 
 *Request Type:* [ListParams](#types.ListParams)<br>
 *Response Type:* [BlockHeaderList](#types.BlockHeaderList)
 
 Returns list of Blocks without body according to request
-#### ListBlockMetadata
+<a name="ListBlockMetadata"></a>
+#### ListBlockMetadata 
 
 *Request Type:* [ListParams](#types.ListParams)<br>
 *Response Type:* [BlockMetadataList](#types.BlockMetadataList)
 
 Returns list of block metadata (hash, header, and number of transactions) according to request
-#### ListBlockStream
+<a name="ListBlockStream"></a>
+#### ListBlockStream 
 
 *Request Type:* [Empty](#types.Empty)<br>
 *Response Type:* [Block](#types.Block)
 
 Returns a stream of new blocks as they get added to the blockchain
-#### ListBlockMetadataStream
+<a name="ListBlockMetadataStream"></a>
+#### ListBlockMetadataStream 
 
 *Request Type:* [Empty](#types.Empty)<br>
 *Response Type:* [BlockMetadata](#types.BlockMetadata)
 
 Returns a stream of new block's metadata as they get added to the blockchain
-#### GetBlock
+<a name="GetBlock"></a>
+#### GetBlock 
 
 *Request Type:* [SingleBytes](#types.SingleBytes)<br>
 *Response Type:* [Block](#types.Block)
 
 Return a single block incl. header and body, queried by hash or number
-#### GetBlockMetadata
+<a name="GetBlockMetadata"></a>
+#### GetBlockMetadata 
 
 *Request Type:* [SingleBytes](#types.SingleBytes)<br>
 *Response Type:* [BlockMetadata](#types.BlockMetadata)
 
 Return a single block's metdata (hash, header, and number of transactions), queried by hash or number
-#### GetBlockBody
+<a name="GetBlockBody"></a>
+#### GetBlockBody 
 
 *Request Type:* [BlockBodyParams](#types.BlockBodyParams)<br>
 *Response Type:* [BlockBodyPaged](#types.BlockBodyPaged)
 
 Return a single block's body, queried by hash or number and list parameters
-#### GetTX
+<a name="GetTX"></a>
+#### GetTX 
 
 *Request Type:* [SingleBytes](#types.SingleBytes)<br>
 *Response Type:* [Tx](#types.Tx)
 
 Return a single transaction, queried by transaction hash
-#### GetBlockTX
+<a name="GetBlockTX"></a>
+#### GetBlockTX 
 
 *Request Type:* [SingleBytes](#types.SingleBytes)<br>
 *Response Type:* [TxInBlock](#types.TxInBlock)
 
 Return information about transaction in block, queried by transaction hash
-#### GetReceipt
+<a name="GetReceipt"></a>
+#### GetReceipt 
 
 *Request Type:* [SingleBytes](#types.SingleBytes)<br>
 *Response Type:* [Receipt](#types.Receipt)
 
 Return transaction receipt, queried by transaction hash
-#### GetABI
+<a name="GetABI"></a>
+#### GetABI 
 
 *Request Type:* [SingleBytes](#types.SingleBytes)<br>
 *Response Type:* [ABI](#types.ABI)
 
 Return ABI stored at contract address
-#### SendTX
+<a name="SendTX"></a>
+#### SendTX 
 
 *Request Type:* [Tx](#types.Tx)<br>
 *Response Type:* [CommitResult](#types.CommitResult)
 
 Sign and send a transaction from an unlocked account
-#### SignTX
+<a name="SignTX"></a>
+#### SignTX 
 
 *Request Type:* [Tx](#types.Tx)<br>
 *Response Type:* [Tx](#types.Tx)
 
 Sign transaction with unlocked account
-#### VerifyTX
+<a name="VerifyTX"></a>
+#### VerifyTX 
 
 *Request Type:* [Tx](#types.Tx)<br>
 *Response Type:* [VerifyResult](#types.VerifyResult)
 
 Verify validity of transaction
-#### CommitTX
+<a name="CommitTX"></a>
+#### CommitTX 
 
 *Request Type:* [TxList](#types.TxList)<br>
 *Response Type:* [CommitResultList](#types.CommitResultList)
 
 Commit a signed transaction
-#### GetState
+<a name="GetState"></a>
+#### GetState 
 
 *Request Type:* [SingleBytes](#types.SingleBytes)<br>
 *Response Type:* [State](#types.State)
 
 Return state of account
-#### GetStateAndProof
+<a name="GetStateAndProof"></a>
+#### GetStateAndProof 
 
 *Request Type:* [AccountAndRoot](#types.AccountAndRoot)<br>
 *Response Type:* [AccountProof](#types.AccountProof)
 
 Return state of account, including merkle proof
-#### CreateAccount
+<a name="CreateAccount"></a>
+#### CreateAccount 
 
 *Request Type:* [Personal](#types.Personal)<br>
 *Response Type:* [Account](#types.Account)
 
 Create a new account in this node
-#### GetAccounts
+<a name="GetAccounts"></a>
+#### GetAccounts 
 
 *Request Type:* [Empty](#types.Empty)<br>
 *Response Type:* [AccountList](#types.AccountList)
 
 Return list of accounts in this node
-#### LockAccount
+<a name="LockAccount"></a>
+#### LockAccount 
 
 *Request Type:* [Personal](#types.Personal)<br>
 *Response Type:* [Account](#types.Account)
 
 Lock account in this node
-#### UnlockAccount
+<a name="UnlockAccount"></a>
+#### UnlockAccount 
 
 *Request Type:* [Personal](#types.Personal)<br>
 *Response Type:* [Account](#types.Account)
 
 Unlock account in this node
-#### ImportAccount
+<a name="ImportAccount"></a>
+#### ImportAccount 
 
 *Request Type:* [ImportFormat](#types.ImportFormat)<br>
 *Response Type:* [Account](#types.Account)
 
 Import account to this node
-#### ExportAccount
+<a name="ExportAccount"></a>
+#### ExportAccount 
 
 *Request Type:* [Personal](#types.Personal)<br>
 *Response Type:* [SingleBytes](#types.SingleBytes)
 
 Export account stored in this node
-#### QueryContract
+<a name="QueryContract"></a>
+#### QueryContract 
 
 *Request Type:* [Query](#types.Query)<br>
 *Response Type:* [SingleBytes](#types.SingleBytes)
 
 Query a contract method
-#### QueryContractState
+<a name="QueryContractState"></a>
+#### QueryContractState 
 
 *Request Type:* [StateQuery](#types.StateQuery)<br>
 *Response Type:* [StateQueryProof](#types.StateQueryProof)
 
 Query contract state
-#### GetPeers
+<a name="GetPeers"></a>
+#### GetPeers 
 
 *Request Type:* [PeersParams](#types.PeersParams)<br>
 *Response Type:* [PeerList](#types.PeerList)
 
 Return list of peers of this node and their state
-#### GetVotes
+<a name="GetVotes"></a>
+#### GetVotes 
 
 *Request Type:* [VoteParams](#types.VoteParams)<br>
 *Response Type:* [VoteList](#types.VoteList)
 
 Return result of vote
-#### GetAccountVotes
+<a name="GetAccountVotes"></a>
+#### GetAccountVotes 
 
 *Request Type:* [AccountAddress](#types.AccountAddress)<br>
 *Response Type:* [AccountVoteInfo](#types.AccountVoteInfo)
 
 Return staking, voting info for account
-#### GetStaking
+<a name="GetStaking"></a>
+#### GetStaking 
 
 *Request Type:* [AccountAddress](#types.AccountAddress)<br>
 *Response Type:* [Staking](#types.Staking)
 
 Return staking information
-#### GetNameInfo
+<a name="GetNameInfo"></a>
+#### GetNameInfo 
 
 *Request Type:* [Name](#types.Name)<br>
 *Response Type:* [NameInfo](#types.NameInfo)
 
 Return name information
-#### ListEventStream
+<a name="ListEventStream"></a>
+#### ListEventStream 
 
 *Request Type:* [FilterInfo](#types.FilterInfo)<br>
 *Response Type:* [Event](#types.Event)
 
 Returns a stream of event as they get added to the blockchain
-#### ListEvents
+<a name="ListEvents"></a>
+#### ListEvents 
 
 *Request Type:* [FilterInfo](#types.FilterInfo)<br>
 *Response Type:* [EventList](#types.EventList)
 
 Returns list of event
-#### GetServerInfo
+<a name="GetServerInfo"></a>
+#### GetServerInfo 
 
 *Request Type:* [KeyParams](#types.KeyParams)<br>
 *Response Type:* [ServerInfo](#types.ServerInfo)
 
 Returns configs and statuses of server
-#### GetConsensusInfo
+<a name="GetConsensusInfo"></a>
+#### GetConsensusInfo 
 
 *Request Type:* [Empty](#types.Empty)<br>
 *Response Type:* [ConsensusInfo](#types.ConsensusInfo)

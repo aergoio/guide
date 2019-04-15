@@ -6,6 +6,8 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 {{range .Files}}
 {{$file_name := .Name}}- [{{.Name}}](#{{.Name}})
   {{range .Services}}  - [{{.Name}}](#{{.FullName}})
+  {{range .Methods}}    - [{{.Name}}](#{{.Name}})
+  {{end}}
   {{end}}
   {{range .Messages}}  - [{{.LongName}}](#{{.FullName}})
   {{end}}
@@ -31,6 +33,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 {{.Description}}
 
 {{range .Methods -}}
+<a name="{{.Name}}"></a>
 #### {{.Name}}
 
 *Request Type:* [{{.RequestLongType}}](#{{.RequestFullType}})<br>
