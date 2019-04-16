@@ -14,7 +14,7 @@ This website contains guides for developers to get started developing with Aergo
    introduction/index
    dapp-development/index
    running-node/index
-   using-testnet/index
+   using-network/index
    smart-contracts/index
    specs/index
    contribution/index
