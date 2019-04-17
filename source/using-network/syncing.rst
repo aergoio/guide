@@ -68,7 +68,7 @@ Refer to `Configuration <../running-node/configuration.html>`_ for details about
 
 .. tip::
 
-    Instead of binding several volumes, you can use one combined volume with :code:`-v $(pwd)/data:/aergo`.
+    Instead of binding several volumes, you can use one combined volume, e.g. :code:`-v $(pwd)/aergo:/aergo`.
 
 Node discovery
 """"""""""""""
