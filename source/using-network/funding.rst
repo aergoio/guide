@@ -1,6 +1,9 @@
 Funding Accounts
 ================
 
+.. note::
+    The method described here only applies to the testnet.
+
 To create transactions on the public testnet, you need an account with a positive balance.
 After `creating an account <accounts.html>`_, this is how can fund your account for testing.
 

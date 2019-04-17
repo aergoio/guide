@@ -6,7 +6,7 @@ Always make sure that nobody except you gains access to your keys!
 
 There are several methods to create accounts.
 
-1. If you are running your own node on your machine, you can create a local account:
+1. If you are **running your own node** on your machine, you can create a local account:
 
    .. code-block:: shell
    
@@ -15,7 +15,7 @@ There are several methods to create accounts.
         # Or using Docker:
         docker run --rm --net=host aergo/tools aergocli account new
 
-2. To create an account without a node (aka offline):
+2. To create an account **without a node** (aka offline):
 
    .. code-block:: shell
    
