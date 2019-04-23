@@ -40,7 +40,7 @@ This function returns the current contract address.
 ### setItem(key, value) 
 This function sets the value corresponding to key to the storage belonging to current contract
 * restriction
-  * key type string only
+  * key type string only (number type is implicitly converted to string)
   * value type available : number, string, table
 ### getItem(key)
 This function returns the value corresponding to key in storage belonging to current contract
@@ -93,7 +93,7 @@ contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 
 ```
 #### Restrictions
 Before the fee system for smart contract is applied to mainnet, there are the following restrictions
-- limit the count of call or delegatecall in one transaction to 10
+- limit the call depth of call or delegatecall in one transaction to 5
 
 ### delegatecall(address, function_name, args...)
 The delegatecall function returns the result of the function of the calling process, executed in the state in the current address.
@@ -102,7 +102,7 @@ contract.delegatecall("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "i
 ```
 #### Restrictions
 Before the fee system for smart contract is applied to mainnet, there are the following restrictions
-- limit the count of call or delegatecall in one transaction to 10
+- limit the call depth of call or delegatecall in one transaction to 5
 
 ### pcall(fn, args...)
 It is an error handling function that works just like pcall in lua. The difference is that when the error occurs, the modified state,table or balance of the function executed rollback
