@@ -151,12 +151,13 @@ Write configuration files
     npcert = ""
     npkey = "bp{01,02,03}.key"  # Name of key file of node
     npaddpeers = [
-        "/ipv4/[IP ADDRESS FROM BP 01]/tcp/7846/p2p/[PEER ID FROM BP 01]",
-        "/ipv4/[IP ADDRESS FROM BP 02]/tcp/7846/p2p/[PEER ID FROM BP 02]",
-        "/ipv4/[IP ADDRESS FROM BP 03]/tcp/7846/p2p/[PEER ID FROM BP 03]"
+        "/ip4/[IP ADDRESS FROM BP 01]/tcp/7846/p2p/[PEER ID FROM BP 01]",
+        "/ip4/[IP ADDRESS FROM BP 02]/tcp/7846/p2p/[PEER ID FROM BP 02]",
+        "/ip4/[IP ADDRESS FROM BP 03]/tcp/7846/p2p/[PEER ID FROM BP 03]"
     ]
     
     npexposeself = false
+    npusepolaris = false
     nphiddenpeers= [
         "[PEER ID FROM BP 01]",
         "[PEER ID FROM BP 02]",
