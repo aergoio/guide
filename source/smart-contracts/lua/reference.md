@@ -63,7 +63,7 @@ Amount form can be string, number, bignum.
 ```lua
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 1)
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 aergo 10 gaer")
-contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", bugnum.number("999999999999999"))
+contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", bignum.number("999999999999999"))
 ```
 ### deploy(code, args...)
 The deploy function creates a contract account using code and args, and returns the corresponding address and the return of the constructor function
@@ -108,7 +108,7 @@ Before the fee system for smart contract is applied to mainnet, there are the fo
 It is an error handling function that works just like pcall in lua. The difference is that when the error occurs, the modified state,table or balance of the function executed rollback
 
 ```lua
-success = contract.pcall(contract.send, "1 AERGO")
+success = contract.pcall(contract.send, "Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 AERGO")
 if success == false then
     return 0
 end
