@@ -105,7 +105,6 @@ Write configuration files
             "magic": "[insert an identifier string for your network]",
             "public": false,
             "mainnet": false,
-            "coinbasefee": "1000000000",
             "consensus": "dpos"
         },
         "timestamp": 1548918000000000000,
@@ -201,7 +200,7 @@ as long as you substitute its local path in the Docker run commands below.
     docker run --rm \
         -v /blockchain:/aergo \
         aergo/node \
-        aergosvr init /aergo/genesis.json --dir /aergo/data --config /aergo/config.toml
+        aergosvr init --genesis /aergo/genesis.json --home /aergo --config /aergo/config.toml
 
 **Start the node**
 
