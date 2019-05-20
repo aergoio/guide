@@ -48,8 +48,8 @@ npaddpeers = [
 ]
 nphiddenpeers = [
 ]
-npmaxpeers = "100"
-nppeerpool = "100"
+npmaxpeers = 100
+nppeerpool = 100
 npexposeself = true
 npusepolaris = true
 npaddpolarises = [
