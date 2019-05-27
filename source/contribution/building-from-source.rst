@@ -12,7 +12,7 @@ Linux
    ::
 
         apk update
-        apk add git glide build-base go libgcc
+        apk add git build-base go libgcc
 
 2. Install aergo
    ::
@@ -34,7 +34,6 @@ macOS
    ::
 
         brew install go
-        brew install glide
         brew install cmake  # optional
         brew install protobuf  # optional
 
