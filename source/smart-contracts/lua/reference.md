@@ -316,6 +316,7 @@ Since the lua number type has a limit on the range that can be represented by an
   * <b>Notice</b>
     * <b>== Operations on bignum and other types always return false.</b>
     * <b>Bignum does not allow a decimal point.</b>
+    * <b>Bignum value range : -(2^256 - 1) ~ (2^256 -1) </b>
 ### number(x)
 This function make bignum object with argument x(string or number)
 ### isneg(x)
@@ -329,7 +330,7 @@ Convert bignum x to lua string
 ### neg(x) (same as -x)
 Negate bignum x and return as bignum
 ### sqrt(x)
-Returns the square root of a positive number as bignum
+Returns the square root of a positive number as bignum. not permitted negative value to x
 ### compare(x, y)
 Compare two big numbers.  Return value is 0 if equal, -1 if x is less than y and +1 if x is greater than y.
 ### add(x, y) (same as x + y)
@@ -343,11 +344,11 @@ Returns the bignum remainder after bignum x is divided by bignum y
 ### div(x, y) (same as x / y)
 Divide two big numbers and return bignum
 ### pow(x, y) (same as x ^ y)
-Power of two big numbers and return bignum
+Power of two big numbers and return bignum. not permitted negative value to y
 ### divmod(x, y)
 Returns a pair of big numbers consisting of their quotient and remainder
 ### powmod(x, y, m)
-Return the bignum remainder after pow(bignum x,bignum y) is divided by bignum m
+Return the bignum remainder after pow(bignum x,bignum y) is divided by bignum m. not permitted negative value to y
 ``` lua
 function factorial(n,f)
  for i=2,n do f=f*i end
