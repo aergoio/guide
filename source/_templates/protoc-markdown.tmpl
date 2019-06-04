@@ -5,16 +5,14 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
 
 {{range .Files}}
 {{$file_name := .Name}}- [{{.Name}}](#{{.Name}})
-  {{range .Services}}  - [{{.Name}}](#{{.FullName}})
-  {{range .Methods}}      - [{{.Name}}](#{{.Name}})
-  {{end}}
-  {{end}}
-  {{range .Messages}}  - [{{.LongName}}](#{{.FullName}})
-  {{end}}
-  {{range .Enums}}  - [{{.LongName}}](#{{.FullName}})
-  {{end}}
-  {{range .Extensions}}  - [File-level Extensions](#{{$file_name}}-extensions)
-  {{end}}
+{{range .Services}}  - [{{.Name}}](#{{.FullName}}){{range .Methods}}
+      - [{{.Name}}](#{{.Name}}){{end}}{{end}}
+{{range .Messages}}  - [{{.LongName}}](#{{.FullName}})
+{{end}}
+{{range .Enums}}  - [{{.LongName}}](#{{.FullName}})
+{{end}}
+{{range .Extensions}}  - [File-level Extensions](#{{$file_name}}-extensions)
+{{end}}
 {{end}}
 - [Scalar Value Types](#scalar-value-types)
 
