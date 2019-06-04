@@ -10,6 +10,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
         - [Metric](#Metric)
         - [Blockchain](#Blockchain)
         - [GetChainInfo](#GetChainInfo)
+        - [ChainStat](#ChainStat)
         - [ListBlockHeaders](#ListBlockHeaders)
         - [ListBlockMetadata](#ListBlockMetadata)
         - [ListBlockStream](#ListBlockStream)
@@ -44,6 +45,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
         - [ListEvents](#ListEvents)
         - [GetServerInfo](#GetServerInfo)
         - [GetConsensusInfo](#GetConsensusInfo)
+        - [ChangeMembership](#ChangeMembership)
   
   
     - [AccountAddress](#types.AccountAddress)
@@ -57,6 +59,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
     - [BlockchainStatus](#types.BlockchainStatus)
     - [ChainId](#types.ChainId)
     - [ChainInfo](#types.ChainInfo)
+    - [ChainStats](#types.ChainStats)
     - [CommitResult](#types.CommitResult)
     - [CommitResultList](#types.CommitResultList)
     - [ConfigItem](#types.ConfigItem)
@@ -176,6 +179,13 @@ Returns current blockchain status (best block's height and hash)
 *Response Type:* [ChainInfo](#types.ChainInfo)
 
 Returns current blockchain's basic information
+<a name="ChainStat"></a>
+#### ChainStat
+
+*Request Type:* [Empty](#types.Empty)<br>
+*Response Type:* [ChainStats](#types.ChainStats)
+
+Returns current chain statistics
 <a name="ListBlockHeaders"></a>
 #### ListBlockHeaders
 
@@ -414,6 +424,13 @@ Returns configs and statuses of server
 *Response Type:* [ConsensusInfo](#types.ConsensusInfo)
 
 Returns status of consensus and bps
+<a name="ChangeMembership"></a>
+#### ChangeMembership
+
+*Request Type:* [MembershipChange](#types.MembershipChange)<br>
+*Response Type:* [MembershipChangeReply](#types.MembershipChangeReply)
+
+Add & remove member of raft cluster
 
  <!-- end services -->
 
@@ -526,6 +543,7 @@ Returns status of consensus and bps
 | hash | [bytes](#bytes) |  |  |
 | header | [BlockHeader](#types.BlockHeader) |  |  |
 | txcount | [int32](#int32) |  |  |
+| size | [int64](#int64) |  | blocksize in bytes |
 
 
 
@@ -599,6 +617,21 @@ ChainInfo returns chain configuration
 | totalstaking | [bytes](#bytes) |  |  |
 | gasprice | [bytes](#bytes) |  |  |
 | nameprice | [bytes](#bytes) |  |  |
+
+
+
+
+
+
+<a name="types.ChainStats"></a>
+
+### ChainStats
+ChainStats corresponds to a chain statistics report.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| report | [string](#string) |  |  |
 
 
 
@@ -788,6 +821,7 @@ info and bps is json string
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  |  |
+| blockNo | [uint64](#uint64) |  |  |
 
 
 
@@ -875,6 +909,7 @@ info and bps is json string
 | hidden | [bool](#bool) |  |  |
 | lashCheck | [int64](#int64) |  |  |
 | selfpeer | [bool](#bool) |  |  |
+| version | [string](#string) |  |  |
 
 
 
