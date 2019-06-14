@@ -301,12 +301,13 @@ function insert(id, passwd, name, birth, mobile)
           id, passwd, name, birth, mobile)
 end
 ```
+
 The `db.query()` function returns a result set. You can fetch rows from the result set. 
 
 ```lua
 function query(id)
   local rt = {}
-  local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
+  local rs = db.query("select * from customer where id like '%' || ? || '%'", id)
   while rs:next() do 
     local col1, col2, col3, col4, col5 = rs:get()
     local item = {
@@ -355,16 +356,16 @@ end
 
 This would make your smart contract vulnerable to `SQL injection` attacks.
 
-This is a bad example that should *NOT* be used: :no_entry_sign:
+These are bad examples that should *NOT* be used: :no_entry_sign:
 
 ```lua
-function insert(id, passwd, name, birth, mobile)
   db.exec("insert into customer values ('" .. id .. "', '"
       .. passwd .. "', '"
       .. name .. "', '"
       .. birth .. "', '"
       .. mobile .. "')")
-end
+
+  local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
 ```
 
 ### Restrictions
