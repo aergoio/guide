@@ -297,11 +297,8 @@ end
 
 -- insert a row to the customer table
 function insert(id, passwd, name, birth, mobile)
-  db.exec("insert into customer values ('" .. id .. "', '"
-      .. passwd .. "', '"
-      .. name .. "', '"
-      .. birth .. "', '"
-      .. mobile .. "')")
+  db.exec("insert into customer values (?, ?, ?, ?, ?)",
+          id, passwd, name, birth, mobile)
 end
 ```
 The `db.query()` function returns a result set. You can fetch rows from the result set. 
@@ -349,6 +346,24 @@ function query(id)
     table.insert(rt, item)
   end
   return rt
+end
+```
+
+### Security
+
+:warning: Do not concatenate values when building SQL commands!
+
+This would make your smart contract vulnerable to `SQL injection` attacks.
+
+This is a bad example that should *NOT* be used: :no_entry_sign:
+
+```lua
+function insert(id, passwd, name, birth, mobile)
+  db.exec("insert into customer values ('" .. id .. "', '"
+      .. passwd .. "', '"
+      .. name .. "', '"
+      .. birth .. "', '"
+      .. mobile .. "')")
 end
 ```
 
@@ -400,7 +415,7 @@ A list of other functions and descriptions is available via the links below.
 
 **contraints**
 
-You can use the following contraints.
+You can use the following contraints:
 
 * NOT NULL
 * DEFAULT
