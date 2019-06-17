@@ -9,12 +9,12 @@ The following is an example of a simple coin stack smart contract written in Lua
 function set(key, value)
     system.setItem(key, value);
 end
-​
+
 -- Returns the value corresponding to the key in the state store
 function get(key)
     return system.getItem(key);
 end
-​
+
 -- Output the hash value of the current block. The output is printed on the server log.
 function printBlock()
     system.print(system.getBlockhash());
@@ -193,13 +193,10 @@ function createTable()
         mobile text
     )]])
 end
-​
+
 function insert(id, passwd, name, birth, mobile)
-  db.exec("insert into customer values ('" .. id .. "', '"
-      .. passwd .. "', '"
-      .. name .. "', '"
-      .. birth .. "', '"
-      .. mobile .. "')")
+  db.exec("insert into customer values (?, ?, ?, ?, ?)",
+      id, passwd, name, birth, mobile)
 end
 ```
 ### functions of result set object
@@ -211,7 +208,7 @@ This function return result row
 ```lua
 function query(id)
   local rt = {}
-  local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
+  local rs = db.query("select * from customer where id like '%' || ? || '%'", id)
   while rs:next() do 
     local col1, col2, col3, col4, col5 = rs:get()
     local item = {
@@ -279,13 +276,13 @@ function init_database()
     db.exec("insert into customer (cid, passwd, cname, birthdate, rgdate) values (100 ,'passwd1','홍길동', date('1988-01-03'),date('2018-05-30'))")
     db.exec("insert into customer (passwd, cname, birthdate, rgdate) values ('passwd2','김철수', date('1978-11-03'),date('2018-05-30'))")
     db.exec("insert into customer (passwd, cname, birthdate, rgdate) values ('passwd3','이영미', date('1938-04-23'),date('2018-05-30'))")
-​
+
     db.exec("drop table if exists product")
     db.exec("create table if not exists product (pid integer PRIMARY KEY ASC AUTOINCREMENT, pname text, price real, rgdate date)")
     db.exec("insert into product (pid, pname, price, rgdate) values (1000 ,'사과',1000, date('2018-05-30'))")
     db.exec("insert into product (pname, price, rgdate) values ('수박',10000, date('2018-05-30'))")
     db.exec("insert into product (pname, price, rgdate) values ('포도',3500, date('2018-05-30'))")
-​
+
     db.exec("drop table if exists order_hist")
     db.exec("create table order_hist (oid integer PRIMARY KEY ASC AUTOINCREMENT, cid integer, pid integer, p_cnt integer, total_price real, rgtime datetime, FOREIGN KEY(cid) REFERENCES customer(cid), FOREIGN KEY(pid) REFERENCES product(pid) )")
     db.exec("insert into order_hist(oid, cid, pid,  p_cnt, total_price,rgtime) values(10000,100,1000,3,3000, datetime('2018-05-30 16:00:00'))")
