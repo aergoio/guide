@@ -307,7 +307,7 @@ This function compute the SHA-256 hash of the argument.
 This function verify the address associated with the public key from elliptic curve signature.
 ```lua
 function validate_sig(data, signature, address)
-    msg = crypto.sha2565(data)
+    msg = crypto.sha256(data)
     return crypto.ecverify(msg, signature, address)
 end
 ```
