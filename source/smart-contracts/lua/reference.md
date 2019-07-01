@@ -15,9 +15,9 @@ function get(key)
     return system.getItem(key);
 end
 ​
--- Output the hash value of the current block. The output is printed on the server log.
-function printBlock()
-    system.print(system.getBlockhash());
+-- Output the hash value of the previous block. The output is printed on the server log.
+function printPrevBlock()
+    system.print(system.getPrevBlockHash());
 end
 
 -- Functions to be called for contract declare as abi
