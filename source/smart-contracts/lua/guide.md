@@ -297,19 +297,17 @@ end
 
 -- insert a row to the customer table
 function insert(id, passwd, name, birth, mobile)
-  db.exec("insert into customer values ('" .. id .. "', '"
-      .. passwd .. "', '"
-      .. name .. "', '"
-      .. birth .. "', '"
-      .. mobile .. "')")
+  db.exec("insert into customer values (?, ?, ?, ?, ?)",
+          id, passwd, name, birth, mobile)
 end
 ```
+
 The `db.query()` function returns a result set. You can fetch rows from the result set. 
 
 ```lua
 function query(id)
   local rt = {}
-  local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
+  local rs = db.query("select * from customer where id like '%' || ? || '%'", id)
   while rs:next() do 
     local col1, col2, col3, col4, col5 = rs:get()
     local item = {
@@ -350,6 +348,24 @@ function query(id)
   end
   return rt
 end
+```
+
+### Security
+
+:warning: Do not concatenate values when building SQL commands!
+
+This would make your smart contract vulnerable to `SQL injection` attacks.
+
+These are bad examples that should *NOT* be used: :no_entry_sign:
+
+```lua
+  db.exec("insert into customer values ('" .. id .. "', '"
+      .. passwd .. "', '"
+      .. name .. "', '"
+      .. birth .. "', '"
+      .. mobile .. "')")
+
+  local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
 ```
 
 ### Restrictions
@@ -400,7 +416,7 @@ A list of other functions and descriptions is available via the links below.
 
 **contraints**
 
-You can use the following contraints.
+You can use the following contraints:
 
 * NOT NULL
 * DEFAULT
