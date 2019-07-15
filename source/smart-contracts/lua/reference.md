@@ -14,10 +14,10 @@ end
 function get(key)
     return system.getItem(key);
 end
-
--- Output the hash value of the current block. The output is printed on the server log.
-function printBlock()
-    system.print(system.getBlockhash());
+​
+-- Output the hash value of the previous block. The output is printed on the server log.
+function printPrevBlock()
+    system.print(system.getPrevBlockHash());
 end
 
 -- Functions to be called for contract declare as abi
@@ -304,7 +304,7 @@ This function compute the SHA-256 hash of the argument.
 This function verify the address associated with the public key from elliptic curve signature.
 ```lua
 function validate_sig(data, signature, address)
-    msg = crypto.sha2565(data)
+    msg = crypto.sha256(data)
     return crypto.ecverify(msg, signature, address)
 end
 ```
