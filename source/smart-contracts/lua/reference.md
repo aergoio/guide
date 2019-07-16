@@ -346,8 +346,8 @@ Power of two big numbers and return bignum. not permitted negative value to y
 Returns a pair of big numbers consisting of their quotient and remainder
 ### powmod(x, y, m)
 Return the bignum remainder after pow(bignum x,bignum y) is divided by bignum m. not permitted negative value to y
-### isbignum(x, y, m)
-Return the bignum remainder after pow(bignum x,bignum y) is divided by bignum m. not permitted negative value to y
+### isbignum(x)
+return true if x is bignum else false
 ### tobyte(x)
 Return byte string of bignum x. not permitted negative value to x
 ### frombyte(x)
