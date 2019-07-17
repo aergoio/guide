@@ -55,6 +55,8 @@ This function returns sender address of current transaction
 This function returns the hash of the previous block
 ### print(args...)
 This function print args with json format at console log in node running current contract
+### isContract(address)
+This function return if address is contract then true else false. when address is invalid then raise error   
 ## contract package
 This packages provides contract operation
 ### send(address, amount)
