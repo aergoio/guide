@@ -108,7 +108,6 @@ It has `get` and `set` methods for reading and writing data.
 Value:set("data")
 local data = Value:get()
 ```
-
 ##### map
 The type map implements associative arrays.
 
@@ -117,6 +116,7 @@ It can be indexed only with `string`, but the value of a map element can be of a
 You can define a state map with the syntax `var_name = state.map()`.
 The index operator is used for reading and inserting elements.
 
+You can delete a element of map by delete method with the syntax `var_name:delete(key)`
 ```lua
 state.var {
   Map_var = state.map()
@@ -127,6 +127,47 @@ function contract_func()
   Map_var["age"] = 38
   -- ...
   local age = Map_var["age"]
+end
+
+function delete_elem(key)
+  Map_var:delete(key)
+end
+```
+
+state map support multi dimension(syntax `var_name = state.map(dimension)`)
+The multi index operator is used for reading and inserting elements.
+```lua
+state.var {
+  Map_var = state.map(2)
+}
+
+function contract_func()
+  Map_var["kslee"]["age"] = 38
+  Map_var["kslee"]["birth"] = "1999/09/09"
+  -- ...
+  local kslee = Map_var["kslee"]
+  local age = kslee["age"]
+  local birth = kslee["birth"]
+  
+  kslee["birth"] = "1970/10/9"
+end
+```
+###### Restrictions
+* max dimension : 5
+* not support setting intermediate dimension element
+
+next is setting intermediate dimension element example
+```lua
+state.var {
+  Map_var = state.map(2)
+  person_var = state.map()
+}
+
+function contract_func()
+  person_var["age"] = 38
+  person_var["birth"] = "1999/09/09"
+  Map_var["kslee"] = person_var
+ -- ...
 end
 ```
 
@@ -148,7 +189,7 @@ function contract()
   Arr_var[3] = 3
 
   local sum1 = 0
-  for i, v in state.array_pairs(Array) do
+  for i, v in Arr_var:ipairs() do
     if v ~= nil then
       sum1 = sum1 + v
     end
@@ -167,6 +208,70 @@ function contract()
 
 end
 ```
+
+state array support multi dimension (syntax `var_name = state.array(1st_ncount, 2nd_ncount,....)`)
+The multi index operator is used for reading and inserting elements.
+```lua
+state.var {
+  -- declare 2 dimensional array 
+  Arr_var = state.array(2, 3)
+}
+
+function contract_func()
+  Arr_var[1][1] = 1
+  Arr_var[1][2] = 2
+  Arr_var[1][3] = 3
+  
+  -- ...
+  local Arr2 = Arr_var[2]
+  Arr2[1] = 4
+  Arr2[2] = 5
+  Arr2[3] = 6
+  
+  local sum1 = 0
+  for i, v in Arr_var:ipairs() do
+   for j, k in v:ipairs() do
+    if k ~= nil then
+      sum1 = sum1 + k
+    end
+   end
+  end
+  
+  local sum2 = 0
+  for i = 1, #Arr_var do
+   for j = 1, #Arr_var[i] do
+    if Arr_var[i][j] ~= nil then
+      sum2 = sum2 + Arr_var[i][j]
+    end
+   end
+  end
+
+  if sum1 == sum2 then
+  -- ...
+  end
+end
+```
+###### Restrictions
+* max dimension : 5
+* not support setting intermediate dimension element
+
+next is setting intermediate dimension element example
+```lua
+state.var {
+  Marr_var = state.map(2,3)
+  Arr_var = state.map(3)
+}
+
+function contract_func()
+  Arr_var[1] = 1
+  Arr_var[2] = 2
+  Arr_var[3] = 3
+
+  Marr_var[1] = Arr_var
+ -- ...
+end
+```
+
 
 Note: The state variables are just syntax sugar that replace `system.getItem(), system.setItem()` functions.
 
@@ -297,19 +402,17 @@ end
 
 -- insert a row to the customer table
 function insert(id, passwd, name, birth, mobile)
-  db.exec("insert into customer values ('" .. id .. "', '"
-      .. passwd .. "', '"
-      .. name .. "', '"
-      .. birth .. "', '"
-      .. mobile .. "')")
+  db.exec("insert into customer values (?, ?, ?, ?, ?)",
+          id, passwd, name, birth, mobile)
 end
 ```
+
 The `db.query()` function returns a result set. You can fetch rows from the result set. 
 
 ```lua
 function query(id)
   local rt = {}
-  local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
+  local rs = db.query("select * from customer where id like '%' || ? || '%'", id)
   while rs:next() do 
     local col1, col2, col3, col4, col5 = rs:get()
     local item = {
@@ -350,6 +453,24 @@ function query(id)
   end
   return rt
 end
+```
+
+### Security
+
+:warning: Do not concatenate values when building SQL commands!
+
+This would make your smart contract vulnerable to `SQL injection` attacks.
+
+These are bad examples that should *NOT* be used: :no_entry_sign:
+
+```lua
+  db.exec("insert into customer values ('" .. id .. "', '"
+      .. passwd .. "', '"
+      .. name .. "', '"
+      .. birth .. "', '"
+      .. mobile .. "')")
+
+  local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
 ```
 
 ### Restrictions
@@ -400,7 +521,7 @@ A list of other functions and descriptions is available via the links below.
 
 **contraints**
 
-You can use the following contraints.
+You can use the following contraints:
 
 * NOT NULL
 * DEFAULT

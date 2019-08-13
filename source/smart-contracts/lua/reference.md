@@ -9,15 +9,15 @@ The following is an example of a simple coin stack smart contract written in Lua
 function set(key, value)
     system.setItem(key, value);
 end
-​
+
 -- Returns the value corresponding to the key in the state store
 function get(key)
     return system.getItem(key);
 end
 ​
--- Output the hash value of the current block. The output is printed on the server log.
-function printBlock()
-    system.print(system.getBlockhash());
+-- Output the hash value of the previous block. The output is printed on the server log.
+function printPrevBlock()
+    system.print(system.getPrevBlockHash());
 end
 
 -- Functions to be called for contract declare as abi
@@ -55,6 +55,8 @@ This function returns sender address of current transaction
 This function returns the hash of the previous block
 ### print(args...)
 This function print args with json format at console log in node running current contract
+### isContract(address)
+This function return if address is contract then true else false. when address is invalid then raise error   
 ## contract package
 This packages provides contract operation
 ### send(address, amount)
@@ -193,13 +195,10 @@ function createTable()
         mobile text
     )]])
 end
-​
+
 function insert(id, passwd, name, birth, mobile)
-  db.exec("insert into customer values ('" .. id .. "', '"
-      .. passwd .. "', '"
-      .. name .. "', '"
-      .. birth .. "', '"
-      .. mobile .. "')")
+  db.exec("insert into customer values (?, ?, ?, ?, ?)",
+      id, passwd, name, birth, mobile)
 end
 ```
 ### functions of result set object
@@ -211,7 +210,7 @@ This function return result row
 ```lua
 function query(id)
   local rt = {}
-  local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
+  local rs = db.query("select * from customer where id like '%' || ? || '%'", id)
   while rs:next() do 
     local col1, col2, col3, col4, col5 = rs:get()
     local item = {
@@ -279,13 +278,13 @@ function init_database()
     db.exec("insert into customer (cid, passwd, cname, birthdate, rgdate) values (100 ,'passwd1','홍길동', date('1988-01-03'),date('2018-05-30'))")
     db.exec("insert into customer (passwd, cname, birthdate, rgdate) values ('passwd2','김철수', date('1978-11-03'),date('2018-05-30'))")
     db.exec("insert into customer (passwd, cname, birthdate, rgdate) values ('passwd3','이영미', date('1938-04-23'),date('2018-05-30'))")
-​
+
     db.exec("drop table if exists product")
     db.exec("create table if not exists product (pid integer PRIMARY KEY ASC AUTOINCREMENT, pname text, price real, rgdate date)")
     db.exec("insert into product (pid, pname, price, rgdate) values (1000 ,'사과',1000, date('2018-05-30'))")
     db.exec("insert into product (pname, price, rgdate) values ('수박',10000, date('2018-05-30'))")
     db.exec("insert into product (pname, price, rgdate) values ('포도',3500, date('2018-05-30'))")
-​
+
     db.exec("drop table if exists order_hist")
     db.exec("create table order_hist (oid integer PRIMARY KEY ASC AUTOINCREMENT, cid integer, pid integer, p_cnt integer, total_price real, rgtime datetime, FOREIGN KEY(cid) REFERENCES customer(cid), FOREIGN KEY(pid) REFERENCES product(pid) )")
     db.exec("insert into order_hist(oid, cid, pid,  p_cnt, total_price,rgtime) values(10000,100,1000,3,3000, datetime('2018-05-30 16:00:00'))")
@@ -307,7 +306,7 @@ This function compute the SHA-256 hash of the argument.
 This function verify the address associated with the public key from elliptic curve signature.
 ```lua
 function validate_sig(data, signature, address)
-    msg = crypto.sha2565(data)
+    msg = crypto.sha256(data)
     return crypto.ecverify(msg, signature, address)
 end
 ```
@@ -349,6 +348,13 @@ Power of two big numbers and return bignum. not permitted negative value to y
 Returns a pair of big numbers consisting of their quotient and remainder
 ### powmod(x, y, m)
 Return the bignum remainder after pow(bignum x,bignum y) is divided by bignum m. not permitted negative value to y
+### isbignum(x)
+Return true if x is bignum else false
+### tobyte(x)
+Return byte string of bignum x. not permitted negative value to x
+### frombyte(x)
+Return bignum from byte string x
+
 ``` lua
 function factorial(n,f)
  for i=2,n do f=f*i end
