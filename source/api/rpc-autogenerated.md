@@ -46,6 +46,8 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
       - [GetServerInfo](#GetServerInfo)
       - [GetConsensusInfo](#GetConsensusInfo)
       - [ChangeMembership](#ChangeMembership)
+      - [GetEnterpriseConfig](#GetEnterpriseConfig)
+      - [GetConfChangeProgress](#GetConfChangeProgress)
   - [AccountAddress](#types.AccountAddress)
   - [AccountAndRoot](#types.AccountAndRoot)
   - [AccountVoteInfo](#types.AccountVoteInfo)
@@ -64,6 +66,8 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
   - [ConfigItem.PropsEntry](#types.ConfigItem.PropsEntry)
   - [ConsensusInfo](#types.ConsensusInfo)
   - [Empty](#types.Empty)
+  - [EnterpriseConfig](#types.EnterpriseConfig)
+  - [EnterpriseConfigKey](#types.EnterpriseConfigKey)
   - [EventList](#types.EventList)
   - [ImportFormat](#types.ImportFormat)
   - [Input](#types.Input)
@@ -429,6 +433,20 @@ Returns status of consensus and bps
 *Response Type:* [MembershipChangeReply](#types.MembershipChangeReply)
 
 Add & remove member of raft cluster
+<a name="GetEnterpriseConfig"></a>
+#### GetEnterpriseConfig
+
+*Request Type:* [EnterpriseConfigKey](#types.EnterpriseConfigKey)<br>
+*Response Type:* [EnterpriseConfig](#types.EnterpriseConfig)
+
+Returns enterprise config
+<a name="GetConfChangeProgress"></a>
+#### GetConfChangeProgress
+
+*Request Type:* [SingleBytes](#types.SingleBytes)<br>
+*Response Type:* [ConfChangeProgress](#types.ConfChangeProgress)
+
+Return a status of changeCluster enterprise tx,  queried by requestID
 
  <!-- end services -->
 
@@ -575,6 +593,7 @@ BlockchainStatus is current status of blockchain
 | best_height | [uint64](#uint64) |  |  |
 | consensus_info | [string](#string) |  |  |
 | best_chain_id_hash | [bytes](#bytes) |  |  |
+| chain_info | [ChainInfo](#types.ChainInfo) |  |  |
 
 
 
@@ -720,6 +739,38 @@ info and bps is json string
 
 ### Empty
 
+
+
+
+
+
+
+<a name="types.EnterpriseConfig"></a>
+
+### EnterpriseConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| on | [bool](#bool) |  |  |
+| values | [string](#string) | repeated |  |
+
+
+
+
+
+
+<a name="types.EnterpriseConfigKey"></a>
+
+### EnterpriseConfigKey
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
 
 
 
@@ -1277,12 +1328,12 @@ info and bps is json string
 | ----- | ---- | ----- | ----------- |
 | value | [bytes](#bytes) |  |  |
 | inclusion | [bool](#bool) |  |  |
-| key | [string](#string) |  |  |
 | proofKey | [bytes](#bytes) |  |  |
 | proofVal | [bytes](#bytes) |  |  |
 | bitmap | [bytes](#bytes) |  |  |
 | height | [uint32](#uint32) |  |  |
 | auditPath | [bytes](#bytes) | repeated |  |
+| key | [bytes](#bytes) |  |  |
 
 
 
@@ -1436,9 +1487,9 @@ info and bps is json string
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | contractAddress | [bytes](#bytes) |  |  |
-| storageKeys | [string](#string) | repeated |  |
 | root | [bytes](#bytes) |  |  |
 | compressed | [bool](#bool) |  |  |
+| storageKeys | [bytes](#bytes) | repeated |  |
 
 
 
@@ -1576,6 +1627,7 @@ TxIdx specifies a transaction's block hash and index within the block body
 | ---- | ------ | ----------- |
 | NORMAL | 0 |  |
 | GOVERNANCE | 1 |  |
+| REDEPLOY | 2 |  |
 
 
  <!-- end enums -->
