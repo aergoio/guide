@@ -410,9 +410,9 @@ end
 The `db.query()` function returns a result set. You can fetch rows from the result set. 
 
 ```lua
-function query(id)
+function query(name)
   local rt = {}
-  local rs = db.query("select * from customer where id like '%' || ? || '%'", id)
+  local rs = db.query("select * from customer where name like '%' || ? || '%'", name)
   while rs:next() do 
     local col1, col2, col3, col4, col5 = rs:get()
     local item = {
@@ -428,7 +428,7 @@ function query(id)
 end
 ```
 
-You can also use prepared statements. The following examples is rewrite `insert` and `query` contract functions  using prepared statements.
+You can also use **prepared statements**:
 
 ```lua
 function insert(id , passwd, name, birth, mobile)
@@ -436,22 +436,25 @@ function insert(id , passwd, name, birth, mobile)
   stmt.exec(id, passwd, name, birth, mobile)
 end
 
-function query(id)
-  local rt = {}
-  local stmt = db.query("select * from customer where id like '%' || ? || '%'")
-  local rs = stmt:query(id)
-  while rs:next() do 
-    local col1, col2, col3, col4, col5 = rs:get()
-    local item = {
-        id = col1,
-        passwd = col2,
-        name = col3,
-        birth = col4,
-        mobile = col5
-    }
-    table.insert(rt, item)
+function insert_contacts(contacts)
+  local stmt = db.prepare("insert into contacts (name, email) values (?, ?)")
+  for _,contact in ipairs(contacts) do
+    stmt.exec(contact.name, contact.email)
   end
-  return rt
+end
+
+function query_names(ids)
+  local names = {}
+  local stmt = db.query("select name from customer where id=?")
+  for _,id in ipairs(ids) do
+    local rs = stmt:query(id)
+    if rs:next() then
+      table.insert(names, rs:get())
+    else
+      table.insert(names, "")
+    end
+  end
+  return names
 end
 ```
 
