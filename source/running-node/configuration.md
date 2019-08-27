@@ -108,10 +108,6 @@ Testmode **MUST NOT** be used in production.
 |               | dumpfilepath     | file path for recording mempool at process termination |
 |               | verifiers        | number of concurrency for sign verifying |
 | consensus     | enablebp         | whether this node is BP                  |
-|               | enabledpos       | whether consensus is dPoS                |
-|               | blockinterval    | minging interval in seconds              |
-|               | dposbps          | the number of BPs                        |
-|               | bpids            | BP peer ids                              |
 
 ## Logging options
 
