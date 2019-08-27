@@ -65,11 +65,6 @@ dumpfilepath = ".aergo/mempool.dump"
 
 [consensus]
 enablebp = true
-enabledpos = false
-blockinterval = 1
-dposbps = 23
-bpids = [
-]
 ```
 
 ## Testmode
