@@ -52,26 +52,18 @@ Transactions of this type have a special payload format and recipient.
 
 The following table shows the specification for each field of the transaction body.
 
-==============  =========================  =================  ==============================================================================
-Action          Recipient                  Amount             Payload
-==============  =========================  =================  ==============================================================================
-staking         :code:`aergo.system`       amount to stake    :code:`{"Name":"v1stake"}`
-unstaking       :code:`aergo.system`       amount to unstake  :code:`{"Name":"v1unstake"}`
-voting          :code:`aergo.system`       0                  :code:`{"Name":"v1voteBP","Args":[<peer IDs>]}`
-create name     :code:`aergo.name`         1 aergo            :code:`{"Name":"v1createName","Args":[<a name string>]}`
-update name     :code:`aergo.name`         1 aergo            :code:`{"Name":"v1updateName","Args":[<a name string>, <new owner address>]}`
-add admin       :code:`aergo.enterprise`   0 aergo            :code:`{"Name":"appendAdmin","Args":[<new admin address>]}`
-remove admin    :code:`aergo.enterprise`   0 aergo            :code:`{"Name":"removeAdmin","Args":[<admin address>]}`
-add config      :code:`aergo.enterprise`   0 aergo            :code:`{"Name":"appendConf","Args":[<config key>,<config value>]}`
-enable config   :code:`aergo.enterprise`   0 aergo            :code:`{"Name":"enableConf","Args":[<config key>,<true|false>]}`
-remove config   :code:`aergo.enterprise`   0 aergo            :code:`{"Name":"removeConf","Args":[<config key>,<config value>]}`
-==============  =========================  =================  ==============================================================================
+===========  ====================  =================  ==========================================
+Action       Recipient             Amount             Payload                                   
+===========  ====================  =================  ==========================================
+staking      :code:`aergo.system`  amount to stake    :code:`{"Name":"v1stake"}`                                 
+unstaking    :code:`aergo.system`  amount to unstake  :code:`{"Name":"v1unstake"}`                                 
+voting       :code:`aergo.system`  0                  :code:`{"Name":"v1voteBP","Args":[<peer IDs>]}`   
+create name  :code:`aergo.name`    1 aergo            :code:`{"Name":"v1createName","Args":[<a name string>]}`                    
+update name  :code:`aergo.name`    1 aergo            :code:`{"Name":"v1updateName","Args":[<a name string>, <new owner address>]}`
+===========  ====================  =================  ==========================================
 
 The aergo.system transactions, including staking, unstaking and voting, can be sent about once per day per account.
 For staking and unstaking, there is a limit to the amount of requests. It must be over 10000 aergo based on the amount of staked. Therefore, the first staking request should exceed 10000 aergo, and in the case of the unstaking request, more than 10000 must be left or withdrawn altogether.
-
-The aergo.enterprise transactions are only for the private blockchain network. if you want to enable aergo.enterprise, you should make the genesis block with :code:`"public":"false"`
-
 
 Transaction receipts
 --------------------
