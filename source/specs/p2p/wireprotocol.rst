@@ -1,7 +1,7 @@
 P2P wire protocol
 =================
 
-This page describe the p2p wire protocol for protocol version 0.3.
+This page describe the p2p wire protocol for protocol version 0.3.3
 
 Note: Some contents are work in progress and will be implemented before the launch of the mainnet.
 
@@ -11,11 +11,39 @@ Messages
 Handshake message
 ^^^^^^^^^^^^^^^^^
 
-A handshake message is used once at starting handshake. It contains two 4-byte number
+A handshake message is used once at starting handshake. The outbound peer sends HSReqHeader and the inbound peer send HSResp to select perper handshake protocol version.
+As of Aergo v1.2.0, the protocol version is 0.3.2 and can accept 0.3.1 and 0.3.0
 
-~4 : Magic
+HSReq is variable length byte stream which contains accepted protocol versions
 
-~8 : Version
+* 4 : Magic
+* 4 : count of accepted protocol versions
+* 4*n : list of accepted versions. The former is perfered version (actually the newest version is the first)  
+
+HSResp is 8 bytes length byte stream 
+
+* 4 : The same Magic as HSReq request or zero if handshaking is not possible
+* 4 : The selected protocol version or error code if first 4 byte value is zero 
+
+Handshake response error codes
+""""""""""""""""""""""""""""""
+
++------------------------+------+------------------------------------------------------------------------------------------------------+
+|Name                    |Code  |Remark                                                                                                |
++------------------------+------+------------------------------------------------------------------------------------------------------+
+|HSCodeWrongHSReq        |  0001|Request header is wrong                                                                               |
++------------------------+------+------------------------------------------------------------------------------------------------------+
+|HSCodeNoMatchedVersion  |  0002|The inbound server have no prefer protocol version                                                    |
++------------------------+------+------------------------------------------------------------------------------------------------------+
+|HSCodeAuthFail          |  0003|Wrong peer identiry                                                                                   |
++------------------------+------+------------------------------------------------------------------------------------------------------+
+
+P2P version notation 
+""""""""""""""""""""
+
+* 2 : Major verion
+* 1 : Minor version
+* 1 : Patch version
 
 Normal message
 ^^^^^^^^^^^^^^
@@ -25,15 +53,11 @@ Header (48bytes) + Payload (variable size)
 Message header
 ^^^^^^^^^^^^^^
 
-~4 : code number of subprotocol . Big endian number
-
-~8 : payload size. Big endian number.
-
-~16 : creation time of this message. unix timestamp with precision of nanosecond . Big endian number
-
-~32 : message id. binary form of uuid.
-
-~48 : original request id. only meaningful if message is response message. binary form of uuid.
+* 4 : code number of subprotocol . Big endian number
+* 4 : payload size. Big endian number.
+* 8 : creation time of this message. unix timestamp with precision of nanosecond . Big endian number
+* 16 : message id. binary form of uuid.
+* 16 : original request id. only meaningful if message is response message. binary form of uuid.
 
 
 Message payload
@@ -49,13 +73,13 @@ Code is hexadecimal number.
 Refer to `Subprotocols <subprotocols.html>`_ for detailed information of each subprotocol.
 
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|Name                    |Code  |Remark                                                                                                |
+|Name                    |Code  |Summary                                                                                               |
 +========================+======+======================================================================================================+
-|StatusRequest           |  0001|My node status, which includes chainID, address information, last blocks or others. Used in handshake |
+|StatusRequest           |  0001|Used in handshake                                                                                     |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 |PingRequest             |  0002|Ping including last block hash and number                                                             |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|PingResponse            |  0003|Response ping including last block hash and number                                                    |
+|PingResponse            |  0003|Response ping                                                                                         |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 |GoAway                  |  0004|Disconnect notice with reason                                                                         |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
@@ -63,37 +87,35 @@ Refer to `Subprotocols <subprotocols.html>`_ for detailed information of each su
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 |AddressesResponse       |  0006|Response for AddressesRequest.                                                                        |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetBlocksRequest        |  0010|                                                                                                      |
+|GetBlocksRequest        |  0010|request for getting datas of blocks                                                                   |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetBlocksResponse       |  0011|                                                                                                      |
+|GetBlocksResponse       |  0011|response of GetBlocksRequest. Multiple responses for a single request if size of blocks is too big    |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetBlockHeadersRequest  |  0012|                                                                                                      |
+|GetBlockHeadersRequest  |  0012|request list of headers of consecutive blocks.                                                        |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetBlockHeadersResponse |  0013|                                                                                                      |
+|GetBlockHeadersResponse |  0013|response of GetBlockHeadersRequest                                                                    |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|NewBlockNotice          |  0016|                                                                                                      |
+|NewBlockNotice          |  0016|notice of block which the sender was not produced; i.e. it is relay of block notice.                  |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetAncestorRequest      |  0017|                                                                                                      |
+|GetAncestorRequest      |  0017|request for finding common ancestor. used for peer sync                                               |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetAncestorResponse     |  0018|                                                                                                      |
+|GetAncestorResponse     |  0018|response of GetAncestorRequest                                                                        |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetHashesRequest        |  0019|                                                                                                      |
+|GetHashesRequest        |  0019|request for get hashes of consecutive blocks.                                                         |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetHashesResponse       |  001A|                                                                                                      |
+|GetHashesResponse       |  001A|response of GetHashesRequest                                                                          |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetHashByNoRequest      |  001B|                                                                                                      |
+|GetHashByNoRequest      |  001B|request for get hash of single block by number                                                        |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetHashByNoResponse     |  001C|                                                                                                      |
+|GetHashByNoResponse     |  001C|response of GetHashByNoRequest                                                                        |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetBlockHeadersResponse |  001D|                                                                                                      |
+|GetTXsRequest           |  0020|request for getting datas of txs                                                                      |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetTXsRequest           |  0020|                                                                                                      |
+|GetTxsResponse          |  0021|response of GetTXsRequest. Multiple responses for a single request if size of blocks is too big       |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|GetTxsResponse          |  0021|                                                                                                      |
+|NewTxNotice             |  0022|notice of valid tx                                                                                    |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
-|NewTxNotice             |  0022|                                                                                                      |
-+------------------------+------+------------------------------------------------------------------------------------------------------+
-|BlockProducedNotice     |  0030|                                                                                                      |
+|BlockProducedNotice     |  0030|block notice from block producer                                                                      |
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 
 
@@ -146,8 +168,129 @@ Payload of Subprotocols
 StatusRequest
 ^^^^^^^^^^^^^
 
-1. sender: information of sender (address, port, peerID or etc)
-2. bestBlockHash: current best block of sender
-3. bestHeight: current best block height of sender
-4. chainID: ChainID which sender is storing
+* sender: information of sender (address, port, peerID or etc)
+* bestBlockHash: current best block of sender
+* bestHeight: current best block height of sender
+* chainID: ChainID which sender is storing
+* genesis: hash of genesis block, added since protocol version v0.3.2
 
+PingRequest
+^^^^^^^^^^^
+
+* bestBlockHash: current best block of sender
+* bestHeight: current best block height of sender
+
+GoAway
+^^^^^^
+
+* reason: description text
+  
+AddressesRequest
+^^^^^^^^^^^^^^^^
+
+* sender: address information of requester
+* maxSize: limit of response size
+  
+AddressesResponse
+^^^^^^^^^^^^^^^^^
+
+* status: response status code
+* peers: list of peers
+
+GetBlocksRequest
+^^^^^^^^^^^^^^^^
+
+* hashes: array of block hashes 
+  
+GetBlocksResponse
+^^^^^^^^^^^^^^^^^
+
+* status: response status code
+* blocks: list of block data
+* hasNext: boolean flag indicating there are more response(s) for the request
+
+GetBlockHeadersRequest
+^^^^^^^^^^^^^^^^^^^^^^
+
+* hash: starting hash to get. 
+* height: starting height to get. height is ignored if hash is not empty.
+* size: maximum header count to get.
+  
+GetBlockHeadersResponse
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* status: response status code
+* hashes: array of block hashes which the response contains.  
+* headers: list of block headers. the order of hashes and headers is matching
+* hasNext: boolean flag indicating there are more response(s) for the request
+
+NewBlockNotice
+^^^^^^^^^^^^^^
+* blockHash: hash of new block
+* blockNo: block number
+
+GetAncestorRequest
+^^^^^^^^^^^^^^^^^^
+
+* hashes: list of block hashes
+
+GetAncestorResponse
+^^^^^^^^^^^^^^^^^^^
+
+* status: response status code
+* ancestorHash: block hash of common ancestor 
+* ancestorNo: block number of common ancestor
+
+GetHashesRequest
+^^^^^^^^^^^^^^^^
+
+* prevHash: block hash of starting point. the hash and number must match to actual block
+* prevNumber: block number of starting point
+* size: maximum hash count to get.
+
+GetHashesResponse
+^^^^^^^^^^^^^^^^^
+
+* status: response status code
+* hashes: array of block hashes which the response contains.  
+
+GetHashByNoRequest
+^^^^^^^^^^^^^^^^^^
+
+* blockNo: block number 
+
+GetHashByNoResponse
+^^^^^^^^^^^^^^^^^^^
+
+* status: response status code
+* blockHash: hash of requested block
+
+GetTXsRequest
+^^^^^^^^^^^^^
+
+* hashes: array of tx hashes 
+  
+GetTXsResponse
+^^^^^^^^^^^^^^
+
+* status: response status code
+* hashes: array of tx hashes which the response contains. 
+* txs: list of tx data. the order of hashes and txs is matching
+* hasNext: boolean flag indicating there are more response(s) for the request
+
+ 
+Legacy version infomation
+=========================
+
+v0.3.0
+------
+
+Handshake message
+^^^^^^^^^^^^^^^^^
+
+-A handshake message is used once at starting handshake. It contains two 4-byte number. Both outbound peer send HSReq
+
++HSReq is 8 byte stream which p2p protocol version
+
++4 : Magic
++4 : p2p protocol version of outbound peer. The inbound peer accept handshake if version is matching or close connection if not.
