@@ -42,5 +42,5 @@ To see the log related to Raft consensus, add a raft section to `arglog.toml`.
 
 .. code-block:: toml
 
-[raft]
-level = "info"
+  [raft]
+  level = "info"

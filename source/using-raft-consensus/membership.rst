@@ -16,13 +16,13 @@ Abstaction
 
 Validation
 ^^^^^^^^^^
-When executing a membership change transaction, leader node checks whether it is executable on the server.
+When executing a membership change transaction, leader node checks if the current cluster status is changeable.
 
-- Case adding a new node
+- When adding a new node
     
   If any node is not properly synchronized in the whole network, it will fail. The node is either in a shutdown state or a state where synchronization is slowed down due to a failure.
 
-- Case removing a node
+- When removing a node
 
   If the cluster can be stopped when the node is excluded, the delete request will fail. Deletion to a failed node always succeeds.
 
@@ -88,7 +88,7 @@ See the page `Configuring a Network <../running-node/configure-network.html#runn
 
 - Check if the new node recognized the raft leader node
 
-	If ConsensusInfo.Status.Leader is set to one of the node names, the leader node is found.
+  If the leader node is recognized, ConsensusInfo.Status.Leader is set to one of the node names. 
 
     .. code-block:: shell
 
@@ -129,7 +129,7 @@ You can get it in the result of blockchain RPC. In the example above, `dd44cf1a0
 
 **Check result of enterprise transaction**
 
-As with adding nodes, you should check "Total" and "Bps" in the results of the getconsensusinfo RPC.
+As with adding a node case, you should check "Total" and "Bps" in the results of the getconsensusinfo RPC.
 
 .. code-block:: shell
 

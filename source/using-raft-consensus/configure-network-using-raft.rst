@@ -2,9 +2,12 @@ Configuring a Network Using RAFT
 ================================
 
 This article describes the process for setting up a network of multiple block producers using RAFT Consensus.
-**RAFT consensus can only be used for private networks.**
-A block chain network using RAFT consensus is called a RAFT Cluster.
 
+.. note::
+
+  **RAFT consensus can only be used for private networks.**
+
+A block chain network using RAFT consensus is called a RAFT Cluster.
 All the settings below assume a case where a blockchain network consisting of 3 nodes using RAFT consensus.
 
 To create a blockchain network using RAFT consensus, you need to configure the genesis block and config file.
@@ -64,8 +67,8 @@ Nodes that cannot be block producers can be used by adding them as fullnodes. Th
           },
           {
             "name": "[NICKNAME OF BP 03]",
-            "address": "/ip4/[IP ADDRESS FROM BP 03]/tcp/7846"
-            "peerid": "[PEER ID FROM BP 03]"
+            "address": "/ip4/[IP ADDRESS FROM BP 03]/tcp/7846",
+            "peerid": "[PEER ID FROM BP 03]",
           }
         ]
     }
