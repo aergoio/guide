@@ -10,6 +10,7 @@ Abstaction
 ----------
 
 .. note::
+
 	**Membership changes must be made after the completion of one.** 
 	When adding a new node, do not add another node again until blockchain synchronization is over, since the new node becomes unavailable until the chain is synchronized and up to date. If more than half of the nodes are out of sync, the cluster stops. 
 
@@ -79,9 +80,10 @@ In the config file of the node to add, set the peer addresses of the block produ
 
 Running
 ^^^^^^^
-See the page `Configuring a Network <../running-node/configure-network.html#configuring-a-network>`__ to start a new node.
+See the page `Configuring a Network <../running-node/configure-network.html#running>`__ to start a new node.
 
 .. note::
+
     You should wait for the added node to finish synchronizing with the existing blockchain.
 
 - Check if the new node recognized the raft leader node
@@ -140,7 +142,7 @@ If Enterprise Transaction is executed on the node to be deleted, the node termin
 Add Member with Backup
 ----------------------
 
-After adding a new node, it takes a long time to synchronize the existing blockchain. To reduce this time, you can add a new node by using backup data files from existing nodes. 
+After adding a new node, it takes a long time to synchronize the existing blockchain. To reduce this time, you can add a new node by using backup data files obtained from existing member nodes. 
 There is no conflict because the new node resets all the cluster-related information from the given backup data files at the first startup.
 
 **Prepare backup datafiles**
@@ -148,13 +150,15 @@ There is no conflict because the new node resets all the cluster-related informa
 The bakcup datafiles can be obtained by shutting down an existing node and copying the data directory.
 
 .. note::
+
 	Since the blockchain is already created in the data file, there is no need to create the genesis block.
 
 **Write Configuration file**
 
-When using backup data files, :code:`usebackup`=true must be set. Set the backup data directory to :code:`datadir` field.
+When using backup data files, :code:`usebackup` must be set to true. Set the backup data directory to :code:`datadir` field.
 
 .. code-block:: shell
+
     datadir="[copied data directory]"
 
     [p2p]

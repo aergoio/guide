@@ -23,6 +23,7 @@ Write Configuration file(only initial node)
 -------------------------------------------
 
 .. code-block:: shell
+
     datadir="[copied data directory]"
 
     [p2p]
@@ -37,9 +38,9 @@ Write Configuration file(only initial node)
     name="[NICKNAME OF NEW BP]"
     recoverbp={name="[NICKNAME OF NEW BP]",address="/ip4/[IP ADDRESS FROM BP 01]/tcp/7846",peerid="[PEER ID FROM NEW BP 01]"}
 
-- To create a new cluster, you need to set :code:`newcluster`=true.
-- Set :code:`usebackup`=true to use backup data files. 
-- Set the member of the new cluster to :code:`recoverbp`. At this time, member must only be one node.
+- To create a new cluster, you need to set :code:`newcluster` to true.
+- Set :code:`usebackup` to true to use backup data files. 
+- Set :code:`recoverbp` to the member of the new cluster. At this time, member must only be one node.
 
 Running a node
 --------------

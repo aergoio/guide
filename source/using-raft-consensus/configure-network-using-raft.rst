@@ -14,7 +14,7 @@ Other settings are the same as the private network configuration using DPoS.
 Common Configuration (per machines)
 -----------------------------------
 
-To configure aergo node as a block producer, it requires common configuration as descriped on `Configuring a Network <../running-node/configure-network.html#configuring-a-network>`__ page.
+To configure aergo node as a block producer, it requires common configuration as descriped on `Configuring a Network <../running-node/configure-network.html>`__ page.
 
 However, additional configuration requires in genesis block and config file.
 
@@ -90,7 +90,7 @@ Nodes that cannot be block producers can be used by adding them as fullnodes. Th
 
 Basically, the settings when using DPoS should be applied to the config in the same way. But you don't need to set :code:`npaddpeers` of [p2p]. Nodes use the :code:`address` value of enterprise_bps to connect to others.
 
-To use RAFT, :code:`[consensus.raft]` section should be added. :code:`name` is the current node's nickname. The name must be included in the enterprise_bps of the genesis block. When you create a new RAFT cluster, you must set :code:`newcluster`=true.
+To use RAFT, :code:`[consensus.raft]` section should be added. :code:`name` is the current node's nickname. The name must be included in the enterprise_bps of the genesis block. When you create a new RAFT cluster, you must set :code:`newcluster` to true.
 
 Other settings
 ---------------
