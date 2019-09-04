@@ -13,8 +13,8 @@ For anything that involves more than simple text changes, please test the build 
 
 Pre-requisites:
 
-1. Install [Sphinx](http://www.sphinx-doc.org/en/master/usage/installation.html)
-2. Install requirements: `pip install -r requirements.txt`
+1. Install Sphinx globally: `pip install -U sphinx`
+2. Install local requirements: `pip install -r requirements.txt`
 
 Build locally:
 
