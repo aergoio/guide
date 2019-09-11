@@ -15,6 +15,7 @@ This website contains guides for developers to get started developing with Aergo
    dapp-development/index
    running-node/index
    using-network/index
+   using-raft-consensus/index
    smart-contracts/index
    specs/index
    contribution/index
