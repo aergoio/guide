@@ -71,6 +71,8 @@ Polaris configuration file
 
 .. code-block:: toml
 
+	authdir = "/blockchain/polaris/auth"       # base directory for files about authentication and authorization
+
 	[rpc]
 	netserviceaddr = "127.0.0.1"               # RPC access address. The default setting is 127.0.0.1, which allows RPC access only on the local machine and blocks RPC connections remotely.
 	netserviceport = 8915
@@ -84,6 +86,7 @@ Polaris configuration file
 	[polaris]
 	allowprivate = true                        # Whether to allow the private address of the node's access address. Used when building Polaris for private chains operated within a test or private network.
 	genesisfile = "[location of genesis file]" # Genesis file location
+	enableblacklist = false                    # Whether to turn on blacklist or not. blacklist entries will be saved in <authdir>
 
 
 Log configuration file
@@ -167,7 +170,7 @@ Example:
 
 :: 
 
-	ubuntu@mypolaris:/blockchain/polaris$ ./colaris -p 8915 current
+	ubuntu@mypolaris:/blockchain/polaris$ ./colaris current
 	{
 	 "total": 1,
 	 "peers": [
@@ -183,3 +186,16 @@ Example:
 	 ]
 	}
 
+:code:`config`: set or get dynamic configurations of polaris. There is just a single config 'blacklist', in version 1.2.3. 
+
+:code:`blacklist`: set or get blacklist configuration. blacklist entry can be set by peerID, ip address, cidr or combined. NOTE: it is NOT for security rather avoiding unintentional fork, since changing ip address or peer id is very easy. 
+
+Example:
+
+::
+
+	ubuntu@mypolaris:/blockchain/polaris$ ./colaris config blacklist show
+	ubuntu@mypolaris:/blockchain/polaris$ ./colaris config blacklist add --peerid 16Uiu2HAmDFV41vku39rsMtXBaFT1MFUDyHxXiDJrUDt7gJycSKnX --address "192.168.1.11"
+	ubuntu@mypolaris:/blockchain/polaris$ ./colaris config blacklist add --address "192.168.1.11"
+	ubuntu@mypolaris:/blockchain/polaris$ ./colaris config blacklist add --cidr "2001:0db8:0123:4567:89ab:cdef:1234:5678/96"
+	ubuntu@mypolaris:/blockchain/polaris$ ./colaris config blacklist rm 2
