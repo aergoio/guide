@@ -21,4 +21,4 @@ To supply your own config file, use:
 
 **Building from source:** You can also build the binaries yourself from source. `See here for details <../contribution/building-from-source.html>`_.
 
-**Syncing with the public testnet:** Please refer to the `testnet guide <../using-testnet/syncing.html>`_ for more instructions.
+**Syncing with public networks:** Please refer to the `syncing guide <../using-network/syncing.html>`_ for more instructions.
