@@ -11,7 +11,7 @@ There are three common modes of operation for aergo server:
 
 We describe only single node configuration in this. More will updated for the BP Node and full node.
 
-## Single Aergo Server (default)
+## Single Aergo Server
 
 We will show default configuration file next. You can check the each fields' meaning in [here](https://github.com/aergoio/aergo/wiki/server_configuration)
 
