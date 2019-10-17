@@ -4,7 +4,7 @@ Connecting to Well-known Nodes
 Testnet
 -------
 
-Use `testnet.aergo.io` and the default port 7845 to connect to a public GRPC server for the testnet.
+Use `testnet-api.aergo.io` and the default port 7845 to connect to a public GRPC server for the testnet.
 
 .. code-block:: shell
 
