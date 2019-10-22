@@ -36,3 +36,9 @@ There are several methods to create accounts.
         docker run --rm -v $(pwd):/wallet aergo/tools aergocli account export --address your_address --password your_password --path /wallet
 
    The output shows the encrypted private key belonging to your address which can be imported in other wallets.
+
+.. note::
+
+   When `connecting to public nodes <./connecting.html>`_, creating accounts on that node is impossible.
+   On public nodes, personal account features are `disabled <../running-node/configuration.html>`_ using :code:`personal = False`.
+   Always create accounts using local nodes or offline by one of the methods above.

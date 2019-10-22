@@ -12,3 +12,4 @@ These pages explain how you can connect to and sync with public Aergo networks.
    funding
    monitoring
    snapshots
+   troubleshooting
