@@ -39,6 +39,7 @@ abi.register(set_name, hello)
 ## Tutorial
 This is explained based on using cli. Variables used in this example are
 * Account to deploy and execute a contract: `AmPbWrQbtQrCaJqLWdMtfk2KiN83m2HFpBbQQSTxqqchVv58o82i`
+* cli commands in this page need a aergosvr with enable personal feature
 
 ### Check Account and Balance
 First, you need an account with enough balances to deploy and execute smart contracts.
