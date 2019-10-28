@@ -137,6 +137,7 @@ Write configuration files
     netserviceaddr = "0.0.0.0"
     netserviceport = 7845
     nstls = false
+    nscacert = ""
     nscert = ""
     nskey = ""
     nsallowcors = false
