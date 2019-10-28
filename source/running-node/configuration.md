@@ -29,6 +29,7 @@ authdir = ".aergo/auth"
 netserviceaddr = "127.0.0.1"
 netserviceport = 7845
 nstls = false
+nscacert = ""
 nscert = ""
 nskey = ""
 nsallowcors = false
@@ -88,6 +89,7 @@ Testmode **MUST NOT** be used in production.
 | rpc           | netserviceaddr   | rpc hostname or address                  |
 |               | netserviceport   | rpc port number                          |
 |               | nstls            | whether applying tls to rpc              |
+|               | nscacert         | ca certificate file path for rpc tls     |
 |               | nscert           | certificate file path for rpc tls        |
 |               | nskey            | key file path for rpc tls                |
 |               | nsallowcors      | whether allows CORS                      |
