@@ -2,6 +2,10 @@
 Aergo SCL
 =========
 
+.. note::
+
+   This article describes a feature currently under development.
+
 Aergo Smart Contract Language (Aergo SCL, we pronounce it "askel") is a language dedicated to smart contact for Aergo, designed to make it easier for developers to develop smart contracts.
 Although the specification is less than traditional languages, it aims to be faster and more powerful.
 Aergo SCL has the following characteristics.

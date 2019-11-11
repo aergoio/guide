@@ -10,3 +10,4 @@ Currently, you can create smart contracts using the Lua programming language.
 
    Aergo Lua <lua/index>
    Aergo SCL <scl/index>
+   JDBC <jdbc/index>
