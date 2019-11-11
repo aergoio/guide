@@ -46,11 +46,17 @@ Normal type
 
 Normal transactions are used to transfer tokens and calling smart contracts.
 
+
 Governance type
 ^^^^^^^^^^^^^^^
 
 Governance transactions are used for calling system contracts, such as staking and voting.
 Transactions of this type have a special payload format and recipient.
+
+FeeDelegation type
+^^^^^^^^^^^^^^^
+
+FeeDelegation transactions are used for calling smart contract to charge fees to contract that support fee delegation.
 
 The following table shows the specification for each field of the transaction body.
 
