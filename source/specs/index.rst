@@ -1,6 +1,8 @@
 Technical Specifications
 ========================
 
+These articles describe technical specifications in detail.
+
 .. toctree::
    :maxdepth: 1
 
