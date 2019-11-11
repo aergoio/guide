@@ -60,6 +60,7 @@ Action               Recipient                  Amount             Payload
 staking              :code:`aergo.system`       amount to stake    :code:`{"Name":"v1stake"}`
 unstaking            :code:`aergo.system`       amount to unstake  :code:`{"Name":"v1unstake"}`
 voting               :code:`aergo.system`       0                  :code:`{"Name":"v1voteBP","Args":[<peer IDs>]}`
+voting DAO           :code:`aergo.system`       0                  :code:`{"Name":"v1voteDAO","Args":[<DAO ID>,<candidate>]}`
 create name          :code:`aergo.name`         1 aergo            :code:`{"Name":"v1createName","Args":[<a name string>]}`
 update name          :code:`aergo.name`         1 aergo            :code:`{"Name":"v1updateName","Args":[<a name string>, <new owner address>]}`
 add admin            :code:`aergo.enterprise`   0 aergo            :code:`{"Name":"appendAdmin","Args":[<new admin address>]}`
@@ -70,8 +71,19 @@ enable config        :code:`aergo.enterprise`   0 aergo            :code:`{"Name
 remove config        :code:`aergo.enterprise`   0 aergo            :code:`{"Name":"removeConf","Args":[<config key>,<config value>]}`
 ===================  =========================  =================  =========================================================================================================================================
 
-The aergo.system transactions, including staking, unstaking and voting, can be sent about once per day per account.
+The aergo.system transactions, including staking, unstaking and voting, can be sent about once per day per account. The only exception is when you first vote.
 For staking and unstaking, there is a limit to the amount of requests. It must be over 10000 aergo based on the amount of staked. Therefore, the first staking request should exceed 10000 aergo, and in the case of the unstaking request, more than 10000 must be left or withdrawn altogether.
+
+When voting for DAO, there are IDs by paramter. It will be changed to the new value when the first place gets 2/3 of the staking total.
+
+===================  ================================  =========================================================================================================================================
+DAO ID               Value                             Description
+===================  ================================  =========================================================================================================================================
+BPCOUNT              1 to 100                          The number of block producer
+STAKINGMIN           1 to 500000000000000000000000000  The amount of staking minimum
+GAPPRICE             1 to 500000000000000000000000000  The price of gas
+NAMEPRICE            1 to 500000000000000000000000000  The price of name
+===================  ================================  =========================================================================================================================================
 
 The aergo.enterprise transactions are only for the private blockchain network. if you want to enable aergo.enterprise, you should make the genesis block with :code:`"public":"false"`
 
