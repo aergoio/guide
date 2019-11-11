@@ -19,7 +19,7 @@ The feedelegation type transaction is performed when the check_delegation functi
 ## contract example
 
 ``` lua
-	state.var{
+    state.var{
         whitelist = state.map(),
 		item = state.value()
     }
