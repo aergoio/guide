@@ -14,5 +14,5 @@ please also refer to `this section <../using-network/index.html>`_ for more deta
    configuration
    monitoring
    configure-network
-   advanced-topics
+   advanced-topics/index
    troubleshooting
