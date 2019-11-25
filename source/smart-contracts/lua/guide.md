@@ -35,6 +35,8 @@ During the early period, the execution of a contract has some limitations.
 
 If the maximum is exceeded, the execution of a contract will fail.
 
+After the version 2.0, the Lua virtual machine can check the block execution timeout (min: 0.25s ~ max: 0.75s) and return an error upon block execution timeout. The transaction which causes timeout is not included into the block like the pre-2.0 version. Additionally, if it is the only transaction in the block, it will be evicted from the mempool for the stable operation of the block producer.
+
 ## Libraries
 
 We provide libraries for smart contract as follows:
