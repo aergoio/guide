@@ -4,45 +4,43 @@ Transaction Fees
 The Aergo protocol includes transaction fees that need to be paid
 according to the configuration of the network.
 
-`Versions prior to 2.0 <https://docs.aergo.io/en/1.3/specs/fees.html>`_ 
-consisted of the default transaction fee, payload size, and state database usage size.
+Versions prior to 2.0 (`see 1.3 docs <https://docs.aergo.io/en/1.3/specs/fees.html>`_) 
+included a simplified transaction fee scheme, taking into account payload and state database usage size.
 
-This is not fair because it did not consider the actual execution time and resource usage of the transaction.
-From ``2.0``, GAS system was introduced to correct this problem.
+This is not fair because it does not consider the actual execution time and resource usage of the transaction.
+In version 2.0, a gas system was introduced to correct this problem.
 
-The GAS is a numerical representation of your execution and storage costs in the transaction and contract.
-But GAS is not a fee. To calculate the fee, we need the gas price.
+Gas is a numerical representation of execution and storage costs in the transaction and contract.
+But gas is not a fee. To calculate the fee, we need the gas price.
 
-GAS Price
+Gas Price
 ---------
 
-GAS price is the AER value corresponding to 1 GAS. All transactions in a block have the same GAS price.
-It is not determined by the user per transaction. However, gas price is not a fixed value. Can be changed by DAO.
+Gas price is the AER value corresponding to 1 gas. All transactions in a block have the same gas price.
+Gas price is determined by a DAO vote.
 
-GAS Limit
+Gas Limit
 ---------
 
 The gas limit allows the user to specify the maximum amount of gas used for transactions and contracts.
 For backward compatibility with previous versions that did not specify a gas limit, 
-Gas limit 0 automatically calculates the maximum amount of gas limit you can perform with your balance.
+a gas limit of 0 automatically calculates the maximum amount of gas available from an account's balance.
 
-GAS Table
+Gas Table
 ---------
 
 Transaction
-''''''''''''
+'''''''''''
 
-Transactions other than the governance consumes ``100,000 GAS`` by default.
-If you have a payload, additional GAS will be used depending on the size
+Transactions other than governance transactions consume ``100,000 gas`` by default.
+If you have a payload, additional gas will be used depending on the size.
 
-Payload GAS
-
-.. note:: (*Bytes of a payload* - 200) * 5
+**Payload gas**: (*Bytes of a payload* - 200) * 5
 
 Instructions
 ''''''''''''
 
-The table below shows GAS usage for Lua bytecode.
+The table below shows gas usage for Lua bytecode.
 
 .. list-table::
     :widths: 30 30
@@ -104,7 +102,7 @@ The table below shows GAS usage for Lua bytecode.
 Built-in Functions
 ''''''''''''''''''
 
-GAS usage for built-in functions provided by the Lua VM
+Gas usage for built-in functions provided by the Lua VM
 
 .. list-table::
     :widths: 30 30
@@ -196,7 +194,7 @@ GAS usage for built-in functions provided by the Lua VM
 Aergo-extension Functions
 '''''''''''''''''''''''''
 
-GAS usage for aergo-extension functions
+Gas usage for aergo-extension functions
 
 .. list-table::
     :widths: 30 30
@@ -263,10 +261,10 @@ GAS usage for aergo-extension functions
     * - bignum.pow, bignum.divmod, bignum.powmd
       - 500
 
-Brick
------
+Gas estimation using Brick
+--------------------------
 
-Although there is GAS usage tables, it is not easy to estimate the exact gas limit.
+Although there is a gas usage tables, it is not easy to calculate the exact gas limit.
 The simplest way to estimate is to use the `Brick <https://github.com/aergoio/aergo/tree/master/cmd/brick>`_.
-The `Brick <https://github.com/aergoio/aergo/tree/master/cmd/brick>`_ allows you to deploy and perform contracts without running the blockchain.
-In addition, you can check the result, gas usage, etc. It also has functions for debugging the contract.
+The `Brick <https://github.com/aergoio/aergo/tree/master/cmd/brick>`_ allows you to deploy and perform contracts without running an actual blockchain.
+Using Brick, you can check contract call  results, gas usage, etc. It also has functions for debugging the contract.
