@@ -149,12 +149,13 @@ you can get notified for events with event name "send" for contract(AmhbdCEg4TUF
 ./aergocli event stream --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event send
 ```
 
-### stake(amount), unstake(amount), vote([bps,...])
-you can do governance(stake, unstake, vote) in contract with contract address
+### stake(amount), unstake(amount), vote([bps,...]), voteDao(arg1, arg2,...)
+you can do governance(stake, unstake, vote, voteDao) in contract with contract address
 
 ```lua
 contract.stake("1 aergo") 
 contract.vote(["<bp1 address>", "<bp2 address>"....)
+contract.voteDao("gasprice", "5")
 contract.unstake("1 aergo")
 ```
 

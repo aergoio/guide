@@ -23,3 +23,4 @@ You can learn the Lua programming language through the following documents:
    guide
    reference
    examples
+   using-fee-delegation
