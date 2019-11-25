@@ -54,7 +54,7 @@ Governance transactions are used for calling system contracts, such as staking a
 Transactions of this type have a special payload format and recipient.
 
 FeeDelegation type
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 FeeDelegation transactions are used for calling smart contract to charge fees to contract that support fee delegation.
 
