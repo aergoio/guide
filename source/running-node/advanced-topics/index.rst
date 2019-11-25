@@ -48,3 +48,8 @@ You then need to specify the path to the generated your-keyname.key file in the 
    [p2p]
    npkey = "/aergo/your-keyname.key"
    ...
+
+Aergo Network 2
+---------------
+
+:ref:`aergonetwork2-label` section

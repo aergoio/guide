@@ -293,11 +293,16 @@ Show connected peers
 Use getpeers to show list of peers connected to a aergosvr.
 
 It shows remote peers by default, but with :code:`--self` options, local aergosvr itself is shown in list. You can find it by checking :code:`Self` property.
+If you want to see only opened peers, use with :code:`--nohidden` options.
+The option :code:`--detail` is added in v2, which change output information level. :code:`--detail=0` or no option shows same as prvious version, :code:`--detail=-1` shows shortened version, and :code:`--detail=1` shows more information about peers 
 
-.. code-block:: shell
+normal output
+
+.. code-block:: json
 
     [
      {
+      "Role": "Producer",
       "Address": {
        "Address": "13.124.83.51",
        "Port": "7846",
@@ -311,8 +316,10 @@ It shows remote peers by default, but with :code:`--self` options, local aergosv
       "State": "RUNNING",
       "Hidden": false,
       "Self": true
+      "Version": "v2.0.0-dev1-14-g138d4f04"
      },
      {
+      "Role": "Producer",
       "Address": {
        "Address": "13.211.156.203",
        "Port": "7846",
@@ -326,10 +333,12 @@ It shows remote peers by default, but with :code:`--self` options, local aergosv
       "State": "RUNNING",
       "Hidden": false,
       "Self": false
+      "Version": "v2.0.0-dev1-14-g138d4f04"
      },
      {
+      "Role": "Producer",
       "Address": {
-       "Address": "203.109.12.23",
+       "Address": "192.168.2.21",
        "Port": "7846",
        "PeerId": "16Uiu2HAmAnQ5jjk7huhepfFtDFFCreuJ21nHYBApVpg8G7EBdwme"
       },
@@ -339,11 +348,39 @@ It shows remote peers by default, but with :code:`--self` options, local aergosv
       },
       "LastCheck": "2019-02-27T11:26:38.364262+09:00",
       "State": "RUNNING",
-      "Hidden": false,
+      "Hidden": true,
       "Self": false
+      "Version": "v2.0.0-dev1-14-g138d4f04"
+     },
+     {
+      "Role": "Agent",
+      "Address": {
+       "Address": "192.168.2.11",
+       "Port": "7846",
+       "PeerId": "16Uiu2HAm7e2TBhLDrsEyRVTnqqeyZznLxfpHcWQTdCZd8r4DhF9Q"
+      },
+      "BestBlock": {
+       "BlockHash": "BXAFbTbwEuywukzBqRKdCsuUpinnNQsVJCAXNVJAR6F4",
+       "BlockNo": 1251651
+      },
+      "LastCheck": "2019-02-27T11:26:38.342138+09:00",
+      "State": "RUNNING",
+      "Hidden": false,
+      "Self": false,
+      "Version": "v2.0.0-dev1-14-g138d4f04"
      }
     ]
 
+shortened output
+
+.. code-block:: json
+
+    [
+     "16*dbFjtb;13.124.83.51/7846;Producer;1251651",
+     "16*17k2oQ;13.211.156.203/7846;Producer;1251650",
+     "16*EBdwme;192.168.2.21/7846;Producer;1251651",
+     "16*4DhF9Q;192.168.2.11/7846;Agent;1251651"
+    ]
 
 Example without aergosvr
 ------------------------

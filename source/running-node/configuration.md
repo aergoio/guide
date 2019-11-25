@@ -6,7 +6,8 @@ This page explains the possible ways to configure an Aergo node.
 There are three common modes of operation for aergo server:
 
 * BP Node - Block provider node, which mines and propagates blocks
-* Full Node - Node to get and validate all blocks
+* Agent Node - Node to improve security and block propagation of BP node, added since Aergo v2.0
+* Watcher Node - Node to get and validate all blocks, previously named to Full Node before Aergo v2.0
 * Single Node - BP Node without peer, which uses to something like test.
 
 We describe only single node configuration in this. More will updated for the BP Node and full node.
@@ -102,8 +103,13 @@ Testmode **MUST NOT** be used in production.
 |               | npaddpeers       | initial peer list on start-up            |
 |               | nphiddenpeers    | peerid list which will not inform to other peers |
 |               | npexposeself     | whether to advertise node to `Polaris <../tools/polaris.html>`__ or other peers. |
+|               | npdiscoverpeers  | whether to discover unknown peers and try connect to them |
 |               | npusepolaris     | whether to connect Polaris for finding other peers    |
 |               | npaddpolarises   | list of addresses of custom polaris      |
+|               | peerrole         | role of peer. producer, agent or watcher |
+|               | producers        | list of peer ids of block producers, valid for agent only |
+|               | internalzones    | address ranges of internal zone, valid for agent only     |
+|               | agent            | peerid of agent, valid for block producer only            |
 | blockchain    | maxblocksize     | maximum block size                       |
 |               | coinbaseaccount  | address where is send rewards for mining |
 | mempool       | showmetrics      | whether if turn periodic log on          |
