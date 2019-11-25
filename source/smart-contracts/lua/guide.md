@@ -23,17 +23,11 @@ Here is a list of the default libraries that are not available.
 
 > coroutine, io, os, debug, and jit
 
-The `string`, `math`, `bit`, and `table` packages are available. However, you can not use the `random`, `randomseed` functions in the `math` package.
+The `string`, `math`, `bit`, and `table` packages are available. 
+Listed below are the functions available in the `math` package
+* abs, ceil, floor, pow, max, min
 
 There are no restrictions on literals, expressions, and statements.
-
-During the early period, the execution of a contract has some limitations.
-
-* The maximum number of instruction can be executed per contract is 5000000
-* The maximum size of the memory can be used per contract is 10 MB
-* The maximum size of the state DB that can be modified per contract is 200 KB
-
-If the maximum is exceeded, the execution of a contract will fail.
 
 After the version 2.0, the Lua virtual machine can internally check the block execution timeout (about 0.25s ~ 0.75s per block) and return an error upon block execution timeout. The transaction which causes timeout is not included into the block like the pre-2.0 version. Additionally, if it is the only transaction in the block, it will be evicted from the mempool for the stable operation of the block producer.
 
