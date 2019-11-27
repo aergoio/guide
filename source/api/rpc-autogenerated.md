@@ -86,6 +86,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
   - [ServerInfo.ConfigEntry](#types.ServerInfo.ConfigEntry)
   - [ServerInfo.StatusEntry](#types.ServerInfo.StatusEntry)
   - [SingleBytes](#types.SingleBytes)
+  - [SingleString](#types.SingleString)
   - [Staking](#types.Staking)
   - [VerifyResult](#types.VerifyResult)
   - [Vote](#types.Vote)
@@ -110,6 +111,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
   - [FilterInfo](#types.FilterInfo)
   - [FnArgument](#types.FnArgument)
   - [Function](#types.Function)
+  - [Proposal](#types.Proposal)
   - [Query](#types.Query)
   - [Receipt](#types.Receipt)
   - [State](#types.State)
@@ -612,6 +614,7 @@ BlockchainStatus is current status of blockchain
 | public | [bool](#bool) |  |  |
 | mainnet | [bool](#bool) |  |  |
 | consensus | [string](#string) |  |  |
+| version | [int32](#int32) |  |  |
 
 
 
@@ -634,6 +637,8 @@ ChainInfo returns chain configuration
 | totalstaking | [bytes](#bytes) |  |  |
 | gasprice | [bytes](#bytes) |  |  |
 | nameprice | [bytes](#bytes) |  |  |
+| totalvotingpower | [bytes](#bytes) |  |  |
+| votingreward | [bytes](#bytes) |  |  |
 
 
 
@@ -959,6 +964,8 @@ info and bps is json string
 | lashCheck | [int64](#int64) |  |  |
 | selfpeer | [bool](#bool) |  |  |
 | version | [string](#string) |  |  |
+| certificates | [AgentCertificate](#types.AgentCertificate) | repeated |  |
+| acceptedRole | [PeerRole](#types.PeerRole) |  |  |
 
 
 
@@ -1075,6 +1082,21 @@ info and bps is json string
 
 
 
+<a name="types.SingleString"></a>
+
+### SingleString
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="types.Staking"></a>
 
 ### Staking
@@ -1133,6 +1155,7 @@ info and bps is json string
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  |  |
 | candidates | [string](#string) | repeated |  |
+| amount | [string](#string) |  |  |
 
 
 
@@ -1312,6 +1335,7 @@ info and bps is json string
 | pubKey | [bytes](#bytes) |  | block producer's public key |
 | coinbaseAccount | [bytes](#bytes) |  | address of account to receive fees |
 | sign | [bytes](#bytes) |  | block producer's signature of BlockHeader |
+| consensus | [bytes](#bytes) |  | consensus meta |
 
 
 
@@ -1410,6 +1434,24 @@ info and bps is json string
 | arguments | [FnArgument](#types.FnArgument) | repeated |  |
 | payable | [bool](#bool) |  |  |
 | view | [bool](#bool) |  |  |
+| fee_delegation | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="types.Proposal"></a>
+
+### Proposal
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| multipleChoice | [uint32](#uint32) |  |  |
 
 
 
@@ -1453,6 +1495,8 @@ info and bps is json string
 | txIndex | [int32](#int32) |  |  |
 | from | [bytes](#bytes) |  |  |
 | to | [bytes](#bytes) |  |  |
+| feeDelegation | [bool](#bool) |  |  |
+| gasUsed | [uint64](#uint64) |  |  |
 
 
 
@@ -1628,6 +1672,10 @@ TxIdx specifies a transaction's block hash and index within the block body
 | NORMAL | 0 |  |
 | GOVERNANCE | 1 |  |
 | REDEPLOY | 2 |  |
+| FEEDELEGATION | 3 |  |
+| TRANSFER | 4 |  |
+| CALL | 5 |  |
+| DEPLOY | 6 |  |
 
 
  <!-- end enums -->
