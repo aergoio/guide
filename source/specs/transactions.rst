@@ -41,14 +41,11 @@ Transaction types
 
 There are several kinds of transactions.
 
-  REDEPLOY: 2;
-  CALL: 5;
-  DEPLOY: 6;
-
 Normal type (0)
 ^^^^^^^^^^^^^^^
 
 Normal transactions are used to transfer tokens and calling smart contracts.
+Since version 2.0, there are more precise transaction types that should be used instead.
 
 Governance type (1)
 ^^^^^^^^^^^^^^^^^^^
