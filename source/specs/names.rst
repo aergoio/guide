@@ -57,7 +57,7 @@ Technical details
 
 Names are stored in the state of the special account :code:`aergo.name`. They are created and updated using special governance transactions.
 Refer to `transaction types <transaction-types.html>`_ for the technical specification of these actions.
-Governance transactions currently don't require any fee, but the name system requires an amount of 1 aergo to be included in the transaction.
+Governance transactions currently don't require any fee, but the name system requires aergo determined by DAO voting to be included in the transaction. It
 
 Transactions that create or update names are effective after they are included in a block.
 That means that you can only refer to new or updated names in the following block.
