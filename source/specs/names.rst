@@ -14,7 +14,7 @@ Creating and updating names
 
 The easiest way to create and update names is the `aergocli <../tools/aergocli.html>`_. 
 
-Registering and updating names currently requires spending 1 aergo.
+Registering and updating names requires spending a cetrain amount of aergo determined by the DAO vote "nameprice".
 
 To register a new name:
 
@@ -57,7 +57,8 @@ Technical details
 
 Names are stored in the state of the special account :code:`aergo.name`. They are created and updated using special governance transactions.
 Refer to `transaction types <transaction-types.html>`_ for the technical specification of these actions.
-Governance transactions currently don't require any fee, but the name system requires aergo determined by DAO voting to be included in the transaction. It
+Governance transactions don't require any fee, but the name system requires an amount of aergo to be included in the transaction.
+This amount is determined by the DAO vote "nameprice". You can check the current name price in the ChainInfo. When using the CLI, the price is automatically set.
 
 Transactions that create or update names are effective after they are included in a block.
 That means that you can only refer to new or updated names in the following block.
