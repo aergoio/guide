@@ -26,7 +26,7 @@ Connection
 Limitations
 -----------
 
-- Maximum response size: 4mb. If the resulting amount of data exceeds this size, adjust the fetch size using resultSet.setFetchSize (default: 10 rows).
+- Maximum response size: 4mb. If the resulting amount of data exceeds this size, adjust the fetch size using Statement.setFetchSize (default: 10 rows).
 - Sqlite: Since the SQL engine in Aergo is Sqlite, only operations supported by Sqlite are possible.
 - Unsupported features:
 
