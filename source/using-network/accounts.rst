@@ -19,10 +19,10 @@ There are several methods to create accounts.
 
    .. code-block:: shell
    
-        aergocli account new --password your_password --path ./wallet
+        aergocli account new --path ./wallet
         
         # Or using Docker:
-        docker run --rm -v $(pwd):/wallet aergo/tools aergocli account new --password your_password --path /wallet
+        docker run --rm -it -v $(pwd)/wallet:/wallet aergo/tools aergocli account new --path /wallet
 
    The output shows the address of your new account. It is saved in account/data.db in the given path.
 
@@ -33,7 +33,7 @@ There are several methods to create accounts.
         aergocli account export --address your_address --password your_password --path ./wallet
         
         # Or using Docker:
-        docker run --rm -v $(pwd):/wallet aergo/tools aergocli account export --address your_address --password your_password --path /wallet
+        docker run --rm -it -v $(pwd)/wallet:/wallet aergo/tools aergocli account export --address your_address --path /wallet
 
    The output shows the encrypted private key belonging to your address which can be imported in other wallets.
 
