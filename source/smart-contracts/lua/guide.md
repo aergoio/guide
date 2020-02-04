@@ -496,7 +496,6 @@ You can execute the following SQL statements. However, DDL and DML can not be ru
 
 * DDL
   * TABLE: ALTER, CREATE, DROP
-  * VIEW: CREATE, DROP
   * INDEX: CREATE, DROP
 * DML
   * INSERT, UPDATE, DELETE, REPLACE
