@@ -5,6 +5,12 @@ This page explains how you can build aergo from source.
 
 If you are only interested in running the aergo tools, it is easier to use pre-built binaries or Docker images instead, as explained in `Quickstart <../running-node/quickstart.html>`_.
 
+*Prerequisites*
+
+* Go1.12.5+ - https://golang.org/dl
+* Proto Buffers - https://github.com/google/protobuf
+* CMake 3.0.0 or higher - https://cmake.org
+
 Linux
 -----
 
