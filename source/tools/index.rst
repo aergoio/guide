@@ -4,7 +4,7 @@ Tools
 .. toctree::
    :maxdepth: 2
 
-   aergocli
+   aergocli/index
    aergoluac
    ship
    brick
