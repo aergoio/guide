@@ -3,7 +3,7 @@ Aergocli
 
 **aergocli** is a command line tool that interfaces with the GRPC exposed by **aergosvr**.
 
-.. contents::
+.. contents:: :local:
 
 .. toctree::
    :maxdepth: 2
@@ -98,16 +98,12 @@ connect to publicly available nodes, this is not useful. That is why the default
 Continue using the old method (server-based accounts)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. versioadded:: 2.2.0
-
-To use the previous method of selecting accounts from the connected server,
+To use the pre-2.2 method of selecting accounts from the connected server,
 pass the :code:`--node-keystore` flag to aergocli.
 Remember you then have to unlock accounts before using them on the server. Check out the `examples <./examples.html#using-remote-node-based-accounts>`__.
 
 Migration from remote to local keystore
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versioadded:: 2.2.0
 
 To migrate from the old to the new storage format,
 first export an account from your node as a keystore file, and then import it into your local keystore:
