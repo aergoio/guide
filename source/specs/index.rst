@@ -15,5 +15,6 @@ These articles describe technical specifications in detail.
    fees
    blocks
    p2p/index
+   keystore
    block-management
    chain-management
