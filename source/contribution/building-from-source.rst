@@ -8,8 +8,8 @@ If you are only interested in running the aergo tools, it is easier to use pre-b
 *Prerequisites*
 
 * Go1.12.5+ - https://golang.org/dl
-* Proto Buffers - https://github.com/google/protobuf
 * CMake 3.0.0 or higher - https://cmake.org
+* Optional: Protobuffer - https://github.com/google/protobuf
 
 Linux
 -----
@@ -30,7 +30,8 @@ Linux
 
 3. Set environment
    ::
-      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GOPATH}/src/github.com/aergoio/aergo/libtool/lib
+
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GOPATH}/src/github.com/aergoio/aergo/libtool/lib
 
 macOS
 -----
@@ -54,7 +55,8 @@ macOS
 
 4. Set environment
    ::
-      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GOPATH}/src/github.com/aergoio/aergo/libtool/lib
+
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GOPATH}/src/github.com/aergoio/aergo/libtool/lib
 
 5. Run server
    ::
