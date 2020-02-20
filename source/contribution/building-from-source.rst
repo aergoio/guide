@@ -33,6 +33,11 @@ Linux
 
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GOPATH}/src/github.com/aergoio/aergo/libtool/lib
 
+4. Run server
+   ::
+
+        ./bin/aergosvr
+
 macOS
 -----
 
@@ -49,8 +54,7 @@ macOS
 
         go get -d github.com/aergoio/aergo
         cd `go env GOPATH`/src/github.com/aergoio/aergo
-        git submodule init
-        git submodule update
+        git submodule init && git submodule update
         make
 
 4. Set environment
