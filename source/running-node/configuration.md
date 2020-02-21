@@ -73,7 +73,8 @@ enablebp = true
 
 To enable testmode, either pass the command line option `--testmode` to aergosvr or set `enabletestmode = true` in the configuration.
 
-In testmode, all new accounts are assigned a high number of Aergo tokens by default, basically circumventing balance checks. This means you can send any transaction without first pre-funding hard-coded accounts using a genesis block.
+In testmode, all new accounts are assigned a high number of Aergo tokens by default, basically circumventing balance checks.
+This means you can send any transaction without first pre-funding hard-coded accounts using a genesis block.
 
 Testmode **MUST NOT** be used in production.
 
@@ -153,3 +154,19 @@ level = "info"
 [bp]
 level = "info"
 ```
+
+## Account storage
+
+*Changed in version 2.2.0.*
+
+Since version 2.2.0, aergosvr and aergocli use a new keystore file format for storing accounts.
+Before, accounts were saved as encrypted strings in a BadgerDB.
+The new keystore storage offers better portability and improved security.
+
+For backwards compatability, aergocli and aergosvr will continue to use the old storage if it already exists
+(i.e. if there is an accounts directory in the data directory).
+If you want to migrate your existing installation to take advantage of the improved storage, you need to export all
+existing accounts, delete the 'accounts' directory inside the data directory, and then re-import your accounts.
+Please check the aergocli help for how to do that.
+
+New installations will use the new storage method by default.

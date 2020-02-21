@@ -1,78 +1,16 @@
-Aergocli
+Examples
 ========
 
-**aergocli** is a command line tool that interfaces with the GRPC exposed by **aergosvr**.
+With all account actions, you will be prompted for a password.
+For automation, you can also pass it as the :code:`--password` flag, but that is less secure depending on your terminal environment.
 
-Installation
-------------
-
-**Using the binary**
-
-You can find the latest binary release on `Github <https://github.com/aergoio/aergo/releases/latest>`__.
-Just download and extract the archive.
-
-**Using Docker**
-
-You can also use the Docker image `aergo/tools <https://hub.docker.com/r/aergo/tools>`__.
-Example: :code:`docker run --rm aergo/tools aergocli version`
-
-Usage
------
-
-In order to use all features of aergocli you will need to have the end point (IP address and port number) to a aergosvr instance.
-
-For a list of all commands known to :code:`aergocli`, simply run it with no arguments.
-
-.. code-block:: text
-
-    Usage:
-    aergocli [command]
-
-    Available Commands:
-    account     account command
-    blockchain  Print current blockchain status
-    bp          show bp voting stat
-    chaininfo   Print current blockchain information
-    committx    Send transaction
-    contract    contract command
-    event       Get event
-    getblock    Get block information
-    getpeers    Get Peer list
-    getstate    Get account state
-    gettx       Get transaction information
-    help        Help about any command
-    keygen      Generate private key
-    listblocks  Get block headers list
-    metric      Show metric informations
-    name        Name command
-    node        Show internal metric
-    receipt     receipt command
-    sendtx      Send transaction
-    signtx      Sign transaction
-    verifytx    Verify transaction
-    version     Print the version number of Aergocli
-    
-    Flags:
-        --config string   config file (default is config.toml) (default "config.toml")
-    -h, --help            help for aergocli
-        --home string     aergo home path (default ".")
-    -H, --host string     Host address to aergo server (default "localhost")
-    -p, --port int32      Port number to aergo server (default 7845)
-
-    Use "aergocli [command] --help" for more information about a command.
-
-Examples
---------
+.. versionchanged:: 2.2.0
+    Account actions now use a local keystore. The path can be configured using :code:`--keystore` (default: $HOME/.aergo).
+    In previous versions, this used a remote keystore on the node you connected to. You can restore the previous behavior
+    using the :code:`--node-keystore` option. See below for examples.
 
 Create account
-~~~~~~~~~~~~~~
-
-.. code-block:: shell
-
-    $ aergocli account new --password yourpasswordhere
-    AmP96xd6WYRe1jrWixC3VyFXRCzwZxAJtU3Uc54vn182xG9Yn9Cs
-
-or 
+--------------
 
 .. code-block:: shell
 
@@ -81,28 +19,10 @@ or
     Repeat Password:
     AmP96xd6WYRe1jrWixC3VyFXRCzwZxAJtU3Uc54vn182xG9Yn9Cs
 
-Now we can use the account in aergosvr.
 Please remember the password carefully because there is no way to retrieve the password again.
 
 Send transaction
-~~~~~~~~~~~~~~~~
-
-Before request send transaction you must unlock your account first
-
-.. code-block:: shell
-
-    $ aergocli account unlock --address AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78
-    Enter Password:
-    AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78
-
-or
-
-.. code-block:: shell
-
-    $ aergocli account unlock --address AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78 --password yourpasswordhere
-    AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78
-
-and then
+----------------
 
 .. code-block:: shell
 
@@ -112,7 +32,7 @@ and then
     }
 
 Look up transaction
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Use gettx command. If transaction is in block, return transaction with index that represent where it's included.
 
@@ -163,7 +83,7 @@ When transaction is in block, gettx result is like below
     }
 
 Check block
-~~~~~~~~~~~
+-----------
 
 .. code-block:: shell
 
@@ -204,13 +124,11 @@ Check block
      }
 
 Sign transaction
-~~~~~~~~~~~~~~~~
-
-After unlock the account
+----------------
 
 .. code-block:: shell
 
-    $ aergocli signtx --jsontx "{ \
+    $ aergocli signtx --address AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q --jsontx "{ \
     \"Nonce\": 2, \
     \"Account\": \"AmPLWBzx4tAYt91JM3jKWFs3aYWHSvKpYYzdUQuQMNa7jAw5t65q\", \
     \"Recipient\": \"AmLnVfGwq49etaa7dnzfGJTbaZWV7aVmrxFes4KmWukXwtooVZPJ\", \
@@ -219,6 +137,7 @@ After unlock the account
     \"Limit\": 0, \
     \"Price\": \"0\", \
     \"Type\": 0 }"
+    Enter Password:
     {
      "Hash": "9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg",
      "Body": {
@@ -235,13 +154,13 @@ After unlock the account
     }
 
 Commit Transaction
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Send given transactions to **aergosvr**
 
 .. code-block:: shell
 
-    $ aergocli -p 27845 committx --jsontx "{
+    $ aergocli committx --jsontx "{
     \"Hash\": \"9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg\",
     \"Body\": {
       \"Nonce\": 2,
@@ -263,10 +182,8 @@ Send given transactions to **aergosvr**
      ]
     }
 
-
-
 Get Account state
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Check account's state (nonce, balance) 
 
@@ -288,7 +205,7 @@ By default, the returned state is the one at the latest block, but you may speci
     $ aergocli getstate --address "AmNvFyqKFGVWvQ3MTi3eMFiNB9zvL9cK43B9c9bzcA732YZjZgfn" --root "9NBSjkcNTdE5ciBxfb52RmsVW7vgX5voRsv6KcosiNjE"
 
 Show connected peers
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Use getpeers to show list of peers connected to a aergosvr.
 
@@ -382,41 +299,53 @@ shortened output
      "16*4DhF9Q;192.168.2.11/7846;Agent;1251651"
     ]
 
-Example without aergosvr
-------------------------
+Using remote node-based accounts
+--------------------------------
 
-There are some feature working on **aergocli** itself without **aergosvr**.
+.. deprecated:: 2.2.0
+    To be removed in future versions, use local keystores (the new default) instead.
+
+You can also store accounts on a remote node.
+When using remote account management, pass the :code:`--node-keystore` flag to all commands.
+In versions prior to 2.2.0, this was the default behavior.
 
 Create, Export, Import account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With :code:`--path` option, aergocli creates an account in the given path and not in **aergosvr**.
-
 .. code-block:: shell
 
-    $ aergocli account new --password yourpasswordhere --path path/to/save/account
+    $ aergocli account new --node-keystore
+    Enter Password:
+    Repeat Password:
     AmNFcocofUvmyLtXA6WgpANbjiF7RScGvQ4memNyNzS4ARJox3yq
 
-Private key of account is store in the given path.
-
-Of course this account can be exported and imported to aergosvr or another path.
+This account can be exported and imported.
 
 .. code-block:: shell
 
-    $ aergocli account export --address AmNFcocofUvmyLtXA6WgpANbjiF7RScGvQ4memNyNzS4ARJox3yq --password yourpasswordhere --path path/to/save/account
-    47rsdfckuUCcjY3SmzCtmthhQm336Cpz9341xQHq6sr5Wm3md9FaTZDj6Gkqtff3WBPoqtzVV
+    $ aergocli account export --address AmNFcocofUvmyLtXA6WgpANbjiF7RScGvQ4memNyNzS4ARJox3yq --node-keystore > AmNFcocofUvmyLtXA6WgpANbjiF7RScGvQ4memNyNzS4ARJox3yq__keystore.txt
+    Enter Password:
 
 .. code-block:: shell
 
-    $ aergocli account import --if 47rsdfckuUCcjY3SmzCtmthhQm336Cpz9341xQHq6sr5Wm3md9FaTZDj6Gkqtff3WBPoqtzVV --password yourpasswordhere --path other/path/to/save/account
+    $ aergocli account import --node-keystore --path AmNFcocofUvmyLtXA6WgpANbjiF7RScGvQ4memNyNzS4ARJox3yq__keystore
     AmNFcocofUvmyLtXA6WgpANbjiF7RScGvQ4memNyNzS4ARJox3yq
+
+Unlock
+~~~~~~
+
+Before request send transaction you must unlock your account first
+
+.. code-block:: shell
+
+    $ aergocli account unlock --node-keystore --address AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78
+    Enter Password:
+    AmQFgm1gCvoRw2RfBXnipRmeCLEc6tTQ1kBMmLEzHjp91xYnXK78
 
 Sign transaction
 ~~~~~~~~~~~~~~~~
 
-With :code:`--path` option, aergocli can sign the transaction using private key of account in given path.
-
-Unlike using aergosrv, parameter :code:`--address` and :code:`--password` are needed instead of unlock.
+With :code:`--node-keystore` option, aergocli can sign the transaction using private key of account on the remote node.
 
 .. code-block:: shell
 
@@ -428,7 +357,8 @@ Unlike using aergosrv, parameter :code:`--address` and :code:`--password` are ne
     \"Payload\": \"\", \
     \"Limit\": 0, \
     \"Price\": \"0\", \
-    \"Type\": 0 }" --path path/to/save/account --password yourpasswordhere 
+    \"Type\": 0 }" --node-keystore
+    Enter Password:
     {
      "Hash": "9cAphBMD2zJCD13QfCn7rmxh5iDfrj6M9Wmo54TPNPCg",
      "Body": {

@@ -34,6 +34,7 @@ This reference is auto-generated from [aergoio/aergo-protobuf](https://github.co
       - [UnlockAccount](#UnlockAccount)
       - [ImportAccount](#ImportAccount)
       - [ExportAccount](#ExportAccount)
+      - [ExportAccountKeystore](#ExportAccountKeystore)
       - [QueryContract](#QueryContract)
       - [QueryContractState](#QueryContractState)
       - [GetPeers](#GetPeers)
@@ -350,7 +351,14 @@ Import account to this node
 *Request Type:* [Personal](#types.Personal)<br>
 *Response Type:* [SingleBytes](#types.SingleBytes)
 
-Export account stored in this node
+Export account stored in this node as wif format
+<a name="ExportAccountKeystore"></a>
+#### ExportAccountKeystore
+
+*Request Type:* [Personal](#types.Personal)<br>
+*Response Type:* [SingleBytes](#types.SingleBytes)
+
+Export account stored in this node as keystore format
 <a name="QueryContract"></a>
 #### QueryContract
 
@@ -808,6 +816,7 @@ info and bps is json string
 | wif | [SingleBytes](#types.SingleBytes) |  |  |
 | oldpass | [string](#string) |  |  |
 | newpass | [string](#string) |  |  |
+| keystore | [SingleBytes](#types.SingleBytes) |  |  |
 
 
 
