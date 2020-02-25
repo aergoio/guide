@@ -1611,7 +1611,7 @@ info and bps is json string
 | recipient | [bytes](#bytes) |  | decoded account address |
 | amount | [bytes](#bytes) |  | variable-length big integer |
 | payload | [bytes](#bytes) |  |  |
-| gasLimit | [uint64](#uint64) |  | currently not used |
+| gasLimit | [uint64](#uint64) |  | maximum gas used for this transaction. 0 = no limit |
 | gasPrice | [bytes](#bytes) |  | variable-length big integer. currently not used |
 | type | [TxType](#types.TxType) |  |  |
 | chainIdHash | [bytes](#bytes) |  | hash value of chain identifier in the block |
