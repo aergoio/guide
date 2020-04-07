@@ -23,6 +23,9 @@ Connection
 - User: encrypted private key
 - Password: passphrase used to encrypt private key
 
+- changed at jdbc v1.1.0
+   support aergo keystore with keystore property and when using keystore, use address for user property
+
 Limitations
 -----------
 
