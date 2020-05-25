@@ -130,10 +130,10 @@ The :code:`status` can be one of three values:
 
 SUCCESS
     Simple value transfer transactions and succesful contract executions.
-    For contract calls, the result is available in :code:`result`.
+    For contract calls, the result is available in :code:`ret`.
 
 ERROR
-    Failed contract execution. The error message can be found in :code:`result`.
+    Failed contract execution. The error message can be found in :code:`ret`.
 
 CREATED
     Succesful contract deployment transaction. The created address can be found in :code:`contractAddress`.
