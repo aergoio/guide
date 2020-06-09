@@ -5,23 +5,20 @@ Aergo offers language-specific SDKs to make it easy to develop Dapps.
 
 .. image:: dapp-overview.png
 
-.. toctree::
-   :maxdepth: 2
+* `Java <https://github.com/aergoio/heraj/wiki>`_
+* `Javascript <https://herajs.readthedocs.io/>`_
+* `Python <https://aergo-herapy.readthedocs.io/>`_
+* `C <https://github.com/aergoio/libaergo/>`_
+* `C++ <https://github.com/aergoio/libaergo/>`_
+* `C# <https://github.com/aergoio/libaergo/>`_
+* `VB.NET <https://github.com/aergoio/libaergo/>`_
+* `Swift <https://github.com/aergoio/libaergo/>`_
 
-`Java <https://github.com/aergoio/heraj/wiki>`_
+Other Languages
+===============
 
-`Javascript <https://herajs.readthedocs.io/>`_
+If you are using another language that is currently not supported by a decicated SDK, you can still interact with AERGO using the API directly.
 
-`Python <https://aergo-herapy.readthedocs.io/>`_
+Please refer to the `API reference <../api/index.html>`_.
 
-`C <https://github.com/aergoio/libaergo/>`_
-
-`C++ <https://github.com/aergoio/libaergo/>`_
-
-`C# <https://github.com/aergoio/libaergo/>`_
-
-`VB.NET <https://github.com/aergoio/libaergo/>`_
-
-`Swift <https://github.com/aergoio/libaergo/>`_
-
-other
+You can also contact us with a request to implement support for your requirements.
