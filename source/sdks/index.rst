@@ -13,6 +13,8 @@ Aergo offers language-specific SDKs to make it easy to develop Dapps.
 * `C# <https://github.com/aergoio/libaergo/>`_
 * `VB.NET <https://github.com/aergoio/libaergo/>`_
 * `Swift <https://github.com/aergoio/libaergo/>`_
+* `Ruby <https://github.com/aergoio/libaergo/>`_
+* `PHP <https://github.com/aergoio/heraphp/>`_
 
 Other Languages
 ===============
