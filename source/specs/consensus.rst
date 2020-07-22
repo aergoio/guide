@@ -1,12 +1,16 @@
-Consensus Algorithm
-===================
+합의 알고리즘
+=============
 
-The objective of all blockchain protocols is to replicate a blockchain and
-its associated state across participating nodes. To achieve such an
-agreement, each blockchain protocol deploys a consensus algorithm.
+블록체인 프로토콜의 궁극적인 목적은 네트워크에 참여하는 모든 노드가 동일한
+버젼의 블록체인을 공유하도록 하는 것이다. 이것을 위해서는 각 높이별 블록에 대해
+블록을 생성하는 노드들 간의 동의가 필요하다. 이 동의를 이루는 과정에서 사용되는
+것이 합의 알고리즘이다.
 
-The public Aergo network uses **Delegated Proof of Stake (DPoS)** for
-blockchain consensus.
+현재 아르고 퍼블릭 블록체인 네트워크는 블록체인에 대한 합의를 위해 **Delegated
+Proof of Stake (DPoS)** 를 사용한다. DPoS에서는 블록을 생성하는 노드들을 투표를 통해
+선출한다. 또 일정한 기준을 충족하는 블록은 최종 비가역적 블록(Last Irreversible Block,
+LIB)이 되어 최종성이 보장된다.
+
 
 BP Election
     In DPoS, blocks are generated only by a limited number of nodes called
