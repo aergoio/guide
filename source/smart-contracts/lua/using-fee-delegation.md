@@ -1,7 +1,6 @@
 # Using fee delegation
-In order to perform a transaction, the user who sends the transaction is basically required to perform the transaction fee. Providing fees from the contract to enable users without fee to perform the contact will reduce the user's burden on using the contact.
-
-In order to use the fee delegation, the contract need to support fee delegation and the transaction must be performed with the FeeDelegation type.
+The user who requests for a transaction has to perform it by providing the transaction fee. Fees provided by the contract will reduce the burden of users in using it. 
+Fee delegation can only be used through the support of contract. The transaction should be performed under the fee_delegation type.
 
 ## abi(abi.fee_delegation)
 The function to be performed must be specified in abi as fee_delegation.
@@ -11,10 +10,8 @@ The function to be performed must be specified in abi as fee_delegation.
 ```
 
 ## check_delegation function
-the function check_delegation function to check condition to delegation need to be defined.
-The check_delegation function is performed internally and the call function name and arguments of the transaction are used as arguments.
-The feedelegation type transaction is performed when the check_delegation function is true.
-(note: the check_delegation function is allowed read only)
+The check_delegation function checks the definition of delegation. The check_delegation function is performed internally and the function name (fname) and argument (arg0) are called by check_delegation. If check_delegation is true, fee_delegation is performed. (note: the check_delegation function is allowed read only)
+
 
 ## contract example
 
