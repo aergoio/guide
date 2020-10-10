@@ -1,20 +1,17 @@
 # Using fee delegation
-In order to perform a transaction, the user who sends the transaction is basically required to perform the transaction fee. Providing fees from the contract to enable users without fee to perform the contact will reduce the user's burden on using the contact.
+The user who requests for a transaction has to perform it by providing the transaction fee. However, if the user enables the feature of smart contract then transaction would automatically be done. Enabling the smart contract minimizes the burden of the user. 
+Fee delegation can only be used through the support of contract. The transaction should be performed under the fee_delegation type.
 
-In order to use the fee delegation, the contract need to support fee delegation and the transaction must be performed with the FeeDelegation type.
 
 ## abi(abi.fee_delegation)
-The function to be performed must be specified in abi as fee_delegation.
+The function being performed should be specified in abi as fee_delegation.
 
 ``` lua
     abi.fee_delegation(work)
 ```
 
 ## check_delegation function
-the function check_delegation function to check condition to delegation need to be defined.
-The check_delegation function is performed internally and the call function name and arguments of the transaction are used as arguments.
-The feedelegation type transaction is performed when the check_delegation function is true.
-(note: the check_delegation function is allowed read only)
+The definition of delegation is considered by the condition of check_delegation function. Check_delegation function works internally.  The function name (fname) and argument (arg0) are arguments of the transaction which are called by check_delegation. If check_delegation is true, fee_delegation is performed. (note: the check_delegation function is allowed read only)
 
 ## contract example
 
