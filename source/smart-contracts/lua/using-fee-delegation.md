@@ -11,7 +11,8 @@ The function being performed should be specified in abi as fee_delegation.
 ```
 
 ## check_delegation function
-The definition of delegation is considered by the condition of check_delegation function. Check_delegation function works internally.  The function name (fname) and argument (arg0) are arguments of the transaction which are called by check_delegation. If check_delegation is true, fee_delegation is performed. (note: the check_delegation function is allowed read only)
+The definition of delegation is considered by the condition of check_delegation function. Check_delegation function works internally.  The function name (fname) and argument (arg0) are arguments of the transaction which are called by check_delegation. If check_delegation is true, fee_delegation is performed.
+(note: the check_delegation function is allowed read only)
 
 ## contract example
 
