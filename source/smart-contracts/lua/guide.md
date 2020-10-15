@@ -327,7 +327,7 @@ abi.register(InvalidUpdateAge, ValidUpdateAge, GetPerson)
 ### Private functions
 
 These functions cannot be accessed from outside the smart contract.
-You can use them as helper functions to implement business logic.
+You can use them as helper functions.
 
 ### Exported functions
 
@@ -350,12 +350,28 @@ abi.register(my_restricted_function)
 
 #### constructor
 
-The `constructor` function is executed only once during deployment. It can have arguments.
-It does not need to be registered with `abi.register()` because this is handled automatically.
+The `constructor` function is executed only once during the contract deployment.
+It does not need to be exported with `abi.register()`.
+
+It can have arguments, that should be passed at the contract deployment.
+
+It can also write to the contract state, generally initializing it. Example:
+
+```lua
+state.var {
+  my_number = state.value()
+}
+
+function constructor(value)
+  my_number:set(value)
+end
+
+...
+```
 
 #### default
 
-`default` is a special function. It is called when the function name cannot be found or when the transaction
+The `default` function is called when the function name cannot be found or when the transaction
 has no call information. It does not need to be exported through `abi.register()`. `default` is used internally
 by the VM. You should not use `default` for any other purpose.
 
