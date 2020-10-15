@@ -28,7 +28,7 @@ These are the default libraries that are not available:
 The `string`, `math`, `bit` and `table` packages are available. All functions from these packages are available,
 except for the `math` package. These are the functions available in the `math` package:
 
-* abs, ceil, floor, pow, max, min
+> abs, ceil, floor, pow, max, min
 
 There are no restrictions on literals, expressions and statements.
 
@@ -54,6 +54,7 @@ You can find detailed descriptions for libraries on this [page](reference.html)
 ## Smart Contract
 
 ### Layout
+
 ```lua
 import "./path/to/library"
 
@@ -85,19 +86,22 @@ end
 abi.register(contract1, contract2) -- , contract3, ...
 ```
 
-#### import
+### import
+
 This replaces the `require` function.
 
 It allows you to divide and develop one smart contract into multiple modules (files).
 
 This is not a Lua feature. You should use [SHIP](https://github.com/aergoio/ship/wiki) to build and deploy smart contracts using multiple files.
 
-#### state variable
+### state variable
+
 The `state.var` function defines global state variables.
 
 Three types of state variables can be defined:
 
-##### value
+#### value
+
 This type stores any Lua value.
 
 You can define a state value with the syntax `var_name = state.value()`.
@@ -107,7 +111,9 @@ It has `get` and `set` methods for reading and writing data.
 var_name:set("data")
 local data = var_name:get()
 ```
-##### map
+
+#### map
+
 The type map implements associative arrays.
 
 It can be indexed only with `string`, but the value of a map element can be of any type.
@@ -155,11 +161,13 @@ function contract_func()
 end
 ```
 
-###### Restrictions
+##### Restrictions
+
 * max dimension : 5
 * not support setting intermediate dimension element
 
 next is setting intermediate dimension element example
+
 ```lua
 state.var {
   Map_var = state.map(2)
@@ -174,7 +182,7 @@ function contract_func()
 end
 ```
 
-##### array
+#### array
 
 The type array is a fixed-length ordinary array.
 
@@ -260,7 +268,7 @@ function contract_func()
 end
 ```
 
-###### Restrictions
+##### Restrictions
 
 * max dimension : 5
 * not support setting intermediate dimension element
@@ -316,22 +324,36 @@ abi.register(InvalidUpdateAge, ValidUpdateAge, GetPerson)
 
 ```
 
+### Private functions
+
+These functions cannot be accessed from outside the smart contract.
+You can use them as helper functions to implement business logic.
+
+### Exported functions
+
+These are the functions that can be called from contract call and query commands.
+They should be registered using `abi.register()`.
+
+You can restrict who can call these functions by checking the caller using `system.getOrigin()` or `system.getSender()`.
+Example:
+
+```lua
+function my_restricted_function()
+  assert(system.getOrigin() == system.getCreator(), "permission denied")
+  ...
+end
+
+abi.register(my_restricted_function)
+```
+
+### Special functions
+
 #### constructor
 
 The `constructor` function is executed only once during deployment. It can have arguments.
-It does not need to be registered with `abi.register()` function because this is handled automatically.
+It does not need to be registered with `abi.register()` because this is handled automatically.
 
-#### functions
-
-Write business logic and help functions.
-
-#### export contract function(s)
-
-You should add global functions that must be called from contract call/query commands to the `abi.register()`.
-
-#### special functions
-
-##### default
+#### default
 
 `default` is a special function. It is called when the function name cannot be found or when the transaction
 has no call information. It does not need to be exported through `abi.register()`. `default` is used internally
@@ -354,7 +376,7 @@ without information about which function to call.
 ./aergocli contract call <sender> <contract>
 ```
 
-##### payable
+#### payable
 
 The `payable` is a property of a function. Only payable functions can receive Aergos sent from a sender.
 We can make a payable function using `abi.payable()`. `payable` functions are automatically exported. Therefore, you do not need to register them using `abi.register()`. `constructor` and `default` are not payable functions by default. They can be made payable functions by using `abi.payable()`.
@@ -380,7 +402,7 @@ abi.payable(ReceiveAergo)
 ./aergocli contract call --amount=10 <sender> <contract> NotReceiveAergo  # fail
 ```
 
-##### view
+#### view
 
 The `view` is a property of a function. Functions can be declared view in which case they promise not to modify the state (send aergo, emit event, set state, etc...).
 We can make a view function using `abi.register_view()`. `register_view` functions are automatically exported. Therefore, you do not need to register them using `abi.register()`. 
@@ -400,13 +422,14 @@ abi.register_view(sendAergo)
 ./aergocli contract call <sender> <contract> sendAergo  # fail
 ```
 
+
 ## SQL
 
 Aergo smart contract has `db` library that supports SQL features.
 
-> Note: The db package is only available on private networks([SQL TestNet](https://sqltestnet.aergoscan.io/)).
+> Note: The db package is currently only available on private networks and publicly on [SQL TestNet](https://sqltestnet.aergoscan.io/).
 
-The below code is a example of creating table and insert a row using `db.exec()`
+The code below is an example of creating a table and inserting a row using `db.exec()`
 
 ```lua
 -- creates a customer table
@@ -480,25 +503,28 @@ end
 
 ### Security
 
-:warning: Do not concatenate values when building SQL commands!
+DO NOT concatenate values when building SQL commands!
 
 This would make your smart contract vulnerable to `SQL injection` attacks.
 
-These are bad examples that should *NOT* be used: :no_entry_sign:
+These are bad examples that should *NOT* be used:
 
 ```lua
+  -- WRONG! AVOID THIS:
   db.exec("insert into customer values ('" .. id .. "', '"
       .. passwd .. "', '"
       .. name .. "', '"
       .. birth .. "', '"
       .. mobile .. "')")
 
+  -- WRONG! AVOID THIS:
   local rs = db.query("select * from customer where id like '%'" .. id .. "'%'")
 ```
 
 ### Restrictions
 
-[Litetree](https://github.com/aergoio/litetree) is used as the SQL processing engine for the aergo smart contract. Litetree is implemented based on SQLite.
+[LiteTree](https://github.com/aergoio/litetree) is used as the SQL processing engine for Aergo smart contracts.
+LiteTree is implemented based on SQLite.
 
 Detailed SQL usage can be found at https://sqlite.org/lang.html and https://sqlite.org/lang_corefunc.html
 
