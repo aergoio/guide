@@ -1,49 +1,63 @@
-# Using fee delegation
-In order to perform a transaction, the user who sends the transaction is basically required to perform the transaction fee. Providing fees from the contract to enable users without fee to perform the contact will reduce the user's burden on using the contact.
+# Fee delegation
 
-In order to use the fee delegation, the contract need to support fee delegation and the transaction must be performed with the FeeDelegation type.
+Generally the user who sends a transaction needs to pay the transaction execution fee.
+The fee delegation is a feature that allows the contract to pay the execution, so the user does not need to pay for it.
 
-## abi(abi.fee_delegation)
-The function to be performed must be specified in abi as fee_delegation.
+In order to use this feature, the contract needs to support fee delegation and the transaction must be built with the FeeDelegation type.
+The contract also needs to have sufficient balance to pay the execution.
+
+## abi.fee_delegation()
+
+The functions to be executed using fee delegation must be specified with `abi.fee_delegation()`
 
 ``` lua
-    abi.fee_delegation(work)
+    abi.fee_delegation(work, work2)
 ```
 
 ## check_delegation function
-the function check_delegation function to check condition to delegation need to be defined.
-The check_delegation function is performed internally and the call function name and arguments of the transaction are used as arguments.
-The feedelegation type transaction is performed when the check_delegation function is true.
-(note: the check_delegation function is allowed read only)
 
-## contract example
+The `check_delegation` is a special function used to check whether the transaction can be processed using fee delegation.
+In another words: if the contract will pay for this specific transaction execution or not.
+
+It is called by the engine when a transaction with fee delegation type arrives (a transaction asking to be paid by the contract).
+The arguments to this function are:
+
+* the name of the function that the transaction wants to call/execute
+* the arguments to that function
+
+You can use any logic to determine if the transaction will be paid by the contract.
+It is common to check who is sending the transaction with `system.getOrigin()` or `system.getSender()`.
+
+This function should return a boolean (true=accept or false=reject) and it is read-only (it should not write to the state).
+
+## Contract example
 
 ``` lua
 state.var{
-	whitelist = state.map(),
-	item = state.value()
+    whitelist = state.map(),
+    item = state.value()
 }
 
 function reg(user)
-	if (k == nil) then
-        	whitelist[system.getSender()] = true
-	else
-        	whitelist[user] = true
-	end
+    if (k == nil) then
+        whitelist[system.getSender()] = true
+    else
+        whitelist[user] = true
+    end
 end
 
 function work(arg0)
-	if (system.isFeeDelegation() == true) then
-        	whitelist[system.getSender()] = false
-	end
-	item:set(arg0)
+    if (system.isFeeDelegation() == true) then
+        whitelist[system.getSender()] = false
+    end
+    item:set(arg0)
 end
 
 function check_delegation(fname,arg0)
-	if (fname == "work") then
-	       	return whitelist[system.getSender()]
-	end
-	return false
+    if (fname == "work") then
+        return whitelist[system.getSender()]
+    end
+    return false
 end
 
 function default()
@@ -61,7 +75,7 @@ aergocli contract call --delegation AmPbWrQbtQrCaJqLWdMtfk2KiN83m2HFpBbQQSTxqqch
 1 : HtyNZdJzJNYkeCQCrz8xozPvGLn1xhde9ExNEEiEKPy4 TX_OK
 ```
 
-## receipt
+## Receipt
 
 ``` bash
 aergocli receipt get HtyNZdJzJNYkeCQCrz8xozPvGLn1xhde9ExNEEiEKPy4
@@ -70,7 +84,7 @@ aergocli receipt get HtyNZdJzJNYkeCQCrz8xozPvGLn1xhde9ExNEEiEKPy4
  "BlockHash": "Az8pJvDso44nP9Lq5Wj7QoU6n9yZcFkCcmJaiRKyq9Qz",
  "contractAddress": "Amh6aHxfoMrCmXd2GrV3Yem1zmcqgAiPaJAhsux3wedpEVUCGowx",
  "status": "SUCCESS",
- "ret": ""
+ "ret": "",
  "txHash": "HtyNZdJzJNYkeCQCrz8xozPvGLn1xhde9ExNEEiEKPy4",
  "txIndex": 0,
  "from": "AmPbWrQbtQrCaJqLWdMtfk2KiN83m2HFpBbQQSTxqqchVv58o82i",
