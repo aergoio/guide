@@ -2,41 +2,60 @@ Reference
 =========
 
 ## Overview
-aergo smart contract uses Lua, a lightweight scripting language, as a smart contract language.
-The following is an example of a simple coin stack smart contract written in Lua that stores key-value values ​​in a block-chain state store and reads the values.
+
+Aergo uses Lua, a lightweight scripting language, as its smart contract language.
+The following is an example of a simple coinstack smart contract written in Lua that stores key-value pairs in a blockchain state store and reads the values:
+
 ```lua
--- Storing key-values ​​in the state store
+-- Storing key-values in the state store
 function set(key, value)
-    system.setItem(key, value);
+    system.setItem(key, value)
 end
 
 -- Returns the value corresponding to the key in the state store
 function get(key)
-    return system.getItem(key);
+    return system.getItem(key)
 end
-​
+
 -- Output the hash value of the previous block. The output is printed on the server log.
 function printPrevBlock()
-    system.print(system.getPrevBlockHash());
+    system.print(system.getPrevBlockHash())
 end
 
 -- Functions to be called for contract declare as abi
 abi.register(set, get, printBlock)
 ```
-To read and write data on a block chain within a contract, you must use a system package. In the above example, smart contract  provides the function to access the key-value repository through the setItem and getItem functions of the system package and store the data permanently. In addition, a simple debug message can be output to the log file of the node via the print function.
+
+To read and write data on a blockchain within a contract, you must use the system package.
+In the above example, the smart contract provides the function to access the key-value repository through the setItem and getItem functions of the system package and store the data permanently. 
+In addition, a simple debug message can be output to the node's log file via the print function.
+
 
 ## system package
 This packages provides blockchain information and store/get state
-### getSender()
-This function returns caller address of current contract 
+
 ### getBlockheight() 
 This function returns the block number that contains the current contract transaction.
-### getTxhash()
-This function returns the id of the current contract transaction.
+### getPrevBlockHash()
+This function returns the hash of the previous block
 ### getTimestamp()
 This function returns the creation start time of the block that contains current contract transaction.
+### getTxhash()
+This function returns the id of the current contract transaction.
+### getAmount()
+This function returns number of AER sent with contract call. Return type is string.
+### isFeeDelegation()
+This function returns whether the transaction is using fee delegation.
 ### getContractID()
 This function returns the current contract address.
+### getCreator()
+This function returns creator address of current contract
+### getOrigin()
+This function returns sender address of current transaction
+### getSender()
+This function returns caller address of current contract 
+### isContract(address)
+This function return if address is contract then true else false. when address is invalid then raise error   
 ### setItem(key, value) 
 This function sets the value corresponding to key to the storage belonging to current contract
 * restriction
@@ -45,20 +64,13 @@ This function sets the value corresponding to key to the storage belonging to cu
 ### getItem(key)
 This function returns the value corresponding to key in storage belonging to current contract
 * If there is no value corresponding to key, it returns nil.
-### getAmount()
-This function returns number of AER sent with contract call. Return type is string.
-### getCreator()
-This function returns creator address of current contract
-### getOrigin()
-This function returns sender address of current transaction
-### getPrevBlockHash()
-This function returns the hash of the previous block
 ### print(args...)
 This function print args with json format at console log in node running current contract
-### isContract(address)
-This function return if address is contract then true else false. when address is invalid then raise error   
+
+
 ## contract package
 This packages provides contract operation
+
 ### send(address, amount)
 This function transfers the coins in this contract by address and amount(in AER units).
 Amount form can be string, number, bignum.
@@ -175,9 +187,9 @@ coroutine, io, os and debug
 The string, math, and table packages are available. However, you can not use the random, randomseed functions in the math package.
 
 ## DB package
-If the smart contract is handling simple types of data, it would not be difficult to implement using only the basic APIs (getItem (), setItem ()). However, complex data structures, data association, scope queries, filtering, sorting, and other features require the complexity and size of the data logic so developers can not focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts
+If the smart contract is handling simple types of data, it would not be difficult to implement using only the basic APIs (getItem(), setItem()). However, complex data structures, data association, scope queries, filtering, sorting, and other features require the complexity and size of the data logic so developers can not focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts
 
-> Note: The db package is only available on private networks([SQL TestNet](https://sqltestnet.aergoscan.io/)).
+> Note: The db package is currently only available on private networks and publicly on [SQL TestNet](https://sqltestnet.aergoscan.io/).
 
 ### exec(sql)
 This function perform DDL or DML statements
@@ -293,16 +305,23 @@ function init_database()
     db.exec("insert into order_hist(cid, pid, p_cnt, total_price, rgtime) values(100,1000,3,3000, datetime('2018-05-30 18:00:00'))")
 end
 ```
+
+
 ## json package
 Json package is provided for user convenience in input and output. This package allows automatic conversion between Json format strings and Lua Table structures.
+
 ### encode(arg)
 This function returns a JSON-formatted string with the given lua value.
+
 ### decode(string)
 This function converts a string in JSON format to the corresponding Lua structure and returns it
 
+
 ## crypto package
+
 ### sha256(arg)
 This function compute the SHA-256 hash of the argument.
+
 ### ecverify(message, signature, address)
 This function verify the address associated with the public key from elliptic curve signature.
 ```lua
@@ -311,12 +330,15 @@ function validate_sig(data, signature, address)
     return crypto.ecverify(msg, signature, address)
 end
 ```
+
+
 ## bignum package
 Since the lua number type has a limit on the range that can be represented by an integer (less than 2 ^ 53), the bignum module is used to provide an exact operation for larger numbers.
   * <b>Notice</b>
     * <b>== Operations on bignum and other types always return false.</b>
     * <b>Bignum does not allow a decimal point.</b>
     * <b>Bignum value range : -(2^256 - 1) ~ (2^256 -1) </b>
+
 ### number(x)
 This function make bignum object with argument x(string or number)
 ### isneg(x)

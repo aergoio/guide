@@ -1,31 +1,30 @@
-# Hello World 
+# Hello World
+
 This is the most basic lua smart contract to store and retrieve states in aergo.
 You can save a name on the blockchain with the contract call function. And you can print 'hello ...' with the query function.
 
 ``` lua
--- Define global variables.
+-- Define global state variables
 state.var {
   Name = state.value(),
   My_map = state.map()
-
 }
 
--- Initialize a name in this contract.
+-- Initialize the state variables
 function constructor()
-  -- a constructor is called at a deployment, only one times
-  -- set initial name
+  -- a constructor is called only once at the contract deployment
   Name:set("world")
   My_map["key"] = "value"
 end
 
--- Update a name.
+-- Update the name
 -- @call
--- @param name          string: new name.
+-- @param name          string: new name
 function set_name(name)
   Name:set(name)
 end
 
--- Say hello.
+-- Say hello
 -- @query
 -- @return              string: 'hello ' + name
 function hello()
@@ -42,7 +41,7 @@ This is explained based on using cli. Variables used in this example are
 * cli commands in this page need a aergosvr with enable personal feature
 
 ### Check Account and Balance
-First, you need an account with enough balances to deploy and execute smart contracts.
+First, you need an account with enough balance to deploy and execute smart contracts.
 (If you don't) Import or Unlock Account to aergo server.
 
 ### Compile Contract
