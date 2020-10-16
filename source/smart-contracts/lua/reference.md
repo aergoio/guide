@@ -44,6 +44,8 @@ This function returns the creation start time of the block that contains current
 This function returns the id of the current contract transaction.
 ### getAmount()
 This function returns number of AER sent with contract call. Return type is string.
+### isFeeDelegation()
+This function returns whether the transaction is using fee delegation.
 ### getContractID()
 This function returns the current contract address.
 ### getCreator()
