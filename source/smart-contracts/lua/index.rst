@@ -11,7 +11,7 @@ We use `LuaJIT 2.1.0 <http://luajit.org/luajit.html>`_ as the VM. LuaJIT is a Ju
 
 You can learn the Lua programming language through the following documents:
 
-* `Lua 5.1 Reference Manaul <http://www.lua.org/manual/5.1/>`_
+* `Lua 5.1 Reference Manual <http://www.lua.org/manual/5.1/>`_
 * `Programming in Lua <http://www.lua.org/pil/>`_ (The second edition was aimed at Lua 5.1)
 
 **Table of contents**
