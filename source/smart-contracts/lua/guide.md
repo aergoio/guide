@@ -163,10 +163,8 @@ end
 
 ##### Restrictions
 
-* max dimension : 5
-* not support setting intermediate dimension element
-
-next is setting intermediate dimension element example
+* max dimensions: 5
+* it does not support setting intermediate dimension element, like this:
 
 ```lua
 state.var {
@@ -177,8 +175,7 @@ state.var {
 function contract_func()
   person_var["age"] = 38
   person_var["birth"] = "1999/09/09"
-  Map_var["kslee"] = person_var
- -- ...
+  Map_var["kslee"] = person_var   -- NOT SUPPORTED!
 end
 ```
 
@@ -270,10 +267,8 @@ end
 
 ##### Restrictions
 
-* max dimension : 5
-* not support setting intermediate dimension element
-
-next is setting intermediate dimension element example
+* max dimensions: 5
+* it does not support setting intermediate dimension element, like this:
 
 ```lua
 state.var {
@@ -286,8 +281,7 @@ function contract_func()
   Arr_var[2] = 2
   Arr_var[3] = 3
 
-  Marr_var[1] = Arr_var
- -- ...
+  Marr_var[1] = Arr_var    -- NOT SUPPORTED!
 end
 ```
 
@@ -321,7 +315,6 @@ function GetPerson()
 end
 
 abi.register(InvalidUpdateAge, ValidUpdateAge, GetPerson)
-
 ```
 
 ### Private functions
