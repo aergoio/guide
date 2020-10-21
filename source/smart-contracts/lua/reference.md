@@ -72,8 +72,8 @@ This function print args with json format at console log in node running current
 This packages provides contract operation
 
 ### send(address, amount)
-This function transfers the coins in this contract by address and amount(in AER units).
-Amount form can be string, number, bignum.
+This function transfers an amount of coins from this contract to the given address.
+The Amount can be in string, number or bignum formats. The default unit is AER.
 ```lua
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 1)
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 aergo 10 gaer")
