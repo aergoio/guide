@@ -98,28 +98,39 @@ Value function can get string, number, bignum argument like send function.
     addr = contract.deploy.value("1 aergo")(src, system.getContractID())
 ```
 ### call(address, function_name, args...)
-The call function returns the result of the function of the contract being executed in the state of the corresponding address.
-* In addition, can call the value function to send a coin.
-Value function can get string, number, bignum argument like send function.
+The call function executes a function on another contract and returns the result. The call is executed in the context of the target contract's state.
+
+* In addition, we can call the value function to send a coin.
+The value function accepts a string, a number or a bignum as the argument like the send function.
+
 ```lua
 contract.call("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 1)
 contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 2)
 ```
+
 #### Restrictions
 Before the fee system for smart contract is applied to mainnet, there are the following restrictions
 - limit the call depth of call or delegatecall in one transaction to 5
 
 ### delegatecall(address, function_name, args...)
-The delegatecall function returns the result of the function of the calling process, executed in the state in the current address.
+The delegatecall function loads the code from the target address and executes it in the context of the calling contract.
+
+Storage, current address and balance still refer to the calling contract, only the code is taken from the called address.
+
+Notice that the call can change the state of the current contract.
+
+This is used to implement the "library" feature, with reusable library code.
+
 ```lua
 contract.delegatecall("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 1)
 ```
+
 #### Restrictions
 Before the fee system for smart contract is applied to mainnet, there are the following restrictions
 - limit the call depth of call or delegatecall in one transaction to 5
 
 ### pcall(fn, args...)
-It is an error handling function that works just like pcall in lua. The difference is that when the error occurs, the modified state,table or balance of the function executed rollback
+It is an error handling function that works just like pcall in Lua. The difference is that when an error occurs, the modified state, table and balance of the function executed rolls back
 
 ```lua
 success = contract.pcall(contract.send, "Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 AERGO")
@@ -128,41 +139,52 @@ if success == false then
 end
 return 1
 ```
+
 ### balance(address)
-This function return balance of the address(argument) in AER. return type is string.
-If address is nil then return balance of current address.
+This function returns the balance of the given address in AER. The return type is string.
+If address is nil then it returns the balance of the current address.
+
 ```lua
-contract.balance() --get balance of current contract address 
+contract.balance()  -- get balance of current contract address 
 contract.balance("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod")
 ```
 
 ### event(eventName, args...)
-This function causes eventName and args to remain in the contract result receipt. The user can search for event and receive notification the event with rpc when the receipt is added to the blockchain.
+This function causes eventName and args to remain in the contract result receipt.
+The user can search for the event and receive notification of the event with RPC when the receipt is added to the blockchain.
+
 ```lua
 contract.event("send", 1, "toaddress") 
 ```
+
 #### Restrictions
 Before the fee system for smart contract is applied to mainnet, there are the following restrictions
 - limit length of event name to 64
 - limit size of event argument to 4k
 - limit the number of events in one transaction to 50
 
-#### Search event and receive notification with aergocli
-you can search for events with event name "send" in the contract address(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)
+#### Examples: searching for event and receiving notification with aergocli
+
+Searching for events with name "send" from the contract address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ
+
 ``` bash
 ./aergocli event list --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event send
 ```
-you can search for events with event argument 0 is 1 and argument 1 is "toaddress" in the contract address(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)
+
+Searching for events where argument 0 is 1 and argument 1 is "toaddress" in the contract address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ
+
 ``` bash
 ./aergocli event list --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --argfilter '{"0":1, "1":"toaddress"}'
 ```
-you can get notified for events with event name "send" for contract(AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ)
+
+Getting notifications for events with name "send" for contract AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ
+
 ``` bash
 ./aergocli event stream --address AmhbdCEg4TUFm6Hpdoz8d81eSdzRncsekBLN3mYgLCbAVdPnu1MZ --event send
 ```
 
 ### stake(amount), unstake(amount), vote([bps,...]), voteDao(arg1, arg2,...)
-you can do governance(stake, unstake, vote, voteDao) in contract with contract address
+You can do governance (stake, unstake, vote, voteDao) in the smart contract, using the contract address
 
 ```lua
 contract.stake("1 aergo") 
@@ -186,17 +208,22 @@ coroutine, io, os and debug
 ```
 The string, math, and table packages are available. However, you can not use the random, randomseed functions in the math package.
 
+
 ## DB package
+
 If the smart contract is handling simple types of data, it would not be difficult to implement using only the basic APIs (getItem(), setItem()). However, complex data structures, data association, scope queries, filtering, sorting, and other features require the complexity and size of the data logic so developers can not focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts
 
 > Note: The db package is currently only available on private networks and publicly on [SQL TestNet](https://sqltestnet.aergoscan.io/).
 
 ### exec(sql)
-This function perform DDL or DML statements
+This function performs DDL or DML statements
+
 ### query(sql)
-This function perform SELECT statements and return result set object
+This function performs SELECT statements and returns a result set object
+
 ### prepare(sql)
-This function create prepared statement and return statement object
+This function creates a prepared statement and returns a statement object
+
 ```lua
 -- create customer table 
 function createTable()
@@ -214,12 +241,16 @@ function insert(id, passwd, name, birth, mobile)
       id, passwd, name, birth, mobile)
 end
 ```
-### functions of result set object
-Object functions must be called with the: operator
+
+### Functions of result set object
+Object functions must be called with the `:` operator
+
 #### next
-This function prepare the next result row. Returns false if there is a row, false if it is not.
+This function prepares the next result row. Returns `true` if there is a row, otherwise `false`
+
 #### get
-This function return result row
+This function returns a result row
+
 ```lua
 function query(id)
   local rt = {}
@@ -238,12 +269,15 @@ function query(id)
   return rt
 end
 ```
-### functions of prepared statement object
-equivalent to the prepareStatement object in JDBC. You can use the parameters in SELECT or DML to view, add, modify, or delete information.
-#### query(bind1 , bind2, ....)
-This function execute SELECT statement by specifying argument value corresponding to bind parameter and return result set object
+
+### Functions of prepared statement object
+You can use the parameters in the SELECT or DML statement to view, add, modify, or delete information.
+
+#### query(bind1, bind2, ....)
+This function executes a SELECT statement using the specified argument values corresponding to bind parameters and returns a result set object
+
 #### exec(bind1, bind2, ....)
-This function execute DML statement by specifying argument value corresponding to bind parameter
+This function executes a DML statement using the specified argument values corresponding to bind parameters
 
 ### SQL Restrictions
 Smart Contract's SQL processing engine is built on SQLite. Therefore, detailed SQL usage grammar can be found at <https://sqlite.org/lang.html> and <https://sqlite.org/lang_corefunc.html>. However, because of the stability and security of the Aergo, not all SQL is allowed.
@@ -255,6 +289,7 @@ Allow only SQL datatypes corresponding to Lua strings and numbers (int, float).
 * real
 * null
 * date, datetime
+
 #### SQL statement
 The allowed SQL statements are listed below. However, DDL and DML are only allowed in smart contract transactions.
 * DDL
@@ -265,6 +300,7 @@ The allowed SQL statements are listed below. However, DDL and DML are only allow
     * INSERT, UPDATE, DELETE, REPLACE
 * Query
     * SELECT
+
 #### Function
 The following is an unavailable list
 * Data and time related functions can be used except 'now' timestring and 'localtime' modifier
@@ -276,6 +312,7 @@ For a list of other functions and descriptions, please refer to the links below.
 * Core: <https://www.sqlite.org/lang_corefunc.html>
 * Date and time: <https://www.sqlite.org/lang_datefunc.html>
 * Aggregation: <https://www.sqlite.org/lang_aggfunc.html>
+
 #### Constraint
 The following constraints can be used.
 * NOT NULL
@@ -287,13 +324,13 @@ The following constraints can be used.
 ```lua
 function init_database()
     db.exec("drop table if exists customer")
-    db.exec("create table if not exists customer (cid integer PRIMARY KEY ASC AUTOINCREMENT , passwd text , cname text, birthdate date, rgdate date)")
+    db.exec("create table customer (cid integer PRIMARY KEY ASC AUTOINCREMENT , passwd text , cname text, birthdate date, rgdate date)")
     db.exec("insert into customer (cid, passwd, cname, birthdate, rgdate) values (100 ,'passwd1','홍길동', date('1988-01-03'),date('2018-05-30'))")
     db.exec("insert into customer (passwd, cname, birthdate, rgdate) values ('passwd2','김철수', date('1978-11-03'),date('2018-05-30'))")
     db.exec("insert into customer (passwd, cname, birthdate, rgdate) values ('passwd3','이영미', date('1938-04-23'),date('2018-05-30'))")
 
     db.exec("drop table if exists product")
-    db.exec("create table if not exists product (pid integer PRIMARY KEY ASC AUTOINCREMENT, pname text, price real, rgdate date)")
+    db.exec("create table product (pid integer PRIMARY KEY ASC AUTOINCREMENT, pname text, price real, rgdate date)")
     db.exec("insert into product (pid, pname, price, rgdate) values (1000 ,'사과',1000, date('2018-05-30'))")
     db.exec("insert into product (pname, price, rgdate) values ('수박',10000, date('2018-05-30'))")
     db.exec("insert into product (pname, price, rgdate) values ('포도',3500, date('2018-05-30'))")
@@ -308,7 +345,7 @@ end
 
 
 ## json package
-Json package is provided for user convenience in input and output. This package allows automatic conversion between Json format strings and Lua Table structures.
+Json package is provided for user convenience in input and output. This package allows automatic conversion between JSON format strings and Lua Table structures.
 
 ### encode(arg)
 This function returns a JSON-formatted string with the given lua value.
@@ -320,10 +357,10 @@ This function converts a string in JSON format to the corresponding Lua structur
 ## crypto package
 
 ### sha256(arg)
-This function compute the SHA-256 hash of the argument.
+This function computes the SHA-256 hash of the argument.
 
 ### ecverify(message, signature, address)
-This function verify the address associated with the public key from elliptic curve signature.
+This function verifies the address associated with the public key from elliptic curve signature.
 ```lua
 function validate_sig(data, signature, address)
     msg = crypto.sha256(data)
