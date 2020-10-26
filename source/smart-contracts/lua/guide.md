@@ -510,13 +510,12 @@ function query_names(ids)
 end
 ```
 
-### Security
-
-DO NOT concatenate values when building SQL commands!
-
-This would make your smart contract vulnerable to `SQL injection` attacks.
-
-These are bad examples that should *NOT* be used:
+.. warning::
+    **DO NOT** concatenate values when building SQL commands!
+    
+    This would make your smart contract vulnerable to `SQL injection` attacks.
+    
+    These are bad examples that should *NOT* be used:
 
 ```lua
   -- WRONG! AVOID THIS:
