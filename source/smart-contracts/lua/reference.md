@@ -130,10 +130,13 @@ Before the fee system for smart contract is applied to mainnet, there are the fo
 - limit the call depth of call or delegatecall in one transaction to 5
 
 ### pcall(fn, args...)
-It is an error handling function that works just like pcall in Lua.
-The difference is that when the called function fails, no error is raised and the contract execution continues.
+It is an error handling function that works just like `pcall` in Lua.
+For both functions, when the called function fails, no error is raised and the contract execution continues.
 It just returns `false` to indicate the failure.
-If no `pcall` is used, then the contract execution stops on exceptions.
+
+The difference is that with `contract.pcall` when an error occurs the state and balance modified by the called function rolls back to the state before the call.
+
+If no `pcall` or `contract.pcall` is used, then the contract execution stops on exceptions.
 
 ```lua
 success = contract.pcall(contract.send, "Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 AERGO")
