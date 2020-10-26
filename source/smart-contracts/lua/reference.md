@@ -58,9 +58,10 @@ This function returns caller address of current contract
 This function return if address is contract then true else false. when address is invalid then raise error   
 ### setItem(key, value) 
 This function sets the value corresponding to key to the storage belonging to current contract
-* restriction
-  * key type string only (number type is implicitly converted to string)
-  * value type available : number, string, table
+
+Restrictions:
+* key type can only be string (number type is implicitly converted to string)
+* value type can be: number, string, table
 ### getItem(key)
 This function returns the value corresponding to key in storage belonging to current contract
 * If there is no value corresponding to key, it returns nil.
@@ -74,16 +75,21 @@ This packages provides contract operation
 ### send(address, amount)
 This function transfers an amount of coins from this contract to the given address.
 The Amount can be in string, number or bignum formats. The default unit is AER.
+
 ```lua
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 1)
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 aergo 10 gaer")
 contract.send("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", bignum.number("999999999999999"))
 ```
+
 ### deploy(code, args...)
-The deploy function creates a contract account using code and args, and returns the corresponding address and the return of the constructor function
-* If you use an existing address instead of code, deploy it with the code of the address.
-* In addition, can call the value function to send a coin.
-Value function can get string, number, bignum argument like send function.
+The deploy function creates a contract account using `code` and `args`, and returns the corresponding address and the returned value(s) from the constructor function.
+
+If you use an existing address instead of code, it will be deployed with the code from the given address.
+
+In addition, you can call the `value` function to send coins to the new contract.
+The value function accepts a string, a number or a bignum as the argument like the send function.
+
 ```lua
     src = [[
         function hello(say)
@@ -97,10 +103,11 @@ Value function can get string, number, bignum argument like send function.
     ]]
     addr = contract.deploy.value("1 aergo")(src, system.getContractID())
 ```
+
 ### call(address, function_name, args...)
 The call function executes a function on another contract and returns the result. The call is executed in the context of the target contract's state.
 
-* In addition, we can call the value function to send a coin.
+In addition, we can call the `value` function to send an amount of coins to the target address.
 The value function accepts a string, a number or a bignum as the argument like the send function.
 
 ```lua
@@ -109,7 +116,7 @@ contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 
 ```
 
 #### Restrictions
-Before the fee system for smart contract is applied to mainnet, there are the following restrictions
+Before the fee system for smart contracts is applied to the mainnet, there are the following restrictions:
 - limit the call depth of call or delegatecall in one transaction to 5
 
 ### delegatecall(address, function_name, args...)
@@ -126,7 +133,7 @@ contract.delegatecall("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "i
 ```
 
 #### Restrictions
-Before the fee system for smart contract is applied to mainnet, there are the following restrictions
+Before the fee system for smart contracts is applied to the mainnet, there are the following restrictions:
 - limit the call depth of call or delegatecall in one transaction to 5
 
 ### pcall(fn, args...)
@@ -134,7 +141,7 @@ It is an error handling function that works just like `pcall` in Lua.
 For both functions, when the called function fails, no error is raised and the contract execution continues.
 It just returns `false` to indicate the failure.
 
-The difference is that with `contract.pcall` when an error occurs the state and balance modified by the called function rolls back to the state before the call.
+The difference is that with `contract.pcall` when an error occurs the state and balance modified by the called function rolls back to the state before the call. This does not happen when using just `pcall`.
 
 If no `pcall` or `contract.pcall` is used, then the contract execution stops on exceptions.
 
@@ -156,15 +163,18 @@ contract.balance("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod")
 ```
 
 ### event(eventName, args...)
-This function causes eventName and args to remain in the contract result receipt.
-The user can search for the event and receive notification of the event with RPC when the receipt is added to the blockchain.
+This function fires an event containing `eventName` and `args`.
+The event is recorded in the blockchain in the contract result receipt.
+It is also broadcasted to all the listening applications connected to the blockchain network that have subscribed to this event.
+
+The user can search for events that happened in the past and also receive notifications of new events by using RPC.
 
 ```lua
 contract.event("send", 1, "toaddress") 
 ```
 
 #### Restrictions
-Before the fee system for smart contract is applied to mainnet, there are the following restrictions
+Before the fee system for smart contracts is applied to the mainnet, there are the following restrictions:
 - limit length of event name to 64
 - limit size of event argument to 4k
 - limit the number of events in one transaction to 50
