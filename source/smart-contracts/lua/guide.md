@@ -485,19 +485,19 @@ You can also use **prepared statements**:
 ```lua
 function insert(id , passwd, name, birth, mobile)
   stmt = db.prepare("insert into customer values (?, ?, ?, ?, ?)")
-  stmt.exec(id, passwd, name, birth, mobile)
+  stmt:exec(id, passwd, name, birth, mobile)
 end
 
 function insert_contacts(contacts)
   local stmt = db.prepare("insert into contacts (name, email) values (?, ?)")
   for _,contact in ipairs(contacts) do
-    stmt.exec(contact.name, contact.email)
+    stmt:exec(contact.name, contact.email)
   end
 end
 
 function query_names(ids)
   local names = {}
-  local stmt = db.query("select name from customer where id=?")
+  local stmt = db.prepare("select name from customer where id=?")
   for _,id in ipairs(ids) do
     local rs = stmt:query(id)
     if rs:next() then
@@ -510,13 +510,12 @@ function query_names(ids)
 end
 ```
 
-### Security
-
-DO NOT concatenate values when building SQL commands!
-
-This would make your smart contract vulnerable to `SQL injection` attacks.
-
-These are bad examples that should *NOT* be used:
+.. warning::
+    **DO NOT** concatenate values when building SQL commands!
+    
+    This would make your smart contract vulnerable to `SQL injection` attacks.
+    
+    These are bad examples that should *NOT* be used:
 
 ```lua
   -- WRONG! AVOID THIS:
