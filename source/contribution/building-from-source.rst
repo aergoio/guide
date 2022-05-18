@@ -38,8 +38,8 @@ Linux
 
         ./bin/aergosvr
 
-macOS
------
+macOS (Do not support anymore)
+------------------------------
 
 1. If you haven't already, install `homebrew <https://brew.sh/>`_.
 2. Install dependencies
