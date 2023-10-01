@@ -75,7 +75,7 @@ end
 
 function contract2()
   local sum = 0
-  for i, v in state.array_pairs(Array) do
+  for i, v in Array:ipairs() do
     if v ~= nil then
       sum = sum + v
     end
@@ -94,69 +94,87 @@ It allows you to divide and develop one smart contract into multiple modules (fi
 
 This is not a Lua feature. You should use [SHIP](https://github.com/aergoio/ship/wiki) to build and deploy smart contracts using multiple files.
 
-### state variable
+### State Variables
 
-The `state.var` function defines global state variables.
+The `state.var` structure is used to define global state variables.
 
-Three types of state variables can be defined:
+There are three types of state variables:
 
 #### value
 
-This type stores any Lua value.
+This type can store any Lua value
 
-You can define a state value with the syntax `var_name = state.value()`.
-It has `get` and `set` methods for reading and writing data.
+You can define a state value with the syntax `var_name = state.value()`
+
+It has `get` and `set` methods for reading and writing data
+
+Example:
 
 ```lua
-var_name:set("data")
-local data = var_name:get()
+state.var {
+  name = state.value()
+}
+
+function set_name(value)
+  name:set(value)
+end
+
+function get_name()
+  return name:get()
+end
+
+abi.register(set_name, get_name)
 ```
 
 #### map
 
 The type map implements associative arrays.
 
-It can be indexed only with `string`, but the value of a map element can be of any type.
+You can define a state map with the syntax `var_name = state.map()`
 
-You can define a state map with the syntax `var_name = state.map()`.
-The index operator is used for reading and inserting elements.
+It can be indexed only with `string` but the value of a map element can be of any type.
+
+The index operator is used for inserting, updating and reading elements.
 
 You can delete an element of a map by using the `delete` method, with the syntax `var_name:delete(key)`
 
+Example usage:
+
 ```lua
 state.var {
-  Map_var = state.map()
+  user = state.map()
 }
 
 function contract_func()
-  Map_var["name"] = "kslee"
-  Map_var["age"] = 38
+  user["name"] = "kslee"
+  user["age"] = 38
   -- ...
-  local age = Map_var["age"]
+  local age = user["age"]
 end
 
 function delete_elem(key)
-  Map_var:delete(key)
+  user:delete(key)
 end
 ```
 
-The state map supports multiple dimensions, with syntax `var_name = state.map(dimension)`
+The state map supports multiple dimensions, with syntax `var_name = state.map(dimensions)`
 
-The multi index operator is used for reading and inserting elements.
+Example:
 
 ```lua
 state.var {
-  Map_var = state.map(2)
+  users = state.map(2)
 }
 
 function contract_func()
-  Map_var["kslee"]["age"] = 38
-  Map_var["kslee"]["birth"] = "1999/09/09"
-  -- ...
-  local kslee = Map_var["kslee"]
+  -- direct access
+  users["kslee"]["age"] = 38
+  users["kslee"]["birth"] = "1999/09/09"
+
+  -- indirect access
+  local kslee = users["kslee"]
   local age = kslee["age"]
   local birth = kslee["birth"]
-  
   kslee["birth"] = "1970/10/9"
 end
 ```
@@ -168,81 +186,124 @@ end
 
 ```lua
 state.var {
-  Map_var = state.map(2)
-  person_var = state.map()
+  user = state.map(2)
+  user_details = state.map()
 }
 
 function contract_func()
-  person_var["age"] = 38
-  person_var["birth"] = "1999/09/09"
-  Map_var["kslee"] = person_var   -- NOT SUPPORTED!
+  user_details["age"] = 38
+  user_details["birth"] = "1999/09/09"
+  user["kslee"] = user_details   -- NOT SUPPORTED!
 end
 ```
 
 #### array
 
-The type array is a fixed-length ordinary array.
+State arrays can be either fixed-length or append-only.
 
-It can be indexed only with `integer`, but the value of an array element can be of any type. The index starts at 1.
+You can define a state array with the syntax `var_name = state.array(size)` where the size is optional.
 
-You can define a state array with the syntax `var_name = state.array(size)`
+Inform the size to create a fixed-length array. If the size is omitted, it will become a variable size array.
 
-The index operator is used for reading and inserting elements.
+We insert elements on variable size arrays using the `append()` function
+
+Arrays are indexed using an `integer` but the value of an array element can be of any type. The index starts at 1.
+
+The index operator is used for reading and writing elements.
+
+We can get the array size using the `length()` function or the `#` operator
+
+Here is an example of a variable size (append-only) array:
 
 ```lua
 state.var {
-  Arr_var = state.array(3)
+  values = state.array()
 }
 
-function contract()
-  Arr_var[1] = 1
-  Arr_var[2] = 2
-  Arr_var[3] = 3
+function test_array()
+  values:append(1)
+  values:append(2)
+  values:append(3)
+
+  -- it is possible to modify the value on existing indexes
+  values[2] = 4
 
   local sum1 = 0
-  for i, v in Arr_var:ipairs() do
+  for i, v in values:ipairs() do
     if v ~= nil then
       sum1 = sum1 + v
     end
   end
 
   local sum2 = 0
-  for i = 1, #Arr_var do
-    if Arr_var[i] ~= nil then
-      sum2 = sum2 + Arr_var[i]
+  for i = 1, #values do
+    if values[i] ~= nil then
+      sum2 = sum2 + values[i]
     end
   end
 
-  if sum1 == sum2 then
-  -- ...
-  end
-
+  return sum1, sum2
 end
+
+abi.register(test_array)
 ```
 
-The state array supports multiple dimensions, with syntax `var_name = state.array(1st_ncount, 2nd_ncount,....)`
+And here is an example of a fixed-length array:
+
+```lua
+state.var {
+  values = state.array(3)
+}
+
+function test_array()
+  values[1] = 1
+  values[2] = 2
+  values[3] = 3
+
+  local sum1 = 0
+  for i, v in values:ipairs() do
+    if v ~= nil then
+      sum1 = sum1 + v
+    end
+  end
+
+  local sum2 = 0
+  for i = 1, #values do
+    if values[i] ~= nil then
+      sum2 = sum2 + values[i]
+    end
+  end
+
+  return sum1, sum2
+end
+
+abi.register(test_array)
+```
+
+The state array supports multiple dimensions, declared with syntax `var_name = state.array(dim1, dim2, ...)`
 
 The multi index operator is used for reading and inserting elements.
 
 ```lua
 state.var {
-  -- declare 2 dimensional array 
-  Arr_var = state.array(2, 3)
+  -- declare a 2 dimensional array 
+  values = state.array(2, 3)
 }
 
-function contract_func()
-  Arr_var[1][1] = 1
-  Arr_var[1][2] = 2
-  Arr_var[1][3] = 3
+function test_array()
+  -- direct update
+  values[1][1] = 1
+  values[1][2] = 2
+  values[1][3] = 3
 
-  -- ...
-  local Arr2 = Arr_var[2]
-  Arr2[1] = 4
-  Arr2[2] = 5
-  Arr2[3] = 6
+  -- indirect update
+  local sub_array = values[2]
+  sub_array[1] = 4
+  sub_array[2] = 5
+  sub_array[3] = 6
 
   local sum1 = 0
-  for i, v in Arr_var:ipairs() do
+  for i, v in values:ipairs() do
    for j, k in v:ipairs() do
     if k ~= nil then
       sum1 = sum1 + k
@@ -251,18 +312,18 @@ function contract_func()
   end
 
   local sum2 = 0
-  for i = 1, #Arr_var do
-   for j = 1, #Arr_var[i] do
-    if Arr_var[i][j] ~= nil then
-      sum2 = sum2 + Arr_var[i][j]
+  for i = 1, #values do
+   for j = 1, #values[i] do
+    if values[i][j] ~= nil then
+      sum2 = sum2 + values[i][j]
     end
    end
   end
 
-  if sum1 == sum2 then
-  -- ...
-  end
+  return sum1, sum2
 end
+
+abi.register(test_array)
 ```
 
 ##### Restrictions
@@ -272,8 +333,8 @@ end
 
 ```lua
 state.var {
-  Marr_var = state.map(2,3)
-  Arr_var = state.map(3)
+  Marr_var = state.array(2,3)
+  Arr_var = state.array(3)
 }
 
 function contract_func()
