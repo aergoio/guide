@@ -138,6 +138,8 @@ The index operator is used for inserting, updating and reading elements.
 
 You can delete an element of a map by using the `delete` method, with the syntax `var_name:delete(key)`
 
+There is no way to iterate over a `state.map`
+
 Example usage:
 
 ```lua
