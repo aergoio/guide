@@ -100,9 +100,13 @@ The `state.var` structure is used to define global state variables.
 
 There are three types of state variables:
 
+* value
+* map
+* array
+
 #### value
 
-This type can store any Lua value
+This type of state variable can store any Lua value
 
 You can define a state value with the syntax `var_name = state.value()`
 
@@ -132,14 +136,18 @@ The type map implements associative arrays.
 
 You can define a state map with the syntax `var_name = state.map()`
 
-It can be indexed only with `string` but the value of a map element can be of any type.
+State maps can be indexed with either `string` or `integer`. Once a map is accessed with one of these
+types it can only be used with the same type.
+
+The value of a map element can be of any type.
 
 The index operator is used for inserting, updating and reading elements.
 
 You can delete an element of a map by using the `delete` method, with the syntax `var_name:delete(key)`
 
 There is no way to iterate over a `state.map`. If you need iteration, store a Lua table inside of
-a `state.value` or keep a list of the keys.
+a `state.value` or keep a list of the keys. The reason is because the keys are hashed and only the
+hashes are stored on chain, not the keys.
 
 Example usage:
 
@@ -148,19 +156,27 @@ state.var {
   user = state.map()
 }
 
-function contract_func()
-  user["name"] = "kslee"
-  user["age"] = 38
+function constructor()
+  user["name"] = "John"
+  user["id"] = 123
   -- ...
-  local age = user["age"]
+  local id = user["id"]
 end
 
-function delete_elem(key)
+function update(key, value)
+  user[key] = value
+end
+
+function get(key)
+  return user[key]
+end
+
+function delete(key)
   user:delete(key)
 end
 ```
 
-The state map supports multiple dimensions, with syntax `var_name = state.map(dimensions)`
+The state map supports multiple dimensions, defined with the syntax `var_name = state.map(dimensions)`
 
 Example:
 
