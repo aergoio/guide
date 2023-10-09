@@ -7,3 +7,5 @@ sphinx==1.8.6
 Jinja2==2.11.3
 readthedocs-sphinx-ext==1.0.4
 MarkupSafe==1.1.1
+commonmark==0.8.1
+Babel==2.8.0
