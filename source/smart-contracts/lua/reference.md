@@ -116,8 +116,8 @@ contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", 
 ```
 
 #### Restrictions
-Before the fee system for smart contracts is applied to the mainnet, there are the following restrictions:
-- limit the call depth of call or delegatecall in one transaction to 5
+
+- maximum call depth of 64 calls in one transaction
 
 ### delegatecall(address, function_name, args...)
 The delegatecall function loads the code from the target address and executes it in the context of the calling contract.
@@ -133,8 +133,8 @@ contract.delegatecall("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "i
 ```
 
 #### Restrictions
-Before the fee system for smart contracts is applied to the mainnet, there are the following restrictions:
-- limit the call depth of call or delegatecall in one transaction to 5
+
+- maximum call depth of 64 calls in one transaction
 
 ### pcall(fn, args...)
 It is an error handling function that works just like `pcall` in Lua.
@@ -174,10 +174,10 @@ contract.event("send", 1, "toaddress")
 ```
 
 #### Restrictions
-Before the fee system for smart contracts is applied to the mainnet, there are the following restrictions:
-- limit length of event name to 64
-- limit size of event argument to 4k
-- limit the number of events in one transaction to 50
+
+- maximum length of event name: 64
+- maximum size of event argument: 4k
+- maximum number of events in one transaction: 50
 
 #### Examples: searching for event and receiving notification with aergocli
 
