@@ -9,13 +9,13 @@ Aergo currently uses Lua version 5.1.
 
 ## Restrictions
 
-Because Lua smart contract is performed by the aergo system, OS related functions including input/output are not provided for stability and security.
+Because Lua smart contract is performed by the aergo system, OS related functions including input/output are not provided for stability and security reasons.
 
 These are the base functions that are not available:
 
 > print, dofile, loadfile, module, require
 
-You can replace `print` with `system.print`.
+You can replace `print` with `system.print`
 
 And you can use `import` instead of `require`. `import` is not a Lua syntax.
 
@@ -23,10 +23,10 @@ Use [SHIP](https://github.com/aergoio/ship/wiki) to build and deploy smart contr
 
 These are the default libraries that are not available:
 
-> coroutine, io, os, debug, jit
+> coroutine, io, os, debug, jit, ffi
 
 The `string`, `math`, `bit` and `table` packages are available. All functions from these packages are available,
-except for the `math` package. These are the functions available in the `math` package:
+except for the `math` package that has only these functions:
 
 > abs, ceil, floor, pow, max, min
 
