@@ -105,9 +105,11 @@ The value function accepts a string, a number or a bignum as the argument like t
 ```
 
 ### call(address, function_name, args...)
+
 The call function executes a function on another contract and returns the result. The call is executed in the context of the target contract's state.
 
-In addition, we can call the `value` function to send an amount of coins to the target address.
+We can also call the `value` function to send an amount of native aergo tokens to the contract.
+
 The value function accepts a string, a number or a bignum as the argument like the send function.
 
 ```lua
@@ -115,9 +117,28 @@ contract.call("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 1)
 contract.call.value(10)("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 2)
 ```
 
+If an error occurs on the called contract (or another one called by it) then the execution is halted and the transaction is marked as failed.
+
+To avoid that, use the `pcall` command, like this:
+
+```lua
+local success, result = pcall(function()
+  return contract.call("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "do_something", 123, "id")
+end)
+if success == false then
+  -- the call failed
+  ...
+end
+return result
+```
+
+On this case when the called function fails, no error is raised and the contract execution continues.
+It just returns `false` to indicate the failure.
+
 #### Restrictions
 
 - maximum call depth of 64 calls in one transaction
+
 
 ### delegatecall(address, function_name, args...)
 The delegatecall function loads the code from the target address and executes it in the context of the calling contract.
@@ -136,22 +157,6 @@ contract.delegatecall("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "i
 
 - maximum call depth of 64 calls in one transaction
 
-### pcall(fn, args...)
-It is an error handling function that works just like `pcall` in Lua.
-For both functions, when the called function fails, no error is raised and the contract execution continues.
-It just returns `false` to indicate the failure.
-
-The difference is that with `contract.pcall` when an error occurs the state and balance modified by the called function rolls back to the state before the call. This does not happen when using just `pcall`.
-
-If no `pcall` or `contract.pcall` is used, then the contract execution stops on exceptions.
-
-```lua
-success = contract.pcall(contract.send, "Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "1 AERGO")
-if success == false then
-    return 0
-end
-return 1
-```
 
 ### balance(address)
 This function returns the balance of the given address in AER. The return type is string.
