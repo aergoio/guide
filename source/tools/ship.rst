@@ -1,5 +1,5 @@
-Ship
-====
+Ship (deprecated, please use `brick <./brick.rst>`_)
+===========================================================
 
 Ship is a tool for developing lua smart contracts. Its main features are:
 
