@@ -590,7 +590,7 @@ function query_names(ids)
 end
 ```
 
-.. warning::
+**Warning:**
     **DO NOT** concatenate values when building SQL commands!
     
     This would make your smart contract vulnerable to `SQL injection` attacks.
@@ -614,9 +614,11 @@ end
 [LiteTree](https://github.com/aergoio/litetree) is used as the SQL processing engine for Aergo smart contracts.
 LiteTree is implemented based on SQLite.
 
-Detailed SQL usage can be found at https://sqlite.org/lang.html and https://sqlite.org/lang_corefunc.html
+Detailed SQL usage can be found at [SQL as understood by SQLite](https://sqlite.org/lang.html) and [Built-in Scalar SQL functions](https://sqlite.org/lang_corefunc.html)
 
 However, we do not provide full SQL functionality. There are some limitations due to stability and security.
+
+When working with SQL functionality, please consider the following:
 
 **Data types**
 
@@ -655,9 +657,9 @@ A list of other functions and descriptions is available via the links below.
 * data and time : https://www.sqlite.org/lang_datefunc.html
 * aggregation : https://www.sqlite.org/lang_aggfunc.html
 
-**contraints**
+**Constraints**
 
-You can use the following contraints:
+You can use the following constraints:
 
 * NOT NULL
 * DEFAULT
@@ -683,7 +685,7 @@ It provides smart contract-related commands as follows:
 * receipt get
 * event list/stream
 
-* [Reference](../../tools/aergocli.html)
+* [Reference](../../tools/aergocli.rst)
 
 ### brick
 

@@ -25,15 +25,6 @@ Dynamic peer discovery
 ----------------------
 Aergo server requests peer list from other connected peers as well as Polaris if it cannot find enough peers.
 
-Choosing remote peers
----------------------
-
-(This feature is currently work in progress)
-
-The list of peers to connect to is managed in Kademlia-like manner.
-The number of peers that are closer to the peer is larger and the number of peers that are connected to the peer is smaller.
-The peer's distance is based on the difference based on the hash value, not the physical distance.
-
 Peer connect process
 ====================
 The network communication of Aergo server operates on libp2p basis, and libp2p is responsible for encryption and node distinction at transmission level.
@@ -51,11 +42,20 @@ Aergo server maintains a connection-based communication.
 Both peers disconnect when the internally defined retention score increases beyond a certain level.
 This score decreases to a low level when a query is requested, and increases when a bad block or TX notification is sent.
 
+
+Ongoing Development Features
+============================
+
 Peer blacklist
 --------------
-
-(This feature is currently work in progress)
 
 When an internally defined ban score exceeds a certain level, the Aergo server blocks the peer's connection.
 This score increases due to the connection being disconnected due to exceeding the connection maintenance score, etc., and the blocking period is also changed by calculating the score or the number of blocking times.
 You can also permanently block by specifying a block address in the configuration file.
+
+Choosing remote peers
+---------------------
+
+The list of peers to connect to is managed in Kademlia-like manner.
+The number of peers that are closer to the peer is larger and the number of peers that are connected to the peer is smaller.
+The peer's distance is based on the difference based on the hash value, not the physical distance.
