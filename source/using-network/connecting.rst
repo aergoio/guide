@@ -10,7 +10,9 @@ Use `mainnet-api.aergo.io` and the default port 7845 to connect to a public GRPC
 
     docker run --rm aergo/tools aergocli -H mainnet-api.aergo.io blockchain
 
-A public blockchain explorer is available at `mainnet.aergoscan.io <https://alpha.aergoscan.io>`_.
+A public blockchain explorer is available at `mainnet.aergoscan.io <https://mainnet.aergoscan.io>`_.
+
+.. testnet:
 
 Testnet
 -------
@@ -21,7 +23,7 @@ Use `testnet-api.aergo.io` and the default port 7845 to connect to a public GRPC
 
     docker run --rm aergo/tools aergocli -H testnet-api.aergo.io blockchain
 
-A public blockchain explorer is available at `testnet.aergoscan.io <https://alpha.aergoscan.io>`_.
+A public blockchain explorer is available at `testnet.aergoscan.io <https://testnet.aergoscan.io>`_.
 
 Alpha
 -----

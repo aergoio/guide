@@ -22,7 +22,7 @@ Staking & Voting
     user wanting to vote must stake their tokens since the voting power is
     weighted by the number of staked tokens, as remarked above.
     
-    All of these requests are performed via a `transaction <./transactions.html#governance-type>`_.
+    All of these requests are performed via a `transaction <./transactions.rst#governance_type>`_.
     Therefore, all proccesses are transparently recorded in the blockchain
     and can be verified by anyone.
     
