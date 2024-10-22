@@ -70,7 +70,7 @@ List of Subprotocols
 --------------------
 
 Code is hexadecimal number.
-Refer to `Subprotocols <subprotocols.html>`_ for detailed information of each subprotocol.
+Refer to `Subprotocols <subprotocols.html>`_ (dead) for detailed information of each subprotocol.
 
 +------------------------+------+------------------------------------------------------------------------------------------------------+
 |Name                    |Code  |Summary                                                                                               |
@@ -289,9 +289,11 @@ v0.3.0
 Handshake message
 ^^^^^^^^^^^^^^^^^
 
--A handshake message is used once at starting handshake. It contains two 4-byte number. Both outbound peer send HSReq
+* A handshake message is used once at starting handshake. It contains two 4-byte number. Both outbound peer send HSReq
 
-+HSReq is 8 byte stream which p2p protocol version
+* HSReq is 8 byte stream which p2p protocol version
 
-+4 : Magic
-+4 : p2p protocol version of outbound peer. The inbound peer accept handshake if version is matching or close connection if not.
+Magic
+^^^^^
+
+* P2P protocol version of outbound peer. The inbound peer accept handshake if version is matching or close connection if not.
