@@ -19,7 +19,7 @@ You can replace `print` with `system.print`
 
 And you can use `import` instead of `require`. `import` is not a Lua syntax.
 
-Use [SHIP](https://github.com/aergoio/ship/wiki) to build and deploy smart contracts using multiple files.
+Use [SHIP](https://github.com/aergoio/ship/wiki) (deprecated, please use [brick](../../tools/brick.rst)) to build and deploy smart contracts using multiple files.
 
 These are the default libraries that are not available:
 
