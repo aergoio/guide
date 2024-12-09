@@ -36,6 +36,8 @@ Payload
 A payload can be any kind of binary data, but is most often used with JSON strings for
 `smart contract calls <contracts.html>`__.
 
+.. transaction_types:
+
 Transaction types
 -----------------
 
@@ -46,6 +48,8 @@ Normal type (0)
 
 Normal transactions are used to transfer tokens and calling smart contracts.
 Since version 2.0, there are more precise transaction types that should be used instead.
+
+.. governance_type:
 
 Governance type (1)
 ^^^^^^^^^^^^^^^^^^^

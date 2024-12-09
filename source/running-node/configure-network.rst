@@ -46,7 +46,7 @@ Generate BP accounts and keys
 
 You can use any machine (e.g. your own local machine) for this.
 
-Start by installing `aergocli <../tools/aergocli.html>`__ if you haven't already.
+Start by installing `aergocli <../tools/aergocli.rst>`__ if you haven't already.
 
 **Generate accounts**
 

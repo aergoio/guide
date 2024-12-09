@@ -4,7 +4,7 @@ Transaction Fees
 The Aergo protocol includes transaction fees that need to be paid
 according to the configuration of the network.
 
-Versions prior to 2.0 (`see 1.3 docs <https://docs.aergo.io/en/1.3/specs/fees.html>`_) 
+Versions prior to 2.0 (`see 1.3 docs <https://aergo.readthedocs.io/en/1.3/specs/fees.html>`_)
 included a simplified transaction fee scheme, taking into account payload and state database usage size.
 
 This is not fair because it does not consider the actual execution time and resource usage of the transaction.
