@@ -5,7 +5,7 @@ The genesis block is the first block created on a new chain according to a prede
 If you want to bootstrap your own Aergo blockchain, you will need to configure and create the genesis block.
 All nodes producing blocks and syncing with the network need to use the same genesis block.
 
-You can find an example genesis configuration json file `here <https://github.com/aergoio/aergo-docker/blob/1ad16cf7881d9ba8f2efc350cf609c9416e76666/node/testnet-genesis.json>`_.
+You can find an example genesis configuration json file `here <https://github.com/aergoio/aergo-docker/blob/1ad16cf7881d9ba8f2efc350cf609c9416e76666/node/testnet-genesis.json>`_ (dead).
 It is the one used for the public testnet.
 
 =============  ======  ==========================================================================================
