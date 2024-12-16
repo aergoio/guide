@@ -330,9 +330,9 @@ The following is an unavailable list
 * sqlite_XXX function
 
 For a list of other functions and descriptions, please refer to the links below.
-* Core: <https://www.sqlite.org/lang_corefunc.html>
-* Date and time: <https://www.sqlite.org/lang_datefunc.html>
-* Aggregation: <https://www.sqlite.org/lang_aggfunc.html>
+* [Core](https://sqlite.org/lang_corefunc.html)
+* [Date and time](https://www.sqlite.org/lang_datefunc.html)
+* [Aggregation](https://www.sqlite.org/lang_aggfunc.html)
 
 #### Constraint
 The following constraints can be used.
@@ -366,7 +366,7 @@ end
 
 
 ## json package
-Json package is provided for user convenience in input and output. This package allows automatic conversion between JSON format strings and Lua Table structures.
+JSON package is provided for user convenience in input and output. This package allows automatic conversion between JSON format strings and Lua Table structures.
 
 ### encode(arg)
 This function returns a JSON-formatted string with the given lua value.
