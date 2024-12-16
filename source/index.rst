@@ -20,11 +20,11 @@ This website contains guides for developers to get started developing with Aergo
    specs/index
    contribution/index
    community
-   contribution/building-from-source
+   building-from-source
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Tools and API
 
    sdks/index
