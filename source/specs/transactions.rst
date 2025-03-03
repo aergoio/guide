@@ -39,50 +39,56 @@ A payload can be any kind of binary data, but is most often used with JSON strin
 Transaction types
 -----------------
 
-There are several kinds of transactions.
+There are several types of transactions:
 
-Normal type (0)
-^^^^^^^^^^^^^^^
+Normal (0)
+^^^^^^^^^^
 
-Normal transactions are used to transfer tokens and calling smart contracts.
-Since version 2.0, there are more precise transaction types that should be used instead.
+Deprecated. Normal transactions were used to transfer tokens and calling smart contracts.
+Since version 2.0, there are more specialized transaction types that should be used instead.
 
-Governance type (1)
-^^^^^^^^^^^^^^^^^^^
+Transfer (4)
+^^^^^^^^^^^^
+
+Transactions that only transfer native AERGO tokens.
+
+Call (5)
+^^^^^^^^
+
+Used for calling functions on smart contracts.
+
+MultiCall (7)
+^^^^^^^^^^^^^
+
+Used to call multiple contracts in a single transaction.
+
+FeeDelegation (3)
+^^^^^^^^^^^^^^^^^
+
+Fee delegation transactions are used for calling a smart contract while charging the fees to the contract.
+This only works if the contract supports the `fee delegation interface <../smart-contracts/lua/using-fee-delegation.html>`_.
+
+Deploy (6)
+^^^^^^^^^^
+
+Used to deploy contracts.
+
+Redeploy (2)
+^^^^^^^^^^^^
+
+Used to re-deploy a contract. Only available in private networks.
+
+Governance (1)
+^^^^^^^^^^^^^^
 
 Governance transactions are used for calling system contracts, such as staking and voting.
 Transactions of this type have a special payload format and recipient. See below for details.
 
-Transfer type (4)
-^^^^^^^^^^^^^^^^^
-
-Transactions that only transfer value. For backwards compatability, the Normal type can also be used.
-
-Call type (5)
-^^^^^^^^^^^^^
-
-Smart contract calls should be denoted using the Call transaction type. For backwards compatability, the Normal type can also be used.
-
-FeeDelegation type (3)
-^^^^^^^^^^^^^^^^^^^^^^
-
-FeeDelegation transactions are used for calling smart contract while charging fees to the contract.
-This only works if the contract supports the `fee delegation interface <../smart-contracts/lua/using-fee-delegation.html>`_.
-
-Deploy type (6)
-^^^^^^^^^^^^^^^^^^^^^^
-
-Used to deploy contracts. For backwards compatability, the Normal type can also be used.
-
-Redeploy type (2)
-^^^^^^^^^^^^^^^^^^^^^^
-
-Used to re-deploy a contract. 
 
 Governance transaction details
 ------------------------------
 
-The following table shows the specification for each field of the transaction body of a governance transaction.
+The following table shows the specification for each field of the transaction body of a governance transaction:
 
 ===================  =========================  =================  =========================================================================================================================================
 Action               Recipient                  Amount             Payload
