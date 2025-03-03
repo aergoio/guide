@@ -596,8 +596,8 @@ It can also be used for concatenation:
 ["format","%s %s","hello","world"]
 ```
 </blockquote></details>
-<details>
 
+<details>
 <summary>extract</summary><blockquote>
 
 ```javascript
