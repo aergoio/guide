@@ -327,6 +327,9 @@ Examples:
 </blockquote></details>
 
 
+&nbsp;
+&nbsp;
+
 ### aergo balance and transfer
 
 <details>
@@ -353,6 +356,9 @@ Transfer an amount of native AERGO tokens to the informed address
 The amount can be a string or a bignumber
 </blockquote></details>
 
+
+&nbsp;
+&nbsp;
 
 ### variables
 
@@ -396,6 +402,9 @@ Example:
 ```
 </blockquote></details>
 
+
+&nbsp;
+&nbsp;
 
 ### tables
 
@@ -481,6 +490,9 @@ Retrieve the number of elements on a table (array) or the length of a string
 </blockquote></details>
 
 
+&nbsp;
+&nbsp;
+
 ### math
 
 <details>
@@ -554,6 +566,9 @@ They can be number or bignumber
 </blockquote></details>
 
 
+&nbsp;
+&nbsp;
+
 ### strings
 
 <details>
@@ -615,6 +630,9 @@ The same as [string.match](https://www.lua.org/manual/5.2/manual.html#pdf-string
 The same as [string.gsub](https://www.lua.org/manual/5.2/manual.html#pdf-string.gsub) in Lua
 </blockquote></details>
 
+
+&nbsp;
+&nbsp;
 
 ### conversions
 
@@ -684,6 +702,9 @@ If no argument is given, it converts the last result
 </blockquote></details>
 
 
+&nbsp;
+&nbsp;
+
 ### assertion
 
 <details>
@@ -714,6 +735,9 @@ The operators can be: `=` `!=` `>` `>=` `<` `<=` `match`
 The logic operators: `and` `or`
 </blockquote></details>
 
+
+&nbsp;
+&nbsp;
 
 ### conditional execution
 
@@ -814,6 +838,9 @@ Example:
 Used to close an `if` statement. Check examples above
 </blockquote></details>
 
+
+&nbsp;
+&nbsp;
 
 ### loops
 
@@ -935,6 +962,9 @@ Or if already using an if statement:
 </blockquote></details>
 
 
+&nbsp;
+&nbsp;
+
 ### return result
 
 <details>
@@ -953,6 +983,8 @@ Example:
 </blockquote></details>
 
 
+&nbsp;
+&nbsp;
 
 ### variables
 
