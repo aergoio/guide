@@ -11,6 +11,7 @@ These articles describe technical specifications in detail.
    names
    consensus
    transactions
+   composable-transactions
    contracts
    fees
    blocks
