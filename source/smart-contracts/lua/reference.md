@@ -68,6 +68,42 @@ This function returns the value corresponding to key in storage belonging to cur
 ### print(args...)
 This function print args with json format at console log in node running current contract
 
+### date(format[, time])
+This function returns the date and time in the given format. If `time` is not provided, it uses the block timestamp.
+
+The format string follows the same pattern as Lua's `os.date()` with some restrictions:
+* The function always uses UTC time (equivalent to using '!' prefix in standard Lua)
+* Only certain format specifiers are allowed: cCdDeFgGHjmMRSTuUVwWyY%
+* The '%c' format returns "YYYY-MM-DD HH:MM:SS" instead of the locale's date and time
+
+Format can also be "*t" to return a table with the following fields:
+* year (four digits)
+* month (1-12)
+* day (1-31)
+* hour (0-23)
+* min (0-59)
+* sec (0-59)
+* wday (weekday, 1-7, Sunday is 1)
+* yday (day of the year, 1-366)
+
+### time()
+This function returns the current block timestamp as a number (seconds since epoch) if no argument is provided.
+The optional argument should be a table with the following fields:
+* year
+* month
+* day
+* hour
+* min
+* sec
+
+When called with a table argument, it returns the specified time as seconds since epoch.
+
+### difftime(t1, t2)
+This function returns the difference in seconds between two date/time values.
+
+### random(min, max)
+This function returns a random integer between min and max.
+
 
 ## contract package
 This packages provides contract operation
@@ -245,6 +281,9 @@ This function performs SELECT statements and returns a result set object
 ### prepare(sql)
 This function creates a prepared statement and returns a statement object
 
+### last_insert_rowid()
+This function returns the rowid of the most recent successful INSERT operation on the database.
+
 ```lua
 -- create customer table 
 function createTable()
@@ -257,9 +296,10 @@ function createTable()
     )]])
 end
 
-function insert(id, passwd, name, birth, mobile)
-  db.exec("insert into customer values (?, ?, ?, ?, ?)",
-      id, passwd, name, birth, mobile)
+function insert(login, passwd, birth, mobile)
+  db.exec("insert into customer values (?, ?, ?, ?)",
+      login, passwd, birth, mobile)
+  return db.last_insert_rowid()
 end
 ```
 
@@ -312,7 +352,7 @@ Allow only SQL datatypes corresponding to Lua strings and numbers (int, float).
 * date, datetime
 
 #### SQL statement
-The allowed SQL statements are listed below. However, DDL and DML are only allowed in smart contract transactions.
+The allowed SQL statements are listed below. Write operations (DDL, DML) are only possible in transactions. Pure read operations (SELECT) are allowed in both transactions and queries.
 * DDL
     * TABLE: ALTER, CREATE, DROP
     * VIEW: CREATE, DROP
@@ -380,8 +420,11 @@ This function converts a string in JSON format to the corresponding Lua structur
 ### sha256(arg)
 This function computes the SHA-256 hash of the argument.
 
+### keccak256(arg)
+This function computes the Keccak-256 hash of the argument.
+
 ### ecverify(message, signature, address)
-This function verifies the address associated with the public key from elliptic curve signature.
+This function verifies a digital signature against a message hash and an address. It returns `true` if the signature was created by the private key associated with the given address, and `false` otherwise.
 ```lua
 function validate_sig(data, signature, address)
     msg = crypto.sha256(data)
