@@ -44,16 +44,18 @@ This is explained based on using cli. Variables used in this example are
 First, you need an account with enough balance to deploy and execute smart contracts.
 (If you don't) Import or Unlock Account to aergo server.
 
-### Compile Contract
-Copy above code and save it to a file (e.g. helloword.lua). And Compile using the `aergoluac` compiler
+### Deploy Contract
+Via command line using `aergocli`:
+``` bash
+./aergocli contract deploy AmPbWrQbtQrCaJqLWdMtfk2KiN83m2HFpBbQQSTxqqchVv58o82i helloword.lua
+1 : FPqA3kNQHoVXqKJv8JNpUSsh8F8id87yvRr5UzQFoCcH TX_OK
+```
+
+On previous versions of Aergo, you need to compile the contract and use the generated payload, to deploy a contract:
 ``` bash
 ./aergoluac --payload helloworld.lua
 37mGLDoCPNDQw7HbCG5WPfcM3E3cLhqhgE2V2UJKwQp9QZ5nJhT14nkCdGFcmN91fewB2ZuMZ5NWJUPyD4G4G2beaTeE1cigLzyNdGuuU4Y7cY2A6MUMq5weoAGGJdyf6PUfzgQ7k1cwjjDRe7P8bN5tNR8xxiibYk1hoeV2fuG4ZGVUwosutqFYePonLAtvK57N2MphJWVkTVxkySkXBnKywCiKB2pqv93VVQbBepYrUwURAeaj5aGhuFa8sxbSjuZfrvdy3i7dAEesf1jPHyeoN6CHWEB3teQJHUUh5K89p8vZ7nXKYPSa7MbzEg3YCUx8uLYmkJPjqA5YT1dxcKWCmHV4M2nYxmv3h9v3viPFkkFuMdpJboCTV2iqkMr3robxT6okSJtDdVUk2PprZKuiipS6tbKmDmxuicJqFvtP653qdWpu4tvWQDBb5k3UJcMTcEDdrjqqtNcE8dujFxr4TWfDu9Nwb4FedLrb5z7CoRWvXi5eZBkujJdDBm5MowamWLy9Pu6UmjAmBHfkDpQiagocrFzZrDPvNbaon8r5Rph8gFHAzwaUdM3dpt3dghePsiH1jbz8j93aMhMxgE6Lgap
-```
 
-### Deploy Contract
-With the payload generated above, Deploy contract
-``` bash
 ./aergocli contract deploy AmPbWrQbtQrCaJqLWdMtfk2KiN83m2HFpBbQQSTxqqchVv58o82i --payload 37mGLDoCPNDQw7HbCG5WPfcM3E3cLhqhgE2V2UJK
 wQp9QZ5nJhT14nkCdGFcmN91fewB2ZuMZ5NWJUPyD4G4G2beaTeE1cigLzyNdGuuU4Y7cY2A6MUMq5weoAGGJdyf6PUfzgQ7k1cwjjDRe7P8bN5tNR8xxiibYk1hoeV2fuG4ZGVUwosutqFYePonLAtvK57N2MphJWVkTVxkySkXBnKywCiKB2pqv93VVQbBepYrUwURAeaj5aGhuFa8sxbSjuZfrvdy3i7dAEesf1jPHyeoN6CHWEB3teQJHUUh5K89p8vZ7nXKYPSa7MbzEg3YCUx8uLYmkJPjqA5YT1dxcKWCmHV4M2nYxmv3h9v3viPFkkFuMdpJboCTV2iqkMr3robxT6okSJtDdVUk2PprZKuiipS6tbKmDmxuicJqFvtP653qdWpu4tvWQDBb5k3UJcMTcEDdrjqqtNcE8dujFxr4TWfDu9Nwb4FedLrb5z7CoRWvXi5eZBkujJdDBm5MowamWLy9Pu6UmjAmBHfkDpQiagocrFzZrDPvNbaon8r5Rph8gFHAzwaUdM3dpt3dghePsiH1jbz8j93aMhMxgE6Lgap
 1 : FPqA3kNQHoVXqKJv8JNpUSsh8F8id87yvRr5UzQFoCcH TX_OK

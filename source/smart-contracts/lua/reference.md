@@ -63,6 +63,8 @@ The following standard Lua packages are available with some restrictions:
 For random number generation in smart contracts, use the deterministic `system.random()` function instead of Lua's built-in random functions.
 
 
+---
+
 ## system package
 This package provides blockchain information and allows storing/retrieving state.
 
@@ -136,6 +138,8 @@ This function returns the difference in seconds between two date/time values.
 ### random(min, max)
 This function returns a random integer between min and max.
 
+
+---
 
 ## contract package
 This packages provides contract operation
@@ -282,6 +286,9 @@ contract.voteDao("gasprice", "5")
 contract.unstake("1 aergo")
 ```
 
+
+---
+
 ## DB package
 
 If a smart contract handles simple data types, it's not difficult to implement using only the basic APIs (getItem(), setItem()). However, when dealing with complex data structures, data associations, scope queries, filtering, sorting, and other advanced features, the complexity and size of the data logic increases significantly. This makes it difficult for developers to focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts.
@@ -421,6 +428,8 @@ end
 ```
 
 
+---
+
 ## json package
 Json package is provided for user convenience in input and output. This package allows automatic conversion between JSON format strings and Lua Table structures.
 
@@ -430,6 +439,8 @@ This function returns a JSON-formatted string with the given lua value.
 ### decode(string)
 This function converts a string in JSON format to the corresponding Lua structure and returns it
 
+
+---
 
 ## crypto package
 
@@ -448,6 +459,8 @@ function validate_sig(data, signature, address)
 end
 ```
 
+
+---
 
 ## bignum package
 Since the Lua number type has a limit on the range that can be represented by an integer (less than 2^53), the bignum module is used to provide exact operations for larger numbers.
