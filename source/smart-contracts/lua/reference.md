@@ -293,7 +293,7 @@ contract.unstake("1 aergo")
 
 If a smart contract handles simple data types, it's not difficult to implement using only the basic APIs (getItem(), setItem()). However, when dealing with complex data structures, data associations, scope queries, filtering, sorting, and other advanced features, the complexity and size of the data logic increases significantly. This makes it difficult for developers to focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts.
 
-> Note: The db package is currently only available on private networks and publicly on [SQL TestNet](https://sqltestnet.aergoscan.io/).
+> Note: The db package is currently only available on private networks and publicly on [AlphaNet](https://alpha.aergoscan.io/) (test network for private chains)
 
 ### exec(sql)
 This function performs DDL or DML statements
@@ -431,13 +431,23 @@ end
 ---
 
 ## json package
-Json package is provided for user convenience in input and output. This package allows automatic conversion between JSON format strings and Lua Table structures.
+The json package provides convenient functions for converting between JSON format strings and Lua tables. This makes it easier to handle structured data in smart contracts, especially when interacting with external systems.
 
 ### encode(arg)
-This function returns a JSON-formatted string with the given lua value.
+This function converts a Lua value (typically a table) to a JSON-formatted string.
+
+```lua
+local data = {name = "Alice", age = 30, items = {"apple", "book", "car"}}
+local json_string = json.encode(data) -- Returns: {"name":"Alice","age":30,"items":["apple","book","car"]}
+```
 
 ### decode(string)
-This function converts a string in JSON format to the corresponding Lua structure and returns it
+This function parses a JSON-formatted string and converts it to the corresponding Lua structure (typically a table).
+
+```lua
+local json_string = '{"name":"Bob","age":25,"active":true}'
+local data = json.decode(json_string)  -- Returns a Lua table with the parsed data
+```
 
 
 ---

@@ -516,7 +516,7 @@ abi.register_view(sendAergo)
 
 Aergo smart contract has `db` library that supports SQL features.
 
-> Note: The db package is currently only available on private networks and publicly on [SQL TestNet](https://sqltestnet.aergoscan.io/).
+> Note: The db package is currently only available on private networks and publicly on [AlphaNet](https://alpha.aergoscan.io/) (test network for private chains)
 
 The code below is an example of creating a table and inserting a row using `db.exec()`
 
