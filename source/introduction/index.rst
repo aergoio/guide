@@ -19,7 +19,7 @@ Current features
 * BFT-dPOS with voting
 * Name system
 * Aergo Lua smart contract
-* Ship (development framework, package management)
+* Ship (development framework, package management) (deprecated, please use `brick <../tools/brick.rst>`_).
 * Simple client API
 * Client SDKs
 * Sub projects
