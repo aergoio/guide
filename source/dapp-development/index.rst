@@ -47,7 +47,9 @@ Aergo also offers a development toolchain that includes package management, `Aer
 Infrastructure
 --------------
 
-Aergo is currently available as a `public testnet <../using-testnet/index.html>`_ and separate private installations.
-In the future, a network of blockchains can be orchestrated using Aergo Horde. Aergo Hub will offer an easy configuration and monitoring interface.
-With these features, developers will not have to worry about the deployment of their applications.
+Aergo is available as:
 
+* `public mainnet <../using-network/connecting.rst#mainnet>`_
+* `public testnet <../using-network/connecting.rst#testnet>`_
+* `public alphanet <../using-network/connecting.rst#alpha>`_ (test network for private chains)
+* separate private installations
