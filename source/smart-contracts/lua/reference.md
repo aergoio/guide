@@ -293,7 +293,7 @@ contract.unstake("1 aergo")
 
 If a smart contract handles simple data types, it's not difficult to implement using only the basic APIs (getItem(), setItem()). However, when dealing with complex data structures, data associations, scope queries, filtering, sorting, and other advanced features, the complexity and size of the data logic increases significantly. This makes it difficult for developers to focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts.
 
-> Note: The db package is currently only available on private networks and publicly on [SQL TestNet](https://sqltestnet.aergoscan.io/).
+> Note: The db package is currently only available on private networks and publicly on [SQL TestNet](https://sqltestnet.aergoscan.io/) (currently unavailable).
 
 ### exec(sql)
 This function performs DDL or DML statements
