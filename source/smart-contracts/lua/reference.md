@@ -26,47 +26,79 @@ end
 abi.register(set, get, printBlock)
 ```
 
-To read and write data on a blockchain within a contract, you must use the system package.
-In the above example, the smart contract provides the function to access the key-value repository through the setItem and getItem functions of the system package and store the data permanently. 
-In addition, a simple debug message can be output to the node's log file via the print function.
+To interact with blockchain data from within a smart contract, you can use the `system` package. 
+In the example above, the contract demonstrates how to permanently store and retrieve data using the `system.setItem()` and `system.getItem()` functions, which provide access to the contract's key-value storage on the blockchain.
+Additionally, the `system.print()` function allows you to output debug messages to the node's log file, which is useful during development and troubleshooting.
+
+
+## Lua Built-in Functions
+Lua provides a rich set of built-in functions and basic packages that make smart contract development easier. These include powerful string manipulation functions, table operations, and mathematical utilities that simplify common programming tasks.
+
+### Available Lua Features
+Most standard Lua 5.1 features are available in Aergo smart contracts, with some exceptions for security and determinism reasons. For detailed syntax, explanations, and usage of standard Lua features, please refer to the [official Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/).
+
+### Restricted Functions
+Since Aergo smart contracts run in a blockchain environment, certain functions that could introduce non-determinism or security risks are disabled:
+
+* **Disabled global functions:**
+  * `print` (use `system.print` instead)
+  * `loadstring`, `load`
+  * `dofile`, `loadfile`
+  * `module`
+  * `require` (use built-in packages directly)
+
+* **Disabled or restricted packages:**
+  * `coroutine` package (not available)
+  * `io` package (not available)
+  * `os` package (not available)
+  * `debug` package (not available)
+  * `math.random` and `math.randomseed` (use `system.random` instead)
+
+### Available Packages
+The following standard Lua packages are available with some restrictions:
+* `string` - Full string manipulation capabilities
+* `table` - Table handling functions
+* `math` - Mathematical functions (except random/randomseed)
+
+For random number generation in smart contracts, use the deterministic `system.random()` function instead of Lua's built-in random functions.
 
 
 ## system package
-This packages provides blockchain information and store/get state
+This package provides blockchain information and allows storing/retrieving state.
 
 ### getBlockheight() 
 This function returns the block number that contains the current contract transaction.
 ### getPrevBlockHash()
 This function returns the hash of the previous block
 ### getTimestamp()
-This function returns the creation start time of the block that contains current contract transaction.
+This function returns the creation start time of the block that contains the current contract transaction.
 ### getTxhash()
-This function returns the id of the current contract transaction.
+This function returns the ID of the current contract transaction.
 ### getAmount()
-This function returns number of AER sent with contract call. Return type is string.
+This function returns the number of AER sent with the contract call. Return type is string.
 ### isFeeDelegation()
 This function returns whether the transaction is using fee delegation.
 ### getContractID()
 This function returns the current contract address.
 ### getCreator()
-This function returns creator address of current contract
+This function returns the creator address of the current contract.
 ### getOrigin()
-This function returns sender address of current transaction
+This function returns the sender address of the current transaction.
 ### getSender()
-This function returns caller address of current contract 
+This function returns the caller address of the current contract.
 ### isContract(address)
-This function return if address is contract then true else false. when address is invalid then raise error   
+This function returns true if the address is a contract, otherwise false. If the address is invalid, it raises an error.
 ### setItem(key, value) 
-This function sets the value corresponding to key to the storage belonging to current contract
+This function sets the value corresponding to the key in the storage belonging to the current contract.
 
 Restrictions:
 * key type can only be string (number type is implicitly converted to string)
 * value type can be: number, string, table
 ### getItem(key)
-This function returns the value corresponding to key in storage belonging to current contract
-* If there is no value corresponding to key, it returns nil.
+This function returns the value corresponding to the key in storage belonging to the current contract.
+* If there is no value corresponding to the key, it returns nil.
 ### print(args...)
-This function print args with json format at console log in node running current contract
+This function prints args in JSON format to the console log in the node running the current contract.
 
 ### date(format[, time])
 This function returns the date and time in the given format. If `time` is not provided, it uses the block timestamp.
@@ -171,7 +203,7 @@ return result
 On this case when the called function fails, no error is raised and the contract execution continues.
 It just returns `false` to indicate the failure.
 
-#### Restrictions
+##### Restrictions
 
 - maximum call depth of 64 calls in one transaction
 
@@ -189,7 +221,7 @@ This is used to implement the "library" feature, with reusable library code.
 contract.delegatecall("Amh4S9pZgoJpxdCoMGg6SXEpAstTaTQNfQdZFsE26NpkqPwmaWod", "inc", 1)
 ```
 
-#### Restrictions
+##### Restrictions
 
 - maximum call depth of 64 calls in one transaction
 
@@ -214,7 +246,7 @@ The user can search for events that happened in the past and also receive notifi
 contract.event("send", 1, "toaddress") 
 ```
 
-#### Restrictions
+##### Restrictions
 
 - maximum length of event name: 64
 - maximum size of event argument: 4k
@@ -250,25 +282,9 @@ contract.voteDao("gasprice", "5")
 contract.unstake("1 aergo")
 ```
 
-## Built-in Functions
-Lua provides the language itself as a useful function and basic package. It provides useful functions such as string management functions, so you can easily create smart contracts using these functions. Please refer to the Lua Reference Manual for detailed syntax, explanation, basic built-in functions and packages.
-
-Since Lua Smart Contract is performed in Blockchain, OS related functions including input / output are not provided for stability and security.
-
-Here is a list of the main functions that are not available.
-```
-print, loadstring, dofile, loadfile and module
-```
-Here is a list of the default packages that are not available.
-```
-coroutine, io, os and debug
-```
-The string, math, and table packages are available. However, you can not use the random, randomseed functions in the math package.
-
-
 ## DB package
 
-If the smart contract is handling simple types of data, it would not be difficult to implement using only the basic APIs (getItem(), setItem()). However, complex data structures, data association, scope queries, filtering, sorting, and other features require the complexity and size of the data logic so developers can not focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts
+If a smart contract handles simple data types, it's not difficult to implement using only the basic APIs (getItem(), setItem()). However, when dealing with complex data structures, data associations, scope queries, filtering, sorting, and other advanced features, the complexity and size of the data logic increases significantly. This makes it difficult for developers to focus on critical business logic. To solve this problem, Aergo supports SQL. This section details the types and usage of SQL APIs available in smart contracts.
 
 > Note: The db package is currently only available on private networks and publicly on [SQL TestNet](https://sqltestnet.aergoscan.io/).
 
@@ -282,7 +298,7 @@ This function performs SELECT statements and returns a result set object
 This function creates a prepared statement and returns a statement object
 
 ### last_insert_rowid()
-This function returns the rowid of the most recent successful INSERT operation on the database.
+This function returns the rowid of the most recent successful INSERT operation on the database
 
 ```lua
 -- create customer table 
@@ -341,10 +357,10 @@ This function executes a SELECT statement using the specified argument values co
 This function executes a DML statement using the specified argument values corresponding to bind parameters
 
 ### SQL Restrictions
-Smart Contract's SQL processing engine is built on SQLite. Therefore, detailed SQL usage grammar can be found at <https://sqlite.org/lang.html> and <https://sqlite.org/lang_corefunc.html>. However, because of the stability and security of the Aergo, not all SQL is allowed.
+Smart Contract's SQL processing engine is built on SQLite. Therefore, detailed SQL usage grammar can be found at <https://sqlite.org/lang.html> and <https://sqlite.org/lang_corefunc.html>. However, for stability and security reasons, not all SQL features are allowed in Aergo.
 
 #### types
-Allow only SQL datatypes corresponding to Lua strings and numbers (int, float).
+Only SQL datatypes corresponding to Lua strings and numbers (int, float) are allowed:
 * text
 * integer
 * real
@@ -363,13 +379,13 @@ The allowed SQL statements are listed below. Write operations (DDL, DML) are onl
     * SELECT
 
 #### Function
-The following is an unavailable list
-* Data and time related functions can be used except 'now' timestring and 'localtime' modifier
-* load_XXX function
-* random function
-* sqlite_XXX function
+The following functions are unavailable:
+* Date and time related functions can be used except 'now' timestring and 'localtime' modifier
+* load_XXX functions
+* random functions
+* sqlite_XXX functions
 
-For a list of other functions and descriptions, please refer to the links below.
+For a list of other functions and descriptions, please refer to the links below:
 * Core: <https://www.sqlite.org/lang_corefunc.html>
 * Date and time: <https://www.sqlite.org/lang_datefunc.html>
 * Aggregation: <https://www.sqlite.org/lang_aggfunc.html>
@@ -434,50 +450,50 @@ end
 
 
 ## bignum package
-Since the lua number type has a limit on the range that can be represented by an integer (less than 2 ^ 53), the bignum module is used to provide an exact operation for larger numbers.
+Since the Lua number type has a limit on the range that can be represented by an integer (less than 2^53), the bignum module is used to provide exact operations for larger numbers.
   * <b>Notice</b>
-    * <b>== Operations on bignum and other types always return false.</b>
-    * <b>Bignum does not allow a decimal point.</b>
-    * <b>Bignum value range : -(2^256 - 1) ~ (2^256 -1) </b>
+    * <b>Comparisons (==) between bignum and other types always return false.</b>
+    * <b>Bignum does not support decimal points.</b>
+    * <b>Bignum value range: -(2^256 - 1) ~ (2^256 - 1)</b>
 
 ### number(x)
-This function make bignum object with argument x(string or number)
+This function creates a bignum object from argument x (string or number).
 ### isneg(x)
-Check bignum x if negative than return true else false 
+Checks if bignum x is negative. Returns true if negative, otherwise false.
 ### iszero(x)
-Check bignum x if zero than return true else false
+Checks if bignum x is zero. Returns true if zero, otherwise false.
 ### tonumber(x)
-Convert bignum x to lua number
+Converts bignum x to a Lua number.
 ### tostring(x) (bignum.tostring(x) same as tostring(x))
-Convert bignum x to lua string
+Converts bignum x to a Lua string.
 ### neg(x) (same as -x)
-Negate bignum x and return as bignum
+Negates bignum x and returns the result as a bignum.
 ### sqrt(x)
-Returns the square root of a positive number as bignum. not permitted negative value to x
+Returns the square root of a positive number as a bignum. Negative values for x are not permitted.
 ### compare(x, y)
-Compare two big numbers.  Return value is 0 if equal, -1 if x is less than y and +1 if x is greater than y.
+Compares two big numbers. Returns 0 if equal, -1 if x is less than y, and +1 if x is greater than y.
 ### add(x, y) (same as x + y)
-Add two big numbers and return bignum
+Adds two big numbers and returns the result as a bignum.
 ### sub(x, y) (same as x - y)
-Subtract two big numbers and return bignum
+Subtracts two big numbers and returns the result as a bignum.
 ### mul(x, y) (same as x * y)
-Multiply two big numbers and return bignum
+Multiplies two big numbers and returns the result as a bignum.
 ### mod(x, y) (same as x % y)
-Returns the bignum remainder after bignum x is divided by bignum y
+Returns the bignum remainder after bignum x is divided by bignum y.
 ### div(x, y) (same as x / y)
-Divide two big numbers and return bignum
+Divides two big numbers and returns the result as a bignum.
 ### pow(x, y) (same as x ^ y)
-Power of two big numbers and return bignum. not permitted negative value to y
+Raises x to the power of y and returns the result as a bignum. Negative values for y are not permitted.
 ### divmod(x, y)
-Returns a pair of big numbers consisting of their quotient and remainder
+Returns a pair of big numbers consisting of the quotient and remainder of the division.
 ### powmod(x, y, m)
-Return the bignum remainder after pow(bignum x,bignum y) is divided by bignum m. not permitted negative value to y
+Returns the bignum remainder after pow(bignum x, bignum y) is divided by bignum m. Negative values for y are not permitted.
 ### isbignum(x)
-Return true if x is bignum else false
+Returns true if x is a bignum, otherwise false.
 ### tobyte(x)
-Return byte string of bignum x. not permitted negative value to x
+Returns the byte string representation of bignum x. Negative values for x are not permitted.
 ### frombyte(x)
-Return bignum from byte string x
+Returns a bignum created from byte string x.
 
 ``` lua
 function factorial(n,f)
