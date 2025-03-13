@@ -407,12 +407,12 @@ You can use them as helper functions.
 These are the functions that can be called from contract call and query commands.
 They should be registered using `abi.register()`.
 
-You can restrict who can call these functions by checking the caller using `system.getOrigin()` or `system.getSender()`.
+You can restrict who can call these functions by checking the caller using `system.getSender()`.
 Example:
 
 ```lua
 function my_restricted_function()
-  assert(system.getOrigin() == system.getCreator(), "permission denied")
+  assert(system.getSender() == system.getCreator(), "permission denied")
   ...
 end
 
