@@ -48,6 +48,16 @@ In this case no payload is required, otherwise the transaction must specify the 
 
 ## Contract example
 
+Generally we only need to add this to the end of the contract:
+
+```lua
+function check_delegation()
+  return is_authorized_node(system.getSender())
+end
+
+abi.fee_delegation(submit_price)
+```
+
 Here is a very basic example of a contract that implements fee delegation:
 
 ``` lua
@@ -63,9 +73,9 @@ function authorize(user)
     whitelist[user] = true
 end
 
-function work(arg1)
-    -- this is optional, it is used to prevent the user from calling the
-    -- function again via fee delegation
+function work1(arg1)
+    -- this is optional, it is used to prevent the user
+    -- from calling the function again via fee delegation
     if system.isFeeDelegation() then
         whitelist[system.getSender()] = false
     end
@@ -73,18 +83,22 @@ function work(arg1)
     item:set(arg1)
 end
 
+function work2(arg1)
+    -- do some other work
+end
+
 function check_delegation(fname, arg1)
     -- this contract will only pay for the fee if:
-    -- 1. the called function is "work"
+    -- 1. the called function is "work1"
     -- 2. the user is whitelisted
-    if fname == "work" then
+    if fname == "work1" then
         return whitelist[system.getSender()]
     end
     return false
 end
 
-abi.register(authorize)
-abi.fee_delegation(work)
+abi.register(authorize, work1, work2)
+abi.fee_delegation(work1)
 ```
 
 ## aergocli example
