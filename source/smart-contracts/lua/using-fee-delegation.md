@@ -56,33 +56,34 @@ state.var{
     item = state.value()
 }
 
-function reg(user)
-    if (k == nil) then
-        whitelist[system.getSender()] = true
-    else
-        whitelist[user] = true
-    end
+function authorize(user)
+    -- check if the caller is the creator of the contract
+    assert(system.getSender() == system.getCreator(), "permission denied")
+    -- add the user to the fee delegation whitelist
+    whitelist[user] = true
 end
 
-function work(arg0)
-    if (system.isFeeDelegation() == true) then
+function work(arg1)
+    -- this is optional, it is used to prevent the user from calling the
+    -- function again via fee delegation
+    if system.isFeeDelegation() then
         whitelist[system.getSender()] = false
     end
-    item:set(arg0)
+    -- do the work (just an example)
+    item:set(arg1)
 end
 
-function check_delegation(fname, arg0)
-    if (fname == "work") then
+function check_delegation(fname, arg1)
+    -- this contract will only pay for the fee if:
+    -- 1. the called function is "work"
+    -- 2. the user is whitelisted
+    if fname == "work" then
         return whitelist[system.getSender()]
     end
     return false
 end
 
-function default()
-end
-
-abi.register(reg, work)
-abi.payable(default)
+abi.register(authorize)
 abi.fee_delegation(work)
 ```
 
