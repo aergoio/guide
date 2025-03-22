@@ -481,7 +481,9 @@ Since the Lua number type has a limit on the range that can be represented by an
 
 ### number(x)
 This function creates a bignum object from argument x (string or number).
-### isneg(x)
+### ispositive(x)
+Checks if bignum x is positive. Returns true if positive, otherwise false.
+### isnegative(x)
 Checks if bignum x is negative. Returns true if negative, otherwise false.
 ### iszero(x)
 Checks if bignum x is zero. Returns true if zero, otherwise false.

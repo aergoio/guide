@@ -244,7 +244,7 @@ Gas usage for aergo-extension functions
       - 5000
     * - bignum.number
       - 50
-    * - bignum.isneg, bignum.iszero
+    * - bignum.ispositive, bignum.isnegative, bignum.iszero
       - 10
     * - bignum.tonumber, bignum.tostring
       - 50
