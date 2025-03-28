@@ -664,17 +664,11 @@ You can use the following contraints:
 
 ## Tools
 
-### aergoluac
-
-`aergoluac` is a compiler for Lua smart contracts.
-
-* [Reference](../../tools/aergoluac.html)
-
 ### aergocli
 
-`aergocli` is a command line tool that interfaces with the GRPC exposed by `aergosvr`.
+`aergocli` is a command line tool that interfaces with the gRPC exposed by `aergosvr`.
 
-It provides smart contract-related commands as follows:
+It provides smart-contract related commands as follows:
 * contract deploy/call/query/abi/statequery
 * receipt get
 * event list/stream
@@ -683,9 +677,15 @@ It provides smart contract-related commands as follows:
 
 ### brick
 
-Toy for Contract Developers. You can use it to test smart contracts.
+`brick` is a tool for Contract Developers. It is used to test smart contracts.
 
 * [Reference](https://github.com/aergoio/aergo/tree/master/cmd/brick)
+
+### aergoluac
+
+`aergoluac` is a compiler for Lua smart contracts (deprecated).
+
+* [Reference](../../tools/aergoluac.html)
 
 
 ## Style conventions
