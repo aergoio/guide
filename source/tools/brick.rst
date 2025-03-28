@@ -1,10 +1,22 @@
 Brick
 =====
 
-Brick is an interactive shell program to communicate with an aergo VM for testing.
-This also provides a batch function to test and help to develop smart contracts.
+Brick is a tool to test smart contracts in Lua.
 
-The main advantage of using this tool is that you don't need a real blockchain network.
-Instead, you can run operations directly in the aergo virtual machine.
+It can run operations directly in the integrated Aergo Virtual Machine.
+This is way faster than using a real blockchain network, as there is no need to wait for blocks to be produced.
 
-See `Brick reference <https://github.com/aergoio/aergo/tree/master/cmd/brick>`_
+It comes with an interactive shell that is very useful for learning.
+
+It also provides a batch function to process multiple operations from a script file.
+
+It is the main tool to test smart contracts, with support for:
+
+* Unit tests
+* Functional tests
+* Packing smart contracts with `import` statements
+
+See the `Brick reference <https://github.com/aergoio/aergo/tree/master/cmd/brick>`_
+for details.
+
+For integration tests, use `aergocli <aergocli.html>`_

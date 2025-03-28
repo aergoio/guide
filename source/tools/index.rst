@@ -5,7 +5,6 @@ Tools
    :maxdepth: 2
 
    aergocli
-   aergoluac
-   ship
    brick
    polaris
+   aergoluac

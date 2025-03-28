@@ -19,7 +19,7 @@ Current features
 * BFT-dPOS with voting
 * Name system
 * Aergo Lua smart contract
-* Ship (development framework, package management)
+* Brick (testing framework)
 * Simple client API
 * Client SDKs
 * Sub projects

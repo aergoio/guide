@@ -42,7 +42,7 @@ With Aergo and the use of embedded sidechains and proof systems, smart contracts
 
 * `Read more <../smart-contracts/index.html>`__
 
-Aergo also offers a development toolchain that includes package management, `Aergo Ship <../tools/ship.html>`_.
+Aergo also offers a development tool to test smart contracts, `Brick <../tools/brick.html>`_.
 
 Infrastructure
 --------------
