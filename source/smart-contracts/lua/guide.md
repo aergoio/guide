@@ -90,6 +90,24 @@ This replaces the `require` function.
 
 It allows you to divide and develop one smart contract into multiple modules (files).
 
+It is possible to import a module from the internet as well. Example:
+
+```lua
+import "path/to/module.lua"
+import "https://example.com/module.lua"
+
+...
+```
+
+To deploy a contract that uses `import` statements via the [IDE](https://ide.aergo.io), first run:
+
+```
+brick pack contract.lua
+```
+
+Then upload the content of the generated `contract-bundle.lua` to the IDE and deploy it to the desired network, using your browser wallet to sign the transaction.
+
+
 ### State Variables
 
 The `state.var` structure is used to define global state variables.

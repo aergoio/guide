@@ -16,7 +16,6 @@ It is the main tool to test smart contracts, with support for:
 * Functional tests
 * Packing smart contracts with `import` statements
 
-See the `Brick reference <https://github.com/aergoio/aergo/tree/master/cmd/brick>`_
-for details.
+See the `Brick reference <https://github.com/aergoio/aergo/tree/master/cmd/brick>`_ for details.
 
 For integration tests, use `aergocli <aergocli.html>`_
