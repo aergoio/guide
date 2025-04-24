@@ -21,3 +21,10 @@ Mainnet
 
 You can swap AERGO ERC-20 tokens to AERGO Mainnet native tokens.
 Please refer to this blog post: `Aergo 2-way native token swap to ERC-20 <https://medium.com/aergo/aergo-2-way-native-token-swap-to-erc-20-is-live-3e176a661aad>`_
+
+Alphanet
+--------
+
+Alpha is a test network for private chains.
+
+It does not charge any fees for transactions, so there is no need to fund your account.
